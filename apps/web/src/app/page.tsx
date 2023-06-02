@@ -1,27 +1,27 @@
-import { Metadata } from "next";
-import { Button, Card } from "ui";
+import { Metadata } from 'next'
+import { Button, Card } from 'ui'
 
 const CARD_CONTENT = [
   {
-    title: "Caching Tasks",
-    href: "https://turbo.build/repo/docs/core-concepts/caching",
-    cta: "Read More",
+    title: 'Caching Tasks',
+    href: 'https://turbo.build/repo/docs/core-concepts/caching',
+    cta: 'Read More',
   },
   {
-    title: "Running Tasks",
-    href: "https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks",
-    cta: "Read More",
+    title: 'Running Tasks',
+    href: 'https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks',
+    cta: 'Read More',
   },
   {
-    title: "Configuration Options",
-    href: "https://turbo.build/repo/docs/reference/configuration",
-    cta: "Read More",
+    title: 'Configuration Options',
+    href: 'https://turbo.build/repo/docs/reference/configuration',
+    cta: 'Read More',
   },
-];
+]
 
 export const metadata: Metadata = {
-  title: "Web - Turborepo Example",
-};
+  title: 'Web - Turborepo Example',
+}
 
 export default function Home() {
   return (
@@ -44,5 +44,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-  );
+  )
 }
