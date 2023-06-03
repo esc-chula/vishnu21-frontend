@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Head from 'next/head'
-import { Button } from 'ui'
+import { Button } from '@vishnu/ui'
 
 export const metadata: Metadata = {
   title: 'Docs - Turborepo Example',

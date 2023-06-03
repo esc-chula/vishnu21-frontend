@@ -12,7 +12,9 @@
     "next": "^13.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "@vishnu/constants": "workspace:*",
+    "@vishnu/http": "workspace:*",
+    "@vishnu/ui": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
