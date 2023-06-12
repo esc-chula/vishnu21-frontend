@@ -1,26 +1,25 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
-    },
-    "lint": {},
-    "check-types": {},
-    "dev": {
-      "cache": false,
-      "persistent": true,
-      "env": [
-        "NODE_ENV",
-        "NEXT_PUBLIC_API_BASE_URL",
-        "NEXT_PUBLIC_APP_BASE_URL",
-        "NEXT_PUBLIC_JUNIOR_LIFF_ID",
-        "NEXT_PUBLIC_SENIOR_LIFF_ID"
-      ]
-    },
-    "clean": {
-      "cache": false
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": ["**/.env.*local"],
+    "pipeline": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+        },
+        "lint": {},
+        "check-types": {},
+        "dev": {
+            "cache": false,
+            "persistent": true,
+            "env": [
+                "NODE_ENV",
+                "NEXT_PUBLIC_API_BASE_URL",
+                "NEXT_PUBLIC_APP_BASE_URL",
+                "NEXT_PUBLIC_VISHNU_LIFF_ID"
+            ]
+        },
+        "clean": {
+            "cache": false
+        }
     }
-  }
 }

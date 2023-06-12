@@ -6,24 +6,20 @@ The frontend mono-repo for Vishnu 21st camp.
 
 ### Apps
 
-| Name     | Description                                      |
-| -------- | ------------------------------------------------ |
-| web      | Main website for Vishnu 21st                     |
-| admin    | Admin panel for managing group homepage and etc. |
-| liff     | LINE Front-end Framework for junior LINE OA      |
-| nongpoon | Web application for Nongpoon bot                 |
+| Name  | Description                                      |
+| ----- | ------------------------------------------------ |
+| web   | Main website for Vishnu 21st                     |
+| admin | Admin panel for managing group homepage and etc. |
+| liff  | LINE Front-end Framework for junior LINE OA      |
 
 ### Packages
 
-| Name                 | Description                        |
-| -------------------- | ---------------------------------- |
-| constants            | Constants and environment provider |
-| eslint-config-custom | eslint global configuration        |
-| http                 | axios apiClient                    |
-| tailwind-config      | tailwind global configuration      |
-| tsconfig             | tsconfig global configuration      |
-| types                | Types declaration                  |
-| ui                   | a stub React component library     |
+| Name                 | Description                    |
+| -------------------- | ------------------------------ |
+| eslint-config-custom | eslint global configuration    |
+| tailwind-config      | tailwind global configuration  |
+| tsconfig             | tsconfig global configuration  |
+| ui                   | a stub React component library |
 
 ## Getting Started
 
