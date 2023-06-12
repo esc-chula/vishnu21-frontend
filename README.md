@@ -14,12 +14,15 @@ The frontend mono-repo for Vishnu 21st camp.
 
 ### Packages
 
-| Name                 | Description                    |
-| -------------------- | ------------------------------ |
-| eslint-config-custom | eslint global configuration    |
-| tailwind-config      | tailwind global configuration  |
-| tsconfig             | tsconfig global configuration  |
-| ui                   | a stub React component library |
+| Name                 | Description                        |
+| -------------------- | ---------------------------------- |
+| env                  | Constants and environment provider |
+| eslint-config-custom | eslint global configuration        |
+| http                 | axios apiClient                    |
+| tailwind-config      | tailwind global configuration      |
+| tsconfig             | tsconfig global configuration      |
+| types                | Types declaration                  |
+| ui                   | a stub React component library     |
 
 ## Getting Started
 
