@@ -5,5 +5,5 @@ import 'ui/styles.css';
 import type { AppProps } from 'next/app';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} tag="123"/>;
+    return <Component {...pageProps} newTag="abc" />;
 }
