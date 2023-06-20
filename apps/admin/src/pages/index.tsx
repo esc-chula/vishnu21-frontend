@@ -13,7 +13,7 @@ const Home: NextPage = () => {
             <Main>
                 <section id="overview" className="space-y-6">
                     <h1 className="text-2xl font-bold">Dashboard</h1>
-                    <div className="grid grid-cols-3 gap-10">
+                    <div className="grid md:grid-cols-3 gap-10">
                         <DashboardBlock
                             title={'จำนวนน้องที่ Login แล้ว'}
                             value={'---'}

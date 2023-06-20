@@ -18,7 +18,9 @@ const DashboardBlock: React.FC<DashboardBlockProps> = ({
                 <p className="font-bold text-5xl text-neutral-900">{value}</p>
                 <p className="text-lg">{unit}</p>
             </div>
-            <p className="text-neutral-500 text-sm">{description}</p>
+            <p className="text-neutral-500 text-sm hidden md:inline">
+                {description}
+            </p>
         </div>
     );
 };
