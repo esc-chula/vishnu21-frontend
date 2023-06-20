@@ -38,7 +38,7 @@ const Home: NextPage = () => {
                 </section>
                 <section id="groups" className="space-y-6">
                     <h2 className="text-xl font-bold">Groups</h2>
-                    <div className="border-neutral-200 border rounded-xl py-8 px-10 space-y-6">
+                    <div className="border-neutral-200 border rounded-xl py-8 px-6 space-y-2">
                         <TableRow
                             header
                             group={'กรุ้ป'}
