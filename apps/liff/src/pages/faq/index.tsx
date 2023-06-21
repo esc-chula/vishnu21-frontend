@@ -1,7 +1,13 @@
 import type { NextPage } from 'next';
-import { AiOutlineSearch } from 'react-icons/ai';
-import FAQItem from './components/FAQItem';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+
+import FAQItem from './components/FAQItem';
+
+import Branches1 from '/public/images/branches1.svg';
+import FAQBackground from '/public/images/faq-background.svg';
+import Spore1 from '/public/images/spore1.svg';
 
 // TODO: fetch from API
 const faqs = [
@@ -43,20 +49,20 @@ const FAQ: NextPage = () => {
         }
 
         const filtered = faqs.filter((faq) =>
-            (faq.question + faq.answer)
-                .toLowerCase()
-                .includes(search.toLowerCase())
+            faq.question.toLowerCase().includes(search.toLowerCase())
         );
         setFilteredFaqs(filtered);
     }, [search]);
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center font-ibm bg-primary-900 pt-7 px-7">
-            <h1 className="font-semibold text-white text-xl">FAQ&apos;s</h1>
-            <h1 className="font-semibold text-white text-2xl">
+        <div className="w-screen min-h-screen flex flex-col items-center px-7 py-16 bg-gradient-to-b from-transparent to-primary-900">
+            <h1 className="font-semibold text-white text-xl font-ibm">
+                FAQ&apos;s
+            </h1>
+            <h1 className="font-semibold text-white text-xl font-baijam">
                 คำถามที่พบบ่อย
             </h1>
-            <div className="w-1/2 min-w-max max-w-full h-8 mt-4 flex items-center justify-center border-white border-2 rounded-3xl text-white relative">
+            <div className="w-1/2 min-w-max h-8 mt-4 flex items-center justify-center border-white border-2 rounded-3xl text-white relative">
                 <AiOutlineSearch className="w-3 h-3 absolute left-2" />
                 <input
                     type="text"
@@ -68,7 +74,7 @@ const FAQ: NextPage = () => {
                     }}
                 />
             </div>
-            <div className="w-full mt-7 flex items-center flex-col gap-5">
+            <div className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
                 {filteredFaqs.map((faq) => (
                     <FAQItem
                         key={faq.id}
@@ -76,6 +82,26 @@ const FAQ: NextPage = () => {
                         answer={faq.answer}
                     />
                 ))}
+            </div>
+            <Image
+                src={FAQBackground}
+                alt="FAQ Background"
+                fill
+                className="absolute bottom-0 right-0 -z-10 object-cover"
+            />
+            <div className="absolute top-0 right-0 overflow-hidden w-48 h-48">
+                <Image
+                    src={Spore1}
+                    alt=""
+                    className="absolute -top-8 -right-8 rotate-[54deg]"
+                />
+            </div>
+            <div className="absolute top-0 left-0 overflow-hidden w-40 h-72">
+                <Image
+                    src={Branches1}
+                    alt=""
+                    className="absolute -top-36 left-0 rotate-45"
+                />
             </div>
         </div>
     );

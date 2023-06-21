@@ -13,20 +13,18 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
     return (
         <div
-            className={`w-full rounded-2xl p-5 ${
-                isOpen ? 'bg-primary-50' : 'bg-white'
-            }`}
+            className="w-full rounded-3xl p-5 shadow-details bg-white"
             onClick={toggle}
         >
             <div className="flex items-center justify-between cursor-pointer">
-                <h1 className="font-semibold text-lg">{question}</h1>
+                <h1 className="font-semibold text-sm">{question}</h1>
                 {isOpen ? (
-                    <AiOutlineRight className="w-5 h-5" />
+                    <AiOutlineRight className="w-3 h-3 text-black" />
                 ) : (
-                    <AiOutlineDown className="w-5 h-5" />
+                    <AiOutlineDown className="w-3 h-3 text-black" />
                 )}
             </div>
-            {isOpen && <p className="text-sm mt-3">{answer}</p>}
+            {isOpen && <p className="text-xs mt-1 font-semibold">{answer}</p>}
         </div>
     );
 };
