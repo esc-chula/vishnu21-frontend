@@ -2,9 +2,10 @@ import * as React from 'react';
 import { useState } from 'react';
 import ClubCard from './components/clubcard';
 
+
 const Club = () => {
     return (
-        // bg-[url-("/resources/bg.png")] bg-cover bg-center somehow this doesn't work
+        // TODO: change background image
         <div className='relative flex flex-col w-screen h-screen bg-purple-800'>
             {/* fading bg */}
             <div className='fixed bg-gradient-to-t from-[#130531] via-[#130531] via-[{100% - 40.92%}] w-screen h-screen'>
@@ -36,8 +37,8 @@ const Club = () => {
                 </div>
                 {/* club */}
                 <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 m-[30px] w-full gap-[33px]'>
-                    <ClubCard isHighlight={false}></ClubCard>
-                    <ClubCard isHighlight={true}></ClubCard>
+                    <ClubCard isFade={false}></ClubCard>
+                    <ClubCard isFade={true}></ClubCard>
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
-const ClubCard = ({ img = <div className='flex bg-gray-500 h-[72px] w-[72px] rounded-[20px] place-self-center' />, name = "Card name", isHighlight }) => {
-    const filter = (isHighlight) ? <div className='flex absolute bg-[#3B0D8D]/[70%] w-full h-full' /> : <div />
+const ClubCard = ({ img = <div className='flex bg-gray-500 h-[72px] w-[72px] rounded-[20px] place-self-center' />, name = "Card name", isFade }) => {
+    const filter = (isFade) ? <div className='flex absolute bg-[#3B0D8D]/[70%] w-full h-full' /> : <div />
 
     // TODO: change img,name according to input
     return (
