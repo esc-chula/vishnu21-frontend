@@ -6,7 +6,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import FAQItem from './components/FAQItem';
 
 import Branches1 from '/public/images/branches1.svg';
-import FAQBackground from '/public/images/faq-background.svg';
+import GrainBackground from '/public/images/grain-background.svg';
 import Spore1 from '/public/images/spore1.svg';
 
 // TODO: fetch from API
@@ -84,7 +84,7 @@ const FAQ: NextPage = () => {
                 ))}
             </div>
             <Image
-                src={FAQBackground}
+                src={GrainBackground}
                 alt="background"
                 className="fixed top-0 left-0 -z-10 h-screen w-full object-cover"
             />
