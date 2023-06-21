@@ -85,9 +85,8 @@ const FAQ: NextPage = () => {
             </div>
             <Image
                 src={FAQBackground}
-                alt="FAQ Background"
-                fill
-                className="absolute bottom-0 right-0 -z-10 object-cover"
+                alt="background"
+                className="fixed top-0 left-0 -z-10 h-screen w-full object-cover"
             />
             <div className="absolute top-0 right-0 overflow-hidden w-48 h-48">
                 <Image
