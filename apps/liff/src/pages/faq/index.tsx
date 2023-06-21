@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { AiOutlineSearch } from 'react-icons/ai';
-import FAQItem from './components/faqItem';
+import FAQItem from './components/FAQItem';
 import { useEffect, useState } from 'react';
 
 // TODO: fetch from API
@@ -52,7 +52,7 @@ const FAQ: NextPage = () => {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center font-ibm bg-primary-900 pt-7 px-7">
-            <h1 className="font-semibold text-white text-xl">FAQ's</h1>
+            <h1 className="font-semibold text-white text-xl">FAQ&apos;s</h1>
             <h1 className="font-semibold text-white text-2xl">
                 คำถามที่พบบ่อย
             </h1>
