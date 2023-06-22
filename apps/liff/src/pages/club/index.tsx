@@ -22,6 +22,10 @@ const Club = () => {
 
     // All , Academic , Sport , Art , CSR
     const [selection, setSelection] = useState("All");
+    const headerText = (currentMode == "Stamp" && filterState == 1) ? "ชมรมที่แสตมป์แล้ว"
+                    : (currentMode == "Stamp" && filterState == 2) ? "ชมรมที่ยังไม่ได้แสตมป์"
+                    : (currentMode == "Favorite" && filterState == 1) ? "ชมรมที่สนใจ"
+                    : "ชมรมในวิศวฯ จุฬาฯ";
 
     return (
         // TODO: change background image
@@ -34,9 +38,9 @@ const Club = () => {
                 {/* head */}
                 <div className='w-full items-center '>
                     <h1 className='font-semibold text-white text-[20px] text-center'>
-                        ชมรมในวิศวฯ จุฬาฯ
+                        {headerText}
                     </h1>
-                    {/* TODO: set onclick */}
+                    {/* TODO: set filter */}
                     <div className='flex flex-row gap-4 mt-[12px] items-center justify-center'>
                         <h1 className={`font-semibold text-white text-[14px] ${(selection == "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
                             ทั้งหมด
@@ -92,6 +96,7 @@ const Club = () => {
 
                 <div className='bg-[#D9D9D9] w-[2px] h-[30px]' />
 
+                {/* TODO: set filter */}
                 <div className='relative cursor-pointer' onClick={handleFilter}>
                     <FaFilter className='relative w-[30px] h-[30px] cursor-pointer' color={filterColor} />
                     {filterSlash}
