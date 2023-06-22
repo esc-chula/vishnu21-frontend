@@ -12,7 +12,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
     const toggle = () => setIsOpen((prev) => !prev);
 
     return (
-        <div
+        <li
             className="w-full rounded-3xl p-5 shadow-details bg-white"
             onClick={toggle}
         >
@@ -31,7 +31,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
             >
                 {answer}
             </p>
-        </div>
+        </li>
     );
 };
 

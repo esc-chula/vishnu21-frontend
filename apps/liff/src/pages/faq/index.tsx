@@ -74,7 +74,7 @@ const FAQ: NextPage = () => {
                     }}
                 />
             </div>
-            <div className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
+            <ul className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
                 {filteredFaqs.map((faq) => (
                     <FAQItem
                         key={faq.id}
@@ -82,13 +82,14 @@ const FAQ: NextPage = () => {
                         answer={faq.answer}
                     />
                 ))}
-            </div>
+            </ul>
 
             {/* Background and decorations */}
             <Image
                 src={GrainBackground}
                 alt="background"
                 className="fixed top-0 left-0 -z-50 h-screen w-full object-cover"
+                loading="lazy"
             />
             <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
             <div className="fixed top-0 right-0 overflow-hidden w-48 h-48">
@@ -96,6 +97,7 @@ const FAQ: NextPage = () => {
                     src={Spore1}
                     alt=""
                     className="absolute -top-8 -right-8 rotate-[54deg]"
+                    loading="lazy"
                 />
             </div>
             <div className="fixed top-0 left-0 overflow-hidden w-40 h-72">
@@ -103,6 +105,7 @@ const FAQ: NextPage = () => {
                     src={Branches1}
                     alt=""
                     className="absolute -top-36 left-0 rotate-45"
+                    priority
                 />
             </div>
         </div>
