@@ -5,8 +5,8 @@ const ClubCard = ({ img = <div className='flex bg-gray-500 h-[72px] w-[72px] rou
     const icon_heart = (isFavorite) ? <AiFillHeart className="absolute h-[30px] w-[30px] top-0 right-0" color="red" /> : <div />
     // TODO: change img,name according to input
     return (
-        <div className='flex relative items-center'>
-            <div className="flex flex-col relative pt-[8px] pr-[8px]">
+        <div className='flex relative items-center justify-center'>
+            <div className="flex flex-col relative pt-[10px] pr-[10px]">
                 <div className='flex relative bg-white h-[92px] w-[92px] rounded-[20px] items-center justify-center'>
                     {img}
                     {filter}
@@ -17,9 +17,6 @@ const ClubCard = ({ img = <div className='flex bg-gray-500 h-[72px] w-[72px] rou
             </h1>
                 {icon_heart}
             </div>
-
-            
-
         </div>
     );
 }
