@@ -36,9 +36,10 @@ const Club = () => {
                     </h1>
                 </div>
                 {/* club */}
-                <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 m-[30px] w-full gap-[33px]'>
-                    <ClubCard isFade={false}></ClubCard>
-                    <ClubCard isFade={true}></ClubCard>
+                <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 m-[30px] w-full gap-[25px]'>
+                    <ClubCard ></ClubCard>
+                    <ClubCard isStamped={true}></ClubCard>
+                    <ClubCard isFavorite={true} isStamped={true}></ClubCard>
                 </div>
             </div>
 

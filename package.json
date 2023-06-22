@@ -16,5 +16,8 @@
         "prettier-plugin-tailwindcss": "^0.1.11",
         "turbo": "^1.10.3"
     },
-    "packageManager": "pnpm@7.15.0"
+    "packageManager": "pnpm@7.15.0",
+    "dependencies": {
+        "react-icons": "^4.9.0"
+    }
 }
