@@ -24,7 +24,13 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
                     <AiOutlineDown className="w-3 h-3 text-black" />
                 )}
             </div>
-            {isOpen && <p className="text-xs mt-1 font-semibold">{answer}</p>}
+            <p
+                className={`overflow-hidden transition-all duration-300 ease-in-out text-xs leading-5 font-semibold ${
+                    isOpen ? 'max-h-96' : 'max-h-0'
+                }`}
+            >
+                {answer}
+            </p>
         </div>
     );
 };

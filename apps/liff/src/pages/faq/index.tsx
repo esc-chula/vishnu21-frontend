@@ -55,18 +55,18 @@ const FAQ: NextPage = () => {
     }, [search]);
 
     return (
-        <div className="w-screen min-h-screen flex flex-col items-center px-7 py-16 bg-gradient-to-b from-transparent to-primary-900">
+        <div className="w-screen min-h-screen flex flex-col items-center px-7 py-16">
             <h1 className="font-semibold text-white text-xl font-ibm">
                 FAQ&apos;s
             </h1>
             <h1 className="font-semibold text-white text-xl font-baijam">
                 คำถามที่พบบ่อย
             </h1>
-            <div className="w-1/2 min-w-max h-8 mt-4 flex items-center justify-center border-white border-2 rounded-3xl text-white relative">
+            <div className="w-1/2 min-w-max h-8 mt-4 flex items-center justify-center border-white border-2 rounded-3xl text-white relative z-10">
                 <AiOutlineSearch className="w-3 h-3 absolute left-2" />
                 <input
                     type="text"
-                    className="w-full h-8 bg-transparent text-white text-xs pl-6 pr-4 font-semibold placeholder:text-white focus:outline-none"
+                    className="w-full h-8 bg-transparent text-white text-xs pl-6 pr-4 font-semibold placeholder:text-white/80 focus:outline-none"
                     placeholder="Search"
                     value={search}
                     onChange={(e) => {
@@ -83,19 +83,22 @@ const FAQ: NextPage = () => {
                     />
                 ))}
             </div>
+
+            {/* Background and decorations */}
             <Image
                 src={GrainBackground}
                 alt="background"
-                className="fixed top-0 left-0 -z-10 h-screen w-full object-cover"
+                className="fixed top-0 left-0 -z-50 h-screen w-full object-cover"
             />
-            <div className="absolute top-0 right-0 overflow-hidden w-48 h-48">
+            <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
+            <div className="fixed top-0 right-0 overflow-hidden w-48 h-48">
                 <Image
                     src={Spore1}
                     alt=""
                     className="absolute -top-8 -right-8 rotate-[54deg]"
                 />
             </div>
-            <div className="absolute top-0 left-0 overflow-hidden w-40 h-72">
+            <div className="fixed top-0 left-0 overflow-hidden w-40 h-72">
                 <Image
                     src={Branches1}
                     alt=""
