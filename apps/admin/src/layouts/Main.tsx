@@ -4,7 +4,7 @@ interface MainProps {
 
 const Main: React.FC<MainProps> = ({ children }) => {
     return (
-        <main className="w-full h-full flex justify-center px-5 pt-14">
+        <main className="w-full min-h-screen flex justify-center px-5 pt-14">
             <div className="w-full max-w-screen-xl h-full py-8 space-y-10">
                 {children}
             </div>
