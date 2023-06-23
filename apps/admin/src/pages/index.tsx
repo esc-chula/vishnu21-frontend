@@ -6,6 +6,7 @@ import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { NextPage } from 'next';
 import Section from '@/components/Section';
+import SendMessage from '@/components/SendMessage';
 
 const Home: NextPage = () => {
     return (
@@ -37,7 +38,7 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </section>
-                <Section id="groups" title="ระบบคะแนนกรุ้ป">
+                <Section id="groups" title="คะแนนกรุ้ป">
                     <GroupTableRow
                         header
                         group={'กรุ้ป'}
@@ -53,6 +54,9 @@ const Home: NextPage = () => {
                             score={group.score}
                         />
                     ))}
+                </Section>
+                <Section id="messaging" title="ส่งข้อความ">
+                    <SendMessage />
                 </Section>
             </Main>
             <Footer />

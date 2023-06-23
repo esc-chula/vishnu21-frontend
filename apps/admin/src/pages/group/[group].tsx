@@ -21,22 +21,22 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                         {/* group information */}
                         <div className="flex space-x-6">
                             <div>
-                                <p className="text-gray-600 text-sm md:text-base">
+                                <p className="text-neutral-600 text-sm md:text-base">
                                     กรุ้ป
                                 </p>
-                                <h1 className="font-bold text-2xl md:text-4xl text-gray-900">
+                                <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
                                     {group.group}
                                 </h1>
                             </div>
                             <div>
-                                <p className="text-gray-600 text-sm md:text-base">
+                                <p className="text-neutral-600 text-sm md:text-base">
                                     ชื่อ
                                 </p>
                                 <div className="flex flex-col md:flex-row md:items-end md:space-x-4">
-                                    <h1 className="font-bold text-2xl md:text-4xl text-gray-900">
+                                    <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
                                         {group.name}
                                     </h1>
-                                    <p className="text-gray-500">
+                                    <p className="text-neutral-500">
                                         {group.longName}
                                     </p>
                                 </div>
@@ -45,10 +45,10 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
 
                         {/* score */}
                         <div className="flex flex-col items-end">
-                            <p className="text-gray-600 text-sm md:text-base">
+                            <p className="text-neutral-600 text-sm md:text-base">
                                 คะแนน
                             </p>
-                            <h1 className="font-bold text-2xl md:text-4xl text-gray-900">
+                            <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
                                 {group.score}
                             </h1>
                         </div>
