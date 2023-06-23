@@ -32,11 +32,11 @@ const TableRow: React.FC<TableRowProps> = ({
                 }}
             >
                 <div className="flex flex-grow w-32">{group}</div>
-                <div className="flex flex-grow items-center w-full space-x-12">
-                    <span>{name}</span>
-                    <span className="hidden md:inline text-gray-400 text-sm">
-                        {longName}
-                    </span>
+                <div className="flex flex-grow items-center w-48 space-x-1">
+                    {name}
+                </div>
+                <div className="hidden md:flex flex-grow w-full text-gray-400 text-sm">
+                    {longName}
                 </div>
                 <div className="flex flex-grow w-24">{score}</div>
             </div>
