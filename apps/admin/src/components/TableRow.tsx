@@ -4,10 +4,17 @@ interface TableRowProps {
     header?: boolean;
     group: string;
     name: string;
+    longName?: string;
     score: string;
 }
 
-const TableRow: React.FC<TableRowProps> = ({ header, group, name, score }) => {
+const TableRow: React.FC<TableRowProps> = ({
+    header,
+    group,
+    name,
+    longName,
+    score,
+}) => {
     const router = useRouter();
 
     return (
@@ -25,7 +32,12 @@ const TableRow: React.FC<TableRowProps> = ({ header, group, name, score }) => {
                 }}
             >
                 <div className="flex flex-grow w-32">{group}</div>
-                <div className="flex flex-grow w-full">{name}</div>
+                <div className="flex flex-grow items-center w-full space-x-12">
+                    <span>{name}</span>
+                    <span className="hidden md:inline text-gray-400 text-sm">
+                        {longName}
+                    </span>
+                </div>
                 <div className="flex flex-grow w-24">{score}</div>
             </div>
             {header ? <hr /> : null}

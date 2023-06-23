@@ -1,92 +1,128 @@
 [
     {
         "group": "A",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "B",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "C",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "Dog",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "E",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "F",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "G",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "H",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "I",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "J",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "K",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "L",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "M",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "N",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "O",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "P",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "Q",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     },
     {
         "group": "R",
-        "houseName": "อาหร่อยจังเลย",
+        "name": "อาหร่อยจังเลย",
+        "longName": "อาหร่อยจังเลยอยากกินอีกเยอะๆ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "score": "40"
     }
 ]

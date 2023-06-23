@@ -1,18 +1,27 @@
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
 import Main from '@/layouts/Main';
-import { NextPage } from 'next';
+import GroupData from '@/mocks/group-data.json';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-const Group: NextPage = () => {
+interface GroupProps {
+    slug: string;
+}
+
+const Group: NextPage<GroupProps> = ({ slug }) => {
+    const group = GroupData.find((group) => group.group === slug);
+
     return (
         <>
             <Navigation />
             <Main>
                 <section id="information" className="space-y-6">
                     <div className="space-y-3">
-                        <h1 className="text-2xl font-bold">Group A</h1>
+                        <h1 className="text-2xl font-bold">
+                            Group {group.group}
+                        </h1>
                         <h2 className="text-2xl font-semibold">
-                            อาหร่อยจังเลย
+                            {group.longName}
                         </h2>
                     </div>
                 </section>
@@ -23,6 +32,32 @@ const Group: NextPage = () => {
             <Footer />
         </>
     );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const groups = GroupData;
+
+    const paths = groups.map((group) => {
+        return {
+            params: {
+                group: group.group,
+            },
+        };
+    });
+
+    return {
+        paths,
+        fallback: false,
+    };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const slug = encodeURI(params?.group as string);
+
+    return {
+        props: { slug }, // try to deny server-side rendering cuz need real-time data
+        revalidate: 600,
+    };
 };
 
 export default Group;

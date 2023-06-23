@@ -49,7 +49,8 @@ const Home: NextPage = () => {
                             <TableRow
                                 key={group.group}
                                 group={group.group}
-                                name={group.houseName}
+                                name={group.name}
+                                longName={group.longName}
                                 score={group.score}
                             />
                         ))}
