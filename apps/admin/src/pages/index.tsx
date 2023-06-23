@@ -1,10 +1,11 @@
 import DashboardBlock from '@/components/DashboardBlock';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
-import TableRow from '@/components/TableRow';
+import GroupTableRow from '@/components/GroupTableRow';
 import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { NextPage } from 'next';
+import Section from '@/components/Section';
 
 const Home: NextPage = () => {
     return (
@@ -36,26 +37,23 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </section>
-                <section id="groups" className="space-y-6">
-                    <h2 className="text-xl font-bold">Groups</h2>
-                    <div className="border-neutral-200 border rounded-xl py-8 px-6 space-y-2">
-                        <TableRow
-                            header
-                            group={'กรุ้ป'}
-                            name={'ชื่อ'}
-                            score={'คะแนน'}
+                <Section id="groups" title="ระบบคะแนนกรุ้ป">
+                    <GroupTableRow
+                        header
+                        group={'กรุ้ป'}
+                        name={'ชื่อ'}
+                        score={'คะแนน'}
+                    />
+                    {GroupData.map((group) => (
+                        <GroupTableRow
+                            key={group.group}
+                            group={group.group}
+                            name={group.name}
+                            longName={group.longName}
+                            score={group.score}
                         />
-                        {GroupData.map((group) => (
-                            <TableRow
-                                key={group.group}
-                                group={group.group}
-                                name={group.name}
-                                longName={group.longName}
-                                score={group.score}
-                            />
-                        ))}
-                    </div>
-                </section>
+                    ))}
+                </Section>
             </Main>
             <Footer />
         </>
