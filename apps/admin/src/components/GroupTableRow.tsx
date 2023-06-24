@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-interface TableRowProps {
+interface GroupTableRowProps {
     header?: boolean;
     group: string;
     name: string;
@@ -8,7 +8,7 @@ interface TableRowProps {
     score: string;
 }
 
-const TableRow: React.FC<TableRowProps> = ({
+const GroupTableRow: React.FC<GroupTableRowProps> = ({
     header,
     group,
     name,
@@ -45,4 +45,4 @@ const TableRow: React.FC<TableRowProps> = ({
     );
 };
 
-export default TableRow;
+export default GroupTableRow;

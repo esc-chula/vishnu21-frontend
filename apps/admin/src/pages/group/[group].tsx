@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
+import ScoreTableRow from '@/components/ScoreTableRow';
 import Section from '@/components/Section';
 import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
@@ -54,9 +55,33 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                         </div>
                     </div>
                 </section>
+                <Section toggle id="score" title="บันทึกคะแนน">
+                    <div className="flex flex-col md:flex-row md:items-end space-y-6 md:space-y-0 md:space-x-6">
+                        <div className="flex flex-col space-y-2.5">
+                            <label className="text-sm md:text-base text-neutral-600">
+                                จำนวน
+                            </label>
+                            <input
+                                type="number"
+                                className="!outline-none w-32 rounded-lg border border-neutral-300 py-2 px-4 bg-transparent"
+                            />
+                        </div>
+                        <div className="flex flex-col space-y-2.5 w-full">
+                            <label className="text-sm md:text-base text-neutral-600">
+                                หมายเหตุ
+                            </label>
+                            <input className="!outline-none rounded-lg border border-neutral-300 py-2 px-4 bg-transparent w-full" />
+                        </div>
+                        <div className="flex flex-col space-y-2.5">
+                            <button className="bg-neutral-800 text-white font-medium rounded-lg px-6 py-2">
+                                บันทึก
+                            </button>
+                        </div>
+                    </div>
+                </Section>
                 <Section toggle id="score" title="ประวัติคะแนน">
-                    บันทึกคะแนน
-                    <hr />
+                    <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
+                    <ScoreTableRow amount="10" note="ให้สักหน่อย" />
                 </Section>
                 <Section toggle id="members" title="สมาชิก">
                     test

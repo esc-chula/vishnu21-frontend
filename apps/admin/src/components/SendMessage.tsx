@@ -241,7 +241,6 @@ const SendMessage: React.FC = () => {
                 {/* submit */}
                 <hr />
                 <div className="flex justify-end items-center space-x-4">
-                    {' '}
                     <button
                         onClick={() => setConfirmation(true)}
                         className="border-2 text-neutral-600 font-medium rounded-lg px-6 py-2"
