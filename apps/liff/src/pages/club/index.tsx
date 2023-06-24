@@ -17,8 +17,7 @@ const Club = () => {
         setFilterState(0);
         (currentMode == "Stamp") ? setCurrentMode("Favorite") : setCurrentMode("Stamp");
     }
-    const filterSlash = (filterState == 2 && currentMode == "Stamp") ? <FaSlash className='w-[30px] h-[30px] absolute top-0' color='red' /> : <div />;
-    const filterColor = (filterState == 1) ? 'green' : '#D9D9D9';
+    const filterColor = (filterState == 1) ? 'green' : (filterState == 2) ? 'red' : '#D9D9D9';
 
     // All , Academic , Sport , Art , CSR
     const [selection, setSelection] = useState("All");
@@ -99,7 +98,6 @@ const Club = () => {
                 {/* TODO: set filter */}
                 <div className='relative cursor-pointer' onClick={handleFilter}>
                     <FaFilter className='relative w-[30px] h-[30px] cursor-pointer' color={filterColor} />
-                    {filterSlash}
                 </div>
 
             </div>
