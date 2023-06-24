@@ -14,7 +14,7 @@ const Section: React.FC<SectionProps> = ({ children, id, title, toggle }) => {
     return (
         <section id={id} className="space-y-6">
             <div
-                onClick={() => setExpanded(!expanded)}
+                onClick={() => toggle && setExpanded(!expanded)}
                 className={`flex justify-between items-center ${
                     toggle ? 'cursor-pointer select-none' : '"'
                 }`}
