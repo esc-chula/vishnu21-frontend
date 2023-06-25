@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer';
+import GroupMembers from '@/components/GroupMembers';
 import Navigation from '@/components/Navigation';
 import ScoreTableRow from '@/components/ScoreTableRow';
 import Section from '@/components/Section';
@@ -84,7 +85,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                     <ScoreTableRow amount="10" note="ให้สักหน่อย" />
                 </Section>
                 <Section toggle id="members" title="สมาชิก">
-                    test
+                    <GroupMembers />
                 </Section>
             </Main>
             <Footer />
@@ -114,7 +115,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
         props: { slug }, // try to deny server-side rendering cuz need real-time data
-        revalidate: 600,
     };
 };
 
