@@ -1,9 +1,49 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ClubCard from './components/clubcard';
 import { AiFillHeart } from 'react-icons/ai';
-import { FaStamp, FaSlash, FaFilter } from 'react-icons/fa';
+import { FaStamp, FaFilter } from 'react-icons/fa';
 
+const club_datas = [
+    {
+        name: "Test1",
+        tag: "Academic",
+        logo: "",
+        description: "test12345"
+    },
+    {
+        name: "Test2",
+        tag: "Sport",
+        logo: "",
+        description: "test12345"
+    },
+    {
+        name: "Test3",
+        tag: "Art",
+        logo: "",
+        description: "test12345"
+    },
+    {
+        name: "Test4",
+        tag: "CSR",
+        logo: "",
+        description: "test12345"
+    }
+]
+const my_favorite = [
+    {
+        name: "Test1"
+    }, {
+        name: "Test2"
+    }
+]
+const my_stamped = [
+    {
+        name: "Test1"
+    }, {
+        name: "Test3"
+    }
+]
 
 const Club = () => {
     // 0 => all , 1 => filter , 2 => not filter
@@ -22,9 +62,9 @@ const Club = () => {
     // All , Academic , Sport , Art , CSR
     const [selection, setSelection] = useState("All");
     const headerText = (currentMode == "Stamp" && filterState == 1) ? "ชมรมที่แสตมป์แล้ว"
-                    : (currentMode == "Stamp" && filterState == 2) ? "ชมรมที่ยังไม่ได้แสตมป์"
-                    : (currentMode == "Favorite" && filterState == 1) ? "ชมรมที่สนใจ"
-                    : "ชมรมในวิศวฯ จุฬาฯ";
+        : (currentMode == "Stamp" && filterState == 2) ? "ชมรมที่ยังไม่ได้แสตมป์"
+            : (currentMode == "Favorite" && filterState == 1) ? "ชมรมที่สนใจ"
+                : "ชมรมในวิศวฯ จุฬาฯ";
 
     return (
         // TODO: change background image
@@ -62,24 +102,15 @@ const Club = () => {
                 {/* club list */}
                 {/* TODO: create component according to data */}
                 <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 mt-[25px] w-full gap-[20px]'>
-                    <ClubCard currentMode={currentMode}></ClubCard>
-                    <ClubCard isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard isFavorite={true} isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard currentMode={currentMode}></ClubCard>
-                    <ClubCard isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard isFavorite={true} isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard currentMode={currentMode}></ClubCard>
-                    <ClubCard isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard isFavorite={true} isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard currentMode={currentMode}></ClubCard>
-                    <ClubCard isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard isFavorite={true} isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard currentMode={currentMode}></ClubCard>
-                    <ClubCard isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard isFavorite={true} isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard currentMode={currentMode}></ClubCard>
-                    <ClubCard isStamped={true} currentMode={currentMode}></ClubCard>
-                    <ClubCard isFavorite={true} isStamped={true} currentMode={currentMode}></ClubCard>
+                    {
+                        club_datas.map((club_data) =>
+                            <ClubCard currentMode={currentMode}
+                                isStamped={my_stamped.some(stamped => stamped.name == club_data.name)}
+                                isFavorite={my_favorite.some(favorite => favorite.name == club_data.name)}
+                                name={club_data.name}
+                                // TODO: image param
+                            />)
+                    }
                 </div>
             </div>
 
@@ -99,6 +130,7 @@ const Club = () => {
                 <div className='relative cursor-pointer' onClick={handleFilter}>
                     <FaFilter className='relative w-[30px] h-[30px] cursor-pointer' color={filterColor} />
                 </div>
+
 
             </div>
         </div>
