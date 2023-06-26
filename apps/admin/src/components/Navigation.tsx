@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Navigation: React.FC = () => {
     return (
-        <div className="fixed top-0 left-0 right-0 bg-white w-full border-neutral-200 border-b h-14 flex justify-center px-5">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white w-full border-neutral-200 border-b h-14 flex justify-center px-5">
             <div className="w-full max-w-screen-xl h-full flex items-center justify-between">
                 <Link href="/" className="font-bold text-neutral-900">
                     Vishnu21 Admin

@@ -6,6 +6,7 @@ import Section from '@/layouts/Section';
 import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import GroupHomePage from '@/components/GroupHomePage';
 
 interface GroupProps {
     slug: string;
@@ -84,6 +85,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                     <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
                     <ScoreTableRow amount="10" note="ให้สักหน่อย" />
                 </Section>
+                <GroupHomePage />
                 <Section toggle id="members" title="สมาชิก">
                     <GroupMembers />
                 </Section>
