@@ -2,12 +2,14 @@
     {
         "_id": "0",
         "profile": "",
-        "firstname": "ธนดล",
-        "lastname": "ศานติสรร",
+        "firstName": "ธนดล",
+        "lastName": "ศานติสรร",
+        "nickName": "ศานติสรร",
+        "gender": "ชาย",
         "studentId": "6538068821",
         "group": "K",
         "role": "intania106",
         "lineToken": "",
-        "lienUserId": ""
+        "lineUserId": ""
     }
 ]

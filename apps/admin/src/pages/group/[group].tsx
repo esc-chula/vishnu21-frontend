@@ -1,8 +1,8 @@
 import Footer from '@/components/Footer';
 import GroupMembers from '@/components/GroupMembers';
 import Navigation from '@/components/Navigation';
-import ScoreTableRow from '@/components/ScoreTableRow';
-import Section from '@/components/Section';
+import ScoreTableRow from '@/components/table/ScoreTableRow';
+import Section from '@/layouts/Section';
 import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';

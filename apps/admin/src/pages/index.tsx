@@ -1,11 +1,11 @@
 import DashboardBlock from '@/components/DashboardBlock';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
-import GroupTableRow from '@/components/GroupTableRow';
+import GroupTableRow from '@/components/table/GroupTableRow';
 import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { NextPage } from 'next';
-import Section from '@/components/Section';
+import Section from '@/layouts/Section';
 import SendMessage from '@/components/SendMessage';
 
 const Home: NextPage = () => {

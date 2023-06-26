@@ -1,5 +1,6 @@
 import UserData from '@/mocks/user-data.json';
 import { useState } from 'react';
+import MemberTableRow from './table/MemberTableRow';
 
 const GroupMembers: React.FC = () => {
     const pages = ['intania107', 'intania106'];
@@ -23,11 +24,26 @@ const GroupMembers: React.FC = () => {
                     </button>
                 ))}
             </div>
-            <hr />
             <div>
+                <MemberTableRow
+                    header
+                    firstName="ชื่อจริง"
+                    lastName="นามสกุล"
+                    nickName="ชื่อเล่น"
+                    gender="เพศ"
+                    studentId="เลขนิสิต"
+                    lineUserId="LINE"
+                />
                 {UserData.filter((user) => user.role === selectedPage).map(
                     (user) => (
-                        <div>{user.firstname}</div>
+                        <MemberTableRow
+                            firstName={user.firstName}
+                            lastName={user.lastName}
+                            nickName={user.nickName}
+                            gender={user.gender}
+                            studentId={user.studentId}
+                            lineUserId={user.lineUserId}
+                        />
                     )
                 )}
             </div>
