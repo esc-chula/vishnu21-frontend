@@ -12,7 +12,19 @@ const club_datas = [
         description: "test12345"
     },
     {
+        name: "Test11",
+        tag: "Academic",
+        logo: "",
+        description: "test12345"
+    },
+    {
         name: "Test2",
+        tag: "Sport",
+        logo: "",
+        description: "test12345"
+    },
+    {
+        name: "Test22",
         tag: "Sport",
         logo: "",
         description: "test12345"
@@ -44,27 +56,65 @@ const my_stamped = [
         name: "Test3"
     }
 ]
+function isFavorite(data) {
+    return my_favorite.some(favorite => data.name === favorite.name)
+}
+function isStamped(data) {
+    return my_stamped.some(stamped => data.name === stamped.name)
+}
+
 
 const Club = () => {
+    // selection : All , Academic , Sport , Art , CSR
+    const [selection, setSelection] = useState("All");
+    const [clubSelected, setClubSelected] = useState(club_datas);
+    const [clubFiltered, setClubFiltered] = useState(clubSelected);
+
     // 0 => all , 1 => filter , 2 => not filter
     const [filterState, setFilterState] = useState(0);
     const [currentMode, setCurrentMode] = useState("Stamp");
     const handleFilter = () => {
-        const totalState = (currentMode == "Stamp") ? 3 : 2;
+        const totalState = (currentMode === "Stamp") ? 3 : 2;
         setFilterState((filterState + 1) % totalState)
     }
     const handleChangeMode = () => {
         setFilterState(0);
-        (currentMode == "Stamp") ? setCurrentMode("Favorite") : setCurrentMode("Stamp");
+        (currentMode === "Stamp") ? setCurrentMode("Favorite") : setCurrentMode("Stamp");
     }
-    const filterColor = (filterState == 1) ? 'green' : (filterState == 2) ? 'red' : '#D9D9D9';
 
-    // All , Academic , Sport , Art , CSR
-    const [selection, setSelection] = useState("All");
-    const headerText = (currentMode == "Stamp" && filterState == 1) ? "ชมรมที่แสตมป์แล้ว"
-        : (currentMode == "Stamp" && filterState == 2) ? "ชมรมที่ยังไม่ได้แสตมป์"
-            : (currentMode == "Favorite" && filterState == 1) ? "ชมรมที่สนใจ"
-                : "ชมรมในวิศวฯ จุฬาฯ";
+    const [headerText, setHeaderText] = useState("ชมรมที่แสตมป์แล้ว");
+    const [filterColor, setFilterColor] = useState('#D9D9D9');
+
+    useEffect(() => {
+        // set club data according to selector
+        (selection === "All") ?
+            setClubSelected(club_datas) :
+            setClubSelected(club_datas.filter(club_data => club_data.tag === selection));
+    }, [selection]);
+
+    useEffect(() => {
+        // set top text according to filter mode
+        (currentMode === "Stamp" && filterState === 1) ? setHeaderText("ชมรมที่แสตมป์แล้ว")
+            : (currentMode == "Stamp" && filterState == 2) ? setHeaderText("ชมรมที่ยังไม่ได้แสตมป์")
+                : (currentMode == "Favorite" && filterState == 1) ? setHeaderText("ชมรมที่สนใจ")
+                    : setHeaderText("ชมรมในวิศวฯ จุฬาฯ");
+
+        // set filter icon color
+        (filterState === 1) ? setFilterColor('green') :
+            (filterState === 2) ? setFilterColor('red') :
+                setFilterColor('#D9D9D9');
+
+    }, [currentMode, filterState]);
+
+    useEffect(() => {
+        // set club data according to filter mode 
+        (filterState === 0) ? setClubFiltered(clubSelected) :
+            (filterState === 1) ? setClubFiltered(clubSelected.filter(club =>
+                (currentMode === "Stamp") ? isStamped(club) : isFavorite(club)
+            )) : setClubFiltered(clubSelected.filter(club =>
+                (currentMode === "Stamp") ? !isStamped(club) : !isFavorite(club)
+            ))
+    }, [clubSelected, filterState]);
 
     return (
         // TODO: change background image
@@ -79,36 +129,34 @@ const Club = () => {
                     <h1 className='font-semibold text-white text-[20px] text-center'>
                         {headerText}
                     </h1>
-                    {/* TODO: set filter */}
                     <div className='flex flex-row gap-4 mt-[12px] items-center justify-center'>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection == "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
+                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
                             ทั้งหมด
                         </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection == "Academic") ? "" : "opacity-60"}`} onClick={() => setSelection("Academic")}>
+                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "Academic") ? "" : "opacity-60"}`} onClick={() => setSelection("Academic")}>
                             วิชาการ
                         </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection == "Sport") ? "" : "opacity-60"}`} onClick={() => setSelection("Sport")}>
+                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "Sport") ? "" : "opacity-60"}`} onClick={() => setSelection("Sport")}>
                             กีฬา
                         </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection == "Art") ? "" : "opacity-60"}`} onClick={() => setSelection("Art")}>
+                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "Art") ? "" : "opacity-60"}`} onClick={() => setSelection("Art")}>
                             ศิลปะวัฒนธรรม
                         </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection == "CSR") ? "" : "opacity-60"}`} onClick={() => setSelection("CSR")}>
+                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "CSR") ? "" : "opacity-60"}`} onClick={() => setSelection("CSR")}>
                             CSR
                         </h1>
                     </div>
                 </div>
 
                 {/* club list */}
-                {/* TODO: create component according to data */}
                 <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 mt-[25px] w-full gap-[20px]'>
                     {
-                        club_datas.map((club_data) =>
+                        clubFiltered.map((club_data) =>
                             <ClubCard currentMode={currentMode}
-                                isStamped={my_stamped.some(stamped => stamped.name == club_data.name)}
-                                isFavorite={my_favorite.some(favorite => favorite.name == club_data.name)}
+                                isStamped={isStamped(club_data)}
+                                isFavorite={isFavorite(club_data)}
                                 name={club_data.name}
-                                // TODO: image param
+                            // TODO: image param
                             />)
                     }
                 </div>
@@ -126,7 +174,6 @@ const Club = () => {
 
                 <div className='bg-[#D9D9D9] w-[2px] h-[30px]' />
 
-                {/* TODO: set filter */}
                 <div className='relative cursor-pointer' onClick={handleFilter}>
                     <FaFilter className='relative w-[30px] h-[30px] cursor-pointer' color={filterColor} />
                 </div>
