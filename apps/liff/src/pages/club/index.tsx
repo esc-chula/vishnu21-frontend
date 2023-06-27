@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import ClubCard from './components/clubcard';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
@@ -72,6 +73,7 @@ const Club = () => {
 
     // 0 => all , 1 => filter , 2 => not filter
     const [filterState, setFilterState] = useState(0);
+    // Stamp , Favorite
     const [currentMode, setCurrentMode] = useState("Stamp");
     const handleFilter = () => {
         const totalState = (currentMode === "Stamp") ? 3 : 2;
@@ -116,6 +118,9 @@ const Club = () => {
             ))
     }, [clubSelected, filterState]);
 
+    // router
+    const router = useRouter();
+
     return (
         // TODO: change background image
         <div className='relative flex flex-col w-screen h-screen'>
@@ -151,13 +156,27 @@ const Club = () => {
                 {/* club list */}
                 <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 mt-[25px] w-full gap-[20px]'>
                     {
-                        clubFiltered.map((club_data) =>
-                            <ClubCard currentMode={currentMode}
+                        clubFiltered.map((club_data) => {
+                            const pathName = "/club/" + club_data.name;
+                            return <ClubCard currentMode={currentMode}
+                                // TODO: image param
                                 isStamped={isStamped(club_data)}
                                 isFavorite={isFavorite(club_data)}
                                 name={club_data.name}
-                            // TODO: image param
-                            />)
+                                onClick={() => 
+                                    router.push(
+                                        {
+                                            pathname: pathName,
+                                            query: {
+                                                name: club_data.name,
+                                                description: club_data.description,
+                                                // TODO: image param
+                                            }
+                                        }
+                                    )
+                                } />
+
+                        })
                     }
                 </div>
             </div>
