@@ -163,6 +163,7 @@ const Club = () => {
                                 isStamped={isStamped(club_data)}
                                 isFavorite={isFavorite(club_data)}
                                 name={club_data.name}
+                                key={club_data.name}
                                 onClick={() => 
                                     router.push(
                                         {
@@ -172,7 +173,7 @@ const Club = () => {
                                                 description: club_data.description,
                                                 // TODO: image param
                                             }
-                                        }
+                                        }, pathName
                                     )
                                 } />
 
