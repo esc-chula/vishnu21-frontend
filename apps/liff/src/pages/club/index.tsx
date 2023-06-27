@@ -5,6 +5,7 @@ import ClubCard from './components/clubcard';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
 
+// TODO: fetch data from api
 const club_datas = [
     {
         name: "Test1",
@@ -121,6 +122,7 @@ const Club = () => {
     // router
     const router = useRouter();
 
+    // TODO: change tailwind to not hardcode
     return (
         // TODO: change background image
         <div className='relative flex flex-col w-screen h-screen'>
