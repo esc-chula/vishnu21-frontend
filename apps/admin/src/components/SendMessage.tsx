@@ -40,7 +40,7 @@ const SendMessage: React.FC = () => {
         <>
             {/* modal */}
             {confirmation ? (
-                <div className="fixed top-0 left-0 right-0 bottom-0">
+                <div className="fixed top-0 left-0 right-0 bottom-0 z-50">
                     <div className="flex justify-center items-center relative w-full h-full px-3">
                         {/* body */}
                         <div className="z-50 bg-white rounded-lg border max-w-screen-sm w-full border-neutral-300 p-6 space-y-6">

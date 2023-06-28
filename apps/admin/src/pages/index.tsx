@@ -1,12 +1,13 @@
 import DashboardBlock from '@/components/DashboardBlock';
+import Faq from '@/components/Faq';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
 import GroupTableRow from '@/components/table/GroupTableRow';
+import SendMessage from '@/components/SendMessage';
 import Main from '@/layouts/Main';
+import Section from '@/layouts/Section';
 import GroupData from '@/mocks/group-data.json';
 import type { NextPage } from 'next';
-import Section from '@/layouts/Section';
-import SendMessage from '@/components/SendMessage';
 
 const Home: NextPage = () => {
     return (
@@ -57,6 +58,9 @@ const Home: NextPage = () => {
                 </Section>
                 <Section id="messaging" title="ส่งข้อความ">
                     <SendMessage />
+                </Section>
+                <Section id="faq" title="FAQ">
+                    <Faq />
                 </Section>
             </Main>
             <Footer />

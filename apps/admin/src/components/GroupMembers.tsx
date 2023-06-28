@@ -13,6 +13,7 @@ const GroupMembers: React.FC = () => {
             <div className="flex space-x-3">
                 {pages.map((page) => (
                     <button
+                        key={page}
                         onClick={() => setSelectedPage(page)}
                         className={`${
                             page === selectedPage
@@ -37,6 +38,7 @@ const GroupMembers: React.FC = () => {
                 {UserData.filter((user) => user.role === selectedPage).map(
                     (user) => (
                         <MemberTableRow
+                            key={user._id}
                             firstName={user.firstName}
                             lastName={user.lastName}
                             nickName={user.nickName}
