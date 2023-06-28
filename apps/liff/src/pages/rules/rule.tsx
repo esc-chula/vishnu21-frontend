@@ -1,11 +1,11 @@
 import { useState } from 'react';
- import { AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineUp, AiOutlineRight } from 'react-icons/ai';
 type Rules = {
     topic: string;
     detail: string;
 };
 
-const RuleItem: React.FC<Rules> = ({topic , detail }) => {
+const RuleItem: React.FC<Rules> = ({ topic, detail }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen((prev) => !prev);
@@ -16,11 +16,13 @@ const RuleItem: React.FC<Rules> = ({topic , detail }) => {
             onClick={toggle}
         >
             <div className="flex items-center justify-between cursor-pointer">
-                <h1 className="font-semibold text-sm pt-2 pr-5 pb-2 pl-1">{topic}</h1>
+                <h1 className="font-semibold text-sm pt-2 pr-5 pb-2 pl-1">
+                    {topic}
+                </h1>
                 {isOpen ? (
-                    <AiOutlineRight className="w-3 h-3 text-white" />
+                    <AiOutlineUp className="w-3 h-3 text-white mr-2" />
                 ) : (
-                    <AiOutlineDown className="w-3 h-3 text-" />
+                    <AiOutlineRight className="w-3 h-3 text-white mr-2" />
                 )}
             </div>
             <p

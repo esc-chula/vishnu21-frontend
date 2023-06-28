@@ -3,7 +3,6 @@ import Image from 'next/image';
 import GrainBackground from 'images/GrainBackground.svg';
 import DecorateVector from 'images/DecorateVector.svg';
 import RuleItem from './rule';
-// import Shadow from 'images/ShadowBottom.svg';
 
 const allRule = [
     {
@@ -35,19 +34,23 @@ const allRule = [
         id: '6',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '7',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '8',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '9',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '10',
         topic: 'Lorem ipsum dolor sit amet consectetur?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
@@ -76,15 +79,18 @@ const allRule = [
         id: '15',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '16',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '17',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },    {
+    },
+    {
         id: '18',
         topic: 'What is Lorem Ipsum?',
         detail: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
@@ -94,21 +100,20 @@ const allRule = [
 const Rules: NextPage = () => {
     return (
         <div className="w-screen min-h-screen flex flex-col items-center px-7 py-16">
-            <h1 className="font-semibold text-white text-xl font-baijam -z-200">
+            <h1 className="font-semibold text-white text-xl font-baijam">
                 กฎค่ายวิษณุครั้งที่ 21
             </h1>
-            <div className="w-344px h-570px top-233 left-25 gap-11">
+            <div className="w-[344px]” and “h-[570px] top-233 left-25 gap-11">
                 <ul className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
                     {allRule.map((allRule) => (
                         <RuleItem
-                        key={allRule.id}
-                        topic={allRule.topic}
-                        detail={allRule.detail}
-                    />
+                            key={allRule.id}
+                            topic={allRule.topic}
+                            detail={allRule.detail}
+                        />
                     ))}
                 </ul>
-                <ul className='w-full h-10 m-7'>
-                </ul>
+                <ul className="w-full h-10 m-7"></ul>
             </div>
             <div className="fixed inset-x-0 bottom-0 z-20 h-40 bg-gradient-to-t from-black pointer-events-none" />
             <Image
@@ -123,7 +128,6 @@ const Rules: NextPage = () => {
                 className="fixed bottom-0 left-0 z-20 w-full pointer-events-none"
                 loading="lazy"
             />
-            
         </div>
     );
 };
