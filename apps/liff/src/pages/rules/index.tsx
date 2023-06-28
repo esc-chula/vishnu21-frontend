@@ -110,7 +110,7 @@ const Rules: NextPage = () => {
                 <ul className='w-full h-10 m-7'>
                 </ul>
             </div>
-            <div className="fixed inset-x-0 bottom-0 z-[-10] h-40 bg-gradient-to-t from-black" />
+            <div className="fixed inset-x-0 bottom-0 z-20 h-40 bg-gradient-to-t from-black pointer-events-none" />
             <Image
                 src={GrainBackground}
                 alt="Background"
@@ -120,7 +120,7 @@ const Rules: NextPage = () => {
             <Image
                 src={DecorateVector}
                 alt=""
-                className="fixed bottom-0 left-0 -z-5 w-full"
+                className="fixed bottom-0 left-0 z-20 w-full pointer-events-none"
                 loading="lazy"
             />
             
