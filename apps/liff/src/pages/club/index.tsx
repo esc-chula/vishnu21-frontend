@@ -11,60 +11,65 @@ const club_datas = [
         name: "Test1",
         tag: "Academic",
         logo: "",
-        description: "test12345"
+        description: "test12345",
+        id: "test1"
     },
     {
         name: "Test11",
         tag: "Academic",
         logo: "",
-        description: "test12345"
+        description: "test12345",
+        id: "test11"
     },
     {
         name: "Test2",
         tag: "Sport",
         logo: "",
-        description: "test12345"
+        description: "test12345",
+        id: "test2"
     },
     {
         name: "Test22",
         tag: "Sport",
         logo: "",
-        description: "test12345"
+        description: "test12345",
+        id: "test22"
     },
     {
         name: "Test3",
         tag: "Art",
         logo: "",
-        description: "test12345"
+        description: "test12345",
+        id: "test3"
     },
     {
         name: "Test4",
         tag: "CSR",
         logo: "",
-        description: "test12345"
+        description: "test12345",
+        id: "test4"
     }
 ]
 const my_favorite = [
     {
-        name: "Test1"
+        id: "test1"
     }, {
-        name: "Test2"
+        id: "test2"
     }
 ]
 const my_stamped = [
     {
-        name: "Test1"
+        id: "test1"
     }, {
-        name: "Test3"
+        id: "test3"
     }
 ]
 function isFavorite(data) {
-    return my_favorite.some(favorite => data.name === favorite.name)
+    return my_favorite.some(favorite => data.id === favorite.id)
 }
 function isStamped(data) {
-    return my_stamped.some(stamped => data.name === stamped.name)
+    return my_stamped.some(stamped => data.id === stamped.id)
 }
-
 
 const Club = () => {
     // selection : All , Academic , Sport , Art , CSR
@@ -178,7 +183,6 @@ const Club = () => {
                                         }, pathName
                                     )
                                 } />
-
                         })
                     }
                 </div>
