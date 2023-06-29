@@ -14,16 +14,20 @@ const EmergencyContactList: NextPage = () => {
         if (!token) return;
 
         const getContacts = async () => {
-            const res = await fetch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/groups/emergency/`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            const data = await res.json();
-            setContacts(data);
+            try {
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/groups/emergency/`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+                const data = await res.json();
+                setContacts(data);
+            } catch (error) {
+                console.error(error);
+            }
         };
 
         getContacts();
