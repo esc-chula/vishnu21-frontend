@@ -1,44 +1,78 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 import FAQItem from './components/FAQItem';
+import type { FAQItemProps } from './components/FAQItem';
 
 import Branches1 from '@/public/images/branches1.svg';
 import GrainBackground from '@/public/images/grain-background.svg';
 import Spore1 from '@/public/images/spore1.svg';
 import { useRouter } from 'next/router';
 
+interface FAQState {
+    faqs: FAQItemProps[];
+    filteredFaqs: FAQItemProps[];
+    search: string;
+}
+
+type FAQAction =
+    | { type: 'SET_FAQS'; faqs: FAQItemProps[] }
+    | { type: 'SET_FILTERED_FAQS'; filteredFaqs: FAQItemProps[] }
+    | { type: 'SET_SEARCH'; search: string };
+
+const faqReducer = (state: FAQState, action: FAQAction): FAQState => {
+    switch (action.type) {
+        case 'SET_FAQS':
+            return { ...state, faqs: action.faqs, filteredFaqs: action.faqs };
+        case 'SET_FILTERED_FAQS':
+            return { ...state, filteredFaqs: action.filteredFaqs };
+        case 'SET_SEARCH':
+            return { ...state, search: action.search };
+        default:
+            return state;
+    }
+};
+
 const FAQ: NextPage = () => {
     const router = useRouter();
-    const [faqs, setFaqs] = useState([]);
-    const [search, setSearch] = useState('');
-    const [filteredFaqs, setFilteredFaqs] = useState([]);
+
+    const initialState: FAQState = {
+        faqs: [],
+        filteredFaqs: [],
+        search: '',
+    };
+
+    const [state, dispatch] = useReducer(faqReducer, initialState);
+    const { faqs, filteredFaqs, search } = state;
 
     useEffect(() => {
         const getFAQs = async () => {
-            const res = await fetch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/faq/${router.query.event}`
-            );
-            const data = await res.json();
-            setFaqs(data);
-            setFilteredFaqs(data);
+            try {
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/faq/${router.query.event}`
+                );
+                const data = await res.json();
+                dispatch({ type: 'SET_FAQS', faqs: data });
+            } catch (error) {
+                console.error(error);
+            }
         };
         getFAQs();
-    }, []);
+    }, [router.query.event]);
 
     useEffect(() => {
         if (!search || search === '') {
-            setFilteredFaqs(faqs);
+            dispatch({ type: 'SET_FILTERED_FAQS', filteredFaqs: faqs });
             return;
         }
 
         const filtered = faqs.filter((faq) =>
             faq.question.toLowerCase().includes(search.toLowerCase())
         );
-        setFilteredFaqs(filtered);
-    }, [search]);
+        dispatch({ type: 'SET_FILTERED_FAQS', filteredFaqs: filtered });
+    }, [search, faqs]);
 
     return (
         <div className="w-screen min-h-screen flex flex-col items-center px-7 py-16">
@@ -56,7 +90,10 @@ const FAQ: NextPage = () => {
                     placeholder="Search"
                     value={search}
                     onChange={(e) => {
-                        setSearch(e.target.value);
+                        dispatch({
+                            type: 'SET_SEARCH',
+                            search: e.target.value,
+                        });
                     }}
                 />
             </div>
@@ -64,6 +101,7 @@ const FAQ: NextPage = () => {
                 {filteredFaqs.map((faq) => (
                     <FAQItem
                         key={faq.id}
+                        id={faq.id}
                         question={faq.question}
                         answer={faq.answer}
                     />
