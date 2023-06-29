@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import GrainBackground from 'images/GrainBackground.svg';
-import DecorateVector from 'images/DecorateVector.svg';
+import GrainBackground from '@/public/images/GrainBackground.svg';
+import DecorateVector from '@/public/images/DecorateVector.svg';
 import RuleItem from './rule';
 
 const allRule = [
