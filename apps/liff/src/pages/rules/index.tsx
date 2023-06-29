@@ -103,18 +103,15 @@ const Rules: NextPage = () => {
             <h1 className="font-semibold text-white text-xl font-baijam">
                 กฎค่ายวิษณุครั้งที่ 21
             </h1>
-            <div className="w-[344px]” and “h-[570px] top-233 left-25 gap-11">
-                <ul className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
-                    {allRule.map((allRule) => (
-                        <RuleItem
-                            key={allRule.id}
-                            topic={allRule.topic}
-                            detail={allRule.detail}
-                        />
-                    ))}
-                </ul>
-                <ul className="w-full h-10 m-7"></ul>
-            </div>
+            <ul className="w-full mt-6 flex items-center flex-col gap-5 font-ibm pb-32">
+                {allRule.map((allRule) => (
+                    <RuleItem
+                        key={allRule.id}
+                        topic={allRule.topic}
+                        detail={allRule.detail}
+                    />
+                ))}
+            </ul>
             <div className="fixed inset-x-0 bottom-0 z-20 h-40 bg-gradient-to-t from-black pointer-events-none" />
             <Image
                 src={GrainBackground}
