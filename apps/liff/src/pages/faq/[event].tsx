@@ -8,42 +8,28 @@ import FAQItem from './components/FAQItem';
 import Branches1 from '@/public/images/branches1.svg';
 import GrainBackground from '@/public/images/grain-background.svg';
 import Spore1 from '@/public/images/spore1.svg';
-
-// TODO: fetch from API
-const faqs = [
-    {
-        id: '1',
-        question: 'Lorem ipsum dolor sit amet consectetur?',
-        answer: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },
-    {
-        id: '2',
-        question: 'Lorem ipsum dolor sit amet consectetur?',
-        answer: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },
-    {
-        id: '3',
-        question: 'Lorem ipsum dolor sit amet consectetur?',
-        answer: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },
-    {
-        id: '4',
-        question: 'Lorem ipsum dolor sit amet consectetur?',
-        answer: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },
-    {
-        id: '5',
-        question: 'What is Lorem Ipsum?',
-        answer: 'Lorem ipsum dolor sit amet consectetur. Amet quam id netus et lorem. Nibh et sit eleifend scelerisque duis convallis tristique. Nibh et sit eleifend scelerisque duis convallis tristique.',
-    },
-];
+import { useRouter } from 'next/router';
 
 const FAQ: NextPage = () => {
+    const router = useRouter();
+    const [faqs, setFaqs] = useState([]);
     const [search, setSearch] = useState('');
-    const [filteredFaqs, setFilteredFaqs] = useState(faqs);
+    const [filteredFaqs, setFilteredFaqs] = useState([]);
 
     useEffect(() => {
-        if (!search) {
+        const getFAQs = async () => {
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/faq/${router.query.event}`
+            );
+            const data = await res.json();
+            setFaqs(data);
+            setFilteredFaqs(data);
+        };
+        getFAQs();
+    }, []);
+
+    useEffect(() => {
+        if (!search || search === '') {
             setFilteredFaqs(faqs);
             return;
         }
