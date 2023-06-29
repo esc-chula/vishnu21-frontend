@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import ClubCard from './components/clubcard';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
-import ClubBackground from 'public/assets/bg.png';
+import ClubBackground from 'public/assets/ClubBackground.png';
 import Image from 'next/image';
 
 // TODO: fetch data from api
