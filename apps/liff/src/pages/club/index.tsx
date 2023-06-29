@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import ClubCard from './components/clubcard';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
+import ClubBackground from 'public/assets/bg.png';
+import Image from 'next/image';
 
 // TODO: fetch data from api
 const club_datas = [
@@ -129,10 +131,11 @@ const Club = () => {
 
     // TODO: change tailwind to not hardcode
     return (
-        // TODO: change background image
         <div className='relative flex flex-col w-screen h-screen'>
             {/* bg */}
-            <div className='fixed top-0 bg-[#370682] w-screen h-screen'></div>
+            <Image className='fixed top-0 bg-[#370682] w-screen h-screen'
+                src={ClubBackground} alt='ClubBackground'
+            />
 
             {/* content */}
             <div className='absolute t-0 p-[23px] pt-[50px] w-full'>
@@ -171,7 +174,7 @@ const Club = () => {
                                 isFavorite={isFavorite(club_data)}
                                 name={club_data.name}
                                 key={club_data.name}
-                                onClick={() => 
+                                onClick={() =>
                                     router.push(
                                         {
                                             pathname: pathName,
