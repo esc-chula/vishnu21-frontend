@@ -5,9 +5,9 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 import FAQItem from './components/FAQItem';
 
-import Branches1 from '/public/images/branches1.svg';
-import GrainBackground from '/public/images/grain-background.svg';
-import Spore1 from '/public/images/spore1.svg';
+import Branches1 from '@/public/images/branches1.svg';
+import GrainBackground from '@/public/images/grain-background.svg';
+import Spore1 from '@/public/images/spore1.svg';
 
 // TODO: fetch from API
 const faqs = [

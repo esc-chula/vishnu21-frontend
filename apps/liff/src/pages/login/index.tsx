@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 
-import LoginBackground from '/public/images/login-background.svg';
-import VishnuLogo from '/public/images/vishnu-logo.svg';
+import LoginBackground from '@/public/images/login-background.svg';
+import VishnuLogo from '@/public/images/vishnu-logo.svg';
 
 const Login: NextPage = () => {
     return (

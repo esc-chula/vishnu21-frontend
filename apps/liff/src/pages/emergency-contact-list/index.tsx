@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import ContactItem from './components/ContactItem';
-import Decorate from '/public/images/decorate.svg';
-import GrainBackground from '/public/images/grain-background.svg';
+import Decorate from '@/public/images/decorate.svg';
+import GrainBackground from '@/public/images/grain-background.svg';
 
 const EmergencyContactList: NextPage = () => {
     const [contacts, setContacts] = useState([]);
