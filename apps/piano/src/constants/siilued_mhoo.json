@@ -1,0 +1,69 @@
+[
+    {
+        "note": "สี",
+        "track": 1,
+        "position": 31.07
+    },
+    {
+        "note": "เลือด",
+        "track": 2,
+        "position": 31.43
+    },
+    {
+        "note": "หมู",
+        "track": 3,
+        "position": 31.786
+    },
+    {
+        "note": "ดู",
+        "track": 4,
+        "position": 32.5
+    },
+    {
+        "note": "แพรว",
+        "track": 3,
+        "position": 32.7
+    },
+    {
+        "note": "พราว",
+        "track": 2,
+        "position": 33.105,
+        "hold": true,
+        "range": 0.8
+    },
+    {
+        "note": "นี่",
+        "track": 3,
+        "position": 33.99
+    },
+    {
+        "note": "แหละ",
+        "track": 2,
+        "position": 34.3
+    },
+    {
+        "note": "ชาว",
+        "track": 3,
+        "position": 34.48
+    },
+    {
+        "note": "วิ",
+        "track": 1,
+        "position": 35.39
+    },
+    {
+        "note": "ศ",
+        "track": 2,
+        "position": 35.51
+    },
+    {
+        "note": "วะ",
+        "track": 3,
+        "position": 35.76
+    },
+    {
+        "note": "กรรม",
+        "track": 4,
+        "position": 35.99
+    }
+]
