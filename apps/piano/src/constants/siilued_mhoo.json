@@ -1,5 +1,10 @@
 [
     {
+        "note": "test",
+        "track": 1,
+        "position": 4
+    },
+    {
         "note": "สี",
         "track": 1,
         "position": 31.07

@@ -20,7 +20,7 @@ const Tile: React.FC<TileProps> = ({
     range,
 }) => {
     const { audioRef, durationToHeight } = useContext(AudioContext);
-    const { totalScore, setTotalScore } = useContext(ScoreContext);
+    const { setTotalScore, setTotalMiss } = useContext(ScoreContext);
     const { keysPress } = useContext(KeyPressContext);
     const { height } = useWindowSize();
 
@@ -48,14 +48,17 @@ const Tile: React.FC<TileProps> = ({
         }
 
         if (detectorY > top && detectorY < bottom) {
-            setTotalScore((prev) => prev + 1);
             setScored(true);
             console.log('time', audioRef.current.currentTime);
+
+            const accuracy = 100 - Math.abs((top + bottom) / 2 - detectorY);
+            setTotalScore((prev) => prev + Math.round(accuracy * 10));
         } else {
-            // if (bottom - detectorY > -(height / 1.5)) {
-            //     setTotalScore((prev) => prev - 1);
-            //     setMissed(true);
-            // }
+            if (detectorY < top) {
+                setMissed(true);
+                setTotalMiss((prev) => prev + 1);
+                console.log('missed');
+            }
         }
     };
 
