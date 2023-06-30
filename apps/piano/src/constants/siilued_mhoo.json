@@ -2,7 +2,14 @@
     {
         "note": "test",
         "track": 1,
-        "position": 4
+        "position": 1
+    },
+    {
+        "note": "test",
+        "track": 2,
+        "position": 1,
+        "hold": true,
+        "range": 1
     },
     {
         "note": "สี",

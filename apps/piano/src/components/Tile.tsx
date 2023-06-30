@@ -20,7 +20,8 @@ const Tile: React.FC<TileProps> = ({
     range,
 }) => {
     const { audioRef, durationToHeight } = useContext(AudioContext);
-    const { setTotalScore, setTotalMiss } = useContext(ScoreContext);
+    const { setTotalScore, setTotalMiss, setAccuracyHistory } =
+        useContext(ScoreContext);
     const { keysPress } = useContext(KeyPressContext);
     const { height } = useWindowSize();
 
@@ -53,6 +54,7 @@ const Tile: React.FC<TileProps> = ({
 
             const accuracy = 100 - Math.abs((top + bottom) / 2 - detectorY);
             setTotalScore((prev) => prev + Math.round(accuracy * 10));
+            setAccuracyHistory((prev) => [...prev, accuracy]);
         } else {
             if (detectorY < top) {
                 setMissed(true);
@@ -77,11 +79,12 @@ const Tile: React.FC<TileProps> = ({
             ref={tileRef}
             className={`absolute flex ${
                 hold ? 'items-end' : 'items-center'
-            } w-full`}
+            } w-full border-y border-cyan-200 bg-cyan-300/5`}
             style={{
                 bottom: durationToHeight(position),
                 height: tileOffset,
-                paddingBottom: hold ? '66px' : 0,
+                // paddingBottom: hold ? '66px' : 0,
+                paddingBottom: hold ? '191px' : 0,
             }}
         >
             <div

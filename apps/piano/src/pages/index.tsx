@@ -134,7 +134,7 @@ const Home: NextPage = () => {
                                     hold={key.hold}
                                     range={key.range}
                                     track={1}
-                                    tileOffset={150}
+                                    tileOffset={400}
                                 />
                             ))}
                         </div>
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
                                     hold={key.hold}
                                     range={key.range}
                                     track={2}
-                                    tileOffset={150}
+                                    tileOffset={400}
                                 />
                             ))}
                         </div>
@@ -164,7 +164,7 @@ const Home: NextPage = () => {
                                     hold={key.hold}
                                     range={key.range}
                                     track={3}
-                                    tileOffset={150}
+                                    tileOffset={400}
                                 />
                             ))}
                         </div>
@@ -179,7 +179,7 @@ const Home: NextPage = () => {
                                     hold={key.hold}
                                     range={key.range}
                                     track={4}
-                                    tileOffset={150}
+                                    tileOffset={400}
                                 />
                             ))}
                         </div>
