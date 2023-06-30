@@ -36,7 +36,7 @@ const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
             value={{ audioRef, start, setStart, durationToHeight }}
         >
             {start ? null : (
-                <div className="fixed z-50 top-0 left-0 right-0 bottom-0 bg-black/80 grid place-content-center">
+                <div className="fixed z-50 top-0 left-0 right-0 bottom-0 bg-black bg-opacity-30 backdrop-blur-lg grid place-content-center">
                     <button
                         onClick={startHandler}
                         className="bg-white rounded-lg px-6 py-2"

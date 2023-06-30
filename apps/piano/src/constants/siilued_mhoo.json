@@ -12,7 +12,9 @@
     {
         "note": "หมู",
         "track": 3,
-        "position": 31.786
+        "position": 31.786,
+        "hold": true,
+        "range": 0.4
     },
     {
         "note": "ดู",
@@ -29,7 +31,7 @@
         "track": 2,
         "position": 33.105,
         "hold": true,
-        "range": 0.8
+        "range": 0.7
     },
     {
         "note": "นี่",
@@ -44,7 +46,9 @@
     {
         "note": "ชาว",
         "track": 3,
-        "position": 34.48
+        "position": 34.48,
+        "hold": true,
+        "range": 0.4
     },
     {
         "note": "วิ",
@@ -64,6 +68,64 @@
     {
         "note": "กรรม",
         "track": 4,
-        "position": 35.99
+        "position": 35.97,
+        "hold": true,
+        "range": 1.5
+    },
+    {
+        "note": "ที่",
+        "track": 2,
+        "position": 37.6,
+        "hold": true,
+        "range": 0.65
+    },
+    {
+        "note": "เคย",
+        "track": 1,
+        "position": 38.73
+    },
+    {
+        "note": "เคย",
+        "track": 4,
+        "position": 38.73
+    },
+    {
+        "note": "นำ",
+        "track": 2,
+        "position": 38.96
+    },
+    {
+        "note": "นำ",
+        "track": 3,
+        "position": 38.96
+    },
+    {
+        "note": "ใน",
+        "track": 4,
+        "position": 39.46
+    },
+    {
+        "note": "เชิง",
+        "track": 1,
+        "position": 39.596
+    },
+    {
+        "note": "ช้ัน",
+        "track": 4,
+        "position": 40
+    },
+    {
+        "note": "กี",
+        "track": 3,
+        "position": 40.5,
+        "hold": true,
+        "range": 1
+    },
+    {
+        "note": "ฬา",
+        "track": 2,
+        "position": 41.87,
+        "hold": true,
+        "range": 0.3
     }
 ]

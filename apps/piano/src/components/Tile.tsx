@@ -86,8 +86,8 @@ const Tile: React.FC<TileProps> = ({
                     missed
                         ? 'bg-white/20'
                         : scored
-                        ? 'bg-green-300/50'
-                        : 'bg-white'
+                        ? 'bg-white/20'
+                        : 'bg-white/90'
                 }`}
                 style={{
                     height: hold ? durationToHeight(range) : '16px',
