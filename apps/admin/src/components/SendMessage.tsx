@@ -60,8 +60,11 @@ const SendMessage: React.FC = () => {
                                                       )
                                                   )
                                                       .sort()
-                                                      .map((group) => (
-                                                          <p className="flex items-center space-x-2">
+                                                      .map((group, idx) => (
+                                                          <p
+                                                              key={idx}
+                                                              className="flex items-center space-x-2"
+                                                          >
                                                               <span className="font-bold text-lg">
                                                                   {group.group}
                                                               </span>
@@ -224,6 +227,7 @@ const SendMessage: React.FC = () => {
                                             type="file"
                                             accept="image/*"
                                             onChange={onSelectImage}
+                                            alt="Preview Image"
                                         />
                                         {selectedImage && (
                                             <img
