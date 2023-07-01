@@ -1,17 +1,5 @@
 [
     {
-        "note": "test",
-        "track": 1,
-        "position": 4
-    },
-    {
-        "note": "test",
-        "track": 2,
-        "position": 4,
-        "hold": true,
-        "range": 0.8
-    },
-    {
         "note": "สี",
         "track": 1,
         "position": 30.96
@@ -75,12 +63,12 @@
     {
         "note": "วะ",
         "track": 3,
-        "position": 35.76
+        "position": 35.737
     },
     {
         "note": "กรรม",
         "track": 4,
-        "position": 35.97,
+        "position": 35.99,
         "hold": true,
         "range": 1.5
     },
@@ -131,13 +119,122 @@
         "track": 3,
         "position": 40.5,
         "hold": true,
-        "range": 1
+        "range": 1.2
     },
     {
         "note": "ฬา",
         "track": 2,
-        "position": 41.87,
+        "position": 41.82,
         "hold": true,
-        "range": 0.3
+        "range": 0.4
+    },
+    {
+        "note": "ลง",
+        "track": 1,
+        "position": 42.74
+    },
+    {
+        "note": "ส",
+        "track": 2,
+        "position": 43.1
+    },
+    {
+        "note": "นาม",
+        "track": 3,
+        "position": 43.32,
+        "hold": true,
+        "range": 0.8
+    },
+    {
+        "note": "งาม",
+        "track": 2,
+        "position": 44.197
+    },
+    {
+        "note": "งาม",
+        "track": 4,
+        "position": 44.197
+    },
+    {
+        "note": "น่า",
+        "track": 1,
+        "position": 44.6
+    },
+    {
+        "note": "น่า",
+        "track": 3,
+        "position": 44.6
+    },
+    {
+        "note": "ชม",
+        "track": 2,
+        "position": 44.966,
+        "hold": true,
+        "range": 0.4
+    },
+    {
+        "note": "ชม",
+        "track": 4,
+        "position": 44.966,
+        "hold": true,
+        "range": 0.4
+    },
+    {
+        "note": "ดู",
+        "track": 4,
+        "position": 45.711
+    },
+    {
+        "note": "ช่าง",
+        "track": 1,
+        "position": 45.851
+    },
+    {
+        "note": "สม",
+        "track": 3,
+        "position": 46.292,
+        "hold": true,
+        "range": 0.8
+    },
+    {
+        "note": "เป็น",
+        "track": 2,
+        "position": 47.164
+    },
+    {
+        "note": "ดา",
+        "track": 3,
+        "position": 47.357
+    },
+    {
+        "note": "รา",
+        "track": 1,
+        "position": 47.7,
+        "hold": true,
+        "range": 1.5
+    },
+    {
+        "note": "รา",
+        "track": 4,
+        "position": 47.7,
+        "hold": true,
+        "range": 1.5
+    },
+    {
+        "note": "งาม",
+        "track": 3,
+        "position": 49.409,
+        "hold": true,
+        "range": 1.31
+    },
+    {
+        "note": "ส",
+        "track": 1,
+        "position": 50.41
+    },
+    {
+        "note": "ง่า",
+        "track": 2,
+        "position": 50.686
     }
 ]

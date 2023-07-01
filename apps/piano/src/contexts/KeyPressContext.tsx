@@ -20,11 +20,26 @@ interface KeyPressContextProps {
             k: boolean;
         }>
     >;
+    isTapping: {
+        d: boolean;
+        f: boolean;
+        j: boolean;
+        k: boolean;
+    };
+    setIsTapping: React.Dispatch<
+        React.SetStateAction<{
+            d: boolean;
+            f: boolean;
+            j: boolean;
+            k: boolean;
+        }>
+    >;
 }
 
 export const KeyPressContext = createContext<KeyPressContextProps>(null);
 
 const KeyPressProvider: React.FC<KeyPressProviderProps> = ({ children }) => {
+    // key board press
     const [keysPress, setKeysPress] = useState({
         d: false,
         f: false,
@@ -50,8 +65,18 @@ const KeyPressProvider: React.FC<KeyPressProviderProps> = ({ children }) => {
     useKeyUp('j', handleJUp);
     useKeyUp('k', handleKUp);
 
+    // tapping
+    const [isTapping, setIsTapping] = useState({
+        d: false,
+        f: false,
+        j: false,
+        k: false,
+    });
+
     return (
-        <KeyPressContext.Provider value={{ keysPress, setKeysPress }}>
+        <KeyPressContext.Provider
+            value={{ keysPress, setKeysPress, isTapping, setIsTapping }}
+        >
             {children}
         </KeyPressContext.Provider>
     );

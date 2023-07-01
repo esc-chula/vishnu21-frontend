@@ -9,7 +9,7 @@ import SiiluedMhooKeys from '@/constants/siilued_mhoo.json';
 const Home: NextPage = () => {
     const { height } = useWindowSize();
     const { audioRef, start } = useContext(AudioContext);
-    const { keysPress, setKeysPress } = useContext(KeyPressContext);
+    const { keysPress, setKeysPress, isTapping } = useContext(KeyPressContext);
     const tileHeight = height - 144;
 
     const tapHandler = (key: string) => {
@@ -23,6 +23,13 @@ const Home: NextPage = () => {
     return (
         <main className="flex justify-center h-screen w-full bg-black">
             <div className="max-w-screen-sm h-full w-full relative bg-black/20 backdrop-blur-sm">
+                <div className="z-40 absolute bottom-36 left-0 right-0 grid grid-cols-4 text-white text-2xl">
+                    {['d', 'f', 'j', 'k'].map((key) => (
+                        <div key={key}>
+                            {isTapping[key] && keysPress[key] ? '⚙️' : ''}
+                        </div>
+                    ))}
+                </div>
                 {/* track */}
                 <div className="z-40 absolute top-0 left-0 right-0 h-1">
                     <div
@@ -42,7 +49,18 @@ const Home: NextPage = () => {
                     {['d', 'f', 'j', 'k'].map((key) => (
                         <button
                             key={key}
-                            onClick={() => tapHandler(key)}
+                            onMouseDown={() => {
+                                setKeysPress((prev) => ({
+                                    ...prev,
+                                    [key]: true,
+                                }));
+                            }}
+                            onMouseUp={() => {
+                                setKeysPress((prev) => ({
+                                    ...prev,
+                                    [key]: false,
+                                }));
+                            }}
                             className={`${
                                 keysPress[key]
                                     ? 'bg-black/[35%]'
@@ -62,10 +80,12 @@ const Home: NextPage = () => {
 
                 {/* column */}
                 <div className="z-20 absolute top-0 left-0 right-0 bottom-0 grid grid-cols-4">
-                    <div className="border-[1.5px] border-white/10"></div>
-                    <div className="border-[1.5px] border-white/10"></div>
-                    <div className="border-[1.5px] border-white/10"></div>
-                    <div className="border-[1.5px] border-white/10"></div>
+                    {['d', 'f', 'j', 'k'].map((key) => (
+                        <div
+                            key={key}
+                            className={`border-[1.5px] border-white/10`}
+                        ></div>
+                    ))}
                 </div>
 
                 {/* tile */}
