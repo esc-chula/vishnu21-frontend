@@ -53,7 +53,8 @@ const Tile: React.FC<TileProps> = ({
         if (detectorY > top && detectorY < bottom) {
             setScored(true);
 
-            const accuracy = 100 - Math.abs((top + bottom) / 2 - detectorY);
+            const accuracy =
+                100 - Math.abs((top + bottom) / 2 - detectorY) + 150;
             setTotalScore((prev) => prev + Math.round(accuracy * 10));
             setAccuracyHistory((prev) => [...prev, accuracy]);
 
@@ -68,14 +69,8 @@ const Tile: React.FC<TileProps> = ({
         }
     };
 
-    const checkHold = () => {};
-
     useEffect(() => {
-        if (hold) {
-            checkTap();
-        } else {
-            checkTap();
-        }
+        checkTap();
     }, [keysPress]);
 
     return (
@@ -83,7 +78,7 @@ const Tile: React.FC<TileProps> = ({
             ref={tileRef}
             className={`absolute flex ${
                 hold ? 'items-end' : 'items-end'
-            } w-full border border-cyan-300`}
+            } w-full`}
             style={{
                 bottom: durationToHeight(position) - tileOffset / 2,
             }}
@@ -97,7 +92,7 @@ const Tile: React.FC<TileProps> = ({
                         : 'bg-white/90'
                 }`}
                 style={{
-                    height: hold ? durationToHeight(range) : '40px',
+                    height: hold ? durationToHeight(range) : '16px',
                     marginTop: tileOffset / 2,
                     marginBottom: tileOffset / 2,
                 }}

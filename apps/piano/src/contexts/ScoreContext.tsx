@@ -17,6 +17,7 @@ export const ScoreContext = createContext<ScoreContextProps>(null);
 
 const ScoreProvider: React.FC<ScoreProviderProps> = ({ children }) => {
     const [totalScore, setTotalScore] = useState(0);
+    const [score, setScore] = useState<number[]>([]);
     const [accuracyHistory, setAccuracyHistory] = useState<number[]>([]);
     const [totalMiss, setTotalMiss] = useState(0);
 
@@ -31,7 +32,7 @@ const ScoreProvider: React.FC<ScoreProviderProps> = ({ children }) => {
                 setAccuracyHistory,
             }}
         >
-            <div className="fixed text-white z-50 top-0 left-0 right-0 bottom-96 pointer-events-none grid place-content-center text-4xl font-bold">
+            <div className="fixed text-white z-50 top-20 left-0 right-0 pointer-events-none grid place-content-center text-4xl font-bold">
                 {totalScore}
             </div>
             {children}

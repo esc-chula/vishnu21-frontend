@@ -55,9 +55,6 @@ const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                     </button>
                 </div>
             )}
-            <div className="fixed text-white z-50 top-0 left-0 right-0 bottom-80 pointer-events-none grid place-content-center text-4xl font-bold">
-                {currentTime.toFixed(0)}
-            </div>
 
             {/* video bg */}
             <div className="z-0 absolute top-0 left-0 right-0 bottom-0 flex justify-center">
@@ -68,7 +65,8 @@ const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                 />
             </div>
 
-            <audio ref={audioRef} src="/audio/siilued_mhoo.mp3"></audio>
+            {/* audio */}
+            <audio ref={audioRef} src="/audio/siilued_mhoo.mp3" />
 
             {children}
         </AudioContext.Provider>

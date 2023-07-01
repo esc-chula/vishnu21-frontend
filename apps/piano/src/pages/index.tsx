@@ -66,7 +66,7 @@ const Home: NextPage = () => {
                             //     el?.getBoundingClientRect()
                             // );
                         }}
-                        className="z-30 absolute bottom-0 left-0 right-0 h-36 border-t-[6px] border-red-950 grid grid-cols-4"
+                        className="z-30 absolute bottom-0 left-0 right-0 h-36 border-t-[6px] border-white grid grid-cols-4"
                     >
                         <button
                             className={
@@ -103,10 +103,10 @@ const Home: NextPage = () => {
 
                     {/* column */}
                     <div className="z-20 absolute top-0 left-0 right-0 bottom-0 grid grid-cols-4">
-                        <div className="border-2 border-[#1b1d29]"></div>
-                        <div className="border-2 border-[#1b1d29]"></div>
-                        <div className="border-2 border-[#1b1d29]"></div>
-                        <div className="border-2 border-[#1b1d29]"></div>
+                        <div className="border-[1.5px] border-white/10"></div>
+                        <div className="border-[1.5px] border-white/10"></div>
+                        <div className="border-[1.5px] border-white/10"></div>
+                        <div className="border-[1.5px] border-white/10"></div>
                     </div>
 
                     {/* tile */}
@@ -128,12 +128,6 @@ const Home: NextPage = () => {
                     >
                         {/* track 1 */}
                         <div className="relative flex flex-col justify-end">
-                            <div className="absolute top-0 h-20 w-20 bg-white">
-                                start
-                            </div>
-                            <div className="absolute bottom-0 h-20 w-20 bg-white">
-                                end
-                            </div>
                             {SiiluedMhooKeys.filter(
                                 (key) => key.track === 1
                             ).map((key, idx) => (
