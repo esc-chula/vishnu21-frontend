@@ -20,6 +20,7 @@ const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const audioRef = useRef<HTMLAudioElement>(null);
     const [start, setStart] = useState<boolean>(false);
+    const [end, setEnd] = useState<boolean>(false);
     const [currentTime, setCurrentTime] = useState<number>(0);
 
     useEffect(() => {
@@ -66,7 +67,14 @@ const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
             </div>
 
             {/* audio */}
-            <audio ref={audioRef} src="/audio/siilued_mhoo.mp3" />
+            <audio
+                ref={audioRef}
+                src="/audio/siilued_mhoo.mp3"
+                onEnded={() => {
+                    console.log('calucalting score...');
+                    setStart(false);
+                }}
+            />
 
             {children}
         </AudioContext.Provider>

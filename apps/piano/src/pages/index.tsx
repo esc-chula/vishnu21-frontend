@@ -10,64 +10,61 @@ const Home: NextPage = () => {
     const { height } = useWindowSize();
     const { audioRef, start } = useContext(AudioContext);
     const { keysPress } = useContext(KeyPressContext);
-
     const tileHeight = height - 144;
 
     return (
         <>
             {/* body */}
             <main className="flex justify-center h-screen w-full bg-black">
-                <div className="max-w-screen-sm h-full w-full relative bg-black/50">
+                <div className="max-w-screen-sm h-full w-full relative bg-black/20 backdrop-blur-sm">
                     {/* decoration */}
-                    <div
-                        ref={(el) => {
-                            // console.log(
-                            //     'detector',
-                            //     el?.getBoundingClientRect()
-                            // );
-                        }}
-                        className="z-30 absolute bottom-36 left-0 right-0 h-28 grid grid-cols-4 opacity-60"
-                    >
-                        <div
-                            className={
-                                keysPress.d
-                                    ? 'from-red-950/70 to-transparent bg-gradient-to-t'
-                                    : ''
-                            }
-                        ></div>
-                        <div
-                            className={
-                                keysPress.f
-                                    ? 'from-red-950/70 to-transparent bg-gradient-to-t'
-                                    : ''
-                            }
-                        ></div>
-                        <div
-                            className={
-                                keysPress.j
-                                    ? 'from-red-950/70 to-transparent bg-gradient-to-t'
-                                    : ''
-                            }
-                        ></div>
-                        <div
-                            className={
-                                keysPress.k
-                                    ? 'from-red-950/70 to-transparent bg-gradient-to-t'
-                                    : ''
-                            }
-                        ></div>
-                    </div>
+                    <>
+                        <div className="z-40 absolute bottom-0 left-0 right-0 h-1">
+                            <div
+                                className="h-full bg-red-900"
+                                style={{
+                                    width: `${
+                                        (audioRef.current?.currentTime /
+                                            audioRef.current?.duration) *
+                                        100
+                                    }%`,
+                                }}
+                            ></div>
+                        </div>
+                        <div className="z-30 absolute bottom-36 left-0 right-0 h-28 grid grid-cols-4 opacity-60">
+                            <div
+                                className={
+                                    keysPress.d
+                                        ? 'from-red-950/70 to-transparent bg-gradient-to-t'
+                                        : ''
+                                }
+                            ></div>
+                            <div
+                                className={
+                                    keysPress.f
+                                        ? 'from-red-950/70 to-transparent bg-gradient-to-t'
+                                        : ''
+                                }
+                            ></div>
+                            <div
+                                className={
+                                    keysPress.j
+                                        ? 'from-red-950/70 to-transparent bg-gradient-to-t'
+                                        : ''
+                                }
+                            ></div>
+                            <div
+                                className={
+                                    keysPress.k
+                                        ? 'from-red-950/70 to-transparent bg-gradient-to-t'
+                                        : ''
+                                }
+                            ></div>
+                        </div>
+                    </>
 
                     {/* button */}
-                    <div
-                        ref={(el) => {
-                            // console.log(
-                            //     'detector',
-                            //     el?.getBoundingClientRect()
-                            // );
-                        }}
-                        className="z-30 absolute bottom-0 left-0 right-0 h-36 border-t-[6px] border-white grid grid-cols-4"
-                    >
+                    <div className="z-30 absolute bottom-0 left-0 right-0 h-36 border-t-[6px] border-white grid grid-cols-4">
                         <button
                             className={
                                 keysPress.d

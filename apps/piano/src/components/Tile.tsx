@@ -20,7 +20,7 @@ const Tile: React.FC<TileProps> = ({
     range,
 }) => {
     const { audioRef, durationToHeight } = useContext(AudioContext);
-    const { setTotalScore, setTotalMiss, setAccuracyHistory } =
+    const { setScore, setTotalMiss, setAccuracyHistory } =
         useContext(ScoreContext);
     const { keysPress } = useContext(KeyPressContext);
     const { height } = useWindowSize();
@@ -48,14 +48,12 @@ const Tile: React.FC<TileProps> = ({
             if (!keysPress.k) return;
         }
 
-        const center = (top + bottom) / 2;
-
         if (detectorY > top && detectorY < bottom) {
             setScored(true);
 
             const accuracy =
                 100 - Math.abs((top + bottom) / 2 - detectorY) + 150;
-            setTotalScore((prev) => prev + Math.round(accuracy * 10));
+            setScore((prev) => [...prev, Math.round(accuracy * 10)]);
             setAccuracyHistory((prev) => [...prev, accuracy]);
 
             console.log('time', position, audioRef.current.currentTime);
@@ -69,9 +67,7 @@ const Tile: React.FC<TileProps> = ({
         }
     };
 
-    useEffect(() => {
-        checkTap();
-    }, [keysPress]);
+    useEffect(() => checkTap(), [keysPress]);
 
     return (
         <div

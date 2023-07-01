@@ -7,6 +7,8 @@ interface ScoreProviderProps {
 interface ScoreContextProps {
     totalScore: number;
     setTotalScore: React.Dispatch<React.SetStateAction<number>>;
+    score: number[];
+    setScore: React.Dispatch<React.SetStateAction<number[]>>;
     totalMiss: number;
     setTotalMiss: React.Dispatch<React.SetStateAction<number>>;
     accuracyHistory: number[];
@@ -26,6 +28,8 @@ const ScoreProvider: React.FC<ScoreProviderProps> = ({ children }) => {
             value={{
                 totalScore,
                 setTotalScore,
+                score,
+                setScore,
                 totalMiss,
                 setTotalMiss,
                 accuracyHistory,
@@ -33,7 +37,7 @@ const ScoreProvider: React.FC<ScoreProviderProps> = ({ children }) => {
             }}
         >
             <div className="fixed text-white z-50 top-20 left-0 right-0 pointer-events-none grid place-content-center text-4xl font-bold">
-                {totalScore}
+                {score.reduce((a, b) => a + b, 0)}
             </div>
             {children}
         </ScoreContext.Provider>
