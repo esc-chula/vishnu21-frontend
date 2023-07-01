@@ -25,6 +25,7 @@ const Tile: React.FC<TileProps> = ({
     const { keysPress } = useContext(KeyPressContext);
     const { height } = useWindowSize();
 
+    const targetRef = useRef<HTMLDivElement>(null);
     const tileRef = useRef<HTMLDivElement>(null);
 
     const [scored, setScored] = useState<boolean>(false);
@@ -52,7 +53,7 @@ const Tile: React.FC<TileProps> = ({
             setScored(true);
 
             const accuracy =
-                100 - Math.abs((top + bottom) / 2 - detectorY) + 150;
+                100 - Math.abs((top + bottom) / 2 - detectorY) + 120;
             setScore((prev) => [...prev, Math.round(accuracy * 10)]);
             setAccuracyHistory((prev) => [...prev, accuracy]);
 
@@ -76,11 +77,12 @@ const Tile: React.FC<TileProps> = ({
                 hold ? 'items-end' : 'items-end'
             } w-full`}
             style={{
+                height: tileOffset,
                 bottom: durationToHeight(position) - tileOffset / 2,
             }}
         >
             <div
-                className={`w-full ${
+                className={`absolute w-full shadow-lg ${
                     missed
                         ? 'bg-white/20'
                         : scored

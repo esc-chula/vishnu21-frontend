@@ -5,20 +5,24 @@ interface KeyPressProviderProps {
     children: React.ReactNode;
 }
 
-export const KeyPressContext = createContext({
+interface KeyPressContextProps {
     keysPress: {
-        d: false,
-        f: false,
-        j: false,
-        k: false,
-    },
-    setKeysPress: (keyPress: {
         d: boolean;
         f: boolean;
         j: boolean;
         k: boolean;
-    }) => {},
-});
+    };
+    setKeysPress: React.Dispatch<
+        React.SetStateAction<{
+            d: boolean;
+            f: boolean;
+            j: boolean;
+            k: boolean;
+        }>
+    >;
+}
+
+export const KeyPressContext = createContext<KeyPressContextProps>(null);
 
 const KeyPressProvider: React.FC<KeyPressProviderProps> = ({ children }) => {
     const [keysPress, setKeysPress] = useState({

@@ -1,5 +1,17 @@
 [
     {
+        "note": "test",
+        "track": 1,
+        "position": 4
+    },
+    {
+        "note": "test",
+        "track": 2,
+        "position": 4,
+        "hold": true,
+        "range": 0.8
+    },
+    {
         "note": "สี",
         "track": 1,
         "position": 30.96
