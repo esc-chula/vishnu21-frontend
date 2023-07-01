@@ -48,13 +48,17 @@ const Tile: React.FC<TileProps> = ({
             if (!keysPress.k) return;
         }
 
+        const center = (top + bottom) / 2;
+
         if (detectorY > top && detectorY < bottom) {
             setScored(true);
-            console.log('time', audioRef.current.currentTime);
 
             const accuracy = 100 - Math.abs((top + bottom) / 2 - detectorY);
             setTotalScore((prev) => prev + Math.round(accuracy * 10));
             setAccuracyHistory((prev) => [...prev, accuracy]);
+
+            console.log('time', position, audioRef.current.currentTime);
+            // console.log('accuracy', accuracy);
         } else {
             if (detectorY < top) {
                 setMissed(true);
@@ -78,13 +82,10 @@ const Tile: React.FC<TileProps> = ({
         <div
             ref={tileRef}
             className={`absolute flex ${
-                hold ? 'items-end' : 'items-center'
-            } w-full border-y border-cyan-200 bg-cyan-300/5`}
+                hold ? 'items-end' : 'items-end'
+            } w-full border border-cyan-300`}
             style={{
-                bottom: durationToHeight(position),
-                height: tileOffset,
-                // paddingBottom: hold ? '66px' : 0,
-                paddingBottom: hold ? '191px' : 0,
+                bottom: durationToHeight(position) - tileOffset / 2,
             }}
         >
             <div
@@ -96,7 +97,9 @@ const Tile: React.FC<TileProps> = ({
                         : 'bg-white/90'
                 }`}
                 style={{
-                    height: hold ? durationToHeight(range) : '16px',
+                    height: hold ? durationToHeight(range) : '40px',
+                    marginTop: tileOffset / 2,
+                    marginBottom: tileOffset / 2,
                 }}
             ></div>
         </div>

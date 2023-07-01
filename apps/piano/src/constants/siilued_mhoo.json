@@ -4,17 +4,37 @@
         "track": 1,
         "position": 1
     },
+
     {
         "note": "test",
         "track": 2,
-        "position": 1,
-        "hold": true,
-        "range": 1
+        "position": 2
     },
+    {
+        "note": "test",
+        "track": 2,
+        "position": 10
+    },
+    {
+        "note": "test",
+        "track": 1,
+        "position": 100
+    },
+    {
+        "note": "test",
+        "track": 1,
+        "position": 150
+    },
+    {
+        "note": "test",
+        "track": 1,
+        "position": 190
+    },
+
     {
         "note": "สี",
         "track": 1,
-        "position": 31.07
+        "position": 30.96
     },
     {
         "note": "เลือด",
@@ -24,7 +44,7 @@
     {
         "note": "หมู",
         "track": 3,
-        "position": 31.786,
+        "position": 31.75,
         "hold": true,
         "range": 0.4
     },
@@ -41,7 +61,7 @@
     {
         "note": "พราว",
         "track": 2,
-        "position": 33.105,
+        "position": 33.1,
         "hold": true,
         "range": 0.7
     },
