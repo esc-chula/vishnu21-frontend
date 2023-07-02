@@ -1,3 +1,5 @@
+import bg from './vol1/bg';
+
 import branches1 from './vol1/branches1';
 import branches2 from './vol1/branches2';
 import key from './vol1/key';
@@ -25,6 +27,7 @@ import ticket1 from './vol1/ticket1';
 import ticket2 from './vol1/ticket2';
 
 export const vol1 = {
+    bg,
     branches1,
     branches2,
     key,
