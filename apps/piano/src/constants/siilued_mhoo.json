@@ -223,9 +223,9 @@
     {
         "note": "งาม",
         "track": 3,
-        "position": 49.409,
+        "position": 49.3,
         "hold": true,
-        "range": 1.31
+        "range": 1.4
     },
     {
         "note": "ส",
@@ -236,5 +236,96 @@
         "note": "ง่า",
         "track": 2,
         "position": 50.686
+    },
+    {
+        "note": "เพราะ",
+        "track": 4,
+        "position": 51.206
+    },
+    {
+        "note": "วัน",
+        "track": 1,
+        "position": 51.464
+    },
+    {
+        "note": "นี้",
+        "track": 3,
+        "position": 51.808,
+        "hold": true,
+        "range": 0.527
+    },
+    {
+        "note": "มั่น",
+        "track": 2,
+        "position": 52.335,
+        "hold": true,
+        "range": 1.9
+    },
+    {
+        "note": "ใจ",
+        "track": 3,
+        "position": 53.562
+    },
+
+    {
+        "note": "สี",
+        "track": 1,
+        "position": 54.369
+    },
+    {
+        "note": "สี",
+        "track": 4,
+        "position": 54.369
+    },
+    {
+        "note": "เลือด",
+        "track": 2,
+        "position": 54.7
+    },
+    {
+        "note": "เลือด",
+        "track": 3,
+        "position": 54.7
+    },
+    {
+        "note": "หมู",
+        "track": 1,
+        "position": 55.132,
+        "hold": true,
+        "range": 0.5
+    },
+    {
+        "note": "หมู",
+        "track": 4,
+        "position": 55.132,
+        "hold": true,
+        "range": 0.5
+    },
+    {
+        "note": "ดู",
+        "track": 2,
+        "position": 55.9
+    },
+    {
+        "note": "ดู",
+        "track": 4,
+        "position": 55.9
+    },
+    {
+        "note": "แพรว",
+        "track": 1,
+        "position": 56.19
+    },
+    {
+        "note": "แพรว",
+        "track": 3,
+        "position": 56.19
+    },
+    {
+        "note": "พราว",
+        "track": 2,
+        "position": 56.58,
+        "hold": true,
+        "range": 0.5
     }
 ]
