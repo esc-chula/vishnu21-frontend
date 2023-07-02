@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
 
-type FAQItemProps = {
+export type FAQItemProps = {
+    id: string;
     question: string;
     answer: string;
 };

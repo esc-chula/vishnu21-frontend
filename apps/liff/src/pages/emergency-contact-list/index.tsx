@@ -9,66 +9,28 @@ import GrainBackground from '@/public/images/grain-background.svg';
 const EmergencyContactList: NextPage = () => {
     const [contacts, setContacts] = useState([]);
 
-    // TODO: fetch from API
     useEffect(() => {
-        setContacts([
-            {
-                id: '1',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: null,
-                line: 'lineid',
-                photo_url: '/images/branches1.svg',
-            },
-            {
-                id: '2',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: null,
-                line: 'lineid',
-                photo_url: '/images/spore1.svg',
-            },
-            {
-                id: '3',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: 'Lorem ipsum dolor',
-                line: 'lineid',
-                photo_url: '/images/branches1.svg',
-            },
-            {
-                id: '4',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: null,
-                line: 'lineid',
-                photo_url: '/images/spore1.svg',
-            },
-            {
-                id: '5',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: null,
-                line: 'lineid',
-                photo_url: '/images/branches1.svg',
-            },
-            {
-                id: '6',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: null,
-                line: 'lineid',
-                photo_url: '/images/spore1.svg',
-            },
-            {
-                id: '7',
-                name: 'Lorem',
-                phone: '0812345678',
-                remark: 'Lorem ipsum dolor',
-                line: 'lineid',
-                photo_url: '/images/branches1.svg',
-            },
-        ]);
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        const getContacts = async () => {
+            try {
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/groups/emergency/`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+                const data = await res.json();
+                setContacts(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        getContacts();
     }, []);
 
     return (
