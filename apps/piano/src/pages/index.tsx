@@ -23,13 +23,6 @@ const Home: NextPage = () => {
     return (
         <main className="flex justify-center h-screen w-full bg-black">
             <div className="max-w-screen-sm h-full w-full relative bg-black/20 backdrop-blur-sm">
-                <div className="z-40 absolute bottom-36 left-0 right-0 grid grid-cols-4 text-white text-2xl">
-                    {['d', 'f', 'j', 'k'].map((key) => (
-                        <div key={key}>
-                            {isTapping[key] && keysPress[key] ? '⚙️' : ''}
-                        </div>
-                    ))}
-                </div>
                 {/* track */}
                 <div className="z-40 absolute top-0 left-0 right-0 h-1">
                     <div
@@ -44,6 +37,22 @@ const Home: NextPage = () => {
                     ></div>
                 </div>
 
+                {/* tapped effect */}
+                <div className="z-40 absolute bottom-[150px] left-0 right-0 grid grid-cols-4 text-white text-2xl">
+                    {['d', 'f', 'j', 'k'].map((key) => (
+                        <div
+                            key={key}
+                            className={
+                                isTapping[key] && keysPress[key]
+                                    ? 'w-full h-40 bg-gradient-to-t from-red-800/50 to-transparent'
+                                    : 'opacity-0'
+                            }
+                        >
+                            {/* {isTapping[key] && keysPress[key] ? '⚙️' : ''} */}
+                        </div>
+                    ))}
+                </div>
+
                 {/* button */}
                 <div className="z-30 absolute bottom-0 left-0 right-0 border-t-[6px] border-white grid grid-cols-4">
                     {['d', 'f', 'j', 'k'].map((key) => (
@@ -56,6 +65,12 @@ const Home: NextPage = () => {
                                 }));
                             }}
                             onMouseUp={() => {
+                                setKeysPress((prev) => ({
+                                    ...prev,
+                                    [key]: false,
+                                }));
+                            }}
+                            onMouseLeave={() => {
                                 setKeysPress((prev) => ({
                                     ...prev,
                                     [key]: false,
