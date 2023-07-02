@@ -1,10 +1,12 @@
 import Layout from '@/components/Layout';
+import LinksData from '@/links.json';
 import { logo } from 'assets';
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const Home: NextPage = () => {
+    const links = LinksData;
+
     return (
         <Layout>
             <div className="flex flex-col items-center pt-28 space-y-20">
@@ -40,18 +42,17 @@ const Home: NextPage = () => {
 
                 {/* links */}
                 <div className="flex flex-col w-80 space-y-10">
-                    <Link
-                        href="/"
-                        className="w-full h-12 bg-white rounded-2xl text-primary-900 flex items-center px-4 font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
-                    >
-                        LINE OA
-                    </Link>
-                    <Link
-                        href="/"
-                        className="w-full h-12 bg-white rounded-2xl text-primary-900 flex items-center px-4 font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
-                    >
-                        ฟอร์มสอบถามความต้องการเข้าร่วมงาน
-                    </Link>
+                    {links.map((link) => {
+                        return (
+                            <a
+                                href={link.href}
+                                rel="noopener noreferrer"
+                                className="w-full h-12 bg-white rounded-2xl text-primary-900 flex items-center px-4 font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
+                            >
+                                {link.label}
+                            </a>
+                        );
+                    })}
                 </div>
             </div>
         </Layout>
