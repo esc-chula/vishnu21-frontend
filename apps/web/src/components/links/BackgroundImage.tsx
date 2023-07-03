@@ -6,7 +6,7 @@ const BackgroundImage: React.FC = () => {
         <Image
             priority
             loading="eager"
-            quality={25}
+            quality={20}
             src={vol1.bg}
             alt="Background Image"
             fill
