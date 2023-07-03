@@ -1,6 +1,20 @@
+import { useOnScreen } from '@/hooks/useOnScreen';
+import { LinksLoadingContext } from '@/pages/links';
+import { useContext, useEffect, useRef } from 'react';
+
 const Vignette: React.FC = () => {
+    const { setVignetteLoaded } = useContext(LinksLoadingContext);
+
+    const ref = useRef<HTMLDivElement>(null);
+    const isVisible = useOnScreen(ref);
+
+    useEffect(() => {
+        setVignetteLoaded(isVisible);
+    }, [isVisible]);
+
     return (
         <div
+            ref={ref}
             className="z-20 absolute -top-44 -bottom-44 -left-44 -right-44 opacity-80 rounded-[100%]"
             style={{
                 background:
