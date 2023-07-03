@@ -1,4 +1,4 @@
-import Game from '@/components/game/siilued-mhoo/Game';
+import Game from '@/components/game/siilued-mhoo';
 import AudioProvider from '@/contexts/game/siilued-mhoo/AudioContext';
 import KeyPressProvider from '@/contexts/game/siilued-mhoo/KeyPressContext';
 import ScoreProvider from '@/contexts/game/siilued-mhoo/ScoreContext';
