@@ -45,7 +45,7 @@ const Links = () => {
                     </div>
 
                     {/* links */}
-                    <div className="flex flex-col max-w-[320px] w-full space-y-10">
+                    <div className="flex flex-col max-w-[320px] w-full space-y-10 pb-20">
                         {links.map((link) => {
                             return (
                                 <a
