@@ -2,7 +2,7 @@
     {
         "href": "https://forms.gle/yLt8iM3rh1pwrABXA",
         "label": "ฟอร์มความต้องการเข้าร่วมงาน",
-        "icon": ""
+        "icon": "https://cdn-icons-png.flaticon.com/512/5968/5968528.png"
     },
     {
         "href": "https://www.tiktok.com/@vishnu21st",
@@ -12,11 +12,11 @@
     {
         "href": "https://youtube.com/@vishnu21st",
         "label": "Youtube",
-        "icon": ""
+        "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
     },
     {
-        "href": "/",
-        "label": "",
-        "icon": ""
+        "href": "https://www.instagram.com/vishnu21st/",
+        "label": "Instagram",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
     }
 ]
