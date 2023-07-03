@@ -68,7 +68,7 @@ const Links = () => {
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full p-3.5 pl-14 bg-white rounded-2xl text-primary-900 relative flex items-center justify-start font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
+                                        className="w-full p-3.5 pl-14 bg-white rounded-2xl text-primary-900 relative flex items-center justify-start font-semibold shadow-button"
                                     >
                                         {link.icon ? (
                                             <picture className="absolute left-1 h-12 w-12 p-3">
