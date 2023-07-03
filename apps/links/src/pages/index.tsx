@@ -45,10 +45,20 @@ const Home: NextPage = () => {
                     {links.map((link) => {
                         return (
                             <a
+                                key={link.label}
                                 href={link.href}
+                                target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full h-12 bg-white rounded-2xl text-primary-900 flex items-center px-4 font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
+                                className="w-full h-12 bg-white rounded-2xl text-primary-900 relative flex items-center justify-center text-center font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
                             >
+                                {link.icon ? (
+                                    <img
+                                        src={link.icon}
+                                        alt={link.label + ' icon'}
+                                        className="absolute left-1 h-full aspect-square p-2.5"
+                                    />
+                                ) : null}
+
                                 {link.label}
                             </a>
                         );
