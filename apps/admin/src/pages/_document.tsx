@@ -17,7 +17,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html>
+            <Html className="text-neutral-800">
                 <Head></Head>
                 <body>
                     <Main />

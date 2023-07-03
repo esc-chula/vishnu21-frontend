@@ -1,0 +1,146 @@
+[
+    {
+        "group": "A",
+        "name": "อามองอัส",
+        "longName": "อามองอัสนั้นมีมุดท่อแต่ทำไงหน๊อเธอถึงกลับมา",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "B",
+        "name": "อาหารเผ็ด",
+        "longName": "อาหารที่ว่าเผ็ดยังไม่เด็ดเท่าเราเลย",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "C",
+        "name": "อนาคตใจ",
+        "longName": "Rนาคตของชาติไม่รู้ใคร แต่อนาคตของใจคือเธอ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "Dog",
+        "name": "อาการไหน",
+        "longName": "อาการเป็นยังไงบอกหมอซิ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "E",
+        "name": "อารีย์",
+        "longName": "อารีย์อยู่ติดสะพานควาย แต่ใจละลายเพราะอยู่ติดเธอ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "F",
+        "name": "อากาโตะ",
+        "longName": "R ริกาโตะ โกไซมัส อิรัชชัยมาเสะ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "G",
+        "name": "อากาศ",
+        "longName": "อากาศข้างนอกมันอบอ้าว มาอยู่ในใจเราป่าว อบอุ่นนะ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "H",
+        "name": "อาคม",
+        "longName": "อาคมต้องเรียนที่ Hogwarts ถ้าอยากได้คนกอดให้มาเรียนกับเรา",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "J",
+        "name": "Rคงที่",
+        "longName": "R เท่ากับค่าคงที่ของแก๊ส แล้วเมื่อไหร่ Uจะเป็นค่าคงที่ของเรา",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "K",
+        "name": "อาการรัก",
+        "longName": "อาการไอเกิดจากไวรัส อาการรักเกิดจากเธอ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "L",
+        "name": "อาหมวยหาย",
+        "longName": "อาหมวยในวันนี้ คืออาอี๊ในวันหน้า และเป็นอาม่าในอนาคต",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "M",
+        "name": "อาต้านทาน",
+        "longName": "อาเท่ากับโลแอลส่วนเอ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "N",
+        "name": "อาแฮงค์",
+        "longName": "อาการแฮงค์เกิดจากคืนเหงา ๆ อาการเศร้าเกิดจากการคิดถึงเธอ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "P",
+        "name": "อาจารย์",
+        "longName": "อาจารย์สอนให้รักในความรู้ แต่ยูสอนให้รู้ในความรัก",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "Q",
+        "name": "อาถรรพ์",
+        "longName": "อาถรรพ์ที่เป็นของขลัง ยังไม่เท่าความหลังที่เป็นของเธอ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "R",
+        "name": "อาสา",
+        "longName": "Rสาจะทำแทน แต่ลืมไปว่าไม่ใช่แฟนทำแทนไม่ได้",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "S",
+        "name": "Rลาดิน",
+        "longName": "อาลาดินต้องใช้พรม แต่อยู่กับผมต้องใช้ใจ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    },
+    {
+        "group": "T",
+        "name": "Rโหเธอ",
+        "longName": "Rทิตที่แล้วพึ่งปล่อยกระทง แต่Rทิตนี่คงต้องปล่อยเธอไป โหวเธอเจ็บจีสส",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "profile": "",
+        "score": "0"
+    }
+]
