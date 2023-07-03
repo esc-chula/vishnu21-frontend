@@ -3,7 +3,12 @@ import '../styles/globals.css';
 import 'ui/styles.css';
 
 import type { AppProps } from 'next/app';
+import { WEB_PRODUCTION } from 'env';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
+    if (WEB_PRODUCTION) {
+        return <Component {...pageProps} />;
+    } else {
+        return <></>;
+    }
 }
