@@ -1,10 +1,9 @@
-import Layout from '@/components/Layout';
-import LinksData from '@/links.json';
+import Layout from '@/components/links/Layout';
+import LinksData from '@/constants/links.json';
 import { logo } from 'assets';
-import type { NextPage } from 'next';
 import Image from 'next/image';
 
-const Home: NextPage = () => {
+const Links = () => {
     const links = LinksData;
 
     return (
@@ -71,4 +70,4 @@ const Home: NextPage = () => {
     );
 };
 
-export default Home;
+export default Links;

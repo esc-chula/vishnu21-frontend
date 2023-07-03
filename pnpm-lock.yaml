@@ -154,66 +154,11 @@ importers:
         specifier: ^4.9.4
         version: 4.9.5
 
-  apps/links:
+  apps/web:
     dependencies:
       assets:
         specifier: workspace:*
         version: link:../../packages/assets
-      env:
-        specifier: workspace:*
-        version: link:../../packages/env
-      fetch:
-        specifier: workspace:*
-        version: link:../../packages/fetch
-      next:
-        specifier: latest
-        version: 13.4.7(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      types:
-        specifier: workspace:*
-        version: link:../../packages/types
-      ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
-    devDependencies:
-      '@types/node':
-        specifier: ^18.11.17
-        version: 18.16.18
-      '@types/react':
-        specifier: ^18.0.26
-        version: 18.2.13
-      '@types/react-dom':
-        specifier: ^18.0.9
-        version: 18.2.6
-      autoprefixer:
-        specifier: ^10.4.13
-        version: 10.4.14(postcss@8.4.24)
-      eslint-config-custom:
-        specifier: workspace:*
-        version: link:../../packages/eslint-config-custom
-      postcss:
-        specifier: ^8.4.20
-        version: 8.4.24
-      tailwind-config:
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
-      tailwindcss:
-        specifier: ^3.2.4
-        version: 3.3.2(ts-node@10.9.1)
-      tsconfig:
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
-      typescript:
-        specifier: ^4.9.4
-        version: 4.9.5
-
-  apps/web:
-    dependencies:
       env:
         specifier: workspace:*
         version: link:../../packages/env
