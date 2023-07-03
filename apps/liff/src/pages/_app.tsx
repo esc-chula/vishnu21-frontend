@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import type Liff from '@line/liff';
 import { useState, useEffect } from 'react';
+import { LIFF_PRODUCTION } from 'env';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
@@ -30,7 +31,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     // to page component as property
     pageProps.liff = liffObject;
     pageProps.liffError = liffError;
-    return <Component {...pageProps} />;
+
+    if (LIFF_PRODUCTION) {
+        return <Component {...pageProps} />;
+    } else {
+        return <></>;
+    }
 }
 
 export default MyApp;

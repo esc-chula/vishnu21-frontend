@@ -1,5 +1,8 @@
+import bg from './vol1/bg';
+
 import branches1 from './vol1/branches1';
 import branches2 from './vol1/branches2';
+import cloud1 from './vol1/cloud1';
 import key from './vol1/key';
 import leaf1 from './vol1/leaf1';
 import leaf2 from './vol1/leaf2';
@@ -25,8 +28,10 @@ import ticket1 from './vol1/ticket1';
 import ticket2 from './vol1/ticket2';
 
 export const vol1 = {
+    bg,
     branches1,
     branches2,
+    cloud1,
     key,
     leaf1,
     leaf2,
