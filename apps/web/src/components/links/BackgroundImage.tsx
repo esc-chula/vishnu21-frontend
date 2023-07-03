@@ -4,6 +4,9 @@ import Image from 'next/image';
 const BackgroundImage: React.FC = () => {
     return (
         <Image
+            priority
+            loading="eager"
+            quality={25}
             src={vol1.bg}
             alt="Background Image"
             fill

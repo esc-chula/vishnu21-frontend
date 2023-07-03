@@ -10,12 +10,6 @@ export const LIFF_PRODUCTION =
         : process.env.NEXT_PUBLIC_LIFF_PRODUCTION === 'true'
         ? true
         : false;
-export const LINKS_PRODUCTION =
-    process.env.NEXT_PUBLIC_LINKS_PRODUCTION === undefined
-        ? true
-        : process.env.NEXT_PUBLIC_LINKS_PRODUCTION === 'true'
-        ? true
-        : false;
 export const WEB_PRODUCTION =
     process.env.NEXT_PUBLIC_WEB_PRODUCTION === undefined
         ? true

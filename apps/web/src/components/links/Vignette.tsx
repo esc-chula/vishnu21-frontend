@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Vignette: React.FC = () => {
     return (
         <div
