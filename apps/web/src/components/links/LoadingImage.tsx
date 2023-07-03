@@ -22,7 +22,10 @@ const LoadingImage: React.FC<LoadingImageProps> = ({
             src={src}
             alt="Background Image"
             className={className}
-            style={{ transitionDuration: '700ms', opacity: loaded ? 1 : 0 }}
+            style={{
+                transitionDuration: '700ms',
+                opacity: loaded ? 1 : 0,
+            }}
             width={width}
             height={height}
             onLoadingComplete={() => setLoaded(true)}
