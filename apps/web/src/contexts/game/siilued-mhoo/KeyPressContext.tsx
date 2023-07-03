@@ -1,5 +1,5 @@
 import { useKeyDown, useKeyUp } from '@/hooks/useKeyPress';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 interface KeyPressProviderProps {
     children: React.ReactNode;

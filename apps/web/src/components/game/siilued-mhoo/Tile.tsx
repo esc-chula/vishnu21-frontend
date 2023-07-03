@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { KeyPressContext } from '@/contexts/KeyPressContext';
-import { ScoreContext } from '@/contexts/ScoreContext';
-import { AudioContext } from '@/contexts/AudioContext';
+import { KeyPressContext } from '@/contexts/game/siilued-mhoo/KeyPressContext';
+import { ScoreContext } from '@/contexts/game/siilued-mhoo/ScoreContext';
+import { AudioContext } from '@/contexts/game/siilued-mhoo/AudioContext';
 
 interface TileProps {
     track: 1 | 2 | 3 | 4;

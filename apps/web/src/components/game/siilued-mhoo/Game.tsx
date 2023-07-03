@@ -1,27 +1,17 @@
-import type { NextPage } from 'next';
-import { useContext, useEffect, useRef, useState } from 'react';
-import Tile from '@/components/Tile';
+import { AudioContext } from '@/contexts/game/siilued-mhoo/AudioContext';
+import { KeyPressContext } from '@/contexts/game/siilued-mhoo/KeyPressContext';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { KeyPressContext } from '@/contexts/KeyPressContext';
-import { AudioContext } from '@/contexts/AudioContext';
+import React, { useContext } from 'react';
 import SiiluedMhooKeys from '@/constants/siilued_mhoo.json';
+import Tile from '@/components/game/siilued-mhoo/Tile';
 
-const Home: NextPage = () => {
+const Game: React.FC = () => {
     const { height } = useWindowSize();
     const { audioRef, start } = useContext(AudioContext);
     const { keysPress, setKeysPress, isTapping } = useContext(KeyPressContext);
     const tileHeight = height - 144;
-
-    const tapHandler = (key: string) => {
-        setKeysPress((prev) => ({ ...prev, [key]: true }));
-
-        setTimeout(() => {
-            setKeysPress((prev) => ({ ...prev, [key]: false }));
-        }, 100);
-    };
-
     return (
-        <main className="flex justify-center h-screen w-full bg-black">
+        <main className="flex justify-center h-screen w-full bg-black overflow-hidden">
             <div className="max-w-screen-sm h-full w-full relative bg-black/20 backdrop-blur-sm">
                 {/* track */}
                 <div className="z-40 absolute top-0 left-0 right-0 h-1">
@@ -181,4 +171,4 @@ const Home: NextPage = () => {
     );
 };
 
-export default Home;
+export default Game;
