@@ -5,6 +5,7 @@ import Center from './Center';
 import BackgroundImage from './BackgroundImage';
 import { useState } from 'react';
 import LoadingImage from './LoadingImage';
+import Moon from './Moon';
 
 const Background: React.FC = () => {
     return (
@@ -75,12 +76,7 @@ const Background: React.FC = () => {
                         width={194}
                         height={248}
                     />
-                    <div
-                        className="z-20 absolute w-[134px] h-[134px] -top-16 -right-10 rounded-full bg-[#f3d79c] opacity-70 blur-[8px] mix-blend-screen"
-                        style={{
-                            boxShadow: '0px 4px 100px 0px #D9AB9F',
-                        }}
-                    ></div>
+                    <Moon />
                     <LoadingImage
                         src={vol1.leaf6}
                         className="z-10 absolute top-[275px] -right-16 -rotate-[40deg]"

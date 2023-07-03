@@ -23,20 +23,9 @@ const Links = () => {
             <LinksLoadingContext.Provider
                 value={{ vignetteLoaded, setVignetteLoaded }}
             >
-                {/* blur foreground */}
-                <div
-                    className={`fixed top-0 left-0 right-0 bottom-0 z-50 duration-700 transition-all ${
-                        vignetteLoaded
-                            ? 'bg-black/0 pointer-events-none'
-                            : 'bg-black/20 backdrop-blur-sm'
-                    }`}
-                ></div>
-
                 <Layout>
                     <div
-                        className={`flex flex-col items-center pt-28 space-y-12 duration-700 ${
-                            !vignetteLoaded && 'scale-95'
-                        }`}
+                        className={`flex flex-col items-center pt-28 space-y-12`}
                     >
                         {/* informations */}
                         <div className="flex flex-col items-center space-y-5">
