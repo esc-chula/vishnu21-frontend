@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                 </div>
 
                 {/* links */}
-                <div className="flex flex-col w-80 space-y-10">
+                <div className="flex flex-col max-w-[320px] w-full space-y-10">
                     {links.map((link) => {
                         return (
                             <a
@@ -49,14 +49,16 @@ const Home: NextPage = () => {
                                 href={link.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full h-12 bg-white rounded-2xl text-primary-900 relative flex items-center justify-center text-center font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
+                                className="w-full p-3.5 pl-14 bg-white rounded-2xl text-primary-900 relative flex items-center justify-start font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
                             >
                                 {link.icon ? (
-                                    <img
-                                        src={link.icon}
-                                        alt={link.label + ' icon'}
-                                        className="absolute left-1 h-full aspect-square p-2.5"
-                                    />
+                                    <picture className="absolute left-1 h-12 w-12 p-3">
+                                        <source srcSet={link.icon} />
+                                        <img
+                                            src={link.icon}
+                                            alt={link.label + ' icon'}
+                                        />
+                                    </picture>
                                 ) : null}
 
                                 {link.label}

@@ -7,7 +7,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <>
-            <div className="z-10 absolute top-0 left-0 right-0 bottom-0 overflow-y-auto text-white">
+            <div className="z-10 absolute top-0 left-0 right-0 bottom-0 overflow-y-auto text-white px-4">
                 {children}
             </div>
             <Background />
