@@ -23,20 +23,9 @@ const Links = () => {
             <LinksLoadingContext.Provider
                 value={{ vignetteLoaded, setVignetteLoaded }}
             >
-                {/* blur foreground */}
-                <div
-                    className={`fixed top-0 left-0 right-0 bottom-0 z-50 duration-700 transition-all ${
-                        vignetteLoaded
-                            ? 'bg-black/0 pointer-events-none'
-                            : 'bg-black/20 backdrop-blur-sm'
-                    }`}
-                ></div>
-
                 <Layout>
                     <div
-                        className={`flex flex-col items-center pt-28 space-y-12 duration-700 ${
-                            !vignetteLoaded && 'scale-95'
-                        }`}
+                        className={`flex flex-col items-center pt-28 space-y-12`}
                     >
                         {/* informations */}
                         <div className="flex flex-col items-center space-y-5">
@@ -79,7 +68,7 @@ const Links = () => {
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full p-3.5 pl-14 bg-white rounded-2xl text-primary-900 relative flex items-center justify-start font-semibold shadow-button hover:scale-105 duration-300 ease-in-out"
+                                        className="w-full p-3.5 pl-14 bg-white rounded-2xl text-primary-900 relative flex items-center justify-start font-semibold shadow-button"
                                     >
                                         {link.icon ? (
                                             <picture className="absolute left-1 h-12 w-12 p-3">
