@@ -34,6 +34,30 @@ const TapButtons: React.FC = () => {
                             [key]: false,
                         }));
                     }}
+                    onPan={() => {
+                        setKeysPress((prev) => ({
+                            ...prev,
+                            [key]: true,
+                        }));
+                    }}
+                    onPanCancel={() => {
+                        setKeysPress((prev) => ({
+                            ...prev,
+                            [key]: false,
+                        }));
+                    }}
+                    onPanEnd={() => {
+                        setKeysPress((prev) => ({
+                            ...prev,
+                            [key]: false,
+                        }));
+                    }}
+                    onPanStart={() => {
+                        setKeysPress((prev) => ({
+                            ...prev,
+                            [key]: true,
+                        }));
+                    }}
                 >
                     <button
                         className={`${
