@@ -9,12 +9,14 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@types/react-hammerjs": "^1.0.4",
         "assets": "workspace:*",
         "env": "workspace:*",
         "fetch": "workspace:*",
         "next": "latest",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-hammerjs": "^1.0.1",
         "types": "workspace:*",
         "ui": "workspace:*"
     },
