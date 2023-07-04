@@ -19,6 +19,13 @@ class MyDocument extends Document {
         return (
             <Html className="bg-black text-white">
                 <Head>
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+                    />
+                    <meta name="HandheldFriendly" content="true" />
+
+                    {/* font */}
                     <link rel="icon" href="/favicon.ico" />
                     <link
                         rel="preconnect"
