@@ -6,7 +6,10 @@ import TapEffect from './TapEffect';
 
 const Game: React.FC = () => {
     return (
-        <main className="flex justify-center h-screen w-full bg-black overflow-hidden">
+        <section
+            id="game"
+            className="flex justify-center h-screen w-full bg-black overflow-hidden"
+        >
             <div className="max-w-screen-sm h-full w-full relative bg-black/20">
                 <Slider />
                 <TapEffect />
@@ -14,7 +17,7 @@ const Game: React.FC = () => {
                 <TrackBorder />
                 <Track />
             </div>
-        </main>
+        </section>
     );
 };
 

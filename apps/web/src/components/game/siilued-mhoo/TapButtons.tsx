@@ -9,19 +9,13 @@ const TapButtons: React.FC = () => {
             {['d', 'f', 'j', 'k'].map((key) => (
                 <button
                     key={key}
-                    onMouseDown={() => {
+                    onTouchStart={() => {
                         setKeysPress((prev) => ({
                             ...prev,
                             [key]: true,
                         }));
                     }}
-                    onMouseUp={() => {
-                        setKeysPress((prev) => ({
-                            ...prev,
-                            [key]: false,
-                        }));
-                    }}
-                    onMouseLeave={() => {
+                    onTouchEnd={() => {
                         setKeysPress((prev) => ({
                             ...prev,
                             [key]: false,

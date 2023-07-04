@@ -6,13 +6,15 @@ import type { NextPage } from 'next';
 
 const SiiluedMhoo: NextPage = () => {
     return (
-        <AudioProvider>
-            <ScoreProvider>
-                <KeyPressProvider>
-                    <Game />
-                </KeyPressProvider>
-            </ScoreProvider>
-        </AudioProvider>
+        <main className="select-none">
+            <AudioProvider>
+                <ScoreProvider>
+                    <KeyPressProvider>
+                        <Game />
+                    </KeyPressProvider>
+                </ScoreProvider>
+            </AudioProvider>
+        </main>
     );
 };
 
