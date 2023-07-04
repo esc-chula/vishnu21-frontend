@@ -1,0 +1,110 @@
+[
+    {
+        "group": "A",
+        "theme": "dark",
+        "color": "#FFFFFF",
+        "alt_color": "#000000"
+    },
+    {
+        "group": "B",
+        "theme": "light",
+        "color": "#D33930",
+        "alt_color": "#D33930"
+    },
+    {
+        "group": "C",
+        "theme": "light",
+        "color": "#E58B93",
+        "alt_color": "#E58B93"
+    },
+    {
+        "group": "Dog",
+        "theme": "light",
+        "color": "#1C2E4C",
+        "alt_color": "#1C2E4C"
+    },
+    {
+        "group": "E",
+        "theme": "light",
+        "color": "#FFFFFF",
+        "alt_color": "#00637E"
+    },
+    {
+        "group": "F",
+        "theme": "light",
+        "color": "#FFFFFF",
+        "alt_color": "#132F49"
+    },
+    {
+        "group": "G",
+        "theme": "light",
+        "color": "#FEFEFE",
+        "alt_color": "#3A4871"
+    },
+    {
+        "group": "H",
+        "theme": "light",
+        "color": "#161311",
+        "alt_color": "#161311"
+    },
+    {
+        "group": "J",
+        "theme": "light",
+        "color": "#02161D",
+        "alt_color": "#02161D"
+    },
+    {
+        "group": "K",
+        "theme": "dark",
+        "color": "#FFC4C1",
+        "alt_color": "#F14569"
+    },
+    {
+        "group": "L",
+        "theme": "light",
+        "color": "#92394B",
+        "alt_color": "#92394B"
+    },
+    {
+        "group": "M",
+        "theme": "dark",
+        "color": "#FFFF00",
+        "alt_color": "#4E490A"
+    },
+    {
+        "group": "N",
+        "theme": "dark",
+        "color": "#FFFFFF",
+        "alt_color": "#15375B"
+    },
+    {
+        "group": "P",
+        "theme": "dark",
+        "color": "#FEFEFE",
+        "alt_color": "#03331E"
+    },
+    {
+        "group": "Q",
+        "theme": "dark",
+        "color": "#DFCAAC",
+        "alt_color": "#B3010B"
+    },
+    {
+        "group": "R",
+        "theme": "dark",
+        "color": "#FFF1B4",
+        "alt_color": "#173461"
+    },
+    {
+        "group": "S",
+        "theme": "dark",
+        "color": "#F2E340",
+        "alt_color": "#963174"
+    },
+    {
+        "group": "T",
+        "theme": "dark",
+        "color": "#FFEBED",
+        "alt_color": "#3A3C51"
+    }
+]
