@@ -10,11 +10,13 @@
     },
     "dependencies": {
         "@line/liff": "2.22.1",
+        "@tailwindcss/line-clamp": "^0.4.4",
         "env": "workspace:*",
         "fetch": "workspace:*",
         "next": "latest",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-markdown": "^8.0.7",
         "types": "workspace:*",
         "ui": "workspace:*"
     },

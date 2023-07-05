@@ -138,7 +138,7 @@ const Club = () => {
             />
 
             {/* content */}
-            <div className='absolute t-0 p-[23px] pt-[50px] w-full'>
+            <div className='absolute top-0 p-[23px] pt-[50px] w-full'>
                 {/* head */}
                 <div className='w-full items-center '>
                     <h1 className='font-semibold text-white text-[20px] text-center'>
