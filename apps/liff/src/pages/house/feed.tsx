@@ -14,11 +14,18 @@ const Feed: NextPage = () => {
                     color: theme === 'dark' ? color : alt_color,
                 }}
             >
-                <Link href="/house" className="absolute left-0 text-2xl">
+                <Link href="/house" className="absolute left-0 text-3xl">
                     <FiChevronLeft />
                 </Link>
                 <h1 className="font-semibold">Feed บ้าน{name}</h1>
-                <FiInstagram className="absolute right-2 text-2xl" />
+                <a
+                    href={'https://www.instagram.com/vishnu21st'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute right-2 text-2xl"
+                >
+                    <FiInstagram />
+                </a>
             </div>
             <div className="px-6 pt-2 pb-10 -mx-4 space-y-8 h-full overflow-y-auto">
                 <div

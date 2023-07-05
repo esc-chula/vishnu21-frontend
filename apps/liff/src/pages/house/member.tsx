@@ -14,11 +14,16 @@ const Member: NextPage = () => {
                     color: theme === 'dark' ? color : alt_color,
                 }}
             >
-                <Link href="/house" className="absolute left-0 text-2xl">
+                <Link href="/house" className="absolute left-0 text-3xl">
                     <FiChevronLeft />
                 </Link>
                 <h1 className="font-semibold">สมาชิกบ้าน{name}</h1>
-                <FiUser className="absolute right-2 text-2xl" />
+                <Link
+                    href="/house/profile"
+                    className="absolute right-2 text-2xl"
+                >
+                    <FiUser />
+                </Link>
             </div>
             <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto">
                 <div
