@@ -1,0 +1,22 @@
+[
+    {
+        "href": "https://forms.gle/yLt8iM3rh1pwrABXA",
+        "label": "ฟอร์มความต้องการเข้าร่วมงาน",
+        "icon": "https://cdn-icons-png.flaticon.com/512/5968/5968528.png"
+    },
+    {
+        "href": "https://www.tiktok.com/@vishnu21st",
+        "label": "Tiktok",
+        "icon": "https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Tiktok-512.png"
+    },
+    {
+        "href": "https://youtube.com/@vishnu21st",
+        "label": "Youtube",
+        "icon": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+    },
+    {
+        "href": "https://www.instagram.com/vishnu21st/",
+        "label": "Instagram",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+    }
+]

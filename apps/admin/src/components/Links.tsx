@@ -1,26 +1,26 @@
-import FaqData from '@/mocks/faq-data.json';
+import LinksData from '@/mocks/links-data.json';
 import { useState } from 'react';
 import { FiChevronDown, FiChevronUp, FiTrash2 } from 'react-icons/fi';
 
-const Faq: React.FC = () => {
-    const [faqData, setFaqData] = useState(FaqData);
+const Links: React.FC = () => {
+    const [linksData, setLinksData] = useState(LinksData);
 
     return (
         <div className="space-y-16">
-            {faqData.map((faq, idx) => {
+            {linksData.map((link, idx) => {
                 return (
                     <div key={idx} className="flex space-x-10">
                         <div className="flex flex-col justify-between h-40">
                             <button
                                 onClick={() => {
                                     if (idx === 0) return;
-                                    const newFaqData = [...faqData];
+                                    const newFaqData = [...linksData];
                                     newFaqData.splice(
                                         idx - 1,
                                         0,
                                         newFaqData.splice(idx, 1)[0]
                                     );
-                                    setFaqData(newFaqData);
+                                    setLinksData(newFaqData);
                                 }}
                                 className="grid place-content-center w-10 h-10 bg-white border border-neutral-300 rounded-lg"
                             >
@@ -28,14 +28,14 @@ const Faq: React.FC = () => {
                             </button>
                             <button
                                 onClick={() => {
-                                    if (idx === faqData.length - 1) return;
-                                    const newFaqData = [...faqData];
+                                    if (idx === linksData.length - 1) return;
+                                    const newFaqData = [...linksData];
                                     newFaqData.splice(
                                         idx + 1,
                                         0,
                                         newFaqData.splice(idx, 1)[0]
                                     );
-                                    setFaqData(newFaqData);
+                                    setLinksData(newFaqData);
                                 }}
                                 className="grid place-content-center w-10 h-10 bg-white border border-neutral-300 rounded-lg"
                             >
@@ -43,9 +43,9 @@ const Faq: React.FC = () => {
                             </button>
                             <button
                                 onClick={() => {
-                                    const newFaqData = [...faqData];
+                                    const newFaqData = [...linksData];
                                     newFaqData.splice(idx, 1);
-                                    setFaqData(newFaqData);
+                                    setLinksData(newFaqData);
                                 }}
                                 className="grid place-content-center w-10 h-10 bg-white border border-neutral-300 rounded-lg"
                             >
@@ -56,29 +56,42 @@ const Faq: React.FC = () => {
                         <div className="flex flex-col flex-grow space-y-4">
                             <div className="flex flex-col space-y-2">
                                 <label className="text-sm text-neutral-500">
-                                    Question
+                                    Href
                                 </label>
                                 <input
-                                    value={faq.question}
+                                    value={link.href}
                                     onChange={(e) => {
-                                        const newFaqData = [...faqData];
-                                        newFaqData[idx].question =
-                                            e.target.value;
-                                        setFaqData(newFaqData);
+                                        const newFaqData = [...linksData];
+                                        newFaqData[idx].href = e.target.value;
+                                        setLinksData(newFaqData);
                                     }}
                                     className="px-4 py-2 !outline-none border border-neutral-300 rounded-lg"
                                 />
                             </div>
                             <div className="flex flex-col space-y-2">
                                 <label className="text-sm text-neutral-500">
-                                    Answer
+                                    Label
                                 </label>
                                 <input
-                                    value={faq.answer}
+                                    value={link.label}
                                     onChange={(e) => {
-                                        const newFaqData = [...faqData];
-                                        newFaqData[idx].answer = e.target.value;
-                                        setFaqData(newFaqData);
+                                        const newFaqData = [...linksData];
+                                        newFaqData[idx].label = e.target.value;
+                                        setLinksData(newFaqData);
+                                    }}
+                                    className="px-4 py-2 !outline-none border border-neutral-300 rounded-lg"
+                                />
+                            </div>
+                            <div className="flex flex-col space-y-2">
+                                <label className="text-sm text-neutral-500">
+                                    Icon
+                                </label>
+                                <input
+                                    value={link.icon}
+                                    onChange={(e) => {
+                                        const newFaqData = [...linksData];
+                                        newFaqData[idx].icon = e.target.value;
+                                        setLinksData(newFaqData);
                                     }}
                                     className="px-4 py-2 !outline-none border border-neutral-300 rounded-lg"
                                 />
@@ -90,19 +103,20 @@ const Faq: React.FC = () => {
             <div className="flex justify-end space-x-6">
                 <button
                     onClick={() => {
-                        setFaqData([
-                            ...faqData,
+                        setLinksData([
+                            ...linksData,
                             {
-                                question: '',
-                                answer: '',
+                                href: '',
+                                label: '',
+                                icon: '',
                             },
                         ]);
                     }}
                     className="rounded-lg border border-neutral-300 px-6 py-2.5 font-medium"
                 >
-                    เพิ่ม FAQ
+                    เพิ่ม Link
                 </button>
-                {FaqData === faqData ? (
+                {LinksData === linksData ? (
                     <button
                         onClick={() => {}}
                         disabled
@@ -123,4 +137,4 @@ const Faq: React.FC = () => {
     );
 };
 
-export default Faq;
+export default Links;
