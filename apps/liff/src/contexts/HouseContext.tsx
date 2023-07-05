@@ -37,8 +37,8 @@ const HouseProvider: React.FC<{
                     theme,
                 }}
             >
-                <main>
-                    <section className="relative h-screen w-full">
+                <main className="flex justify-center">
+                    <section className="relative h-screen w-full max-w-screen-sm">
                         {/* content */}
                         {children}
 
@@ -66,7 +66,7 @@ const HouseProvider: React.FC<{
             </HouseContext.Provider>
         );
     } else {
-        return <>children</>;
+        return <>{children}</>;
     }
 };
 
