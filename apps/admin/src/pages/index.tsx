@@ -8,6 +8,7 @@ import Main from '@/layouts/Main';
 import Section from '@/layouts/Section';
 import GroupData from '@/mocks/group-data.json';
 import type { NextPage } from 'next';
+import Links from '@/components/Links';
 
 const Home: NextPage = () => {
     return (
@@ -61,6 +62,9 @@ const Home: NextPage = () => {
                 </Section>
                 <Section id="faq" title="FAQ">
                     <Faq />
+                </Section>
+                <Section id="links" title="Link Tree">
+                    <Links />
                 </Section>
             </Main>
             <Footer />
