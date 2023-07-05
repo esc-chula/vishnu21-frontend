@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const House: NextPage = () => {
     const group = 'C';
-    const { color, theme, alt_color } = GroupsData.find(
+    const { name, color, theme, alt_color } = GroupsData.find(
         (data) => data.group === group
     );
 
@@ -34,7 +34,7 @@ const House: NextPage = () => {
                                     ยินดีต้องรับน้องปูนสู่บ้าน
                                 </span>
                                 <span className="text-4xl font-bold">
-                                    อาหร่อยจังเลย
+                                    {name}
                                 </span>
                             </h1>
                         </div>
