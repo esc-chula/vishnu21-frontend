@@ -104,6 +104,9 @@ importers:
       '@line/liff':
         specifier: 2.22.1
         version: 2.22.1
+      assets:
+        specifier: workspace:*
+        version: link:../../packages/assets
       env:
         specifier: workspace:*
         version: link:../../packages/env
