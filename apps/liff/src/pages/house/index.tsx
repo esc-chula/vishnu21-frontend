@@ -48,6 +48,7 @@ const House: NextPage = () => {
                         Feed บ้าน
                     </button>
                     <button
+                        onClick={() => router.push('/house/member')}
                         className="bg-neutral-50 flex justify-center w-28 py-2 rounded-2xl font-semibold text-sm"
                         style={{
                             boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 6px 0px ${alt_color}1A inset`,

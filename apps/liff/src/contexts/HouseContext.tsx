@@ -20,7 +20,7 @@ const HouseProvider: React.FC<{
 }> = ({ children }) => {
     const router = useRouter();
 
-    const group = 'F';
+    const group = 'C';
     const { name, longName, color, alt_color, theme } = HouseData.find(
         (data) => data.group === group
     );
