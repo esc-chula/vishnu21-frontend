@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 
 const House: NextPage = () => {
-    const group = 'F';
+    const group = 'C';
     const { color, theme, alt_color } = GroupsData.find(
         (data) => data.group === group
     );
