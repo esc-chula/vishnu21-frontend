@@ -21,9 +21,10 @@ const ClubDetail = (() => {
         router.push('/club');
     };
     // TODO: change these value
-    const ClubName = "Thailand Incubator (Thinc.) ssssssss sssssssss sssssss sssssssssssssssssssssssssss";
+    const ClubName = "Thailand Incubator (Thinc.)";
     const Detail = "Lorem ipsum dolor sit amet consectetur? Lorem ipsum dolor sit amet consectetur? Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?";
-
+    const Tagname = "CSR"
+    
     // TODO: change style + markdown text
     return <div className='relative flex flex-col w-screen h-screen'>
         {/* bg */}
@@ -32,7 +33,8 @@ const ClubDetail = (() => {
 
         {/* content */}
         <div className='absolute top-0 w-full h-full flex flex-col'>
-            <div className='relative w-full h-full flex flex-col overflow-auto'>
+            <div className='relative w-full h-full flex flex-col overflow-auto no-scrollbar'>
+                {/* header */}
                 <div className='fixed w-full h-[19vh] flex overflow-hidden'>
                     <div className='relative w-full h-full flex items-center justify-center'>
                         {/* logo bg */}
@@ -49,10 +51,17 @@ const ClubDetail = (() => {
                                         alt='LogoTest'
                                     />
                                 </div>
-                                {/* name */}
-                                <h1 className='text-white text-left font-bold text-base font-ibm  max-w-[calc(100%-60px-20px)] break-words inline-block line-clamp-4'>
-                                    <ReactMarkdown>{ClubName}</ReactMarkdown>
-                                </h1>
+                                <div className='flex flex-col w-[calc(100%-60px-20px)]'>
+                                    {/* name */}
+                                    <div className='text-white text-left font-bold text-base font-ibm break-words inline-block'>
+                                        {ClubName}
+                                    </div>
+                                    {/* tag */}
+                                    <div className='text-white text-left font-medium text-xs font-ibm '>
+                                        {Tagname}
+                                    </div>
+                                </div>
+
                             </div>
 
                             <AiFillHeart className='w-[30px] h-[30px] ml-[20px]' color={favColor} onClick={handleFavToggle} />
@@ -61,13 +70,13 @@ const ClubDetail = (() => {
                     </div>
                 </div>
                 {/* details card */}
-                <div className='mt-[19vh] px-[25px] pt-[16px] w-full shadow-inner'>
+                <div className='pt-[calc(19vh+16px)] px-[25px] w-full shadow-inner'>
                     <div className='px-[20px] pt-[10px] pb-[16px] flex flex-col bg-[#D9D9D94D] rounded-[20px] '>
                         <div className='flex text-xl font-ibm text-white font-bold'>
                             Details
                         </div>
-                        <div className='flex pl-[28px] pt-[20px] pb-[10px] text-sm font-ibm text-white font-semibold'>
-                            {Detail}
+                        <div className='flex pl-[28px] pt-[20px] pb-[10px] text-sm font-ibm text-white font-medium'>
+                            <ReactMarkdown>{Detail}</ReactMarkdown>
                         </div>
                     </div>
                 </div>
@@ -82,7 +91,7 @@ const ClubDetail = (() => {
                         <div className='flex flex-col justify-center items-center mt-[30px]'>
                             {/* TODO: change qr dynamically */}
                             <Image src={QrTest} alt='QrTest' className='flex w-[150px] h-[150px]' />
-                            <div className='text-xl font-ibm text-white font-bold mt-[16px] mb-[80px]'>
+                            <div className='text-xl font-ibm text-white font-bold mt-[16px] mb-[80px] text-center'>
                                 Join ours Club
                             </div>
                         </div>
