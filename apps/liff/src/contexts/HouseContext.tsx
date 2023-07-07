@@ -21,9 +21,11 @@ const HouseProvider: React.FC<{
 }> = ({ children }) => {
     const router = useRouter();
 
-    const [group, setGroup] = useState<TGroup>('B');
-    const { name, longName, color, alt_color, bg_color, theme } =
+    const [group, setGroup] = useState<TGroup>('L');
+    const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
+
+    console.log(bg_position);
 
     if (router.pathname.includes('/house')) {
         return (
@@ -60,6 +62,11 @@ const HouseProvider: React.FC<{
                                 <Image
                                     src={flag[group]}
                                     className="object-cover"
+                                    style={{
+                                        objectPosition: bg_position
+                                            ? bg_position
+                                            : 'center',
+                                    }}
                                     alt="Flag Image"
                                     fill
                                     quality={5}

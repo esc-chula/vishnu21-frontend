@@ -4,7 +4,7 @@
         "name": "อามองอัส",
         "longName": "อามองอัสนั้นมีมุดท่อแต่ทำไงหน๊อเธอถึงกลับมา",
         "theme": "dark",
-        "color": "#FFFFFF",
+        "color": "#A3F1F5",
         "alt_color": "#000000",
         "bg_color": "#000000"
     },
@@ -96,7 +96,8 @@
         "theme": "light",
         "color": "#92394B",
         "alt_color": "#92394B",
-        "bg_color": "#A23B2A"
+        "bg_color": "#A23B2A",
+        "bg_position": "bottom"
     },
     {
         "group": "M",
