@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@react-spring/parallax": "^9.7.3",
         "assets": "workspace:*",
         "env": "workspace:*",
         "fetch": "workspace:*",
