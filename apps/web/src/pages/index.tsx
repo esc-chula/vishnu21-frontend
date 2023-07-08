@@ -25,7 +25,7 @@ const Home: NextPage = () => {
             <Parallax pages={3}>
                 {/* hero */}
                 <ParallaxLayer offset={0} speed={0.3}>
-                    <div className="z-40 absolute w-full h-full flex flex-col justify-center items-center pb-20 space-y-4 sm:space-y-6 text-center">
+                    <div className="z-40 absolute w-full h-full flex flex-col justify-center items-center pb-20 px-4 space-y-4 sm:space-y-6 text-center">
                         <h1 className="flex flex-col items-center font-bold space-y-4">
                             <span
                                 className="text-sm sm:text-2xl"
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
                                 ยินดีต้อนรับน้อง ๆ ทุกคนเข้าสู่ค่าย
                             </span>
                             <span
-                                className="text-4xl sm:text-7xl"
+                                className="text-[40px] whitespace-nowrap sm:text-7xl"
                                 style={{
                                     textShadow:
                                         '0px -41px 140px rgba(255, 231, 106, 1), 0px 7px 30px rgba(71, 19, 163, 1)',
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
                             </span>
                         </h1>
                         <div className="flex flex-col items-center space-y-8 sm:space-y-10 w-full">
-                            <div className="relative w-[270px] sm:w-[560px]">
+                            <div className="relative w-[320px] sm:w-[560px]">
                                 <Divider />
                             </div>
 
@@ -55,14 +55,10 @@ const Home: NextPage = () => {
                                 <Image src={Divider1} alt="Divider" fill />
                             </div> */}
                             <div className="flex flex-col items-center space-y-10 sm:space-y-12">
-                                <p className="font-baijam font-semibold text-sm sm:text-2xl flex flex-col space-y-3">
-                                    <span>
-                                        น้อง ๆ สามารถติดตามกิจกรรมและข้อมูลอื่น
-                                        ๆ
-                                    </span>
-                                    <span>
-                                        ได้ผ่าน LINE OA ลิงก์ด้านล่างนี้เลย
-                                    </span>
+                                <p className="font-baijam font-semibold text-[17px] sm:text-2xl leading-loose sm:leading-loose whitespace-nowrap">
+                                    น้อง ๆ สามารถติดตามกิจกรรมและข้อมูลอื่น ๆ
+                                    <br />
+                                    ได้ผ่าน LINE OA ลิงก์ด้านล่างนี้เลย
                                 </p>
                                 <button
                                     className="bg-white text-primary-600 font-bold sm:text-xl px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl duration-300 hover:scale-105"

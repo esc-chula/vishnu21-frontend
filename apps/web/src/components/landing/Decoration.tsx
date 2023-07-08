@@ -27,7 +27,11 @@ const Decoration: React.FC = () => {
             {/* cloud */}
             <>
                 {/* large cloud */}
-                <ParallaxLayer className="-z-20" offset={0} speed={0.4}>
+                <ParallaxLayer
+                    className="-z-20 sm:hidden lg:inline"
+                    offset={0}
+                    speed={0.4}
+                >
                     <div className="absolute w-[700px] sm:w-[1400px] aspect-[1863/845] -bottom-16 sm:-bottom-[240px] -right-64 sm:-right-[440px] select-none">
                         <div className="relative w-full h-full">
                             <Image
