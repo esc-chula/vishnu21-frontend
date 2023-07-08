@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import ClubCard from './components/clubcard';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/assets/ClubBackground.png';
 import Image from 'next/image';
+import ClubCard from './components/clubcard';
+import BottomSheet from './components/bottomSheet';
 
 // TODO: fetch data from api
 const club_datas = [
@@ -129,87 +130,97 @@ const Club = () => {
     // router
     const router = useRouter();
 
-    // TODO: change tailwind to not hardcode
-    return (
-        <div className='relative flex flex-col w-screen h-screen'>
-            {/* bg */}
-            <Image className='fixed top-0 bg-[#370682] w-screen h-screen'
-                src={ClubBackground} alt='ClubBackground'
-            />
+    // bottom sheet
+    const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
-            {/* content */}
-            <div className='absolute top-0 p-[23px] pt-[50px] w-full'>
-                {/* head */}
-                <div className='w-full items-center '>
-                    <h1 className='font-semibold text-white text-[20px] text-center'>
-                        {headerText}
-                    </h1>
-                    <div className='flex flex-row gap-4 mt-[12px] items-center justify-center'>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
-                            ทั้งหมด
+    const handleOpenBottomSheet = () => {
+        setIsBottomSheetOpen(true);
+    };
+
+    const handleCloseBottomSheet = () => {
+        setIsBottomSheetOpen(false);
+    };
+
+    useEffect(() => {
+        console.log(isBottomSheetOpen)
+    }, [isBottomSheetOpen]);
+
+    // TODO: change tailwind to not hardcode & add font
+    return (
+        <>
+            <div className='relative flex flex-col w-screen h-screen'>
+                {/* bg */}
+                <Image className='fixed top-0 bg-[#370682] w-screen h-screen'
+                    src={ClubBackground} alt='ClubBackground'
+                />
+
+                {/* content */}
+                <div className='absolute top-0 p-[23px] pt-[50px] w-full'>
+                    {/* head */}
+                    <div className='w-full items-center '>
+                        <h1 className='font-semibold text-white text-[20px] text-center'>
+                            {headerText}
                         </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "Academic") ? "" : "opacity-60"}`} onClick={() => setSelection("Academic")}>
-                            วิชาการ
-                        </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "Sport") ? "" : "opacity-60"}`} onClick={() => setSelection("Sport")}>
-                            กีฬา
-                        </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "Art") ? "" : "opacity-60"}`} onClick={() => setSelection("Art")}>
-                            ศิลปะวัฒนธรรม
-                        </h1>
-                        <h1 className={`font-semibold text-white text-[14px] ${(selection === "CSR") ? "" : "opacity-60"}`} onClick={() => setSelection("CSR")}>
-                            CSR
-                        </h1>
+                        <div className='flex flex-row gap-4 mt-[12px] items-center justify-center'>
+                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
+                                ทั้งหมด
+                            </h1>
+                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "Academic") ? "" : "opacity-60"}`} onClick={() => setSelection("Academic")}>
+                                วิชาการ
+                            </h1>
+                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "Sport") ? "" : "opacity-60"}`} onClick={() => setSelection("Sport")}>
+                                กีฬา
+                            </h1>
+                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "Art") ? "" : "opacity-60"}`} onClick={() => setSelection("Art")}>
+                                ศิลปะวัฒนธรรม
+                            </h1>
+                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "CSR") ? "" : "opacity-60"}`} onClick={() => setSelection("CSR")}>
+                                CSR
+                            </h1>
+                        </div>
+                    </div>
+
+                    {/* club list */}
+                    <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 mt-[25px] w-full gap-[20px]'>
+                        {
+                            clubFiltered.map((club_data) => {
+                                const pathName = "/club/" + club_data.name;
+                                return <ClubCard currentMode={currentMode}
+                                    // TODO: image param
+                                    isStamped={isStamped(club_data)}
+                                    isFavorite={isFavorite(club_data)}
+                                    name={club_data.name}
+                                    key={club_data.name}
+                                    onClick={handleOpenBottomSheet}
+                                />
+                            })
+                        }
                     </div>
                 </div>
 
-                {/* club list */}
-                <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 mt-[25px] w-full gap-[20px]'>
+                {/* fading bg */}
+                <div className='fixed bottom-0 bg-gradient-to-t from-black/80 via-black/80 w-screen h-[25%]'></div>
+
+                {/* button */}
+                <div className='fixed right-[15%] bottom-[8%] bg-white rounded-[28px] flex flex-row items-center justify-center px-[18px] py-[11px] gap-[15px]'>
                     {
-                        clubFiltered.map((club_data) => {
-                            const pathName = "/club/" + club_data.name;
-                            return <ClubCard currentMode={currentMode}
-                                // TODO: image param
-                                isStamped={isStamped(club_data)}
-                                isFavorite={isFavorite(club_data)}
-                                name={club_data.name}
-                                key={club_data.name}
-                                onClick={() =>
-                                    router.push(
-                                        {
-                                            pathname: pathName,
-                                            query: {
-                                                name: club_data.name,
-                                                description: club_data.description,
-                                                // TODO: image param
-                                            }
-                                        }, pathName
-                                    )
-                                } />
-                        })
+                        (currentMode == "Stamp") ? <FaStamp className='w-[30px] h-[30px] cursor-pointer' color='#9642E2' onClick={handleChangeMode} />
+                            : <AiFillHeart className='w-[30px] h-[30px] cursor-pointer' color='red' onClick={handleChangeMode} />
                     }
+
+                    <div className='bg-[#D9D9D9] w-[2px] h-[30px]' />
+
+                    <div className='relative cursor-pointer' onClick={handleFilter}>
+                        <FaFilter className='relative w-[30px] h-[30px] cursor-pointer' color={filterColor} />
+                    </div>
+
+
                 </div>
+                <BottomSheet isOpen={isBottomSheetOpen} onClose={handleCloseBottomSheet} />
             </div>
 
-            {/* fading bg */}
-            <div className='fixed bottom-0 bg-gradient-to-t from-black/80 via-black/80 w-screen h-[25%]'></div>
+        </ >
 
-            {/* button */}
-            <div className='fixed right-[15%] bottom-[8%] bg-white rounded-[28px] flex flex-row items-center justify-center px-[18px] py-[11px] gap-[15px]'>
-                {
-                    (currentMode == "Stamp") ? <FaStamp className='w-[30px] h-[30px] cursor-pointer' color='#9642E2' onClick={handleChangeMode} />
-                        : <AiFillHeart className='w-[30px] h-[30px] cursor-pointer' color='red' onClick={handleChangeMode} />
-                }
-
-                <div className='bg-[#D9D9D9] w-[2px] h-[30px]' />
-
-                <div className='relative cursor-pointer' onClick={handleFilter}>
-                    <FaFilter className='relative w-[30px] h-[30px] cursor-pointer' color={filterColor} />
-                </div>
-
-
-            </div>
-        </div>
     );
 }
 
