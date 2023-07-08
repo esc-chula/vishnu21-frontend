@@ -30,7 +30,7 @@ const Decoration: React.FC = () => {
                 <ParallaxLayer
                     className="-z-20 sm:hidden lg:inline"
                     offset={0}
-                    speed={0.4}
+                    speed={0.5}
                 >
                     <div className="absolute w-[700px] sm:w-[1400px] aspect-[1863/845] -bottom-16 sm:-bottom-[240px] -right-64 sm:-right-[440px] select-none">
                         <div className="relative w-full h-full">
@@ -69,7 +69,7 @@ const Decoration: React.FC = () => {
             {/* background */}
             <>
                 {/* star background */}
-                <ParallaxLayer className="-z-40" offset={0} factor={3}>
+                <ParallaxLayer className="-z-40" offset={0} factor={5}>
                     <svg
                         className="h-full w-full"
                         xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,15 @@ const Decoration: React.FC = () => {
                     factor={2}
                     style={{
                         backgroundImage:
-                            'linear-gradient(0deg, #1E084A 40.55%, #4713A3 88.16%)',
+                            'linear-gradient(0deg, #1E084A 40.55%, #4713A3 88%)',
+                    }}
+                ></ParallaxLayer>
+                <ParallaxLayer
+                    className="-z-50"
+                    offset={3}
+                    factor={2}
+                    style={{
+                        background: '#1E084A',
                     }}
                 ></ParallaxLayer>
             </>

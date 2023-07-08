@@ -1,11 +1,12 @@
 import Logo from '@/components/landing/Logo';
 import Divider from '@/components/landing/Divider';
 import Image1 from '@/public/images/landing/1.webp';
-import Image2 from '@/public/images/landing/2.webp';
 import Image3 from '@/public/images/landing/3.webp';
-import Image4 from '@/public/images/landing/4.webp';
 import Image5 from '@/public/images/landing/5.webp';
 import Image6 from '@/public/images/landing/6.webp';
+import Mountain1 from '@/public/images/landing/mountain1.svg';
+import Mountain2 from '@/public/images/landing/mountain2.svg';
+import Mountain3 from '@/public/images/landing/mountain3.svg';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import type { NextPage } from 'next';
 import Image from 'next/image';
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
             <Navigation setToggleNav={setToggleNav} />
             {toggleNav && <NavigationDrawer setToggleNav={setToggleNav} />}
 
-            <Parallax pages={3}>
+            <Parallax pages={6}>
                 {/* hero */}
                 <ParallaxLayer offset={0} speed={0.3}>
                     <div className="z-40 absolute w-full h-full flex flex-col justify-center items-center pb-20 px-4 space-y-4 sm:space-y-6 text-center">
@@ -129,6 +130,55 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </ParallaxLayer>
+
+                {/* sponsor */}
+                <ParallaxLayer
+                    offset={2}
+                    factor={0.5}
+                    speed={0.3}
+                    className="flex flex-col items-center justify-center px-4 space-y-10"
+                >
+                    <h3 className="font-semibold text-3xl">
+                        ผู้สนับสนุนของเรา
+                    </h3>
+                    <div className="flex space-x-10">
+                        <div className="bg-primary-800 w-40 h-40"></div>
+                        <div className="bg-primary-800 w-40 h-40"></div>
+                        <div className="bg-primary-800 w-40 h-40"></div>
+                        <div className="bg-primary-800 w-40 h-40"></div>
+                    </div>
+                </ParallaxLayer>
+
+                <ParallaxLayer offset={2.8} factor={2} speed={0.1}>
+                    <Image
+                        src={Mountain1}
+                        alt=""
+                        fill
+                        className="object-none object-[10%,0] md:object-left-top -mt-40"
+                    />
+                </ParallaxLayer>
+                <ParallaxLayer offset={3.3} speed={0.3}>
+                    <Image
+                        src={Mountain2}
+                        alt=""
+                        fill
+                        className="object-none object-[3%,0] md:object-left-top -mt-96 md:-mt-auto"
+                    />
+                </ParallaxLayer>
+                <ParallaxLayer offset={3} speed={0.9}>
+                    <Image
+                        src={Mountain3}
+                        alt=""
+                        fill
+                        className="object-none object-[82%,0] md:object-[40%,0] -mt-96 md:-mt-auto"
+                    />
+                </ParallaxLayer>
+                <ParallaxLayer
+                    offset={3.7}
+                    factor={4}
+                    speed={0.9}
+                    className="bg-[#130531] -mt-36 md:-mt-auto"
+                ></ParallaxLayer>
 
                 <Decoration />
             </Parallax>
