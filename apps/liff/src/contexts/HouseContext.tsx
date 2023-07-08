@@ -21,11 +21,9 @@ const HouseProvider: React.FC<{
 }> = ({ children }) => {
     const router = useRouter();
 
-    const [group, setGroup] = useState<TGroup>('L');
+    const [group, setGroup] = useState<TGroup>('K');
     const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
-
-    console.log(bg_position);
 
     if (router.pathname.includes('/house')) {
         return (
