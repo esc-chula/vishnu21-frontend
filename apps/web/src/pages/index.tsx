@@ -4,16 +4,13 @@ import Image1 from '@/public/images/landing/1.webp';
 import Image3 from '@/public/images/landing/3.webp';
 import Image5 from '@/public/images/landing/5.webp';
 import Image6 from '@/public/images/landing/6.webp';
-import Mountain1 from '@/public/images/landing/mountain1.svg';
-import Mountain2 from '@/public/images/landing/mountain2.svg';
-import Mountain3 from '@/public/images/landing/mountain3.svg';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Navigation from '@/components/landing/Navigation';
 import Decoration from '@/components/landing/Decoration';
 import { useState } from 'react';
-import NavigationDrawer from '@/components/landing/NavigationDrawer';
+import NavigationMenu from '@/components/landing/NavigationMenu';
 
 const Home: NextPage = () => {
     const [toggleNav, setToggleNav] = useState(false);
@@ -21,9 +18,9 @@ const Home: NextPage = () => {
     return (
         <>
             <Navigation setToggleNav={setToggleNav} />
-            {toggleNav && <NavigationDrawer setToggleNav={setToggleNav} />}
+            {toggleNav && <NavigationMenu setToggleNav={setToggleNav} />}
 
-            <Parallax pages={6}>
+            <Parallax pages={4.7}>
                 {/* hero */}
                 <ParallaxLayer offset={0} speed={0.3}>
                     <div className="z-40 absolute w-full h-full flex flex-col justify-center items-center pb-20 px-4 space-y-4 sm:space-y-6 text-center">
@@ -149,36 +146,14 @@ const Home: NextPage = () => {
                     </div>
                 </ParallaxLayer>
 
-                <ParallaxLayer offset={2.8} factor={2} speed={0.1}>
-                    <Image
-                        src={Mountain1}
-                        alt=""
-                        fill
-                        className="object-none object-[10%,0] md:object-left-top -mt-40"
-                    />
-                </ParallaxLayer>
-                <ParallaxLayer offset={3.3} speed={0.3}>
-                    <Image
-                        src={Mountain2}
-                        alt=""
-                        fill
-                        className="object-none object-[3%,0] md:object-left-top -mt-96 md:-mt-auto"
-                    />
-                </ParallaxLayer>
-                <ParallaxLayer offset={3} speed={0.9}>
-                    <Image
-                        src={Mountain3}
-                        alt=""
-                        fill
-                        className="object-none object-[82%,0] md:object-[40%,0] -mt-96 md:-mt-auto"
-                    />
-                </ParallaxLayer>
+                {/* details */}
                 <ParallaxLayer
-                    offset={3.7}
-                    factor={4}
-                    speed={0.9}
-                    className="bg-[#130531] -mt-36 md:-mt-auto"
-                ></ParallaxLayer>
+                    offset={3.8}
+                    speed={0.7}
+                    className="z-20 flex flex-col items-center px-4"
+                >
+                    <h3 className="font-semibold text-3xl">กำหนดการกิจกรรม</h3>
+                </ParallaxLayer>
 
                 <Decoration />
             </Parallax>

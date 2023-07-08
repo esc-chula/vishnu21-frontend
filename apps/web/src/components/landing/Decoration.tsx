@@ -1,4 +1,7 @@
 import Cloud1 from '@/public/images/landing/cloud1.png';
+import Mountain1 from '@/public/images/landing/mountain1.svg';
+import Mountain2 from '@/public/images/landing/mountain2.svg';
+import Mountain3 from '@/public/images/landing/mountain3.svg';
 import { ParallaxLayer } from '@react-spring/parallax';
 import Image from 'next/image';
 
@@ -66,6 +69,33 @@ const Decoration: React.FC = () => {
                     </div>
                 </ParallaxLayer>
             </>
+            {/* mountain */}
+            <>
+                <ParallaxLayer offset={2.8} factor={2} speed={0.1}>
+                    <Image
+                        src={Mountain1}
+                        alt=""
+                        fill
+                        className="select-none object-none object-[10%,0] md:object-left-top -mt-40"
+                    />
+                </ParallaxLayer>
+                <ParallaxLayer offset={3.4} speed={0.3}>
+                    <Image
+                        src={Mountain2}
+                        alt=""
+                        fill
+                        className="select-none object-none object-[3%,0] md:object-left-top -mt-96 md:-mt-auto"
+                    />
+                </ParallaxLayer>
+                <ParallaxLayer offset={3} speed={0.9}>
+                    <Image
+                        src={Mountain3}
+                        alt=""
+                        fill
+                        className="select-none object-none object-[82%,0] md:object-[40%,0] -mt-96 md:-mt-auto"
+                    />
+                </ParallaxLayer>
+            </>
             {/* background */}
             <>
                 {/* star background */}
@@ -90,7 +120,7 @@ const Decoration: React.FC = () => {
                         />
                     </svg>
                 </ParallaxLayer>
-                {/* gradient background */}
+                {/* sky background */}
                 <ParallaxLayer
                     className="-z-50"
                     offset={0}
@@ -100,7 +130,6 @@ const Decoration: React.FC = () => {
                             'linear-gradient(180deg, #000 0%, #4713A3 86.82%)',
                     }}
                 ></ParallaxLayer>
-                {/* gradient background */}
                 <ParallaxLayer
                     className="-z-50"
                     offset={1}
@@ -118,6 +147,22 @@ const Decoration: React.FC = () => {
                         background: '#1E084A',
                     }}
                 ></ParallaxLayer>
+                {/* grained background */}
+                <ParallaxLayer
+                    offset={3.5}
+                    factor={2}
+                    speed={0.9}
+                    className="z-10"
+                >
+                    <div
+                        className="z-10 absolute top-0 -left-[400px] -right-[400px] bottom-0 bg-gradient-to-b from-[#130531] to-transparent"
+                        style={{
+                            background:
+                                'radial-gradient(50% 50.00% at 50% 50.00%, rgba(19, 5, 49, 0.00) 40.10%, #130531 100%)',
+                        }}
+                    />
+                    <div className="absolute top-0 left-0 right-0 bottom-0 bg-primary-800 bg-[url('/images/landing/grained_background.jpg')] bg-repeat" />
+                </ParallaxLayer>
             </>
         </>
     );

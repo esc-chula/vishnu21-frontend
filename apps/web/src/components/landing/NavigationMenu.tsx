@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PiXLight } from 'react-icons/pi';
 
-const NavigationDrawer: React.FC<{
+const NavigationMenu: React.FC<{
     setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setToggleNav }) => {
     return (
@@ -29,18 +29,18 @@ const NavigationDrawer: React.FC<{
                 <button className="opacity-80 hover:opacity-100 duration-100">
                     ผู้สนับสนุน
                 </button>
+                <button className="opacity-80 hover:opacity-100 duration-100">
+                    กำหนดการกิจกรรม
+                </button>
                 <Link
                     href="/links"
                     className="opacity-80 hover:opacity-100 duration-100"
                 >
                     Links
                 </Link>
-                <button className="opacity-80 hover:opacity-100 duration-100">
-                    รายละเอียดกิจกรรม
-                </button>
             </div>
         </div>
     );
 };
 
-export default NavigationDrawer;
+export default NavigationMenu;
