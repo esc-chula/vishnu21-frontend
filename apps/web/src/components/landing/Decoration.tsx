@@ -31,7 +31,7 @@ const Decoration: React.FC = () => {
             <>
                 {/* large cloud */}
                 <ParallaxLayer
-                    className="-z-20 sm:hidden lg:inline"
+                    className="-z-10 sm:hidden lg:inline"
                     offset={0}
                     speed={0.5}
                 >
@@ -87,7 +87,7 @@ const Decoration: React.FC = () => {
                         className="select-none object-none object-[3%,0] md:object-left-top -mt-96 md:-mt-auto"
                     />
                 </ParallaxLayer>
-                <ParallaxLayer offset={3} speed={0.9}>
+                <ParallaxLayer offset={3} factor={2} speed={0.9}>
                     <Image
                         src={Mountain3}
                         alt=""
@@ -149,7 +149,7 @@ const Decoration: React.FC = () => {
                 ></ParallaxLayer>
                 {/* grained background */}
                 <ParallaxLayer
-                    offset={3.5}
+                    offset={3.7}
                     factor={2}
                     speed={0.9}
                     className="z-10"

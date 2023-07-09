@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             <Navigation setToggleNav={setToggleNav} />
             {toggleNav && <NavigationMenu setToggleNav={setToggleNav} />}
 
-            <Parallax pages={4.7}>
+            <Parallax pages={4.88}>
                 {/* hero */}
                 <ParallaxLayer offset={0} speed={0.3}>
                     <div className="z-40 absolute w-full h-full flex flex-col justify-center items-center pb-20 px-4 space-y-4 sm:space-y-6 text-center">
@@ -148,7 +148,7 @@ const Home: NextPage = () => {
 
                 {/* details */}
                 <ParallaxLayer
-                    offset={3.8}
+                    offset={3.9}
                     speed={0.7}
                     className="z-20 flex flex-col items-center px-4"
                 >
