@@ -7,13 +7,19 @@ const ClubCard = ({ img = <div className='flex bg-gray-500 h-[72px] w-[72px] rou
     return (
         <div className='flex relative items-center justify-center'>
             <div className="flex flex-col relative pt-[10px] pr-[10px]">
-                <div className='flex relative bg-white h-[92px] w-[92px] rounded-[20px] items-center justify-center' onClick={onClick}>
+                {/* glowing border */}
+                <div className="flex absolute bg-black h-[92px] w-[92px] rounded-[20px] blur-sm" />
+                
+                {/* white box */}
+                <div className='flex relative bg-white h-[92px] w-[92px] rounded-[20px] items-center justify-center shadow-[#7A36E359] shadow-inner' onClick={onClick}>
+                    {/* img */}
                     {img}
                     {filter}
                 </div>
-                <h1 className='text-center text-white font-semibold text-[10px] mt-[10px]'>
+
+                <p className='text-center text-white font-semibold font-ibm text-[10px] mt-[10px]'>
                     {name}
-                </h1>
+                </p>
                 {icon_heart}
             </div>
         </div>

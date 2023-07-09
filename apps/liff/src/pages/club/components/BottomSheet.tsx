@@ -15,7 +15,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
     };
 
     // TODO: change these value
-    const ClubName = "Thailand Incubator (Thinc.)";
+    const ClubName = "Thailand Incubator (Thinc.) Lorem ipsum dolor sit amet consectetur?";
     const Detail = "Lorem ipsum dolor sit amet consectetur? Lorem ipsum dolor sit amet consectetur? Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?Lorem ipsum dolor sit amet consectetur?";
     const Tagname = "CSR"
 
@@ -67,28 +67,30 @@ const BottomSheet = ({ isOpen, onClose }) => {
 
                                 {/* overlay logo */}
                                 <div className='absolute flex flex-row items-center justify-between w-full px-[7%]'>
-                                    <div className='flex flex-row space-x-[20px] items-center w-[calc(100%-30px-20px)]'>
+                                    <div className='relative flex flex-grow flex-row items-center '>
+                                        {/* glowing logo */}
+                                        <div className='absolute flex w-[60px] h-[60px] rounded-[20px] blur-sm bg-black/40' />
                                         {/* logo box */}
-                                        <div className='w-[60px] h-[60px] bg-white rounded-[20px] items-center justify-center flex shadow-lg'>
+                                        <div className='relative flex flex-shrink-0 w-[60px] h-[60px] bg-white rounded-[20px] items-center justify-center '>
                                             <Image className='object-cover w-[45px] h-[45px] rounded-[15px] flex'
                                                 src={LogoTest}
                                                 alt='LogoTest'
                                             />
                                         </div>
-                                        <div className='flex flex-col w-[calc(100%-60px-20px)]'>
+                                        <div className='flex flex-col pl-[20px]'>
                                             {/* name */}
-                                            <div className='text-white text-left font-bold text-base font-ibm break-words inline-block'>
+                                            <p className='text-white text-left font-bold text-base font-ibm break-words inline-block'>
                                                 {ClubName}
-                                            </div>
+                                            </p>
                                             {/* tag */}
-                                            <div className='text-white text-left font-medium text-xs font-ibm '>
+                                            <p className='text-white text-left font-semibold text-xs font-ibm pt-[5px]'>
                                                 {Tagname}
-                                            </div>
+                                            </p>
                                         </div>
 
                                     </div>
 
-                                    <AiFillHeart className='w-[30px] h-[30px] ml-[20px]' color={favColor} onClick={handleFavToggle} />
+                                    <AiFillHeart className='flex flex-shrink-0 w-[30px] h-[30px] ml-[20px]' color={favColor} onClick={handleFavToggle} />
 
                                 </div>
                             </div>
@@ -96,9 +98,9 @@ const BottomSheet = ({ isOpen, onClose }) => {
                         {/* details card */}
                         <div className='pt-[calc(19vh+16px)] px-[25px] w-full shadow-inner'>
                             <div className='px-[20px] pt-[10px] pb-[16px] flex flex-col bg-[#D9D9D94D] rounded-[20px] '>
-                                <div className='flex text-xl font-ibm text-white font-bold'>
+                                <p className='flex text-xl font-ibm text-white font-bold'>
                                     Details
-                                </div>
+                                </p>
                                 <div className='flex pl-[28px] pt-[20px] pb-[10px] text-sm font-ibm text-white font-medium'>
                                     <ReactMarkdown>{Detail}</ReactMarkdown>
                                 </div>
@@ -108,16 +110,16 @@ const BottomSheet = ({ isOpen, onClose }) => {
                         {/* contract card */}
                         <div className='px-[25px] pt-[25px] pb-[40px] w-full shadow-inner'>
                             <div className='px-[20px] py-[16px] flex flex-col bg-[#D9D9D94D] rounded-[20px] '>
-                                <div className='flex text-xl font-ibm text-white font-bold tracking-wide'>
+                                <p className='flex text-xl font-ibm text-white font-bold tracking-wide'>
                                     Contract
-                                </div>
+                                </p>
                                 {/* qr */}
                                 <div className='flex flex-col justify-center items-center mt-[30px]'>
                                     {/* TODO: change qr dynamically */}
                                     <Image src={QrTest} alt='QrTest' className='flex w-[150px] h-[150px]' />
-                                    <div className='text-xl font-ibm text-white font-bold mt-[16px] mb-[80px] text-center'>
+                                    <p className='text-xl font-ibm text-white font-bold mt-[16px] mb-[80px] text-center'>
                                         Join ours Club
-                                    </div>
+                                    </p>
                                 </div>
 
                             </div>

@@ -5,8 +5,8 @@ import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/assets/ClubBackground.png';
 import Image from 'next/image';
-import ClubCard from './components/clubcard';
-import BottomSheet from './components/bottomSheet';
+import ClubCard from './components/ClubCard';
+import BottomSheet from './components/BottomSheet';
 
 // TODO: fetch data from api
 const club_datas = [
@@ -51,27 +51,26 @@ const club_datas = [
         logo: "",
         description: "test12345",
         id: "test4"
+    },
+    {
+        name: "Thailand Incubator (Thinc.)",
+        tag: "Academic",
+        logo: "",
+        description: "test12345",
+        id: "thinc"
     }
 ]
 const my_favorite = [
-    {
-        id: "test1"
-    }, {
-        id: "test2"
-    }
+    "test1","test2"
 ]
 const my_stamped = [
-    {
-        id: "test1"
-    }, {
-        id: "test3"
-    }
+    "test1","test3"
 ]
 function isFavorite(data) {
-    return my_favorite.some(favorite => data.id === favorite.id)
+    return my_favorite.some(favorite => data.id === favorite)
 }
 function isStamped(data) {
-    return my_stamped.some(stamped => data.id === stamped.id)
+    return my_stamped.some(stamped => data.id === stamped)
 }
 
 const Club = () => {
@@ -158,25 +157,25 @@ const Club = () => {
                 <div className='absolute top-0 p-[23px] pt-[50px] w-full'>
                     {/* head */}
                     <div className='w-full items-center '>
-                        <h1 className='font-semibold text-white text-[20px] text-center'>
+                        <p className='font-bold text-white text-xl text-center font-ibm'>
                             {headerText}
-                        </h1>
+                        </p>
                         <div className='flex flex-row gap-4 mt-[12px] items-center justify-center'>
-                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
+                            <p className={`font-bold font-ibm text-white text-sm ${(selection === "All") ? "" : "opacity-60"}`} onClick={() => setSelection("All")}>
                                 ทั้งหมด
-                            </h1>
-                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "Academic") ? "" : "opacity-60"}`} onClick={() => setSelection("Academic")}>
+                            </p>
+                            <p className={`font-bold font-ibm text-white text-sm ${(selection === "Academic") ? "" : "opacity-60"}`} onClick={() => setSelection("Academic")}>
                                 วิชาการ
-                            </h1>
-                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "Sport") ? "" : "opacity-60"}`} onClick={() => setSelection("Sport")}>
+                            </p>
+                            <p className={`font-bold font-ibm text-white text-sm ${(selection === "Sport") ? "" : "opacity-60"}`} onClick={() => setSelection("Sport")}>
                                 กีฬา
-                            </h1>
-                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "Art") ? "" : "opacity-60"}`} onClick={() => setSelection("Art")}>
+                            </p>
+                            <p className={`font-bold font-ibm text-white text-sm ${(selection === "Art") ? "" : "opacity-60"}`} onClick={() => setSelection("Art")}>
                                 ศิลปะวัฒนธรรม
-                            </h1>
-                            <h1 className={`font-semibold text-white text-[14px] ${(selection === "CSR") ? "" : "opacity-60"}`} onClick={() => setSelection("CSR")}>
+                            </p>
+                            <p className={`font-bold font-ibm text-white text-sm ${(selection === "CSR") ? "" : "opacity-60"}`} onClick={() => setSelection("CSR")}>
                                 CSR
-                            </h1>
+                            </p>
                         </div>
                     </div>
 
