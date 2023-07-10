@@ -21,7 +21,7 @@ const HouseProvider: React.FC<{
 }> = ({ children }) => {
     const router = useRouter();
 
-    const [group, setGroup] = useState<TGroup>('K');
+    const [group, setGroup] = useState<TGroup>('H');
     const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
 

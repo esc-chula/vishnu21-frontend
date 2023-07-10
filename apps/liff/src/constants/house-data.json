@@ -13,8 +13,8 @@
         "name": "อาหารเผ็ด",
         "longName": "อาหารที่ว่าเผ็ดยังไม่เด็ดเท่าเราเลย",
         "theme": "light",
-        "color": "#D33930",
-        "alt_color": "#D33930",
+        "color": "#fe0500",
+        "alt_color": "#fe0500",
         "bg_color": "#E7DBCB"
     },
     {
@@ -67,8 +67,8 @@
         "name": "อาคม",
         "longName": "อาคมต้องเรียนที่ Hogwarts ถ้าอยากได้คนกอดให้มาเรียนกับเรา",
         "theme": "light",
-        "color": "#5E5242",
-        "alt_color": "#5E5242",
+        "color": "#000000",
+        "alt_color": "#000000",
         "bg_color": "#D8EEF5"
     },
     {

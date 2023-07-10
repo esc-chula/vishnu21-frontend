@@ -33,7 +33,7 @@ const House: NextPage = () => {
                         <span className="text-4xl font-bold">{name}</span>
                     </h1>
                 </div>
-                {/* <div
+                <div
                     className="flex items-center space-x-4"
                     style={{
                         color: alt_color,
@@ -57,7 +57,7 @@ const House: NextPage = () => {
                     >
                         สมาชิกบ้าน
                     </button>
-                </div> */}
+                </div>
             </div>
         </div>
     );
