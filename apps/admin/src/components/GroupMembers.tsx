@@ -4,7 +4,7 @@ import MemberTableRow from './table/MemberTableRow';
 
 const GroupMembers: React.FC = () => {
     const pages = ['intania107', 'intania106'];
-    const [selectedPage, setSelectedPage] = useState<(typeof pages)[number]>(
+    const [selectedPage, setSelectedPage] = useState<typeof pages[number]>(
         pages[0]
     );
 
