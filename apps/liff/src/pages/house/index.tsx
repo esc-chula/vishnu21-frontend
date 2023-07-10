@@ -1,12 +1,13 @@
+import HouseData from '@/constants/house-data.json';
 import { useHouse } from '@/contexts/HouseContext';
 import { flag } from 'assets';
-import type { NextPage } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const House: NextPage = () => {
     const router = useRouter();
-    const { group, name, color, alt_color } = useHouse();
+    const { name, group, color, alt_color } = useHouse();
 
     return (
         <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center space-y-10">
@@ -15,7 +16,7 @@ const House: NextPage = () => {
                     src={flag[group]}
                     alt="Flag Image"
                     fill
-                    className="object-cover"
+                    className="object-fill"
                 />
             </div>
             <div className="flex flex-col items-center space-y-7">

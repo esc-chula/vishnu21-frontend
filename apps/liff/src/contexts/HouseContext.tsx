@@ -1,8 +1,9 @@
 import HouseData from '@/constants/house-data.json';
+import { TGroup, THouse } from '@/types/house';
 import { flag } from 'assets';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 interface HouseContextProps {
     group: string;
@@ -20,10 +21,9 @@ const HouseProvider: React.FC<{
 }> = ({ children }) => {
     const router = useRouter();
 
-    const group = 'C';
-    const { name, longName, color, alt_color, theme } = HouseData.find(
-        (data) => data.group === group
-    );
+    const [group, setGroup] = useState<TGroup>('H');
+    const { name, longName, color, alt_color, bg_color, bg_position, theme } =
+        HouseData.find((data) => data.group === group);
 
     if (router.pathname.includes('/house')) {
         return (
@@ -44,17 +44,27 @@ const HouseProvider: React.FC<{
 
                         {/* background filter */}
                         <div
-                            className={`z-10 fixed top-0 left-0 right-0 bottom-0 backdrop-blur-lg bg-opacity-20 select-none ${
+                            className={`z-10 fixed top-0 left-0 right-0 bottom-0 bg-opacity-20 select-none ${
                                 theme === 'dark' ? 'bg-black' : 'bg-white'
                             }`}
                         ></div>
 
                         {/* bacground image */}
-                        <div className="z-0 fixed top-0 left-0 right-0 bottom-0 select-none">
-                            <div className="relative h-screen w-full scale-105">
+                        <div
+                            className="z-0 fixed top-0 left-0 right-0 bottom-0 select-none"
+                            style={{
+                                backgroundColor: bg_color,
+                            }}
+                        >
+                            <div className="relative h-screen w-full scale-110 blur-lg">
                                 <Image
                                     src={flag[group]}
                                     className="object-cover"
+                                    style={{
+                                        objectPosition: bg_position
+                                            ? bg_position
+                                            : 'center',
+                                    }}
                                     alt="Flag Image"
                                     fill
                                     quality={5}
