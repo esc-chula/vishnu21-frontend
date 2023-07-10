@@ -1,4 +1,11 @@
-import Cloud1 from '@/public/images/landing/cloud1.png';
+import Branches1 from '@/public/images/assets/branches1.png';
+import Cloud1 from '@/public/images/assets/cloud1.png';
+import Spore1 from '@/public/images/assets/spore1.png';
+import Leaf3 from '@/public/images/assets/leaf3.png';
+import Leaf6 from '@/public/images/assets/leaf6.png';
+import Leaf8 from '@/public/images/assets/leaf8.png';
+import Key from '@/public/images/assets/key.png';
+import Mushroom2 from '@/public/images/assets/mushroom2.png';
 import Mountain1 from '@/public/images/landing/mountain1.svg';
 import Mountain2 from '@/public/images/landing/mountain2.svg';
 import Mountain3 from '@/public/images/landing/mountain3.svg';
@@ -76,10 +83,10 @@ const Decoration: React.FC = () => {
                         src={Mountain1}
                         alt=""
                         fill
-                        className="select-none object-none object-[10%,0] md:object-left-top -mt-40"
+                        className="select-none object-none object-[10%,0] md:object-left-top md:-mt-24"
                     />
                 </ParallaxLayer>
-                <ParallaxLayer offset={3.4} speed={0.3}>
+                <ParallaxLayer offset={3.5} speed={0.3}>
                     <Image
                         src={Mountain2}
                         alt=""
@@ -96,6 +103,62 @@ const Decoration: React.FC = () => {
                     />
                 </ParallaxLayer>
             </>
+            {/* forest assets */}
+            <ParallaxLayer
+                offset={3.6}
+                factor={2}
+                speed={0.8}
+                className="z-20 select-none"
+            >
+                <div className="z-10 absolute -left-36 top-[10%] h-[40vw] aspect-[161/293]">
+                    <Image
+                        src={Branches1}
+                        alt="Branches1"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+                <div className="z-10 absolute left-0 top-[0%] h-[40vw] rotate-90 aspect-[161/293]">
+                    <Image
+                        src={Branches1}
+                        alt="Branches1"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+                <div className="z-10 absolute -right-10 top-[24%] h-[20vw] rotate-[0deg] aspect-[150/142]">
+                    <Image
+                        src={Spore1}
+                        alt="Spore1"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+                <div className="absolute -right-40 top-[22%] h-[40vw] rotate-[-40deg] aspect-[131/219]">
+                    <Image
+                        src={Mushroom2}
+                        alt="Mushroom2"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+                <div className="absolute -right-12 top-[36%] h-[16vw] rotate-[-30deg] aspect-[131/219]">
+                    <Image
+                        src={Leaf6}
+                        alt="Leaf6"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
+                {/* <div className="absolute -left-10 top-[30%] h-[32vw] rotate-[20deg] aspect-[131/219]">
+                    <Image
+                        src={Leaf3}
+                        alt="Leaf3"
+                        fill
+                        className="object-contain"
+                    />
+                </div> */}
+            </ParallaxLayer>
             {/* background */}
             <>
                 {/* star background */}
@@ -155,12 +218,36 @@ const Decoration: React.FC = () => {
                     className="z-10"
                 >
                     <div
-                        className="z-10 absolute top-0 -left-[400px] -right-[400px] bottom-0 bg-gradient-to-b from-[#130531] to-transparent"
+                        className="z-20 absolute top-0 -left-[400px] -right-[400px] bottom-0 bg-gradient-to-b from-[#130531] to-transparent"
                         style={{
                             background:
                                 'radial-gradient(50% 50.00% at 50% 50.00%, rgba(19, 5, 49, 0.00) 40.10%, #130531 100%)',
                         }}
                     />
+                    <div className="z-10 absolute -left-10 top-[32%] h-[32vw] rotate-[22deg] aspect-[156/365]">
+                        <Image
+                            src={Key}
+                            alt="Key"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
+                    <div className="z-10 absolute -right-44 top-[8%] h-[16vw] aspect-[365/156] opacity-70">
+                        <Image
+                            src={Cloud1}
+                            alt="Cloud1"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
+                    <div className="z-10 absolute -right-0 top-[1%] h-[18vw] aspect-[365/156] opacity-50">
+                        <Image
+                            src={Cloud1}
+                            alt="Cloud1"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
                     <div className="absolute top-0 left-0 right-0 bottom-0 bg-primary-800 bg-[url('/images/landing/grained_background.jpg')] bg-repeat" />
                 </ParallaxLayer>
             </>

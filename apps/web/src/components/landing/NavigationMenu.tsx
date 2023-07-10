@@ -30,10 +30,7 @@ const NavigationMenu: React.FC<{
                     ผู้สนับสนุน
                 </button>
                 <button className="opacity-80 hover:opacity-100 duration-100">
-                    กำหนดการกิจกรรม
-                </button>
-                <button className="opacity-80 hover:opacity-100 duration-100">
-                    FAQ
+                    คำถามที่พบบ่อย
                 </button>
                 <Link
                     href="/links"

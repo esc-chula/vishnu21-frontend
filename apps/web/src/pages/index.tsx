@@ -1,5 +1,8 @@
 import Logo from '@/components/landing/Logo';
+import Decoration from '@/components/landing/Decoration';
 import Divider from '@/components/landing/Divider';
+import Navigation from '@/components/landing/Navigation';
+import NavigationMenu from '@/components/landing/NavigationMenu';
 import Image1 from '@/public/images/landing/1.webp';
 import Image3 from '@/public/images/landing/3.webp';
 import Image5 from '@/public/images/landing/5.webp';
@@ -7,10 +10,9 @@ import Image6 from '@/public/images/landing/6.webp';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import Navigation from '@/components/landing/Navigation';
-import Decoration from '@/components/landing/Decoration';
 import { useState } from 'react';
-import NavigationMenu from '@/components/landing/NavigationMenu';
+import { FiChevronDown } from 'react-icons/fi';
+import FAQ from '@/components/landing/FAQ';
 
 const Home: NextPage = () => {
     const [toggleNav, setToggleNav] = useState(false);
@@ -104,7 +106,7 @@ const Home: NextPage = () => {
                     speed={0.6}
                     className="flex justify-center px-4 select-none"
                 >
-                    <div className="grid grid-cols-2 gap-4 sm:gap-10 max-w-screen-lg w-full">
+                    <div className="grid grid-cols-2 gap-4 sm:gap-10 max-w-screen-md 2xl:max-w-screen-lg w-full">
                         <Image
                             src={Image5}
                             alt="Camp Photo"
@@ -146,13 +148,15 @@ const Home: NextPage = () => {
                     </div>
                 </ParallaxLayer>
 
-                {/* details */}
+                {/* FAQ */}
                 <ParallaxLayer
                     offset={3.9}
                     speed={0.7}
-                    className="z-20 flex flex-col items-center px-4"
+                    factor={2}
+                    className="z-30 flex flex-col items-center px-4 space-y-10 sm:space-y-14"
                 >
-                    <h3 className="font-semibold text-3xl">กำหนดการกิจกรรม</h3>
+                    <h3 className="font-semibold text-3xl">คำถามที่พบบ่อย</h3>
+                    <FAQ />
                 </ParallaxLayer>
 
                 <Decoration />
