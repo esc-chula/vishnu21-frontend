@@ -18,7 +18,7 @@ const Login: NextPage = ({ liff }: { liff: typeof Liff }) => {
         try {
             const res = await fetch(
                 // TODO: Change route later
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/user/login`,
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/login`,
                 {
                     method: 'POST',
                     headers: {
