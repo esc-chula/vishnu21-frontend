@@ -10,7 +10,7 @@ const FaqData = [
         answer: (
             <div className="flex flex-col items-center space-y-6">
                 <p className="text-left w-full">
-                    น้อง ๆ สามารถติดตามกิจกรรมผ่านรูปด้านล่างนี้เลย
+                    น้อง ๆ สามารถเช็คตารางกิจกรรมผ่านรูปด้านล่างนี้เลย
                 </p>
 
                 <div className="max-w-sm w-full space-y-4">
@@ -52,6 +52,34 @@ const FaqData = [
     },
     {
         question: 'จำเป็นต้องนอนค้างคืนหรือไม่?',
+        answer: '',
+    },
+    {
+        question: 'สามารถติดตามข่าวสารของค่ายได้ที่ไหน?',
+        answer: '',
+    },
+    {
+        question: 'ไลน์ OA ทำอะไรได้บ้าง?',
+        answer: '',
+    },
+    {
+        question: 'ถามมา',
+        answer: '',
+    },
+    {
+        question: 'ถามไป',
+        answer: '',
+    },
+    {
+        question: 'ฮัลโหล',
+        answer: '',
+    },
+    {
+        question: 'อะไรนะ',
+        answer: '',
+    },
+    {
+        question: 'IT ใช้ Stack อะไรคั้บ',
         answer: '',
     },
 ];

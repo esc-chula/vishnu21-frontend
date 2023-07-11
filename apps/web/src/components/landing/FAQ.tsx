@@ -10,17 +10,19 @@ const FAQ: React.FC = () => {
             {FaqData.map((faq) => (
                 <div
                     key={faq.question}
-                    onClick={() =>
-                        setToggles((prev) => {
-                            const newToggles = [...prev];
-                            newToggles[FaqData.indexOf(faq)] =
-                                !newToggles[FaqData.indexOf(faq)];
-                            return newToggles;
-                        })
-                    }
-                    className="flex flex-col w-full bg-white rounded-2xl shadow-faq px-4 sm:px-6 cursor-pointer select-none"
+                    className="flex flex-col w-full bg-white rounded-2xl shadow-faq px-4 sm:px-6"
                 >
-                    <div className="flex justify-between items-center h-16">
+                    <div
+                        className="flex justify-between items-center h-16 cursor-pointer select-none"
+                        onClick={() =>
+                            setToggles((prev) => {
+                                const newToggles = [...prev];
+                                newToggles[FaqData.indexOf(faq)] =
+                                    !newToggles[FaqData.indexOf(faq)];
+                                return newToggles;
+                            })
+                        }
+                    >
                         <p className="text-primary-700 font-semibold sm:text-lg">
                             {faq.question}
                         </p>

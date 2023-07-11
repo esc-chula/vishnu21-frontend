@@ -11,7 +11,6 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
 import FAQ from '@/components/landing/FAQ';
 
 const Home: NextPage = () => {
@@ -153,10 +152,15 @@ const Home: NextPage = () => {
                     offset={3.9}
                     speed={0.7}
                     factor={2}
-                    className="z-30 flex flex-col items-center px-4 space-y-10 sm:space-y-14"
+                    className="z-30 flex flex-col items-center px-4 -mt-64 lg:mt-0 space-y-48"
                 >
-                    <h3 className="font-semibold text-3xl">คำถามที่พบบ่อย</h3>
-                    <FAQ />
+                    <div className="flex flex-col items-center w-full space-y-10 sm:space-y-14">
+                        <h3 className="font-semibold text-3xl">
+                            คำถามที่พบบ่อย
+                        </h3>
+                        <FAQ />
+                    </div>
+                    {/* <div className="flex flex-col items-center w-full space-y-10 sm:space-y-14"></div> */}
                 </ParallaxLayer>
 
                 <Decoration />
