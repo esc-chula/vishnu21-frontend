@@ -1,5 +1,7 @@
 import Layout from '@/components/links/Layout';
 import LinksData from '@/constants/links.json';
+import FirstdateLight from '@/public/images/firstdate_light.svg';
+import VishnuLight from '@/public/images/vishnu_light.svg';
 import { logo } from 'assets';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -32,14 +34,14 @@ const Links = () => {
                             {/* icon */}
                             <div className="flex items-center space-x-3">
                                 <Image
-                                    src={logo.firstdate}
+                                    src={FirstdateLight}
                                     alt="First Date Logo"
                                     width={62}
                                     height={47}
                                 />
                                 <div className="h-12 w-px bg-white" />
                                 <Image
-                                    src={logo.vishnu}
+                                    src={VishnuLight}
                                     alt="Vishnu Logo"
                                     width={138}
                                     height={38}
