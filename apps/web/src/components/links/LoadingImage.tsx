@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { useState } from 'react';
 
 interface LoadingImageProps {
-    src: string;
+    src: StaticImageData;
     className: string;
     width: number;
     height: number;
@@ -18,7 +18,7 @@ const LoadingImage: React.FC<LoadingImageProps> = ({
 
     return (
         <Image
-            quality={10}
+            quality={50}
             src={src}
             alt="Background Image"
             className={className}
