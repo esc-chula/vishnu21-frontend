@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
-import ClubBackground from 'public/assets/ClubBackground.png';
+import ClubBackground from 'public/images/GrainBackground.svg';
 import Image from 'next/image';
 import BottomSheet from './components/BottomSheet';
 import ClubCard from './components/Clubcard';

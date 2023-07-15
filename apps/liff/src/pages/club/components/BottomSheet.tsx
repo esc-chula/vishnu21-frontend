@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import ClubBackground from 'public/assets/ClubBackground.png';
-import LogoTest from 'public/assets/logoTest.jpg';
-import QrTest from 'public/assets/qrTest.png';
+import ClubBackground from 'public/images/GrainBackground.svg';
+import LogoTest from 'public/images/logoTest.jpg';
+import QrTest from 'public/images/qrTest.png';
 import Image from 'next/image';
 import { AiFillHeart } from 'react-icons/ai';
 import ReactMarkdown from 'react-markdown';
