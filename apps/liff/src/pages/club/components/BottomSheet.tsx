@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import ClubBackground from 'public/images/GrainBackground.svg';
+import ClubBackground from 'public/images/GrainBackground.png';
 import LogoTest from 'public/images/logoTest.jpg';
 import QrTest from 'public/images/qrTest.png';
 import Image from 'next/image';
