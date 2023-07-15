@@ -46,7 +46,7 @@ const BottomSheet = ({ isOpen, onClose }) => {
     const bottomSheetClass = isOpen ? 'translate-y-0' : 'translate-y-full';
 
     return (
-        <div ref={bottomSheetRef} className={`fixed bottom-0 left-0 right-0 transform ${bottomSheetClass} bg-white transition-transform duration-300 ease-in-out overflow-hidden h-[80%] flex flex-col rounded-[20px]`}>
+        <div ref={bottomSheetRef} className={`fixed bottom-0 left-0 right-0 transform ${bottomSheetClass} bg-white transition-transform duration-300 ease-in-out overflow-hidden h-[85%] flex flex-col rounded-[20px]`}>
             <div className='w-full h-[30px] bg-white flex items-center justify-center'>
                 <div className='w-[30%] h-[5px] bg-gray-300 rounded-sm' />
             </div>

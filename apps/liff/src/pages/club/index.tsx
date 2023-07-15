@@ -5,8 +5,8 @@ import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/assets/ClubBackground.png';
 import Image from 'next/image';
-import ClubCard from './components/ClubCard';
 import BottomSheet from './components/BottomSheet';
+import ClubCard from './components/Clubcard';
 
 // TODO: fetch data from api
 const club_datas = [
@@ -180,7 +180,7 @@ const Club = () => {
                     </div>
 
                     {/* club list */}
-                    <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 mt-[25px] w-full gap-[20px]'>
+                    <div className='grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 mt-[25px] w-full gap-[20px]'>
                         {
                             clubFiltered.map((club_data) => {
                                 const pathName = "/club/" + club_data.name;

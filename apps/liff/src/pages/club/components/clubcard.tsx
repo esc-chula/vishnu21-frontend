@@ -5,10 +5,10 @@ const ClubCard = ({ img = <div className='flex bg-gray-500 h-[72px] w-[72px] rou
     const icon_heart = (currentMode == "Favorite" && isFavorite) ? <AiFillHeart className="absolute h-[30px] w-[30px] top-0 right-0" color="red" /> : <div />
     // TODO: change img according to input
     return (
-        <div className='flex relative items-center justify-center'>
-            <div className="flex flex-col relative pt-[10px] pr-[10px]">
+        <div className='flex relative justify-center'>
+            <div className="flex flex-col relative items-center  ">
                 {/* glowing border */}
-                <div className="flex absolute bg-black h-[92px] w-[92px] rounded-[20px] blur-sm" />
+                <div className="flex absolute top-0 bg-black h-[92px] w-[92px] rounded-[20px] blur-sm" />
                 
                 {/* white box */}
                 <div className='flex relative bg-white h-[92px] w-[92px] rounded-[20px] items-center justify-center shadow-[#7A36E359] shadow-inner' onClick={onClick}>
