@@ -117,7 +117,7 @@ const FAQ: NextPage = () => {
                 className="fixed top-0 left-0 -z-50 h-screen w-full object-cover"
                 loading="lazy"
             />
-                     <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
+            <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
             <div className="fixed top-0 right-0 overflow-hidden w-48 h-48">
                 <Image
                     src={Spore1}
