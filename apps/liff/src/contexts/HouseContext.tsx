@@ -21,7 +21,7 @@ const HouseProvider: React.FC<{
 }> = ({ children }) => {
     const router = useRouter();
 
-    const [group, setGroup] = useState<TGroup>('H');
+    const [group, setGroup] = useState<TGroup>('F');
     const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
 
@@ -44,7 +44,7 @@ const HouseProvider: React.FC<{
 
                         {/* background filter */}
                         <div
-                            className={`z-10 fixed top-0 left-0 right-0 bottom-0 bg-opacity-20 select-none ${
+                            className={`z-10 fixed top-0 left-0 right-0 bottom-0 bg-opacity-20 select-none backdrop-blur-lg ${
                                 theme === 'dark' ? 'bg-black' : 'bg-white'
                             }`}
                         ></div>
@@ -52,13 +52,13 @@ const HouseProvider: React.FC<{
                         {/* bacground image */}
                         <div
                             className="z-0 fixed top-0 left-0 right-0 bottom-0 select-none"
-                            style={{
-                                backgroundColor: bg_color,
-                            }}
+                            // style={{
+                            //     backgroundColor: bg_color,
+                            // }}
                         >
-                            <div className="relative h-screen w-full scale-110 blur-lg">
+                            <div className="relative h-screen w-full scale-105">
                                 <Image
-                                    src={flag[group]}
+                                    src={require(`@/public/images/banners/${group}.png`)}
                                     className="object-cover"
                                     style={{
                                         objectPosition: bg_position
@@ -67,7 +67,7 @@ const HouseProvider: React.FC<{
                                     }}
                                     alt="Flag Image"
                                     fill
-                                    quality={5}
+                                    quality={1}
                                 />
                             </div>
                         </div>

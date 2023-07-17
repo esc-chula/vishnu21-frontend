@@ -13,7 +13,7 @@ const House: NextPage = () => {
         <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center space-y-10">
             <div className="max-w-[190px] aspect-[421/765] w-full relative border-white border-[10px]">
                 <Image
-                    src={flag[group]}
+                    src={require(`@/public/images/banners/${group}.png`)}
                     alt="Flag Image"
                     fill
                     className="object-fill"
