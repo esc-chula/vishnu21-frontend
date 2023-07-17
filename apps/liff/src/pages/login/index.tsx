@@ -17,7 +17,6 @@ const Login: NextPage = ({ liff }: { liff: typeof Liff }) => {
         setLoading(true);
         try {
             const res = await fetch(
-                // TODO: Change route later
                 `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/login`,
                 {
                     method: 'POST',
@@ -27,7 +26,7 @@ const Login: NextPage = ({ liff }: { liff: typeof Liff }) => {
                     body: JSON.stringify({
                         studentId,
                         password,
-                        lineToken: liff.getAccessToken(),
+                        lineToken: liff.getIDToken(),
                     }),
                 }
             );

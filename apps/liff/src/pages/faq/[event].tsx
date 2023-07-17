@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 import FAQItem from './components/FAQItem';
@@ -50,17 +50,19 @@ const FAQ: NextPage = () => {
     useEffect(() => {
         const getFAQs = async () => {
             try {
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/faq/${router.query.event}`
-                );
-                const data = await res.json();
-                dispatch({ type: 'SET_FAQS', faqs: data });
+                if (router.query.event) {
+                    const res = await fetch(
+                        `${process.env.NEXT_PUBLIC_API_BASE_URL}/faqs/${router.query.event}`
+                    );
+                    const data = await res.json();
+                    dispatch({ type: 'SET_FAQS', faqs: data });
+                }
             } catch (error) {
                 console.error(error);
             }
         };
         getFAQs();
-    }, [router.query.event]);
+    }, [router.query]);
 
     useEffect(() => {
         if (!search || search === '') {
@@ -115,7 +117,7 @@ const FAQ: NextPage = () => {
                 className="fixed top-0 left-0 -z-50 h-screen w-full object-cover"
                 loading="lazy"
             />
-            <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
+                     <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
             <div className="fixed top-0 right-0 overflow-hidden w-48 h-48">
                 <Image
                     src={Spore1}
