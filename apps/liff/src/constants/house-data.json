@@ -6,7 +6,8 @@
         "theme": "dark",
         "color": "#A3F1F5",
         "alt_color": "#000000",
-        "bg_color": "#000000"
+        "bg_color": "#000000",
+        "line_invitation_link": "https://line.me/ti/g/AH8u59dmLK"
     },
     {
         "group": "B",
@@ -15,7 +16,8 @@
         "theme": "light",
         "color": "#fe0500",
         "alt_color": "#fe0500",
-        "bg_color": "#E7DBCB"
+        "bg_color": "#E7DBCB",
+        "line_invitation_link": "https://line.me/ti/g/lI-T68RhUy"
     },
     {
         "group": "C",
@@ -24,7 +26,8 @@
         "theme": "light",
         "color": "#E58B93",
         "alt_color": "#E58B93",
-        "bg_color": "#AACBE8"
+        "bg_color": "#AACBE8",
+        "line_invitation_link": "https://line.me/ti/g/3RiFyEN-Hu"
     },
     {
         "group": "Dog",
@@ -33,7 +36,8 @@
         "theme": "dark",
         "color": "#FFE5CB",
         "alt_color": "#1C2E4C",
-        "bg_color": "#000000"
+        "bg_color": "#000000",
+        "line_invitation_link": "https://line.me/ti/g/DdY__k2rKe"
     },
     {
         "group": "E",
@@ -42,7 +46,8 @@
         "theme": "light",
         "color": "#FFFFFF",
         "alt_color": "#00637E",
-        "bg_color": "#FFFFFF"
+        "bg_color": "#FFFFFF",
+        "line_invitation_link": "https://line.me/ti/g/0BAliu94N_"
     },
     {
         "group": "F",
@@ -51,7 +56,8 @@
         "theme": "light",
         "color": "#FFFFFF",
         "alt_color": "#005A87",
-        "bg_color": "#F0F4EC"
+        "bg_color": "#F0F4EC",
+        "line_invitation_link": "https://line.me/R/ti/g/8wDEnhZJU6"
     },
     {
         "group": "G",
@@ -60,7 +66,8 @@
         "theme": "light",
         "color": "#FEFEFE",
         "alt_color": "#3A4871",
-        "bg_color": "#B2C9E7"
+        "bg_color": "#B2C9E7",
+        "line_invitation_link": "https://line.me/ti/g/wXJT38coSZ"
     },
     {
         "group": "H",
@@ -69,7 +76,8 @@
         "theme": "light",
         "color": "#000000",
         "alt_color": "#000000",
-        "bg_color": "#D8EEF5"
+        "bg_color": "#D8EEF5",
+        "line_invitation_link": "https://line.me/R/ti/g/fpuwSGdCum"
     },
     {
         "group": "J",
@@ -78,7 +86,8 @@
         "theme": "light",
         "color": "#02161D",
         "alt_color": "#02161D",
-        "bg_color": "#342A32"
+        "bg_color": "#342A32",
+        "line_invitation_link": "https://line.me/ti/g/jRnRAojCh5"
     },
     {
         "group": "K",
@@ -87,7 +96,8 @@
         "theme": "dark",
         "color": "#FFC4C1",
         "alt_color": "#F14569",
-        "bg_color": "#FFE0E0"
+        "bg_color": "#FFE0E0",
+        "line_invitation_link": "https://line.me/ti/g/nhAv6xLxjg"
     },
     {
         "group": "L",
@@ -97,7 +107,8 @@
         "color": "#8A200E",
         "alt_color": "#92394B",
         "bg_color": "#A23B2A",
-        "bg_position": "bottom"
+        "bg_position": "bottom",
+        "line_invitation_link": "https://line.me/ti/g/lI-T68RhUy"
     },
     {
         "group": "M",
@@ -106,7 +117,8 @@
         "theme": "dark",
         "color": "#FFFF00",
         "alt_color": "#4E490A",
-        "bg_color": "#000000"
+        "bg_color": "#000000",
+        "line_invitation_link": "https://line.me/R/ti/g/xl9lHWofgM"
     },
     {
         "group": "N",
@@ -115,7 +127,8 @@
         "theme": "dark",
         "color": "#FFFFFF",
         "alt_color": "#15375B",
-        "bg_color": "#AF2521"
+        "bg_color": "#AF2521",
+        "line_invitation_link": "https://line.me/ti/g/D1SM8Rs_yB"
     },
     {
         "group": "P",
@@ -124,7 +137,8 @@
         "theme": "dark",
         "color": "#FEFEFE",
         "alt_color": "#03331E",
-        "bg_color": "#000A00"
+        "bg_color": "#000A00",
+        "line_invitation_link": "https://line.me/ti/g/Io46lyOIoy"
     },
     {
         "group": "Q",
@@ -133,7 +147,8 @@
         "theme": "dark",
         "color": "#DFCAAC",
         "alt_color": "#B3010B",
-        "bg_color": "#000000"
+        "bg_color": "#000000",
+        "line_invitation_link": "https://line.me/ti/g/sTSU17_NKD"
     },
     {
         "group": "R",
@@ -142,7 +157,8 @@
         "theme": "dark",
         "color": "#FFF1B4",
         "alt_color": "#173461",
-        "bg_color": "#1A3A6F"
+        "bg_color": "#1A3A6F",
+        "line_invitation_link": "https://line.me/ti/g/613n5k7q_-"
     },
     {
         "group": "S",
@@ -151,7 +167,8 @@
         "theme": "dark",
         "color": "#F2E340",
         "alt_color": "#963174",
-        "bg_color": "#E2AB2B"
+        "bg_color": "#E2AB2B",
+        "line_invitation_link": "https://line.me/ti/g/n4gP6svMAy"
     },
     {
         "group": "T",
@@ -160,6 +177,7 @@
         "theme": "dark",
         "color": "#FFEBED",
         "alt_color": "#3A3C51",
-        "bg_color": "#262841"
+        "bg_color": "#262841",
+        "line_invitation_link": "https://line.me/R/ti/g/yTjUHHPr4J"
     }
 ]

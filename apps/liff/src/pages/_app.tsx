@@ -5,8 +5,13 @@ import { useState, useEffect } from 'react';
 import { LIFF_PRODUCTION } from 'env';
 import HouseProvider from '@/contexts/HouseContext';
 import AuthProvider from '@/contexts/AuthContext';
+import { useRouter } from 'next/router';
+import Body from '@/components/Body';
 
 function MyApp({ Component, pageProps }: AppProps) {
+    const router = useRouter();
+    const whiteListedPaths = ['/', '/rules'];
+
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
 
@@ -35,11 +40,23 @@ function MyApp({ Component, pageProps }: AppProps) {
     pageProps.liffError = liffError;
 
     if (LIFF_PRODUCTION) {
-        return (
+        return whiteListedPaths.includes(router.pathname) ? (
+            <Body>
+                <Component {...pageProps} />
+            </Body>
+        ) : (
             <AuthProvider {...pageProps}>
-                <HouseProvider>
-                    <Component {...pageProps} />
-                </HouseProvider>
+                {router.pathname === '/login' ? (
+                    <Body>
+                        <Component {...pageProps} />
+                    </Body>
+                ) : (
+                    <HouseProvider>
+                        <Body>
+                            <Component {...pageProps} />
+                        </Body>
+                    </HouseProvider>
+                )}
             </AuthProvider>
         );
     } else {

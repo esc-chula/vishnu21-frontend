@@ -1,3 +1,5 @@
+import { IUser } from './user';
+
 export type TGroup =
     | 'A'
     | 'B'
@@ -37,3 +39,23 @@ export type THouse =
     | 'อาสา'
     | 'Rลาดิน'
     | 'Rโหเธอ';
+
+interface IContact {
+    name: string;
+    phone: string;
+}
+
+interface IPost {}
+
+interface IScoreHistory {}
+
+export interface IGroup {
+    groupId: string;
+    houseName: string;
+    shortName: string;
+    group: TGroup;
+    score: number;
+    contacts: IContact[];
+    members: IUser[];
+    posts: IPost[];
+}

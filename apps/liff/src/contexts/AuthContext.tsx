@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '@/utils/fetcher';
 import { IUser } from 'types';
 import { useRouter } from 'next/router';
-import Loading from '@/components/Loading';
+import Loader from '@/components/Loader';
 import liff from '@line/liff';
 
 interface AuthContextProps {
@@ -18,6 +18,7 @@ const AuthProvider: React.FC<{
     liff: typeof liff;
 }> = ({ children, liff }) => {
     const router = useRouter();
+    const redirect = router.query.redirect as string;
     const [isLoading, setIsLoading] = useState(true);
 
     const [user, setUser] = useState<IUser | null>(null);
@@ -32,16 +33,16 @@ const AuthProvider: React.FC<{
             .then((res) => {
                 setUser(res.data);
                 setIsLoading(false);
-                if (router.pathname === '/login') {
-                    router.push('/house');
+                if (router.pathname.includes('login')) {
+                    router.push(redirect || '/house');
                 }
             })
             .catch((err) => {
                 console.error(err);
                 setUser(null);
                 setIsLoading(false);
-                if (router.pathname !== '/login') {
-                    router.push('/login');
+                if (!router.pathname.includes('login')) {
+                    router.push('/login?redirect=' + router.pathname);
                 }
             });
     };
@@ -89,7 +90,7 @@ const AuthProvider: React.FC<{
                 user,
             }}
         >
-            <Loading>{children}</Loading>
+            <Loader>{children}</Loader>
         </AuthContext.Provider>
     );
 };

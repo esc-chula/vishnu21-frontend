@@ -1,10 +1,13 @@
+import { useAuth } from '@/contexts/AuthContext';
 import { useHouse } from '@/contexts/HouseContext';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaLine } from 'react-icons/fa';
-import { FiChevronLeft, FiInstagram } from 'react-icons/fi';
+import { FiChevronLeft, FiInstagram, FiUser } from 'react-icons/fi';
 
 const Profile: NextPage = () => {
+    const { user } = useAuth();
     const { color, alt_color, theme } = useHouse();
 
     return (
@@ -23,11 +26,21 @@ const Profile: NextPage = () => {
             <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto flex flex-col justify-between items-center">
                 <div className="flex flex-col items-center space-y-6">
                     <div
-                        className="w-36 h-36 rounded-full border-[8px] border-white"
+                        className="w-36 h-36 rounded-full border-[8px] border-white bg-gray-200 grid place-content-center overflow-hidden"
                         style={{
                             boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
                         }}
-                    ></div>
+                    >
+                        {user.profilePicture ? (
+                            <Image
+                                src={user.profilePicture}
+                                alt="Profile Picture"
+                                fill
+                            />
+                        ) : (
+                            <FiUser className="text-9xl pt-4 text-gray-400 opacity-50" />
+                        )}
+                    </div>
                     <div
                         className="flex flex-col items-center space-y-1 font-semibold"
                         style={{

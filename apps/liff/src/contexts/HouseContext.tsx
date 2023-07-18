@@ -1,10 +1,11 @@
 import HouseData from '@/constants/house-data.json';
 import axios from '@/utils/fetcher';
-import { TGroup, THouse } from 'types';
+import { IGroup, TGroup, THouse } from 'types';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
+import Loading from '@/components/Loading';
 
 interface HouseContextProps {
     group: string;
@@ -13,6 +14,7 @@ interface HouseContextProps {
     color: string;
     alt_color: string;
     theme: string;
+    groupData: IGroup;
 }
 
 export const HouseContext = createContext<HouseContextProps>(null);
@@ -23,7 +25,30 @@ const HouseProvider: React.FC<{
     const router = useRouter();
     const { user } = useAuth();
 
-    const [group, setGroup] = useState<TGroup>('F');
+    const [groupData, setGroupData] = useState<IGroup | null>(null);
+
+    const fetchGroupData = async () => {
+        await axios
+            .get('/groups/user', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+            .then((res) => {
+                setGroupData(res.data);
+            })
+            .catch((err) => {
+                console.error(err.response.data);
+            });
+    };
+
+    useEffect(() => {
+        fetchGroupData();
+    }, []);
+
+    if (groupData === null) return <Loading />;
+
+    const group = groupData.group;
     const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
 
@@ -36,45 +61,36 @@ const HouseProvider: React.FC<{
                 color,
                 alt_color,
                 theme,
+                groupData,
             }}
         >
             {router.pathname.includes('/house') ? (
-                <main className="flex justify-center">
-                    <section className="relative h-screen w-full max-w-screen-sm">
-                        {/* content */}
-                        {children}
+                <>
+                    {children}
 
-                        {/* background filter */}
-                        <div
-                            className={`z-10 fixed top-0 left-0 right-0 bottom-0 bg-opacity-20 select-none backdrop-blur-lg ${
-                                theme === 'dark' ? 'bg-black' : 'bg-white'
-                            }`}
-                        ></div>
+                    <div
+                        className={`z-10 fixed top-0 left-0 right-0 bottom-0 bg-opacity-20 select-none backdrop-blur-lg ${
+                            theme === 'dark' ? 'bg-black' : 'bg-white'
+                        }`}
+                    ></div>
 
-                        {/* bacground image */}
-                        <div
-                            className="z-0 fixed top-0 left-0 right-0 bottom-0 select-none"
-                            // style={{
-                            //     backgroundColor: bg_color,
-                            // }}
-                        >
-                            <div className="relative h-screen w-full scale-105">
-                                <Image
-                                    src={require(`@/public/images/banners/${group}.png`)}
-                                    className="object-cover"
-                                    style={{
-                                        objectPosition: bg_position
-                                            ? bg_position
-                                            : 'center',
-                                    }}
-                                    alt="Flag Image"
-                                    fill
-                                    quality={1}
-                                />
-                            </div>
+                    <div className="z-0 fixed top-0 left-0 right-0 bottom-0 select-none">
+                        <div className="relative h-screen w-full scale-105">
+                            <Image
+                                src={require(`@/public/images/banners/${group}.png`)}
+                                className="object-cover"
+                                style={{
+                                    objectPosition: bg_position
+                                        ? bg_position
+                                        : 'center',
+                                }}
+                                alt="Flag Image"
+                                fill
+                                quality={1}
+                            />
                         </div>
-                    </section>
-                </main>
+                    </div>
+                </>
             ) : (
                 children
             )}

@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '@/utils/fetcher';
 import { IUser } from 'types';
 import { useRouter } from 'next/router';
-import Loading from '@/components/Loading';
+import Loader from '@/components/Loader';
 
 interface AuthContextProps {
     login: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -92,7 +92,7 @@ const AuthProvider: React.FC<{
                 user,
             }}
         >
-            <Loading>{children}</Loading>
+            <Loader>{children}</Loader>
         </AuthContext.Provider>
     );
 };
