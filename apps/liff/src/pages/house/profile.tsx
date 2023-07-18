@@ -1,5 +1,10 @@
 import { useAuth } from '@/contexts/AuthContext';
 import { useHouse } from '@/contexts/HouseContext';
+import Sponsor1 from '@/public/images/sponsors/gcme_logo.png';
+import Sponsor2 from '@/public/images/sponsors/fujifilm_logo.png';
+import Sponsor3 from '@/public/images/sponsors/instax_logo.png';
+import Sponsor4 from '@/public/images/sponsors/major_logo.png';
+import Sponsor5 from '@/public/images/sponsors/bright_hair_logo.png';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,14 +13,17 @@ import { FiChevronLeft, FiInstagram, FiUser } from 'react-icons/fi';
 
 const Profile: NextPage = () => {
     const { user } = useAuth();
-    const { color, alt_color, theme } = useHouse();
+    const { houseData } = useHouse();
 
     return (
         <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col space-y-3 px-4">
             <div
                 className="relative flex justify-center items-center pt-6 pb-2"
                 style={{
-                    color: theme === 'dark' ? color : alt_color,
+                    color:
+                        houseData.theme === 'dark'
+                            ? houseData.color
+                            : houseData.altColor,
                 }}
             >
                 <Link href="/house/member" className="absolute left-0 text-3xl">
@@ -28,7 +36,7 @@ const Profile: NextPage = () => {
                     <div
                         className="w-36 h-36 rounded-full border-[8px] border-white bg-gray-200 grid place-content-center overflow-hidden"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     >
                         {user.profilePicture ? (
@@ -44,7 +52,10 @@ const Profile: NextPage = () => {
                     <div
                         className="flex flex-col items-center space-y-1 font-semibold"
                         style={{
-                            color: theme === 'dark' ? color : alt_color,
+                            color:
+                                houseData.theme === 'dark'
+                                    ? houseData.color
+                                    : houseData.altColor,
                         }}
                     >
                         <h2 className="text-xl font-bold">
@@ -56,7 +67,7 @@ const Profile: NextPage = () => {
                         <div
                             className="bg-white h-12 rounded-2xl flex items-center space-x-3 text-neutral-300 px-3 font-semibold"
                             style={{
-                                boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 6px 0px ${alt_color}1A inset`,
+                                boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 6px 0px ${houseData.altColor}1A inset`,
                             }}
                         >
                             <FiInstagram className="text-2xl" />
@@ -65,7 +76,7 @@ const Profile: NextPage = () => {
                         <div
                             className="bg-white h-12 rounded-2xl flex items-center space-x-3 text-neutral-300 px-3 font-semibold"
                             style={{
-                                boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 6px 0px ${alt_color}1A inset`,
+                                boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 6px 0px ${houseData.altColor}1A inset`,
                             }}
                         >
                             <FaLine className="text-2xl" />
@@ -76,14 +87,19 @@ const Profile: NextPage = () => {
                 <div
                     className="flex flex-col items-center font-medium text-xs space-y-2"
                     style={{
-                        color: theme === 'dark' ? color : alt_color,
+                        color:
+                            houseData.theme === 'dark'
+                                ? houseData.color
+                                : houseData.altColor,
                     }}
                 >
                     <p>สนับสนุนด้วย</p>
                     <div className="flex items-center space-x-2">
-                        <div className="w-10 aspect-square bg-neutral-300"></div>
-                        <div className="w-10 aspect-square bg-neutral-300"></div>
-                        <div className="w-10 aspect-square bg-neutral-300"></div>
+                        <Image src={Sponsor1} alt="Sponsor" className="w-10" />
+                        <Image src={Sponsor2} alt="Sponsor" className="w-10" />
+                        <Image src={Sponsor3} alt="Sponsor" className="w-10" />
+                        <Image src={Sponsor4} alt="Sponsor" className="w-10" />
+                        <Image src={Sponsor5} alt="Sponsor" className="w-10" />
                     </div>
                 </div>
             </div>

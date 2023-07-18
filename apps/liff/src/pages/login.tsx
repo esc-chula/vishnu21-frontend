@@ -2,9 +2,16 @@ import LoginBackground from '@/public/images/assets/login_background.png';
 import { useAuth } from '@/contexts/AuthContext';
 import { NextPage } from 'next';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Login: NextPage = () => {
-    const { login } = useAuth();
+    const router = useRouter();
+    const { login, user } = useAuth();
+
+    useEffect(() => {
+        if (user) router.push('/house');
+    }, [user, router]);
 
     return (
         <>
@@ -13,28 +20,19 @@ const Login: NextPage = () => {
                     className="flex flex-col items-center justify-center gap-6 text-neutral-50"
                     onSubmit={login}
                 >
-                    <div className="flex flex-col">
-                        <label className="text-sm opacity-80 mb-2 ml-2">
-                            รหัสนิสิต
-                        </label>
-                        <input
-                            name="studentId"
-                            type="text"
-                            className="!outline-none px-5 py-2.5 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal backdrop-blur-[2.5px]"
-                            placeholder="Ex. 663..."
-                        />
-                    </div>
-                    <div className="flex flex-col">
-                        <label className="text-sm opacity-80 mb-2 ml-2">
-                            รหัสผ่าน CUNET
-                        </label>
-                        <input
-                            name="password"
-                            type="password"
-                            className="!outline-none px-5 py-2.5 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal backdrop-blur-[2.5px]"
-                            placeholder="รหัสผ่าน"
-                        />
-                    </div>
+                    <input
+                        name="studentId"
+                        type="text"
+                        className="!outline-none px-5 py-2.5 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal backdrop-blur-[2.5px] focus:border-opacity-60 duration-200"
+                        placeholder="รหัสนิสิต"
+                    />
+
+                    <input
+                        name="password"
+                        type="password"
+                        className="!outline-none px-5 py-2.5 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal backdrop-blur-[2.5px] focus:border-opacity-60 duration-200"
+                        placeholder="รหัสผ่าน CUNET"
+                    />
                     <button
                         type="submit"
                         className="bg-neutral-50 shadow-button rounded-2xl w-48 py-3 text-sm text-primary-600 font-bold mt-4"

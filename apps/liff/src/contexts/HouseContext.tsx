@@ -1,20 +1,14 @@
 import HouseData from '@/constants/house-data.json';
 import axios from '@/utils/fetcher';
-import { IGroup, TGroup, THouse } from 'types';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
 import Loading from '@/components/Loading';
+import { IHouse } from 'types';
 
 interface HouseContextProps {
-    group: string;
-    name: string;
-    longName: string;
-    color: string;
-    alt_color: string;
-    theme: string;
-    groupData: IGroup;
+    houseData: IHouse | null;
 }
 
 export const HouseContext = createContext<HouseContextProps>(null);
@@ -25,9 +19,9 @@ const HouseProvider: React.FC<{
     const router = useRouter();
     const { user } = useAuth();
 
-    const [groupData, setGroupData] = useState<IGroup | null>(null);
+    const [houseData, setHouseData] = useState<IHouse | null>(null);
 
-    const fetchGroupData = async () => {
+    const fetchHouseData = async () => {
         await axios
             .get('/groups/user', {
                 headers: {
@@ -35,33 +29,25 @@ const HouseProvider: React.FC<{
                 },
             })
             .then((res) => {
-                setGroupData(res.data);
+                const localData = HouseData.find(
+                    (data) => data.group === res.data.group
+                );
+                setHouseData({ ...res.data, ...localData });
             })
             .catch((err) => {
-                console.error(err.response.data);
+                console.error(err);
             });
     };
 
     useEffect(() => {
-        fetchGroupData();
+        fetchHouseData();
     }, []);
 
-    if (groupData === null) return <Loading />;
-
-    const group = groupData.group;
-    const { name, longName, color, alt_color, bg_color, bg_position, theme } =
-        HouseData.find((data) => data.group === group);
-
+    if (houseData === null) return <Loading />;
     return (
         <HouseContext.Provider
             value={{
-                group,
-                name,
-                longName,
-                color,
-                alt_color,
-                theme,
-                groupData,
+                houseData,
             }}
         >
             {router.pathname.includes('/house') ? (
@@ -70,18 +56,18 @@ const HouseProvider: React.FC<{
 
                     <div
                         className={`z-10 fixed top-0 left-0 right-0 bottom-0 bg-opacity-20 select-none backdrop-blur-lg ${
-                            theme === 'dark' ? 'bg-black' : 'bg-white'
+                            houseData.theme === 'dark' ? 'bg-black' : 'bg-white'
                         }`}
                     ></div>
 
                     <div className="z-0 fixed top-0 left-0 right-0 bottom-0 select-none">
                         <div className="relative h-screen w-full scale-105">
                             <Image
-                                src={require(`@/public/images/banners/${group}.png`)}
+                                src={require(`@/public/images/banners/${houseData.group}.png`)}
                                 className="object-cover"
                                 style={{
-                                    objectPosition: bg_position
-                                        ? bg_position
+                                    objectPosition: houseData.bgPosition
+                                        ? houseData.bgPosition
                                         : 'center',
                                 }}
                                 alt="Flag Image"

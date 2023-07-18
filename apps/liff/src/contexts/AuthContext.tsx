@@ -82,6 +82,14 @@ const AuthProvider: React.FC<{
         fetchUser();
     }, []);
 
+    // useEffect(() => {
+    //     if (router.pathname.includes('login')) {
+    //         if (user && !isLoading) {
+    //             router.back();
+    //         }
+    //     }
+    // }, [router]);
+
     return (
         <AuthContext.Provider
             value={{
