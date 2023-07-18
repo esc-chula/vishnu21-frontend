@@ -9,6 +9,7 @@ import { IHouse } from 'types';
 
 interface HouseContextProps {
     houseData: IHouse | null;
+    fetchHouseData: () => Promise<void>;
 }
 
 export const HouseContext = createContext<HouseContextProps>(null);
@@ -47,6 +48,7 @@ const HouseProvider: React.FC<{
         <HouseContext.Provider
             value={{
                 houseData,
+                fetchHouseData,
             }}
         >
             {router.pathname.includes('/house') ? (
