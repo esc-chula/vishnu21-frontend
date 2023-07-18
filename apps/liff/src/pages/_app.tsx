@@ -6,10 +6,11 @@ import { LIFF_PRODUCTION } from 'env';
 import HouseProvider from '@/contexts/HouseContext';
 import AuthProvider from '@/contexts/AuthContext';
 import { useRouter } from 'next/router';
+import Body from '@/components/Body';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
-    const whiteListedPaths = ['/'];
+    const whiteListedPaths = ['/', '/rules'];
 
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
@@ -40,14 +41,20 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     if (LIFF_PRODUCTION) {
         return whiteListedPaths.includes(router.pathname) ? (
-            <Component {...pageProps} />
+            <Body>
+                <Component {...pageProps} />
+            </Body>
         ) : (
             <AuthProvider {...pageProps}>
                 {router.pathname === '/login' ? (
-                    <Component {...pageProps} />
+                    <Body>
+                        <Component {...pageProps} />
+                    </Body>
                 ) : (
                     <HouseProvider>
-                        <Component {...pageProps} />
+                        <Body>
+                            <Component {...pageProps} />
+                        </Body>
                     </HouseProvider>
                 )}
             </AuthProvider>

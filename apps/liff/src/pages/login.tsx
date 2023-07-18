@@ -1,5 +1,4 @@
-import LoginBackground from '@/public/images/login-background.svg';
-import VishnuLogo from '@/public/images/vishnu-logo.svg';
+import LoginBackground from '@/public/images/assets/login_background.png';
 import { useAuth } from '@/contexts/AuthContext';
 import { NextPage } from 'next';
 import Image from 'next/image';
@@ -8,45 +7,60 @@ const Login: NextPage = () => {
     const { login } = useAuth();
 
     return (
-        <div className="relative h-screen overflow-y-clip w-full flex flex-col items-center justify-center px-16">
-            <form
-                className="w-72 max-w-full h-full flex flex-col items-center justify-center gap-5"
-                onSubmit={login}
-            >
-                <Image
-                    src={VishnuLogo}
-                    alt="Vishnu Logo"
-                    width={180}
-                    height={50}
-                    className="object-contain"
-                    priority
-                />
-                <input
-                    name="studentId"
-                    type="text"
-                    className="w-full rounded-3xl bg-secondary-700/30 px-4 py-2 text-neutral-800 font-baijam text-sm font-bold placeholder:text-neutral-500"
-                    placeholder="รหัสประจำตัว"
-                />
-                <input
-                    name="password"
-                    type="password"
-                    className="w-full rounded-3xl bg-secondary-700/30 px-4 py-2 text-neutral-800 font-baijam text-sm font-bold placeholder:text-neutral-500"
-                    placeholder="รหัสผ่าน"
-                />
-                <button
-                    type="submit"
-                    className="w-44 max-w-full rounded-3xl bg-primary-700 px-4 py-3 text-white font-ibm text-base font-bold shadow-xl"
+        <>
+            <div className="relative h-full w-full grid place-content-center bg-primary-800 bg-[url('/images/grained_background.jpg')] bg-repeat bg-[length:300px_300px]">
+                <form
+                    className="flex flex-col items-center justify-center gap-6 text-neutral-50"
+                    onSubmit={login}
                 >
-                    Login
-                </button>
-            </form>
-            {/* <Image
-                src={LoginBackground}
-                alt="Login Background"
-                fill
-                className="-z-10 object-cover w-full h-full"
-            /> */}
-        </div>
+                    <div className="flex flex-col">
+                        <label className="text-sm opacity-80 mb-2 ml-2">
+                            รหัสนิสิต
+                        </label>
+                        <input
+                            name="studentId"
+                            type="text"
+                            className="!outline-none px-5 py-2.5 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal backdrop-blur-[2.5px]"
+                            placeholder="Ex. 663..."
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="text-sm opacity-80 mb-2 ml-2">
+                            รหัสผ่าน CUNET
+                        </label>
+                        <input
+                            name="password"
+                            type="password"
+                            className="!outline-none px-5 py-2.5 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal backdrop-blur-[2.5px]"
+                            placeholder="รหัสผ่าน"
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="bg-neutral-50 shadow-button rounded-2xl w-48 py-3 text-sm text-primary-600 font-bold mt-4"
+                    >
+                        เข้าสู่ระบบ
+                    </button>
+                </form>
+            </div>
+            <div
+                className={`z-10 absolute -top-44 -bottom-44 -left-44 -right-44 rounded-[100%] pointer-events-none`}
+                style={{
+                    background:
+                        'radial-gradient(50% 50.00% at 50% 50.00%, rgba(19, 5, 49, 0.00) 27.04%, #130531 73.56%)',
+                }}
+            ></div>
+            <div className="z-20 absolute top-0 left-0 right-0 bottom-0 pointer-events-none select-none">
+                <div className="relative flex justify-center items-center w-full h-full">
+                    <Image
+                        src={LoginBackground}
+                        alt=""
+                        fill
+                        className="scale-105 object-cover"
+                    />
+                </div>
+            </div>
+        </>
     );
 };
 
