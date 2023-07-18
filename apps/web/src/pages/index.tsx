@@ -102,15 +102,21 @@ const Home: NextPage = () => {
                                     <br />
                                     ได้ผ่าน LINE OA ลิงก์ด้านล่างนี้เลย
                                 </p>
-                                <button
-                                    className="bg-white text-primary-600 font-bold sm:text-xl px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl duration-300 hover:scale-105"
-                                    style={{
-                                        boxShadow:
-                                            '0px 4.536645889282227px 21px 0px rgba(255, 231, 106, 0.65), 0px -4px 8px 0px rgba(194, 150, 239, 0.42) inset',
-                                    }}
-                                >
-                                    ADD LINE
-                                </button>
+                                <div>
+                                    <p className="opacity-40 mb-2 text-xs">
+                                        Coming Soon!
+                                    </p>
+                                    <button
+                                        disabled
+                                        className="bg-white text-primary-600 font-bold sm:text-xl px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                                        style={{
+                                            boxShadow:
+                                                '0px 4.536645889282227px 21px 0px rgba(255, 231, 106, 0.65), 0px -4px 8px 0px rgba(194, 150, 239, 0.42) inset',
+                                        }}
+                                    >
+                                        ADD LINE
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
