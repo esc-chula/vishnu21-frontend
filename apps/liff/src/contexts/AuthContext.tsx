@@ -3,6 +3,7 @@ import axios from '@/utils/fetcher';
 import { IUser } from 'types';
 import { useRouter } from 'next/router';
 import Loading from '@/components/Loading';
+import liff from '@line/liff';
 
 interface AuthContextProps {
     login: (
@@ -25,7 +26,8 @@ export const AuthContext = createContext<AuthContextProps>(null);
 
 const AuthProvider: React.FC<{
     children: React.ReactNode;
-}> = ({ children }) => {
+    liff: typeof liff;
+}> = ({ children, liff }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -55,19 +57,13 @@ const AuthProvider: React.FC<{
             });
     };
 
-    const login = async (
-        e: React.FormEvent<HTMLFormElement>,
-        {
-            studentId,
-            password,
-            lineToken,
-        }: {
-            studentId: string;
-            password: string;
-            lineToken: string;
-        }
-    ) => {
+    const login = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const studentId = e.currentTarget.studentId.value;
+        const password = e.currentTarget.password.value;
+        const lineToken = liff.getAccessToken();
+
         setIsLoading(true);
 
         await axios
@@ -91,10 +87,6 @@ const AuthProvider: React.FC<{
         fetchUser();
     }, []);
 
-    if (isLoading) {
-        return <Loading />;
-    }
-
     return (
         <AuthContext.Provider
             value={{
@@ -103,7 +95,7 @@ const AuthProvider: React.FC<{
                 user,
             }}
         >
-            {children}
+            <Loading>{children}</Loading>
         </AuthContext.Provider>
     );
 };

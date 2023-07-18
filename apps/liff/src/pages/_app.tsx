@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     if (LIFF_PRODUCTION) {
         return (
-            <AuthProvider>
+            <AuthProvider {...pageProps}>
                 <HouseProvider>
                     <Component {...pageProps} />
                 </HouseProvider>
