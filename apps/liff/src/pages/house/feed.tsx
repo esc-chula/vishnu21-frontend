@@ -11,7 +11,14 @@ import { FiChevronLeft, FiInstagram } from 'react-icons/fi';
 import Image from 'next/image';
 
 const Feed: NextPage = () => {
-    const { name, color, alt_color, theme } = useHouse();
+    const {
+        name,
+        color,
+        alt_color,
+        theme,
+        instagram_link,
+        line_invitation_link,
+    } = useHouse();
 
     return (
         <>
@@ -31,7 +38,7 @@ const Feed: NextPage = () => {
                     </Link>
                     <h1 className="font-semibold">Feed บ้าน{name}</h1>
                     <a
-                        href={'https://www.instagram.com/vishnu21st'}
+                        href={instagram_link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="absolute right-2 text-2xl"
@@ -40,36 +47,39 @@ const Feed: NextPage = () => {
                     </a>
                 </div>
                 <div className="px-6 pt-2 pb-10 -mx-4 space-y-8 h-full overflow-y-auto">
+                    {/* posts */}
                     <div
-                        className="h-40 bg-neutral-50 rounded-2xl"
+                        className="bg-neutral-50 rounded-2xl p-4 text-sm text-neutral-800"
                         style={{
                             boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
                         }}
-                    ></div>
-                    <div
-                        className="h-40 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-40 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-40 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-40 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
-                        }}
-                    ></div>
+                    >
+                        <h1 className="font-medium text-base">
+                            ยินดีต้อนรับน้อง ๆ ทุกคนเข้าสู่บ้าน{name}นะงับบ
+                        </h1>
+                        <p>
+                            ถ้าหากคนไหนได้แอดไลน์ OA มาแล้วก็ฝากชวนเพื่อน ๆ
+                            มาด้วยนะะ
+                        </p>
+                        <br />
+                        <a
+                            href={line_invitation_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                        >
+                            {line_invitation_link}
+                        </a>
+                        <br />
+                        <br />
+                        <p>
+                            อันนี้ก็เป็นลิงก์สำหรับเข้ากลุ่มไลน์ของบ้านเรานะ
+                            กลุ่มนี้จะเป็นกลุ่มรวมน้อง ๆ และพี่ ๆ
+                            ของบ้านเราทุกคนเลยย อย่าลืมเข้าด้วยนะฮ้าฟฟู่~
+                        </p>
+                    </div>
+
+                    {/* sponsor */}
                     <div
                         className="flex flex-col items-center font-medium text-xs space-y-2"
                         style={{

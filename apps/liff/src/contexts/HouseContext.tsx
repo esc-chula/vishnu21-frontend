@@ -15,6 +15,8 @@ interface HouseContextProps {
     alt_color: string;
     theme: string;
     groupData: IGroup;
+    instagram_link: string;
+    line_invitation_link: string;
 }
 
 export const HouseContext = createContext<HouseContextProps>(null);
@@ -28,8 +30,17 @@ const HouseProvider: React.FC<{
     if (groupData === null) return <Loading />;
 
     const group = groupData.group;
-    const { name, longName, color, alt_color, bg_color, bg_position, theme } =
-        HouseData.find((data) => data.group === group);
+    const {
+        name,
+        longName,
+        color,
+        alt_color,
+        bg_color,
+        bg_position,
+        theme,
+        instagram_link,
+        line_invitation_link,
+    } = HouseData.find((data) => data.group === group);
 
     return (
         <HouseContext.Provider
@@ -41,6 +52,8 @@ const HouseProvider: React.FC<{
                 alt_color,
                 theme,
                 groupData,
+                instagram_link,
+                line_invitation_link,
             }}
         >
             {router.pathname.includes('/house') ? (
