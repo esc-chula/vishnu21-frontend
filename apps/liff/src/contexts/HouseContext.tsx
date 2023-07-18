@@ -1,9 +1,10 @@
 import HouseData from '@/constants/house-data.json';
-import { TGroup, THouse } from '@/types/house';
-import { flag } from 'assets';
+import axios from '@/utils/fetcher';
+import { TGroup, THouse } from 'types';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
+import { useAuth } from './AuthContext';
 
 interface HouseContextProps {
     group: string;
@@ -20,23 +21,24 @@ const HouseProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {
     const router = useRouter();
+    const { user } = useAuth();
 
     const [group, setGroup] = useState<TGroup>('F');
     const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
 
-    if (router.pathname.includes('/house')) {
-        return (
-            <HouseContext.Provider
-                value={{
-                    group,
-                    name,
-                    longName,
-                    color,
-                    alt_color,
-                    theme,
-                }}
-            >
+    return (
+        <HouseContext.Provider
+            value={{
+                group,
+                name,
+                longName,
+                color,
+                alt_color,
+                theme,
+            }}
+        >
+            {router.pathname.includes('/house') ? (
                 <main className="flex justify-center">
                     <section className="relative h-screen w-full max-w-screen-sm">
                         {/* content */}
@@ -73,15 +75,18 @@ const HouseProvider: React.FC<{
                         </div>
                     </section>
                 </main>
-            </HouseContext.Provider>
-        );
-    } else {
-        return <>{children}</>;
-    }
+            ) : (
+                children
+            )}
+        </HouseContext.Provider>
+    );
 };
 
 export const useHouse = () => {
     const context = useContext(HouseContext);
+    if (context === undefined) {
+        throw new Error('useHouse must be used within a HouseProvider');
+    }
     return context;
 };
 

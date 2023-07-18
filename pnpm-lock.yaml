@@ -111,6 +111,9 @@ importers:
       assets:
         specifier: workspace:*
         version: link:../../packages/assets
+      axios:
+        specifier: ^1.4.0
+        version: 1.4.0
       env:
         specifier: workspace:*
         version: link:../../packages/env

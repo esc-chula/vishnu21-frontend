@@ -11,8 +11,8 @@
     "dependencies": {
         "@line/liff": "2.22.1",
         "assets": "workspace:*",
+        "axios": "^1.4.0",
         "env": "workspace:*",
-        "fetch": "workspace:*",
         "next": "latest",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

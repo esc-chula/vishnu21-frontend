@@ -1,12 +1,13 @@
 import HouseData from '@/constants/house-data.json';
+import { useAuth } from '@/contexts/AuthContext';
 import { useHouse } from '@/contexts/HouseContext';
-import { flag } from 'assets';
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const House: NextPage = () => {
     const router = useRouter();
+    const { user } = useAuth();
     const { name, group, color, alt_color } = useHouse();
 
     return (
@@ -28,7 +29,7 @@ const House: NextPage = () => {
                 >
                     <h1 className="flex flex-col space-y-2">
                         <span className="font-semibold">
-                            ยินดีต้องรับน้องปูนสู่บ้าน
+                            ยินดีต้องรับน้อง{user.nickname}สู่บ้าน
                         </span>
                         <span className="text-4xl font-bold">{name}</span>
                     </h1>

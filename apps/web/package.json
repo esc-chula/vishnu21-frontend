@@ -12,7 +12,6 @@
         "@react-spring/parallax": "^9.7.3",
         "assets": "workspace:*",
         "env": "workspace:*",
-        "fetch": "workspace:*",
         "next": "latest",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
