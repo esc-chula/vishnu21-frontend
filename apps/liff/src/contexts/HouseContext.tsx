@@ -1,10 +1,11 @@
 import HouseData from '@/constants/house-data.json';
 import axios from '@/utils/fetcher';
-import { TGroup, THouse } from 'types';
+import { IGroup, TGroup, THouse } from 'types';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
+import Loading from '@/components/Loading';
 
 interface HouseContextProps {
     group: string;
@@ -23,7 +24,30 @@ const HouseProvider: React.FC<{
     const router = useRouter();
     const { user } = useAuth();
 
-    const [group, setGroup] = useState<TGroup>('F');
+    const [groupData, setGroupData] = useState<IGroup | null>(null);
+
+    const fetchGroupData = async () => {
+        await axios
+            .get('/groups/user', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+            .then((res) => {
+                setGroupData(res.data);
+            })
+            .catch((err) => {
+                console.error(err.response.data);
+            });
+    };
+
+    useEffect(() => {
+        fetchGroupData();
+    }, []);
+
+    if (groupData === null) return <Loading />;
+
+    const group = groupData.group;
     const { name, longName, color, alt_color, bg_color, bg_position, theme } =
         HouseData.find((data) => data.group === group);
 
