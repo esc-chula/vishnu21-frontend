@@ -1,7 +1,12 @@
+import Loading from '@/components/Loading';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Home: NextPage = () => {
-    return <div>Home</div>;
+    const router = useRouter();
+
+    return <Loading />;
 };
 
 export default Home;

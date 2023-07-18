@@ -23,28 +23,7 @@ const HouseProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {
     const router = useRouter();
-    const { user } = useAuth();
-
-    const [groupData, setGroupData] = useState<IGroup | null>(null);
-
-    const fetchGroupData = async () => {
-        await axios
-            .get('/groups/user', {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-            .then((res) => {
-                setGroupData(res.data);
-            })
-            .catch((err) => {
-                console.error(err.response.data);
-            });
-    };
-
-    useEffect(() => {
-        fetchGroupData();
-    }, []);
+    const { user, groupData } = useAuth();
 
     if (groupData === null) return <Loading />;
 
