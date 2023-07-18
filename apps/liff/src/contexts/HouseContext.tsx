@@ -17,7 +17,6 @@ const HouseProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {
     const router = useRouter();
-    const { user } = useAuth();
 
     const [houseData, setHouseData] = useState<IHouse | null>(null);
 
@@ -73,6 +72,7 @@ const HouseProvider: React.FC<{
                                 alt="Flag Image"
                                 fill
                                 quality={1}
+                                priority
                             />
                         </div>
                     </div>

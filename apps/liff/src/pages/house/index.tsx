@@ -23,6 +23,7 @@ const House: NextPage = () => {
                         alt="Flag Image"
                         fill
                         className="object-fill"
+                        priority
                     />
                 </div>
                 <div className="flex flex-col items-center space-y-7">
