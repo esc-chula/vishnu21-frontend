@@ -8,7 +8,7 @@ type TabContextType = {
 
 const ITabsContextState = {
     currentTab: null,
-    setCurrentTab: () => { },
+    setCurrentTab: () => {},
 };
 
 export const TabsContext = createContext<TabContextType>(ITabsContextState);
