@@ -1,2 +1,2 @@
-export * from './src/group';
+export * from './src/house';
 export * from './src/user';

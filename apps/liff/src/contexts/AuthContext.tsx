@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '@/utils/fetcher';
-import { IGroup, IUser } from 'types';
+import { IUser } from 'types';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader';
 import liff from '@line/liff';
@@ -9,7 +9,6 @@ interface AuthContextProps {
     login: (e: React.FormEvent<HTMLFormElement>) => void;
     isLoading: boolean;
     user: IUser;
-    groupData: IGroup;
 }
 
 export const AuthContext = createContext<AuthContextProps>(null);
@@ -24,23 +23,6 @@ const AuthProvider: React.FC<{
 
     const [user, setUser] = useState<IUser | null>(null);
 
-    const [groupData, setGroupData] = useState<IGroup | null>(null);
-
-    const fetchGroupData = async () => {
-        await axios
-            .get('/groups/user', {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-            .then((res) => {
-                setGroupData(res.data);
-            })
-            .catch((err) => {
-                console.error(err.response.data);
-            });
-    };
-
     const fetchUser = async () => {
         await axios
             .get('/users/profile', {
@@ -51,7 +33,6 @@ const AuthProvider: React.FC<{
             .then((res) => {
                 setUser(res.data);
                 setIsLoading(false);
-                fetchGroupData();
                 if (router.pathname.includes('login')) {
                     router.push(redirect || '/house');
                 }
@@ -99,7 +80,6 @@ const AuthProvider: React.FC<{
 
     useEffect(() => {
         fetchUser();
-        fetchGroupData();
     }, []);
 
     // useEffect(() => {
@@ -116,7 +96,6 @@ const AuthProvider: React.FC<{
                 login,
                 isLoading,
                 user,
-                groupData,
             }}
         >
             <Loader>{children}</Loader>

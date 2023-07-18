@@ -11,34 +11,32 @@ import { FiChevronLeft, FiInstagram } from 'react-icons/fi';
 import Image from 'next/image';
 
 const Feed: NextPage = () => {
-    const {
-        name,
-        color,
-        alt_color,
-        theme,
-        instagram_link,
-        line_invitation_link,
-    } = useHouse();
+    const { houseData } = useHouse();
 
     return (
         <>
             <Head>
-                <title>Feed บ้าน{name}</title>
+                <title>Feed บ้าน{houseData.shortName}</title>
             </Head>
 
             <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col space-y-3 px-4">
                 <div
                     className="relative flex justify-center items-center pt-6 pb-2"
                     style={{
-                        color: theme === 'dark' ? color : alt_color,
+                        color:
+                            houseData.theme === 'dark'
+                                ? houseData.color
+                                : houseData.altColor,
                     }}
                 >
                     <Link href="/house" className="absolute left-0 text-3xl">
                         <FiChevronLeft />
                     </Link>
-                    <h1 className="font-semibold">Feed บ้าน{name}</h1>
+                    <h1 className="font-semibold">
+                        Feed บ้าน{houseData.shortName}
+                    </h1>
                     <a
-                        href={instagram_link}
+                        href={houseData.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="absolute right-2 text-2xl"
@@ -51,11 +49,12 @@ const Feed: NextPage = () => {
                     <div
                         className="bg-neutral-50 rounded-2xl p-4 text-sm text-neutral-800"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     >
                         <h1 className="font-medium text-base">
-                            ยินดีต้อนรับน้อง ๆ ทุกคนเข้าสู่บ้าน{name}นะงับบ
+                            ยินดีต้อนรับน้อง ๆ ทุกคนเข้าสู่บ้าน
+                            {houseData.shortName}นะงับบ
                         </h1>
                         <p>
                             ถ้าหากคนไหนได้แอดไลน์ OA มาแล้วก็ฝากชวนเพื่อน ๆ
@@ -63,12 +62,12 @@ const Feed: NextPage = () => {
                         </p>
                         <br />
                         <a
-                            href={line_invitation_link}
+                            href={houseData.lineGroup}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="underline"
                         >
-                            {line_invitation_link}
+                            {houseData.lineGroup}
                         </a>
                         <br />
                         <br />
@@ -83,7 +82,10 @@ const Feed: NextPage = () => {
                     <div
                         className="flex flex-col items-center font-medium text-xs space-y-2"
                         style={{
-                            color: theme === 'dark' ? color : alt_color,
+                            color:
+                                houseData.theme === 'dark'
+                                    ? houseData.color
+                                    : houseData.altColor,
                         }}
                     >
                         <p>สนับสนุนด้วย</p>

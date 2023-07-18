@@ -11,24 +11,29 @@ import Link from 'next/link';
 import { FiChevronLeft, FiUser } from 'react-icons/fi';
 
 const Member: NextPage = () => {
-    const { name, color, alt_color, theme } = useHouse();
+    const { houseData } = useHouse();
 
     return (
         <>
             <Head>
-                <title>สมาชิกบ้าน{name}</title>
+                <title>สมาชิกบ้าน{houseData.name}</title>
             </Head>
             <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col space-y-3 px-4">
                 <div
                     className="relative flex justify-center items-center pt-6 pb-2"
                     style={{
-                        color: theme === 'dark' ? color : alt_color,
+                        color:
+                            houseData.theme === 'dark'
+                                ? houseData.color
+                                : houseData.altColor,
                     }}
                 >
                     <Link href="/house" className="absolute left-0 text-3xl">
                         <FiChevronLeft />
                     </Link>
-                    <h1 className="font-semibold">สมาชิกบ้าน{name}</h1>
+                    <h1 className="font-semibold">
+                        สมาชิกบ้าน{houseData.name}
+                    </h1>
                     <Link
                         href="/house/profile"
                         className="absolute right-2 text-2xl"
@@ -40,37 +45,40 @@ const Member: NextPage = () => {
                     <div
                         className="h-12 bg-neutral-50 rounded-2xl"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     ></div>
                     <div
                         className="h-12 bg-neutral-50 rounded-2xl"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     ></div>
                     <div
                         className="h-12 bg-neutral-50 rounded-2xl"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     ></div>
                     <div
                         className="h-12 bg-neutral-50 rounded-2xl"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     ></div>
                     <div
                         className="h-12 bg-neutral-50 rounded-2xl"
                         style={{
-                            boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
+                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                         }}
                     ></div>
                     <div
                         className="flex flex-col items-center font-medium text-xs space-y-2"
                         style={{
-                            color: theme === 'dark' ? color : alt_color,
+                            color:
+                                houseData.theme === 'dark'
+                                    ? houseData.color
+                                    : houseData.altColor,
                         }}
                     >
                         <p>สนับสนุนด้วย</p>
