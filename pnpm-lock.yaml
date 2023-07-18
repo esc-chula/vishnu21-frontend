@@ -47,12 +47,12 @@ importers:
       assets:
         specifier: workspace:*
         version: link:../../packages/assets
+      axios:
+        specifier: ^1.4.0
+        version: 1.4.0
       env:
         specifier: workspace:*
         version: link:../../packages/env
-      fetch:
-        specifier: workspace:*
-        version: link:../../packages/fetch
       next:
         specifier: latest
         version: 13.4.10(react-dom@18.2.0)(react@18.2.0)
@@ -117,9 +117,6 @@ importers:
       env:
         specifier: workspace:*
         version: link:../../packages/env
-      fetch:
-        specifier: workspace:*
-        version: link:../../packages/fetch
       next:
         specifier: latest
         version: 13.4.10(react-dom@18.2.0)(react@18.2.0)
@@ -181,9 +178,6 @@ importers:
       env:
         specifier: workspace:*
         version: link:../../packages/env
-      fetch:
-        specifier: workspace:*
-        version: link:../../packages/fetch
       next:
         specifier: latest
         version: 13.4.10(react-dom@18.2.0)(react@18.2.0)
@@ -249,28 +243,6 @@ importers:
       eslint-plugin-react:
         specifier: 7.28.0
         version: 7.28.0(eslint@7.32.0)
-
-  packages/fetch:
-    dependencies:
-      axios:
-        specifier: ^1.4.0
-        version: 1.4.0
-      env:
-        specifier: workspace:*
-        version: link:../env
-    devDependencies:
-      eslint:
-        specifier: ^7.32.0
-        version: 7.32.0
-      eslint-config-custom:
-        specifier: workspace:*
-        version: link:../eslint-config-custom
-      tsconfig:
-        specifier: workspace:*
-        version: link:../tsconfig
-      typescript:
-        specifier: ^4.9.4
-        version: 4.9.5
 
   packages/tailwind-config:
     devDependencies:

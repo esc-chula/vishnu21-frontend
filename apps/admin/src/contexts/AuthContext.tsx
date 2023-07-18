@@ -3,7 +3,6 @@ import axios from '@/utils/fetcher';
 import { IUser } from 'types';
 import { useRouter } from 'next/router';
 import Loading from '@/components/Loading';
-import liff from '@line/liff';
 
 interface AuthContextProps {
     login: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -15,8 +14,7 @@ export const AuthContext = createContext<AuthContextProps>(null);
 
 const AuthProvider: React.FC<{
     children: React.ReactNode;
-    liff: typeof liff;
-}> = ({ children, liff }) => {
+}> = ({ children }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -33,7 +31,7 @@ const AuthProvider: React.FC<{
                 setUser(res.data);
                 setIsLoading(false);
                 if (router.pathname === '/login') {
-                    router.push('/house');
+                    router.push('/');
                 }
             })
             .catch((err) => {
@@ -51,7 +49,6 @@ const AuthProvider: React.FC<{
 
         const studentId = e.currentTarget.studentId.value;
         const password = e.currentTarget.password.value;
-        const lineToken = liff.getAccessToken();
 
         setIsLoading(true);
 
@@ -60,11 +57,17 @@ const AuthProvider: React.FC<{
             return;
         }
 
+        const isStudentIdValid = /^653\d{5}21$/.test(studentId);
+
+        if (!isStudentIdValid) {
+            setIsLoading(false);
+            return;
+        }
+
         await axios
             .post('/users/login', {
                 studentId,
                 password,
-                lineToken,
             })
             .then((res) => {
                 localStorage.setItem('token', res.data.token);

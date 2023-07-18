@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "assets": "workspace:*",
+        "axios": "^1.4.0",
         "env": "workspace:*",
         "next": "latest",
         "react": "^18.2.0",
