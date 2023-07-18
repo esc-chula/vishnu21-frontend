@@ -5,14 +5,18 @@ import ProfileCard from './components/ProfileCard';
 import { Tab, Tabs } from './components/Tabs';
 import GameCard, { GameCardProps } from './components/GameCard';
 import KeySvg from '@/public/images/key.svg';
-import { tabs, games as gamesMockup, profileInfo as profileInfoMockup } from './info';
+import {
+    tabs,
+    games as gamesMockup,
+    profileInfo as profileInfoMockup,
+} from './info';
 import { DetailedHTMLProps, HTMLAttributes, useState } from 'react';
 
 type GameTapsProps = DetailedHTMLProps<
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
 > & {
-    games: GameCardProps[]
+    games: GameCardProps[];
 };
 
 const GameTaps = ({ games, className, ...props }: GameTapsProps) => {

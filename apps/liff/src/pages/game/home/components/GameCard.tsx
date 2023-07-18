@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, DetailedHTMLProps } from 'react';
-import Badge, { BadgeProps } from './Badge';
+import Tag, { TagProps } from './Tag';
 
 type GameCardProps = DetailedHTMLProps<
     HTMLAttributes<HTMLDivElement>,
@@ -7,14 +7,14 @@ type GameCardProps = DetailedHTMLProps<
 > & {
     title: string;
     description: string;
-    badges: BadgeProps[];
+    tags: string[];
     isDone: boolean;
 };
 
 const GameCard: FC<GameCardProps> = ({
     title,
     description,
-    badges,
+    tags,
     isDone,
     className,
     ...props
@@ -25,8 +25,8 @@ const GameCard: FC<GameCardProps> = ({
                 <h1 className="text-sm">{title}</h1>
                 <p className="text-xs text-neutral-600">{description}</p>
                 <div className="flex flex-row gap-2">
-                    {badges.map((badge, index) => (
-                        <Badge key={index} {...badge} />
+                    {tags.map((tag, index) => (
+                        <Tag key={index} title={tag} />
                     ))}
                 </div>
                 {isDone && (

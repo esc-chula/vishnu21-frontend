@@ -1,17 +1,24 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 import { IconType } from 'react-icons/lib';
 
-type BadgeProps = DetailedHTMLProps<
+type TagProps = DetailedHTMLProps<
     HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
 > & {
     title: string;
-    color: string;
-    Icon: IconType;
 };
 
-const Badge: FC<BadgeProps> = ({ title, color, Icon, className, ...props }) => {
-    const bgColor: string = `bg-${color}`;
+const Tag: FC<TagProps> = ({ title, className, ...props }) => {
+    const colors = [
+        'bg-primary-600',
+        'bg-secondary-600',
+        'bg-neutral-600',
+        'bg-success-600',
+        'bg-error-600',
+    ];
+    const bgColor: string = `${
+        colors[Math.floor(Math.random() * colors.length)]
+    }`;
 
     return (
         <div
@@ -19,10 +26,9 @@ const Badge: FC<BadgeProps> = ({ title, color, Icon, className, ...props }) => {
             {...props}
         >
             <p className="text-xs">{title}</p>
-            <Icon className="w-4 h-4" />
         </div>
     );
 };
 
-export type { BadgeProps };
-export default Badge;
+export type { TagProps };
+export default Tag;
