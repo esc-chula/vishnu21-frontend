@@ -7,21 +7,33 @@ import Image1 from '@/public/images/landing/1.webp';
 import Image3 from '@/public/images/landing/3.webp';
 import Image5 from '@/public/images/landing/5.webp';
 import Image6 from '@/public/images/landing/6.webp';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import Sponsor1 from '@/public/images/sponsors/gcme_logo.png';
+import Sponsor2 from '@/public/images/sponsors/fujifilm_logo.png';
+import Sponsor3 from '@/public/images/sponsors/instax_logo.png';
+import Sponsor4 from '@/public/images/sponsors/major_logo.png';
+import Sponsor5 from '@/public/images/sponsors/bright_hair_logo.png';
+import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax';
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import FAQ from '@/components/landing/FAQ';
 
 const Home: NextPage = () => {
+    const parallaxRef = useRef<IParallax>(null);
+
     const [toggleNav, setToggleNav] = useState(false);
 
     return (
         <>
             <Navigation setToggleNav={setToggleNav} />
-            {toggleNav && <NavigationMenu setToggleNav={setToggleNav} />}
+            {toggleNav && (
+                <NavigationMenu
+                    parallaxRef={parallaxRef}
+                    setToggleNav={setToggleNav}
+                />
+            )}
 
-            <Parallax pages={4.88}>
+            <Parallax pages={4.8} ref={parallaxRef}>
                 {/* hero */}
                 <ParallaxLayer offset={0} speed={0.3}>
                     <div className="z-40 absolute w-full h-full flex flex-col justify-center items-center pb-20 px-4 space-y-4 sm:space-y-6 text-center">
@@ -90,7 +102,7 @@ const Home: NextPage = () => {
                     className="flex flex-col justify-center items-center space-y-10 sm:space-y-16 px-4"
                 >
                     <Logo className="sm:scale-110" />
-                    <p className="font-baijam font-semibold text-lg sm:text-2xl text-center text-primary-50 max-w-[807px] leading-loose tracking-normal sm:leading-loose sm:tracking-wide">
+                    <p className="font-baijam font-semibold sm:text-lg md:text-xl lg:text-2xl text-center text-primary-50 max-w-[807px] leading-loose tracking-normal sm:leading-loose sm:tracking-wide">
                         ค่ายวิษณุกรรมบุตร
                         เป็นค่ายที่จัดเพื่อต้อนรับนิสิตใหม่ของคณะวิศวฯ จุฬาฯ
                         ซึ่งได้จัดติดต่อกันมาเป็นเวลากว่า 20 ปีแล้ว !
@@ -139,11 +151,32 @@ const Home: NextPage = () => {
                     <h3 className="font-semibold text-3xl">
                         ผู้สนับสนุนของเรา
                     </h3>
-                    <div className="flex space-x-10">
-                        <div className="bg-primary-800 w-40 h-40"></div>
-                        <div className="bg-primary-800 w-40 h-40"></div>
-                        <div className="bg-primary-800 w-40 h-40"></div>
-                        <div className="bg-primary-800 w-40 h-40"></div>
+                    <div className="flex flex-wrap justify-center max-w-screen-lg">
+                        <Image
+                            src={Sponsor1}
+                            alt="Sponsor"
+                            className="w-32 md:w-40 aspect-square rounded-lg shadow-xl mx-3 md:mx-4 mb-6 md:mb-8"
+                        />
+                        <Image
+                            src={Sponsor2}
+                            alt="Sponsor"
+                            className="w-32 md:w-40 aspect-square rounded-lg shadow-xl mx-3 md:mx-4 mb-6 md:mb-8"
+                        />
+                        <Image
+                            src={Sponsor3}
+                            alt="Sponsor"
+                            className="w-32 md:w-40 aspect-square rounded-lg shadow-xl mx-3 md:mx-4 mb-6 md:mb-8"
+                        />
+                        <Image
+                            src={Sponsor4}
+                            alt="Sponsor"
+                            className="w-32 md:w-40 aspect-square rounded-lg shadow-xl mx-3 md:mx-4 mb-6 md:mb-8"
+                        />
+                        <Image
+                            src={Sponsor5}
+                            alt="Sponsor"
+                            className="w-32 md:w-40 aspect-square rounded-lg shadow-xl mx-3 md:mx-4 mb-6 md:mb-8"
+                        />
                     </div>
                 </ParallaxLayer>
 
