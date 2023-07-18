@@ -42,36 +42,38 @@ const Member: NextPage = () => {
                     </Link>
                 </div>
                 <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto">
-                    <div
-                        className="h-12 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-12 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-12 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-12 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
-                        }}
-                    ></div>
-                    <div
-                        className="h-12 bg-neutral-50 rounded-2xl"
-                        style={{
-                            boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
-                        }}
-                    ></div>
+                    {houseData.members.map((member) => (
+                        <div
+                            key={member.userId}
+                            className="flex justify-between items-center px-3.5 py-2.5 bg-neutral-50 rounded-2xl text-sm"
+                            style={{
+                                boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
+                            }}
+                        >
+                            <div className="flex items-center space-x-3">
+                                {member.profilePicture ? (
+                                    <div className="relative w-10 aspect-square rounded-full overflow-hidden">
+                                        <Image
+                                            src={member.profilePicture}
+                                            alt="Profile Picture"
+                                            fill
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="relative w-10 aspect-square bg-gray-300 rounded-full"></div>
+                                )}{' '}
+                                <p>
+                                    {member.nickname
+                                        ? `${member.name} (${member.nickname})`
+                                        : member.name}
+                                </p>
+                            </div>
+                            <div>
+                                <p></p>
+                            </div>
+                        </div>
+                    ))}
+
                     <div
                         className="flex flex-col items-center font-medium text-xs space-y-2"
                         style={{
