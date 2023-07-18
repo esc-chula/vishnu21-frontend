@@ -34,7 +34,7 @@ const AuthProvider: React.FC<{
                 setUser(res.data);
                 setIsLoading(false);
                 if (router.pathname.includes('login')) {
-                    router.push(redirect || '/');
+                    router.push(redirect || '/house');
                 }
             })
             .catch((err) => {
