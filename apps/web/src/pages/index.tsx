@@ -17,6 +17,7 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import FAQ from '@/components/landing/FAQ';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
     const parallaxRef = useRef<IParallax>(null);
@@ -25,6 +26,36 @@ const Home: NextPage = () => {
 
     return (
         <>
+            <Head>
+                <title>ค่ายวิษณุกรรมบุตรครั้งที่ 21</title>
+                <meta
+                    name="description"
+                    content="ค่ายวิษณุกรรมบุตร เป็นค่ายที่จัดเพื่อต้อนรับนิสิตใหม่ของคณะวิศวฯ จุฬาฯ ซึ่งได้จัดติดต่อกันมาเป็นเวลากว่า 20 ปีแล้ว ! ค่ายนี้จะทำให้ทุกคนได้รู้จัก และสร้างความสนิทสนมกับเพื่อน ๆ ชาววิศวฯ ผ่านกิจกรรมสุดจัดเต็ม"
+                />
+                <meta
+                    property="og:title"
+                    content="ค่ายวิษณุกรรมบุตรครั้งที่ 21"
+                />
+                <meta
+                    property="og:description"
+                    content="ค่ายวิษณุกรรมบุตร เป็นค่ายที่จัดเพื่อต้อนรับนิสิตใหม่ของคณะวิศวฯ จุฬาฯ ซึ่งได้จัดติดต่อกันมาเป็นเวลากว่า 20 ปีแล้ว ! ค่ายนี้จะทำให้ทุกคนได้รู้จัก และสร้างความสนิทสนมกับเพื่อน ๆ ชาววิศวฯ ผ่านกิจกรรมสุดจัดเต็ม"
+                />
+                <meta property="og:image" content="/images/og-image.png" />
+                <meta
+                    property="og:url"
+                    content="https://vishnu21.chula.engineering"
+                />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="ค่ายวิษณุกรรมบุตรครั้งที่ 21"
+                />
+                <meta
+                    name="twitter:description"
+                    content="ค่ายวิษณุกรรมบุตร เป็นค่ายที่จัดเพื่อต้อนรับนิสิตใหม่ของคณะวิศวฯ จุฬาฯ ซึ่งได้จัดติดต่อกันมาเป็นเวลากว่า 20 ปีแล้ว ! ค่ายนี้จะทำให้ทุกคนได้รู้จัก และสร้างความสนิทสนมกับเพื่อน ๆ ชาววิศวฯ ผ่านกิจกรรมสุดจัดเต็ม"
+                />
+                <meta name="twitter:image" content="/images/og-image.png" />
+            </Head>
             <Navigation setToggleNav={setToggleNav} />
             {toggleNav && (
                 <NavigationMenu
