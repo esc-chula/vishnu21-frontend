@@ -110,7 +110,7 @@ const FAQ: NextPage = () => {
                         />
                     ))
                 ) : (
-                    <div className='text-center'>
+                    <div className="text-center">
                         <p className="text-white text-xs font-ibm">
                             ไม่พบคำถามที่คุณต้องการ
                         </p>
