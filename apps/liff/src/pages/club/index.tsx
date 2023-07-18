@@ -68,15 +68,13 @@ const Club = ({ liff }) => {
         };
         getFAQs().then(() => {});
         setStamped(JSON.parse(localStorage.getItem('stamped')) || []);
-        setFavorites(
-            JSON.parse(localStorage.getItem('favorites')) || []
-        );
+        setFavorites(JSON.parse(localStorage.getItem('favorites')) || []);
     }, []);
 
     useEffect(() => {
-        setSelection('All')
+        setSelection('All');
         setClubSelected(clubs);
-    },[clubs])
+    }, [clubs]);
 
     useEffect(() => {
         // set top text according to filter mode

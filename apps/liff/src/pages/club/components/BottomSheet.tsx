@@ -8,22 +8,25 @@ import { AiFillHeart } from 'react-icons/ai';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-
 const BottomSheet = ({ isOpen, onClose }) => {
     const [favColor, setFavColor] = useState('red');
     const handleFavToggle = () => {
-        (favColor === 'red') ? setFavColor('#D9D9D9') : setFavColor('red');
+        favColor === 'red' ? setFavColor('#D9D9D9') : setFavColor('red');
     };
 
     // TODO: change these value
-    const ClubName = "Thailand Incubator (Thinc.)";
-    const Tagname = "CSR"
+    const ClubName = 'Thailand Incubator (Thinc.)';
+    const Tagname = 'CSR';
 
     // Bottom Sheet
     const bottomSheetRef = useRef(null);
     const handleClickOutside = (event) => {
-        console.log(bottomSheetRef)
-        if (isOpen && bottomSheetRef.current && !bottomSheetRef.current.contains(event.target)) {
+        console.log(bottomSheetRef);
+        if (
+            isOpen &&
+            bottomSheetRef.current &&
+            !bottomSheetRef.current.contains(event.target)
+        ) {
             onClose();
         }
     };
@@ -135,7 +138,6 @@ const BottomSheet = ({ isOpen, onClose }) => {
             </div>
         </div>
     );
-}
+};
 
 export default BottomSheet;
-
