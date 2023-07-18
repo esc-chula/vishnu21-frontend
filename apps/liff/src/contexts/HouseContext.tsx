@@ -14,6 +14,7 @@ interface HouseContextProps {
     color: string;
     alt_color: string;
     theme: string;
+    groupData: IGroup;
 }
 
 export const HouseContext = createContext<HouseContextProps>(null);
@@ -60,6 +61,7 @@ const HouseProvider: React.FC<{
                 color,
                 alt_color,
                 theme,
+                groupData,
             }}
         >
             {router.pathname.includes('/house') ? (
