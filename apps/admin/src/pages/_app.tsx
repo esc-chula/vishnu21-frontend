@@ -4,10 +4,17 @@ import 'ui/styles.css';
 
 import type { AppProps } from 'next/app';
 import { ADMIN_PRODUCTION } from 'env';
+import AuthProvider from '@/contexts/AuthContext';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
     if (ADMIN_PRODUCTION) {
-        return <Component {...pageProps} />;
+        return (
+            <>
+                <AuthProvider>
+                    <Component {...pageProps} />
+                </AuthProvider>
+            </>
+        );
     } else {
         return <></>;
     }

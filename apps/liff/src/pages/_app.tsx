@@ -4,6 +4,7 @@ import type Liff from '@line/liff';
 import { useState, useEffect } from 'react';
 import { LIFF_PRODUCTION } from 'env';
 import HouseProvider from '@/contexts/HouseContext';
+import AuthProvider from '@/contexts/AuthContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
@@ -35,9 +36,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     if (LIFF_PRODUCTION) {
         return (
-            <HouseProvider>
-                <Component {...pageProps} />
-            </HouseProvider>
+            <AuthProvider {...pageProps}>
+                <HouseProvider>
+                    <Component {...pageProps} />
+                </HouseProvider>
+            </AuthProvider>
         );
     } else {
         return <></>;
