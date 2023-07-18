@@ -100,14 +100,25 @@ const FAQ: NextPage = () => {
                 />
             </div>
             <ul className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
-                {filteredFaqs.map((faq) => (
-                    <FAQItem
-                        key={faq.id}
-                        id={faq.id}
-                        question={faq.question}
-                        answer={faq.answer}
-                    />
-                ))}
+                {filteredFaqs.length > 0 ? (
+                    filteredFaqs.map((faq) => (
+                        <FAQItem
+                            key={faq.id}
+                            id={faq.id}
+                            question={faq.question}
+                            answer={faq.answer}
+                        />
+                    ))
+                ) : (
+                    <div className='text-center'>
+                        <p className="text-white text-xs font-ibm">
+                            ไม่พบคำถามที่คุณต้องการ
+                        </p>
+                        <p className="text-white text-xs font-ibm">
+                            ลองสอบถามผ่านไลน์ OA ดูนะ!!
+                        </p>
+                    </div>
+                )}
             </ul>
 
             {/* Background and decorations */}
