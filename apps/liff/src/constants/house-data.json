@@ -1,0 +1,165 @@
+[
+    {
+        "group": "A",
+        "name": "อามองอัส",
+        "longName": "อามองอัสนั้นมีมุดท่อแต่ทำไงหน๊อเธอถึงกลับมา",
+        "theme": "dark",
+        "color": "#A3F1F5",
+        "alt_color": "#000000",
+        "bg_color": "#000000"
+    },
+    {
+        "group": "B",
+        "name": "อาหารเผ็ด",
+        "longName": "อาหารที่ว่าเผ็ดยังไม่เด็ดเท่าเราเลย",
+        "theme": "light",
+        "color": "#fe0500",
+        "alt_color": "#fe0500",
+        "bg_color": "#E7DBCB"
+    },
+    {
+        "group": "C",
+        "name": "อนาคตใจ",
+        "longName": "Rนาคตของชาติไม่รู้ใคร แต่อนาคตของใจคือเธอ",
+        "theme": "light",
+        "color": "#E58B93",
+        "alt_color": "#E58B93",
+        "bg_color": "#AACBE8"
+    },
+    {
+        "group": "Dog",
+        "name": "อาการไหน",
+        "longName": "อาการเป็นยังไงบอกหมอซิ",
+        "theme": "dark",
+        "color": "#FFE5CB",
+        "alt_color": "#1C2E4C",
+        "bg_color": "#000000"
+    },
+    {
+        "group": "E",
+        "name": "อารีย์",
+        "longName": "อารีย์อยู่ติดสะพานควาย แต่ใจละลายเพราะอยู่ติดเธอ",
+        "theme": "light",
+        "color": "#FFFFFF",
+        "alt_color": "#00637E",
+        "bg_color": "#FFFFFF"
+    },
+    {
+        "group": "F",
+        "name": "อากาโตะ",
+        "longName": "R ริกาโตะ โกไซมัส อิรัชชัยมาเสะ",
+        "theme": "light",
+        "color": "#FFFFFF",
+        "alt_color": "#005A87",
+        "bg_color": "#F0F4EC"
+    },
+    {
+        "group": "G",
+        "name": "อากาศ",
+        "longName": "อากาศข้างนอกมันอบอ้าว มาอยู่ในใจเราป่าว อบอุ่นนะ",
+        "theme": "light",
+        "color": "#FEFEFE",
+        "alt_color": "#3A4871",
+        "bg_color": "#B2C9E7"
+    },
+    {
+        "group": "H",
+        "name": "อาคม",
+        "longName": "อาคมต้องเรียนที่ Hogwarts ถ้าอยากได้คนกอดให้มาเรียนกับเรา",
+        "theme": "light",
+        "color": "#000000",
+        "alt_color": "#000000",
+        "bg_color": "#D8EEF5"
+    },
+    {
+        "group": "J",
+        "name": "Rคงที่",
+        "longName": "R เท่ากับค่าคงที่ของแก๊ส แล้วเมื่อไหร่ Uจะเป็นค่าคงที่ของเรา",
+        "theme": "light",
+        "color": "#02161D",
+        "alt_color": "#02161D",
+        "bg_color": "#342A32"
+    },
+    {
+        "group": "K",
+        "name": "อาการรัก",
+        "longName": "อาการไอเกิดจากไวรัส อาการรักเกิดจากเธอ",
+        "theme": "dark",
+        "color": "#FFC4C1",
+        "alt_color": "#F14569",
+        "bg_color": "#FFE0E0"
+    },
+    {
+        "group": "L",
+        "name": "อาหมวยหาย",
+        "longName": "อาหมวยในวันนี้ คืออาอี๊ในวันหน้า และเป็นอาม่าในอนาคต",
+        "theme": "light",
+        "color": "#8A200E",
+        "alt_color": "#92394B",
+        "bg_color": "#A23B2A",
+        "bg_position": "bottom"
+    },
+    {
+        "group": "M",
+        "name": "อาต้านทาน",
+        "longName": "อาเท่ากับโลแอลส่วนเอ",
+        "theme": "dark",
+        "color": "#FFFF00",
+        "alt_color": "#4E490A",
+        "bg_color": "#000000"
+    },
+    {
+        "group": "N",
+        "name": "อาแฮงค์",
+        "longName": "อาการแฮงค์เกิดจากคืนเหงา ๆ อาการเศร้าเกิดจากการคิดถึงเธอ",
+        "theme": "dark",
+        "color": "#FFFFFF",
+        "alt_color": "#15375B",
+        "bg_color": "#AF2521"
+    },
+    {
+        "group": "P",
+        "name": "อาจารย์",
+        "longName": "อาจารย์สอนให้รักในความรู้ แต่ยูสอนให้รู้ในความรัก",
+        "theme": "dark",
+        "color": "#FEFEFE",
+        "alt_color": "#03331E",
+        "bg_color": "#000A00"
+    },
+    {
+        "group": "Q",
+        "name": "อาถรรพ์",
+        "longName": "อาถรรพ์ที่เป็นของขลัง ยังไม่เท่าความหลังที่เป็นของเธอ",
+        "theme": "dark",
+        "color": "#DFCAAC",
+        "alt_color": "#B3010B",
+        "bg_color": "#000000"
+    },
+    {
+        "group": "R",
+        "name": "อาสา",
+        "longName": "Rสาจะทำแทน แต่ลืมไปว่าไม่ใช่แฟนทำแทนไม่ได้",
+        "theme": "dark",
+        "color": "#FFF1B4",
+        "alt_color": "#173461",
+        "bg_color": "#1A3A6F"
+    },
+    {
+        "group": "S",
+        "name": "อาลาดิน",
+        "longName": "อาลาดินต้องใช้พรม แต่อยู่กับผมต้องใช้ใจ",
+        "theme": "dark",
+        "color": "#F2E340",
+        "alt_color": "#963174",
+        "bg_color": "#E2AB2B"
+    },
+    {
+        "group": "T",
+        "name": "อาโหเธอ",
+        "longName": "อาทิตย์ที่แล้วพึ่งปล่อยกระทง แต่อาทิตย์นี้คงต้องปล่อยเธอไป โหวเธอเจ็บจีสส",
+        "theme": "dark",
+        "color": "#FFEBED",
+        "alt_color": "#3A3C51",
+        "bg_color": "#262841"
+    }
+]

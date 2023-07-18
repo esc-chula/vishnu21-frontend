@@ -73,9 +73,14 @@ module.exports = {
                     800: '#93123D',
                     900: '#7A0B3A',
                 },
+                group: {
+                    A: '#ffffff',
+                    B: '#D33930',
+                },
             },
             boxShadow: {
                 button: '0px 2px 9px 2px rgba(0, 0, 0, 0.35), 0px -4px 8px 0px rgba(122, 54, 227, 0.35) inset',
+                faq: '0px 6px 20px 0px rgba(0, 0, 0, 0.40), 0px -6px 16px 0px rgba(122, 54, 227, 0.35) inset',
             },
         },
     },

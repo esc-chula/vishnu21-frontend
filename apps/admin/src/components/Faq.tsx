@@ -10,7 +10,7 @@ const Faq: React.FC = () => {
             {faqData.map((faq, idx) => {
                 return (
                     <div key={idx} className="flex space-x-10">
-                        <div className="flex flex-col justify-between">
+                        <div className="flex flex-col justify-between h-40">
                             <button
                                 onClick={() => {
                                     if (idx === 0) return;

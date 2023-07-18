@@ -19,6 +19,7 @@ class MyDocument extends Document {
         return (
             <Html className="bg-black text-white">
                 <Head>
+                    {/* font */}
                     <link rel="icon" href="/favicon.ico" />
                     <link
                         rel="preconnect"
