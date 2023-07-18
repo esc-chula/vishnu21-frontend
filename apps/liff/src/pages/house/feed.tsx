@@ -1,8 +1,14 @@
 import { useHouse } from '@/contexts/HouseContext';
+import Sponsor1 from '@/public/images/sponsors/gcme_logo.png';
+import Sponsor2 from '@/public/images/sponsors/fujifilm_logo.png';
+import Sponsor3 from '@/public/images/sponsors/instax_logo.png';
+import Sponsor4 from '@/public/images/sponsors/major_logo.png';
+import Sponsor5 from '@/public/images/sponsors/bright_hair_logo.png';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { FiChevronLeft, FiInstagram } from 'react-icons/fi';
+import Image from 'next/image';
 
 const Feed: NextPage = () => {
     const { name, color, alt_color, theme } = useHouse();
@@ -64,6 +70,41 @@ const Feed: NextPage = () => {
                             boxShadow: `0px 4px 10px 0px ${alt_color}33, 0px -4px 20px 0px ${alt_color}1A inset`,
                         }}
                     ></div>
+                    <div
+                        className="flex flex-col items-center font-medium text-xs space-y-2"
+                        style={{
+                            color: theme === 'dark' ? color : alt_color,
+                        }}
+                    >
+                        <p>สนับสนุนด้วย</p>
+                        <div className="flex items-center space-x-2">
+                            <Image
+                                src={Sponsor1}
+                                alt="Sponsor"
+                                className="w-10"
+                            />
+                            <Image
+                                src={Sponsor2}
+                                alt="Sponsor"
+                                className="w-10"
+                            />
+                            <Image
+                                src={Sponsor3}
+                                alt="Sponsor"
+                                className="w-10"
+                            />
+                            <Image
+                                src={Sponsor4}
+                                alt="Sponsor"
+                                className="w-10"
+                            />
+                            <Image
+                                src={Sponsor5}
+                                alt="Sponsor"
+                                className="w-10"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
