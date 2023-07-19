@@ -13,7 +13,7 @@ import { FiChevronLeft, FiInstagram, FiUser } from 'react-icons/fi';
 import { useState } from 'react';
 
 const Profile: NextPage = () => {
-    const { user, fetchUser } = useAuth();
+    const { user, fetchUser, lineUserProfile } = useAuth();
     const { houseData, fetchHouseData } = useHouse();
 
     const [isLoading, setIsLoading] = useState(false);
@@ -47,8 +47,6 @@ const Profile: NextPage = () => {
             });
     };
 
-    console.log(user.instagram);
-
     return (
         <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col space-y-3 px-4">
             <div
@@ -79,6 +77,12 @@ const Profile: NextPage = () => {
                                 alt="Profile Picture"
                                 fill
                             />
+                        ) : lineUserProfile.pictureUrl ? (
+                            <Image
+                                src={lineUserProfile.pictureUrl}
+                                alt="Profile Picture"
+                                fill
+                            />
                         ) : (
                             <FiUser className="text-9xl pt-4 text-gray-400 opacity-50" />
                         )}
@@ -93,7 +97,9 @@ const Profile: NextPage = () => {
                         }}
                     >
                         <h2 className="text-xl font-bold">
-                            ธนดล ศานติสรร (ปูน)
+                            {user.nickname
+                                ? `${user.name} (${user.nickname})`
+                                : user.name}
                         </h2>
                         {/* <p>ภาค ICE</p> */}
                     </div>

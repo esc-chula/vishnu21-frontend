@@ -75,6 +75,7 @@ const HouseProvider: React.FC<{
                                 fill
                                 quality={1}
                                 priority
+                                loading="eager"
                             />
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '@/utils/fetcher';
-import { IUser } from 'types';
+import { ILineProfile, IUser } from 'types';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader';
 import liff from '@line/liff';
@@ -10,6 +10,7 @@ interface AuthContextProps {
     isLoading: boolean;
     user: IUser;
     fetchUser: () => Promise<void>;
+    lineUserProfile: ILineProfile;
 }
 
 export const AuthContext = createContext<AuthContextProps>(null);
@@ -23,6 +24,14 @@ const AuthProvider: React.FC<{
     const [isLoading, setIsLoading] = useState(true);
 
     const [user, setUser] = useState<IUser | null>(null);
+    const [lineUserProfile, setLineUserProfile] = useState<ILineProfile | null>(
+        null
+    );
+
+    const fetchLineUserProfile = async () => {
+        const profile = await liff.getProfile();
+        setLineUserProfile(profile);
+    };
 
     const fetchUser = async () => {
         await axios
@@ -81,6 +90,7 @@ const AuthProvider: React.FC<{
 
     useEffect(() => {
         fetchUser();
+        fetchLineUserProfile();
     }, []);
 
     // useEffect(() => {
@@ -98,6 +108,7 @@ const AuthProvider: React.FC<{
                 isLoading,
                 user,
                 fetchUser,
+                lineUserProfile,
             }}
         >
             <Loader>{children}</Loader>

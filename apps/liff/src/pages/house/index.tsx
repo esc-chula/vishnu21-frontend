@@ -24,6 +24,7 @@ const House: NextPage = () => {
                         fill
                         className="object-fill"
                         priority
+                        loading="eager"
                     />
                 </div>
                 <div className="flex flex-col items-center space-y-7">

@@ -18,3 +18,10 @@ export interface IUser {
     roles: TRoles[];
     groupId: string;
 }
+
+export interface ILineProfile {
+    userId: string;
+    displayName: string;
+    pictureUrl?: string;
+    statusMessage?: string;
+}

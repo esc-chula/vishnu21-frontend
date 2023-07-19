@@ -48,6 +48,17 @@ interface IContact {
 
 interface IPost {}
 
+export interface IGroup {
+    contacts: IContact[];
+    group: string;
+    groupId: string;
+    houseName: string;
+    members: IUser[];
+    posts: IPost[];
+    score: number;
+    shortName: string;
+}
+
 export interface IHouse {
     altColor: string;
     bgColor: string;
