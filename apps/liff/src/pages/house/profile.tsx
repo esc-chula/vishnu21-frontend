@@ -16,11 +16,12 @@ const Profile: NextPage = () => {
     const { user, fetchUser } = useAuth();
     const { houseData, fetchHouseData } = useHouse();
 
+    const [isLoading, setIsLoading] = useState(false);
     const [instagram, setInstagram] = useState(user.instagram);
 
-    console.log(user);
-
     const updateUserProfile = async () => {
+        setIsLoading(true);
+
         await axios
             .patch(
                 '/users/profile',
@@ -38,9 +39,11 @@ const Profile: NextPage = () => {
             .then((res) => {
                 fetchUser();
                 fetchHouseData();
+                setIsLoading(false);
             })
             .catch((err) => {
                 console.error(err);
+                setIsLoading(false);
             });
     };
 
@@ -92,7 +95,7 @@ const Profile: NextPage = () => {
                         <h2 className="text-xl font-bold">
                             ธนดล ศานติสรร (ปูน)
                         </h2>
-                        <p>ภาค ICE</p>
+                        {/* <p>ภาค ICE</p> */}
                     </div>
                     <div
                         className="relative w-60 bg-white h-12 rounded-2xl flex items-center space-x-3 text-neutral-300 font-semibold overflow-y-hidden"
@@ -112,12 +115,12 @@ const Profile: NextPage = () => {
                     {(user.instagram ? user.instagram : '') !== instagram && (
                         <button
                             onClick={updateUserProfile}
-                            className="px-4 py-1.5 rounded-xl bg-white text-sm"
+                            className="w-20 py-1.5 rounded-xl bg-white text-sm"
                             style={{
                                 color: houseData.altColor,
                             }}
                         >
-                            บันทึก
+                            {isLoading ? 'loading...' : ' บันทึก'}
                         </button>
                     )}
                 </div>
