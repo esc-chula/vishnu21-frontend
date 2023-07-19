@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 const Login: NextPage = () => {
     const router = useRouter();
@@ -15,6 +16,9 @@ const Login: NextPage = () => {
 
     return (
         <>
+            <Head>
+                <title>เข้าสู่ระบบด้วย CUNET</title>
+            </Head>
             <div className="relative h-full w-full grid place-content-center bg-primary-800 bg-[url('/images/grained_background.jpg')] bg-repeat bg-[length:300px_300px]">
                 <form
                     className="flex flex-col items-center justify-center gap-6 text-neutral-50"
