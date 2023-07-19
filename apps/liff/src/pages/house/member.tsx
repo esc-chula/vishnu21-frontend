@@ -42,52 +42,54 @@ const Member: NextPage = () => {
                     </Link>
                 </div>
                 <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto">
-                    {houseData.members.map((member) => (
-                        <div
-                            key={member.userId}
-                            className="px-3.5 pb-2.5 bg-neutral-50 rounded-2xl text-sm"
-                            style={{
-                                boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
-                            }}
-                        >
-                            <div className="w-full flex justify-between items-center pt-2.5">
-                                <div
-                                    className="flex items-center space-x-3 font-bold"
-                                    style={{
-                                        color: houseData.altColor,
-                                    }}
-                                >
-                                    {member.profilePicture ? (
-                                        <div className="relative w-10 aspect-square rounded-full overflow-hidden">
-                                            <Image
-                                                src={member.profilePicture}
-                                                alt="Profile Picture"
-                                                fill
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div className="relative w-10 aspect-square bg-gray-300 rounded-full overflow-hidden grid place-content-center">
-                                            <FiUser className="text-gray-400 opacity-50 text-2xl" />
-                                        </div>
-                                    )}{' '}
-                                    <p>
-                                        {member.nickname
-                                            ? `${member.name} (${member.nickname})`
-                                            : member.name}
-                                    </p>
+                    {houseData.members
+                        .filter((member) => member.status === 'Intania107')
+                        .map((member) => (
+                            <div
+                                key={member.userId}
+                                className="px-3.5 pb-2.5 bg-neutral-50 rounded-2xl text-sm"
+                                style={{
+                                    boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
+                                }}
+                            >
+                                <div className="w-full flex justify-between items-center pt-2.5">
+                                    <div
+                                        className="flex items-center space-x-3 font-bold"
+                                        style={{
+                                            color: houseData.altColor,
+                                        }}
+                                    >
+                                        {member.profilePicture ? (
+                                            <div className="relative w-10 aspect-square rounded-full overflow-hidden">
+                                                <Image
+                                                    src={member.profilePicture}
+                                                    alt="Profile Picture"
+                                                    fill
+                                                />
+                                            </div>
+                                        ) : (
+                                            <div className="relative w-10 aspect-square bg-gray-300 rounded-full overflow-hidden grid place-content-center">
+                                                <FiUser className="text-gray-400 opacity-50 text-2xl" />
+                                            </div>
+                                        )}{' '}
+                                        <p>
+                                            {member.nickname
+                                                ? `${member.name} (${member.nickname})`
+                                                : member.name}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p></p>
-                                </div>
+                                {member.instagram && (
+                                    <div className="pl-[52px] pb-1 text-xs text-gray-500 flex items-center space-x-2">
+                                        <FiInstagram className="text-base" />
+                                        <p>{member.instagram}</p>
+                                    </div>
+                                )}
                             </div>
-                            {member.instagram && (
-                                <div className="pl-[52px] pb-1 text-xs text-gray-500 flex items-center space-x-2">
-                                    <FiInstagram className="text-base" />
-                                    <p>{member.instagram}</p>
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                        ))}
 
                     <div
                         className="flex flex-col items-center font-medium text-xs space-y-2"
