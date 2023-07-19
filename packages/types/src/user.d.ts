@@ -1,6 +1,18 @@
 type TStatus = 'Admin' | 'Intania106' | 'Intania107' | 'Testing' | 'Unknown';
 
-type TRoles = 'User' | 'Admin' | 'Activity' | 'Board' | 'IT' | 'HeadHouse';
+type TRoles =
+    | 'User'
+    | 'Admin'
+    | 'Activity'
+    | 'Board'
+    | 'Registration'
+    | 'Plan'
+    | 'Coop'
+    | 'Stamp'
+    | 'IT'
+    | 'PR'
+    | 'HeadHouse'
+    | 'RegistrationHouse';
 
 export interface IUser {
     userId: string;
