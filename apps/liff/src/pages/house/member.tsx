@@ -80,10 +80,12 @@ const Member: NextPage = () => {
                                     <p></p>
                                 </div>
                             </div>
-                            <div className="pl-[52px] pb-1 text-xs text-gray-500 flex items-center space-x-2">
-                                <FiInstagram className="text-base" />
-                                <p>{member.instagram}</p>
-                            </div>
+                            {member.instagram && (
+                                <div className="pl-[52px] pb-1 text-xs text-gray-500 flex items-center space-x-2">
+                                    <FiInstagram className="text-base" />
+                                    <p>{member.instagram}</p>
+                                </div>
+                            )}
                         </div>
                     ))}
 
