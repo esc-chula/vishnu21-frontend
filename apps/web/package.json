@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@react-spring/parallax": "^9.7.3",
+        "@vercel/analytics": "^1.0.1",
         "assets": "workspace:*",
         "env": "workspace:*",
         "next": "latest",
