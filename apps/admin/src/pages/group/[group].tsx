@@ -9,6 +9,9 @@ import GroupData from '@/mocks/group-data.json';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import GroupHomePage from '@/components/GroupHomePage';
 import { useGroup } from '@/contexts/GroupContext';
+import { useEffect, useState } from 'react';
+import { IGroup } from 'types';
+import Loading from '@/components/Loading';
 
 interface GroupProps {
     slug: string;
@@ -17,8 +20,32 @@ interface GroupProps {
 const Group: NextPage<GroupProps> = ({ slug }) => {
     const { allGroupData } = useGroup();
 
-    const groupData = allGroupData.find((group) => group.group === slug);
+    const [groupData, setGroupData] = useState<IGroup | null>(null);
 
+    const fetchGroupData = async () => {
+        await axios
+            .get(`/groups/${groupInformation.groupId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+            .then((res) => {
+                setGroupData(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    };
+
+    useEffect(() => {
+        if (allGroupData) fetchGroupData();
+    }, [allGroupData]);
+
+    if (!allGroupData) return <Loading />;
+
+    const groupInformation = allGroupData.find((group) => group.group === slug);
+
+    if (!groupData) return <Loading />;
     return (
         <>
             <Navigation />
@@ -32,7 +59,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                     กรุ้ป
                                 </p>
                                 <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                    {groupData.group}
+                                    {groupInformation.group}
                                 </h1>
                             </div>
                             <div>
@@ -41,10 +68,10 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                 </p>
                                 <div className="flex flex-col md:flex-row md:items-end md:space-x-4">
                                     <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                        {groupData.shortName}
+                                        {groupInformation.shortName}
                                     </h1>
                                     <p className="text-neutral-500">
-                                        {groupData.houseName}
+                                        {groupInformation.houseName}
                                     </p>
                                 </div>
                             </div>
@@ -56,7 +83,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                 คะแนน
                             </p>
                             <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                {groupData.score}
+                                {groupInformation.score}
                             </h1>
                         </div>
                     </div>
@@ -91,7 +118,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                 </Section>
                 <GroupHomePage />
                 <Section toggle id="members" title="สมาชิก">
-                    <GroupMembers />
+                    <GroupMembers members={groupData.members} />
                 </Section>
             </Main>
             <Footer />
