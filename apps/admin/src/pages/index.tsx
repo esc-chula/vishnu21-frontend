@@ -9,8 +9,24 @@ import Section from '@/layouts/Section';
 import GroupData from '@/mocks/group-data.json';
 import type { NextPage } from 'next';
 import Links from '@/components/Links';
+import { useAuth } from '@/contexts/AuthContext';
+import Guard from '@/components/Guard';
+import { TRoles } from 'types';
+import { useRouter } from 'next/router';
+import { useGroup } from '@/contexts/GroupContext';
 
 const Home: NextPage = () => {
+    const router = useRouter();
+    const { user } = useAuth();
+    const { groupData } = useGroup();
+
+    const userRoles: TRoles[] = user.roles;
+    const houseRoles: TRoles[] = ['HeadHouse', 'RegistrationHouse'];
+
+    if (userRoles.some((role) => houseRoles.includes(role))) {
+        router.push(`/group/${groupData.group}`);
+    }
+
     return (
         <>
             <Navigation />
@@ -40,32 +56,40 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </section>
-                <Section id="groups" title="คะแนนกรุ้ป">
-                    <GroupTableRow
-                        header
-                        group={'กรุ้ป'}
-                        name={'ชื่อ'}
-                        score={'คะแนน'}
-                    />
-                    {GroupData.map((group) => (
+                <Guard allowRoles={['Activity', 'Registration']}>
+                    <Section id="groups" title="คะแนนกรุ้ป">
                         <GroupTableRow
-                            key={group.group}
-                            group={group.group}
-                            name={group.name}
-                            longName={group.longName}
-                            score={group.score}
+                            header
+                            group={'กรุ้ป'}
+                            name={'ชื่อ'}
+                            score={'คะแนน'}
                         />
-                    ))}
-                </Section>
-                <Section id="messaging" title="ส่งข้อความ">
-                    <SendMessage />
-                </Section>
-                <Section id="faq" title="FAQ">
-                    <Faq />
-                </Section>
-                <Section id="links" title="Link Tree">
-                    <Links />
-                </Section>
+                        {GroupData.map((group) => (
+                            <GroupTableRow
+                                key={group.group}
+                                group={group.group}
+                                name={group.name}
+                                longName={group.longName}
+                                score={group.score}
+                            />
+                        ))}
+                    </Section>
+                </Guard>
+                <Guard allowRoles={['PR']}>
+                    <Section id="messaging" title="ส่งข้อความ">
+                        <SendMessage />
+                    </Section>
+                </Guard>
+                <Guard allowRoles={['PR']}>
+                    <Section id="faq" title="FAQ">
+                        <Faq />
+                    </Section>
+                </Guard>
+                <Guard allowRoles={['PR']}>
+                    <Section id="links" title="Link Tree">
+                        <Links />
+                    </Section>
+                </Guard>
             </Main>
             <Footer />
         </>

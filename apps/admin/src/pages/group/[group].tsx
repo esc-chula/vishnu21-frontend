@@ -12,6 +12,8 @@ import { useGroup } from '@/contexts/GroupContext';
 import { useEffect, useState } from 'react';
 import { IGroup } from 'types';
 import Loading from '@/components/Loading';
+import Guard from '@/components/Guard';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface GroupProps {
     slug: string;
@@ -46,6 +48,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
     const groupInformation = allGroupData.find((group) => group.group === slug);
 
     if (!groupData) return <Loading />;
+
     return (
         <>
             <Navigation />
@@ -88,38 +91,52 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                         </div>
                     </div>
                 </section>
-                <Section toggle id="score" title="บันทึกคะแนน">
-                    <div className="flex flex-col md:flex-row md:items-end space-y-6 md:space-y-0 md:space-x-6">
-                        <div className="flex flex-col space-y-2.5">
-                            <label className="text-sm md:text-base text-neutral-600">
-                                จำนวน
-                            </label>
-                            <input
-                                type="number"
-                                className="!outline-none w-32 rounded-lg border border-neutral-300 py-2 px-4 bg-transparent"
-                            />
+                <Guard allowRoles={['Activity']}>
+                    <Section toggle id="score" title="บันทึกคะแนน">
+                        <div className="flex flex-col md:flex-row md:items-end space-y-6 md:space-y-0 md:space-x-6">
+                            <div className="flex flex-col space-y-2.5">
+                                <label className="text-sm md:text-base text-neutral-600">
+                                    จำนวน
+                                </label>
+                                <input
+                                    type="number"
+                                    className="!outline-none w-32 rounded-lg border border-neutral-300 py-2 px-4 bg-transparent"
+                                />
+                            </div>
+                            <div className="flex flex-col space-y-2.5 w-full">
+                                <label className="text-sm md:text-base text-neutral-600">
+                                    หมายเหตุ
+                                </label>
+                                <input className="!outline-none rounded-lg border border-neutral-300 py-2 px-4 bg-transparent w-full" />
+                            </div>
+                            <div className="flex flex-col space-y-2.5">
+                                <button className="bg-neutral-800 text-white font-medium rounded-lg px-6 py-2">
+                                    บันทึก
+                                </button>
+                            </div>
                         </div>
-                        <div className="flex flex-col space-y-2.5 w-full">
-                            <label className="text-sm md:text-base text-neutral-600">
-                                หมายเหตุ
-                            </label>
-                            <input className="!outline-none rounded-lg border border-neutral-300 py-2 px-4 bg-transparent w-full" />
-                        </div>
-                        <div className="flex flex-col space-y-2.5">
-                            <button className="bg-neutral-800 text-white font-medium rounded-lg px-6 py-2">
-                                บันทึก
-                            </button>
-                        </div>
-                    </div>
-                </Section>
-                <Section toggle id="score" title="ประวัติคะแนน">
-                    <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
-                    <ScoreTableRow amount="10" note="ให้สักหน่อย" />
-                </Section>
-                <GroupHomePage />
-                <Section toggle id="members" title="สมาชิก">
-                    <GroupMembers members={groupData.members} />
-                </Section>
+                    </Section>
+                </Guard>
+                <Guard allowRoles={['Activity']}>
+                    <Section toggle id="score" title="ประวัติคะแนน">
+                        <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
+                        <ScoreTableRow amount="10" note="ให้สักหน่อย" />
+                    </Section>
+                </Guard>
+                <Guard allowRoles={['HeadHouse']}>
+                    <GroupHomePage />
+                </Guard>
+                <Guard
+                    allowRoles={[
+                        'Registration',
+                        'HeadHouse',
+                        'RegistrationHouse',
+                    ]}
+                >
+                    <Section toggle id="members" title="สมาชิก">
+                        <GroupMembers members={groupData.members} />
+                    </Section>
+                </Guard>
             </Main>
             <Footer />
         </>
