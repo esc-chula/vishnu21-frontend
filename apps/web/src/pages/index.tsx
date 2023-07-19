@@ -103,11 +103,13 @@ const Home: NextPage = () => {
                                     ได้ผ่าน LINE OA ลิงก์ด้านล่างนี้เลย
                                 </p>
                                 <div>
-                                    <p className="opacity-40 mb-2 text-xs">
-                                        Coming Soon!
-                                    </p>
                                     <button
-                                        disabled
+                                        onClick={() => {
+                                            window.open(
+                                                'https://lin.ee/T2lHJs2',
+                                                '_blank'
+                                            );
+                                        }}
                                         className="bg-white text-primary-600 font-bold sm:text-xl px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                                         style={{
                                             boxShadow:

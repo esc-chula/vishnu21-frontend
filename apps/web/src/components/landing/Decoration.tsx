@@ -85,6 +85,8 @@ const Decoration: React.FC = () => {
                 <ParallaxLayer offset={2.8} factor={2} speed={0.1}>
                     <Image
                         src={Mountain1}
+                        priority
+                        loading="eager"
                         alt=""
                         fill
                         className="select-none object-none object-[10%,0] md:object-left-top md:-mt-24"
@@ -93,6 +95,8 @@ const Decoration: React.FC = () => {
                 <ParallaxLayer offset={3.5} speed={0.3}>
                     <Image
                         src={Mountain2}
+                        priority
+                        loading="eager"
                         alt=""
                         fill
                         className="select-none object-none object-[3%,0] md:object-left-top -mt-96 md:-mt-auto"
@@ -101,6 +105,8 @@ const Decoration: React.FC = () => {
                 <ParallaxLayer offset={3} factor={2} speed={0.9}>
                     <Image
                         src={Mountain3}
+                        priority
+                        loading="eager"
                         alt=""
                         fill
                         className="select-none object-none object-[82%,0] md:object-[40%,0] -mt-96 md:-mt-auto"
