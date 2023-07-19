@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </section>
-                <Guard allowRoles={['Activity', 'Registration']}>
+                <Guard allowRoles={['Board', 'Activity', 'Registration']}>
                     <Section id="groups" title="คะแนนกรุ้ป">
                         <GroupTableRow
                             header

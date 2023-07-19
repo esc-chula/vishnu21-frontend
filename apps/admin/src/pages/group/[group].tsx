@@ -128,6 +128,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                 </Guard>
                 <Guard
                     allowRoles={[
+                        'Board',
                         'Registration',
                         'HeadHouse',
                         'RegistrationHouse',
