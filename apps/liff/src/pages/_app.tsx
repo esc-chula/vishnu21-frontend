@@ -10,7 +10,7 @@ import Body from '@/components/Body';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
-    const whiteListedPaths = ['/', '/rules'];
+    const whiteListedPaths = ['/', '/rule'];
 
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
