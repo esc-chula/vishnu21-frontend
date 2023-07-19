@@ -1,3 +1,4 @@
+import axios from '@/utils/fetcher';
 import Footer from '@/components/Footer';
 import GroupMembers from '@/components/GroupMembers';
 import Navigation from '@/components/Navigation';
@@ -7,13 +8,16 @@ import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import GroupHomePage from '@/components/GroupHomePage';
+import { useGroup } from '@/contexts/GroupContext';
 
 interface GroupProps {
     slug: string;
 }
 
 const Group: NextPage<GroupProps> = ({ slug }) => {
-    const group = GroupData.find((group) => group.group === slug);
+    const { allGroupData } = useGroup();
+
+    const groupData = allGroupData.find((group) => group.group === slug);
 
     return (
         <>
@@ -28,7 +32,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                     กรุ้ป
                                 </p>
                                 <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                    {group.group}
+                                    {groupData.group}
                                 </h1>
                             </div>
                             <div>
@@ -37,10 +41,10 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                 </p>
                                 <div className="flex flex-col md:flex-row md:items-end md:space-x-4">
                                     <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                        {group.name}
+                                        {groupData.shortName}
                                     </h1>
                                     <p className="text-neutral-500">
-                                        {group.longName}
+                                        {groupData.houseName}
                                     </p>
                                 </div>
                             </div>
@@ -52,7 +56,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                 คะแนน
                             </p>
                             <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                {group.score}
+                                {groupData.score}
                             </h1>
                         </div>
                     </div>

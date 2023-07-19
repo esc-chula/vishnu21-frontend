@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from '@/utils/fetcher';
-import { IUser } from 'types';
+import { IGroup, IUser } from 'types';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader';
 

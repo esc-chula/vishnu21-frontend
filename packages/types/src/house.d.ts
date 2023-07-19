@@ -48,22 +48,25 @@ interface IContact {
 
 interface IPost {}
 
-export interface IHouse {
+export interface IGroup {
+    contacts: IContact[];
+    group: string;
+    groupId: string;
+    houseName: string;
+    members: IUser[];
+    posts: IPost[];
+    score: number;
+    shortName: string;
+}
+
+export interface IHouse extends IGroup {
     altColor: string;
     bgColor: string;
     bgPosition: string;
     color: string;
-    contacts: IContact[];
-    group: TGroup;
-    groupId: string;
-    houseName: string;
     instagram: string;
     lineGroup: string;
     longName: string;
-    members: IUser[];
     name: string;
-    posts: IPost[];
-    score: number;
-    shortName: string;
     theme: 'dark' | 'light';
 }
