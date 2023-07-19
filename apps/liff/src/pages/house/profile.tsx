@@ -118,7 +118,8 @@ const Profile: NextPage = () => {
                             className="outline-none h-full w-full bg-transparent pl-9 placeholder:text-neutral-300 text-neutral-500"
                         />
                     </div>
-                    {(user.instagram ? user.instagram : '') !== instagram && (
+                    {(user.instagram === null ? '' : user.instagram) !==
+                        instagram && (
                         <button
                             onClick={updateUserProfile}
                             className="w-20 py-1.5 rounded-xl bg-white text-sm"

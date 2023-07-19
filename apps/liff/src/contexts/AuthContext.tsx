@@ -29,7 +29,10 @@ const AuthProvider: React.FC<{
     );
 
     const fetchLineUserProfile = async () => {
-        const profile = await liff.getProfile();
+        const profile = await liff
+            .getProfile()
+            .then((res) => res as ILineProfile)
+            .catch(() => null);
         setLineUserProfile(profile);
     };
 
