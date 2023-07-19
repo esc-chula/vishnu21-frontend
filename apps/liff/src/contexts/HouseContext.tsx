@@ -33,6 +33,10 @@ const HouseProvider: React.FC<{
                     (data) => data.group === res.data.group
                 );
                 setHouseData({ ...res.data, ...localData });
+                localStorage.setItem(
+                    'houseData',
+                    JSON.stringify({ ...res.data, ...localData })
+                );
             })
             .catch((err) => {
                 console.error(err);
@@ -40,6 +44,11 @@ const HouseProvider: React.FC<{
     };
 
     useEffect(() => {
+        setHouseData(
+            localStorage.getItem('houseData')
+                ? JSON.parse(localStorage.getItem('houseData'))
+                : null
+        );
         fetchHouseData();
     }, []);
 

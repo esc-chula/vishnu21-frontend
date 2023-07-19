@@ -44,6 +44,8 @@ const AuthProvider: React.FC<{
                 },
             })
             .then((res) => {
+                localStorage.setItem('user', JSON.stringify(res.data));
+
                 setUser(res.data);
                 setIsLoading(false);
                 if (router.pathname.includes('login')) {
@@ -92,6 +94,11 @@ const AuthProvider: React.FC<{
     };
 
     useEffect(() => {
+        setUser(
+            localStorage.getItem('user')
+                ? JSON.parse(localStorage.getItem('user'))
+                : null
+        );
         fetchUser();
     }, []);
 
