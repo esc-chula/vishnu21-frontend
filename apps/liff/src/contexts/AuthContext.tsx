@@ -9,6 +9,7 @@ interface AuthContextProps {
     login: (e: React.FormEvent<HTMLFormElement>) => void;
     isLoading: boolean;
     user: IUser;
+    fetchUser: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextProps>(null);
@@ -96,6 +97,7 @@ const AuthProvider: React.FC<{
                 login,
                 isLoading,
                 user,
+                fetchUser,
             }}
         >
             <Loader>{children}</Loader>

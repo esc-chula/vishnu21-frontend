@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['carsup-bucket.s3.ap-southeast-1.amazonaws.com'],
+        domains: ['profile.line-scdn.net'],
     },
 };
 

@@ -1,4 +1,5 @@
 import { IGroup, THouse } from './group';
+import { IUser } from './user';
 
 export type TGroup =
     | 'A'

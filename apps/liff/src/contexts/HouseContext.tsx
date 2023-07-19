@@ -9,6 +9,7 @@ import { IHouse } from 'types';
 
 interface HouseContextProps {
     houseData: IHouse | null;
+    fetchHouseData: () => Promise<void>;
 }
 
 export const HouseContext = createContext<HouseContextProps>(null);
@@ -17,7 +18,6 @@ const HouseProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {
     const router = useRouter();
-    const { user } = useAuth();
 
     const [houseData, setHouseData] = useState<IHouse | null>(null);
 
@@ -48,6 +48,7 @@ const HouseProvider: React.FC<{
         <HouseContext.Provider
             value={{
                 houseData,
+                fetchHouseData,
             }}
         >
             {router.pathname.includes('/house') ? (
@@ -73,6 +74,7 @@ const HouseProvider: React.FC<{
                                 alt="Flag Image"
                                 fill
                                 quality={1}
+                                priority
                             />
                         </div>
                     </div>
