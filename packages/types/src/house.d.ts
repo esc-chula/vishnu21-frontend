@@ -59,14 +59,22 @@ export interface IGroup {
     shortName: string;
 }
 
-export interface IHouse extends IGroup {
+export interface IHouse {
     altColor: string;
     bgColor: string;
     bgPosition: string;
     color: string;
+    contacts: IContact[];
+    group: TGroup;
+    groupId: string;
+    houseName: string;
     instagram: string;
     lineGroup: string;
     longName: string;
+    members: IUser[];
     name: string;
+    posts: IPost[];
+    score: number;
+    shortName: string;
     theme: 'dark' | 'light';
 }
