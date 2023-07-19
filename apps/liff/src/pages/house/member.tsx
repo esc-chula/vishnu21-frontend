@@ -8,7 +8,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiChevronLeft, FiUser } from 'react-icons/fi';
+import { FiChevronLeft, FiInstagram, FiUser } from 'react-icons/fi';
 
 const Member: NextPage = () => {
     const { houseData } = useHouse();
@@ -45,31 +45,44 @@ const Member: NextPage = () => {
                     {houseData.members.map((member) => (
                         <div
                             key={member.userId}
-                            className="flex justify-between items-center px-3.5 py-2.5 bg-neutral-50 rounded-2xl text-sm"
+                            className="px-3.5 pb-2.5 bg-neutral-50 rounded-2xl text-sm"
                             style={{
                                 boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,
                             }}
                         >
-                            <div className="flex items-center space-x-3">
-                                {member.profilePicture ? (
-                                    <div className="relative w-10 aspect-square rounded-full overflow-hidden">
-                                        <Image
-                                            src={member.profilePicture}
-                                            alt="Profile Picture"
-                                            fill
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="relative w-10 aspect-square bg-gray-300 rounded-full"></div>
-                                )}{' '}
-                                <p>
-                                    {member.nickname
-                                        ? `${member.name} (${member.nickname})`
-                                        : member.name}
-                                </p>
+                            <div className="w-full flex justify-between items-center pt-2.5">
+                                <div
+                                    className="flex items-center space-x-3 font-bold"
+                                    style={{
+                                        color: houseData.altColor,
+                                    }}
+                                >
+                                    {member.profilePicture ? (
+                                        <div className="relative w-10 aspect-square rounded-full overflow-hidden">
+                                            <Image
+                                                src={member.profilePicture}
+                                                alt="Profile Picture"
+                                                fill
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="relative w-10 aspect-square bg-gray-300 rounded-full overflow-hidden grid place-content-center">
+                                            <FiUser className="text-gray-400 opacity-50 text-2xl" />
+                                        </div>
+                                    )}{' '}
+                                    <p>
+                                        {member.nickname
+                                            ? `${member.name} (${member.nickname})`
+                                            : member.name}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p></p>
+                                </div>
                             </div>
-                            <div>
-                                <p></p>
+                            <div className="pl-[52px] pb-1 text-xs text-gray-500 flex items-center space-x-2">
+                                <FiInstagram className="text-base" />
+                                <p>{member.instagram}</p>
                             </div>
                         </div>
                     ))}
