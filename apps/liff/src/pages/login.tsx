@@ -1,7 +1,5 @@
-import ForegroundImage from '@/public/images/assets/foreground1.png';
 import { useAuth } from '@/contexts/AuthContext';
 import { NextPage } from 'next';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Head from 'next/head';
@@ -9,10 +7,11 @@ import Main from '@/layouts/Main';
 
 const Login: NextPage = () => {
     const router = useRouter();
+    const redirect = router.query.redirect as string;
     const { login, user } = useAuth();
 
     useEffect(() => {
-        if (user) router.push('/house');
+        if (user) router.push(redirect || '/house');
     }, [user, router]);
 
     return (
