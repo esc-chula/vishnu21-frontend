@@ -19,7 +19,10 @@ const FAQ: NextPage = () => {
                 <div className="w-full h-full mt-8">
                     <div className="overflow-y-auto w-full h-full space-y-4 px-6 pb-40">
                         {FaqData.map((faq) => (
-                            <div className="bg-neutral-50 shadow-button rounded-2xl">
+                            <div
+                                key={faq.question}
+                                className="bg-neutral-50 shadow-button rounded-2xl"
+                            >
                                 <button
                                     onClick={() =>
                                         setToggles((prev) => {

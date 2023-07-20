@@ -1,5 +1,6 @@
 import ScheduleData from '@/constants/schedule-data.json';
 import Main from '@/layouts/Main';
+import liff from '@line/liff';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
