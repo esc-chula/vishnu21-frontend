@@ -6,6 +6,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
 import Loading from '@/components/Loading';
 import { IHouse } from 'types';
+import Body from '@/components/Body';
 
 interface HouseContextProps {
     houseData: IHouse | null;
@@ -33,6 +34,10 @@ const HouseProvider: React.FC<{
                     (data) => data.group === res.data.group
                 );
                 setHouseData({ ...res.data, ...localData });
+                localStorage.setItem(
+                    'houseData',
+                    JSON.stringify({ ...res.data, ...localData })
+                );
             })
             .catch((err) => {
                 console.error(err);
@@ -40,10 +45,20 @@ const HouseProvider: React.FC<{
     };
 
     useEffect(() => {
+        setHouseData(
+            localStorage.getItem('houseData')
+                ? JSON.parse(localStorage.getItem('houseData'))
+                : null
+        );
         fetchHouseData();
     }, []);
 
-    if (houseData === null) return <Loading />;
+    if (houseData === null)
+        return (
+            <Body>
+                <Loading />
+            </Body>
+        );
     return (
         <HouseContext.Provider
             value={{

@@ -14,6 +14,7 @@ import Guard from '@/components/Guard';
 import { TRoles } from 'types';
 import { useRouter } from 'next/router';
 import { useGroup } from '@/contexts/GroupContext';
+import Loading from '@/components/Loading';
 
 const Home: NextPage = () => {
     const router = useRouter();
@@ -22,6 +23,8 @@ const Home: NextPage = () => {
 
     const userRoles: TRoles[] = user.roles;
     const houseRoles: TRoles[] = ['HeadHouse', 'RegistrationHouse'];
+
+    if (!groupData) return <Loading />;
 
     if (userRoles.some((role) => houseRoles.includes(role))) {
         router.push(`/group/${groupData.group}`);
@@ -56,7 +59,7 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </section>
-                <Guard allowRoles={['Activity', 'Registration']}>
+                <Guard allowRoles={['Board', 'Activity', 'Registration']}>
                     <Section id="groups" title="คะแนนกรุ้ป">
                         <GroupTableRow
                             header

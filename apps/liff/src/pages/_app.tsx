@@ -7,6 +7,7 @@ import HouseProvider from '@/contexts/HouseContext';
 import AuthProvider from '@/contexts/AuthContext';
 import { useRouter } from 'next/router';
 import Body from '@/components/Body';
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
@@ -40,24 +41,29 @@ function MyApp({ Component, pageProps }: AppProps) {
     pageProps.liffError = liffError;
 
     if (LIFF_PRODUCTION) {
-        return whiteListedPaths.includes(router.pathname) ? (
-            <Body>
-                <Component {...pageProps} />
-            </Body>
-        ) : (
-            <AuthProvider {...pageProps}>
-                {router.pathname === '/login' ? (
+        return (
+            <>
+                {whiteListedPaths.includes(router.pathname) ? (
                     <Body>
                         <Component {...pageProps} />
                     </Body>
                 ) : (
-                    <HouseProvider>
-                        <Body>
-                            <Component {...pageProps} />
-                        </Body>
-                    </HouseProvider>
+                    <AuthProvider {...pageProps}>
+                        {router.pathname === '/login' ? (
+                            <Body>
+                                <Component {...pageProps} />
+                            </Body>
+                        ) : (
+                            <HouseProvider>
+                                <Body>
+                                    <Component {...pageProps} />
+                                </Body>
+                            </HouseProvider>
+                        )}
+                    </AuthProvider>
                 )}
-            </AuthProvider>
+                <Analytics />
+            </>
         );
     } else {
         return <></>;
