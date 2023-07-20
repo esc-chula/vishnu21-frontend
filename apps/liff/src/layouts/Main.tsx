@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 interface MainProps {
     children: React.ReactNode;
-    foregroundImage: 'full1' | 'top1';
+    foregroundImage: 'full1' | 'full2' | 'top1' | 'top2';
 }
 
 const Main: React.FC<MainProps> = ({ children, foregroundImage }) => {
@@ -11,7 +11,7 @@ const Main: React.FC<MainProps> = ({ children, foregroundImage }) => {
 
     return (
         <>
-            <div className="z-30 absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center text-neutral-50 pt-12">
+            <div className="z-20 absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center text-neutral-50">
                 {children}
             </div>
             <div className="z-0 absolute top-0 left-0 right-0 bottom-0 bg-primary-800 bg-[url('/images/grained_background.jpg')] bg-repeat bg-[length:300px_300px]"></div>
@@ -23,7 +23,7 @@ const Main: React.FC<MainProps> = ({ children, foregroundImage }) => {
                 }}
             ></div>
             <div
-                className={`z-20 absolute top-0 left-0 right-0 bottom-0 pointer-events-none select-none pt-5 duration-1000 ease-out ${
+                className={`z-30 absolute top-0 left-0 right-0 bottom-0 pointer-events-none select-none duration-1000 ease-out ${
                     isImageLoading
                         ? 'scale-105 opacity-0'
                         : 'scale-100 opacity-100'
@@ -34,7 +34,7 @@ const Main: React.FC<MainProps> = ({ children, foregroundImage }) => {
                         src={require(`@/public/images/assets/${foregroundImage}.png`)}
                         alt=""
                         fill
-                        className={`scale-105 ${
+                        className={`${
                             foregroundImage.includes('full')
                                 ? 'object-cover'
                                 : 'object-contain object-top'
