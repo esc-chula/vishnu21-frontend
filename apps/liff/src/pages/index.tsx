@@ -1,9 +1,9 @@
 import Loading from '@/components/Loading';
 import type { NextPage } from 'next';
-import Schedule from './schedule';
+import FAQ from './faq';
 
 const Home: NextPage = () => {
-    return <Schedule />;
+    return <FAQ />;
 };
 
 export default Home;

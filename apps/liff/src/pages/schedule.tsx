@@ -16,7 +16,7 @@ const Schedule: NextPage = () => {
                         <h1 className="font-bold text-2xl mt-12">
                             กำหนดการกิจกรรม
                         </h1>
-                        <div className="relative mt-8 w-full h-14">
+                        <div className="relative mt-8 w-full h-14 select-none">
                             <Image
                                 src={require(`@/public/images/logo/firstdate_light.svg`)}
                                 alt="First Date Logo"
