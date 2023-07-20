@@ -1,5 +1,6 @@
 import SponsorFooter from '@/components/SponsorFooter';
 import FaqData from '@/constants/faq-data.json';
+import { useLiff } from '@/contexts/LiffContext';
 import Main from '@/layouts/Main';
 import { NextPage } from 'next';
 import Head from 'next/head';
@@ -7,7 +8,24 @@ import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 
 const FAQ: NextPage = () => {
+    const liff = useLiff();
+
+    const [userQuestion, setUserQuestion] = useState<string>('');
     const [toggles, setToggles] = useState(Array(FaqData.length).fill(false));
+
+    const sendUserQuestionHandler = async (
+        e: React.FormEvent<HTMLFormElement>
+    ) => {
+        e.preventDefault();
+
+        await liff.sendMessages([
+            {
+                type: 'text',
+                text: userQuestion,
+            },
+        ]);
+        setUserQuestion('');
+    };
 
     return (
         <>
@@ -23,7 +41,7 @@ const FAQ: NextPage = () => {
                                 key={faq.question}
                                 className="bg-neutral-50 shadow-button rounded-2xl"
                             >
-                                <button
+                                <div
                                     onClick={() =>
                                         setToggles((prev) => {
                                             const newToggles = [...prev];
@@ -34,7 +52,7 @@ const FAQ: NextPage = () => {
                                             return newToggles;
                                         })
                                     }
-                                    className="flex justify-between items-center pl-6 pr-4 py-4 w-full text-neutral-800 font-semibold text-sm cursor-pointer"
+                                    className="flex justify-between items-center pl-6 pr-4 py-4 w-full text-neutral-800 font-semibold text-sm"
                                 >
                                     <p>หิวอะ</p>
                                     <FiChevronDown
@@ -43,7 +61,7 @@ const FAQ: NextPage = () => {
                                             'rotate-180'
                                         }`}
                                     />
-                                </button>
+                                </div>
                                 <div
                                     className={`overflow-y-auto text-neutral-600 font-baijam font-medium text-sm sm:text-base leading-relaxed sm:leading-relaxed ${
                                         toggles[FaqData.indexOf(faq)]
@@ -57,6 +75,28 @@ const FAQ: NextPage = () => {
                                 </div>
                             </div>
                         ))}
+                        <form
+                            onSubmit={sendUserQuestionHandler}
+                            className="flex flex-col items-center py-8"
+                        >
+                            <label>อยากถามเพิ่มสามารถพิมพ์ในนี้ได้เลย!</label>
+                            <textarea
+                                className="outline-none px-4 py-3 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal placeholder:text-xs backdrop-blur-[2.5px] focus:border-opacity-60 duration-200 focus:h-40 focus:w-full mt-2 mb-6"
+                                placeholder="แนะนำร้านอาหารให้หน่อยได้มั้ยงับ..."
+                                value={userQuestion}
+                                onChange={(e) => {
+                                    setUserQuestion(e.target.value);
+                                }}
+                            />
+                            {userQuestion && (
+                                <button
+                                    type="submit"
+                                    className="text-primary-600 bg-white shadow-button rounded-xl px-5 py-2.5 font-semibold"
+                                >
+                                    ส่ง
+                                </button>
+                            )}
+                        </form>
                         <SponsorFooter />
                     </div>
                 </div>
