@@ -11,7 +11,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
-    const whiteListedPaths = ['/', '/rule'];
+    const whiteListedPaths = ['/', '/rule', '/faq'];
 
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
     const [liffError, setLiffError] = useState<string | null>(null);
