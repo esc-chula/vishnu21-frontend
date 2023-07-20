@@ -7,9 +7,9 @@ const FAQ: React.FC = () => {
 
     return (
         <div className="max-w-screen-sm w-full flex flex-col space-y-8 sm:space-y-10">
-            {FaqData.map((faq) => (
+            {FaqData.map((faq, index) => (
                 <div
-                    key={faq.question}
+                    key={index}
                     className="flex flex-col w-full bg-white rounded-2xl shadow-button sm:shadow-faq px-4 sm:px-6"
                 >
                     <div

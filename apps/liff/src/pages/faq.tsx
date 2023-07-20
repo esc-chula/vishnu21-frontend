@@ -36,9 +36,9 @@ const FAQ: NextPage = () => {
                 <h1 className="font-bold text-2xl mt-12">FAQ</h1>
                 <div className="w-full h-full mt-8">
                     <div className="overflow-y-auto w-full h-full space-y-4 px-6 pb-40">
-                        {FaqData.map((faq) => (
+                        {FaqData.map((faq, index) => (
                             <div
-                                key={faq.question}
+                                key={index}
                                 className="bg-neutral-50 shadow-button rounded-2xl"
                             >
                                 <div
