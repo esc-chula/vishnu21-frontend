@@ -21,5 +21,8 @@
         "react-icons": "^4.10.1",
         "turbo": "^1.10.3"
     },
-    "packageManager": "pnpm@7.15.0"
+    "packageManager": "pnpm@7.15.0",
+    "dependencies": {
+        "react-zoom-pan-pinch": "^3.1.0"
+    }
 }

@@ -6,11 +6,21 @@ import GrainBackground from '@/public/images/grain-background.svg';
 import Spore1 from '@/public/images/spore1.svg';
 import { FaRestroom, FaUsers, FaHamburger } from 'react-icons/fa';
 import { MdOutlineMedicalServices } from 'react-icons/md';
+import MapMock from '@/public/images/map-mock.png';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 const Map: NextPage = () => {
     return (
         <div>
-            <div>map</div>
+            <TransformWrapper>
+                <TransformComponent>
+                    <Image
+                        src={MapMock}
+                        alt="map"
+                        className="w-screen h-screen object-contain bg-black"
+                    />
+                </TransformComponent>
+            </TransformWrapper>
             {/* Bottom part */}
             <div className="fixed bottom-0 left-0 h-1/4 overflow-hidden rounded-t-2xl">
                 {/* Background and decorations */}
