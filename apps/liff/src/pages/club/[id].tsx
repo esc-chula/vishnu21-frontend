@@ -94,8 +94,7 @@ export const ClubPage = ({ liff }) => {
                 const data = JSON.parse(string);
                 const stampId = data.stampId;
                 const slug = data.slug;
-                // const timestamp = Date.now().toString();
-                const timestamp = '1689673723330';
+                const timestamp = Date.now().toString();
                 const res = await fetch(
                     `${
                         process.env.NEXT_PUBLIC_API_BASE_URL
