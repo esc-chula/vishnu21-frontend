@@ -4,13 +4,12 @@ import { useRouter } from 'next/router';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/images/GrainBackground.svg';
-import { BottomSheet } from 'react-spring-bottom-sheet';
 import Image from 'next/image';
 import ClubCard from './components/ClubCard';
-import Sheet from './components/BottomSheet';
 
 const Club = ({ liff }) => {
-    // selection : All , Academic , Sport , Art , CSR
+    // selection : All , Academic , Sport , Art , CSR, Other
+    const router = useRouter();
     const [selection, setSelection] = useState('All');
     const [clubs, setClubs] = useState([]);
     const [clubSelected, setClubSelected] = useState(clubs);
@@ -18,10 +17,10 @@ const Club = ({ liff }) => {
     const [favorites, setFavorites] = useState([]);
 
     const isStamped = (id: string) => {
-        return stamped.some((stamped) => id === stamped.id);
+        return stamped.some((stamped) => id === stamped.stampHash);
     };
     const isFavorite = (id: string) => {
-        return favorites.some((favorite) => id === favorite.id);
+        return favorites.some((favorite) => id === favorite);
     };
     const [clubFiltered, setClubFiltered] = useState(clubSelected);
 
@@ -42,8 +41,6 @@ const Club = ({ liff }) => {
 
     const [headerText, setHeaderText] = useState('ชมรมที่แสตมป์แล้ว');
     const [filterColor, setFilterColor] = useState('#D9D9D9');
-    const close = () => setIsOpen(!isOpen);
-    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         // set club data according to selector
@@ -53,10 +50,6 @@ const Club = ({ liff }) => {
                   clubs.filter((club_data) => club_data.tag === selection)
               );
     }, [selection]);
-
-    useEffect(() => {
-        setIsOpen(true);
-    }, []);
 
     useEffect(() => {
         const getFAQs = async () => {
@@ -71,8 +64,18 @@ const Club = ({ liff }) => {
             }
         };
         getFAQs().then(() => {});
-        setStamped(JSON.parse(localStorage.getItem('stamped')) || []);
-        setFavorites(JSON.parse(localStorage.getItem('favorites')) || []);
+        if (localStorage) {
+            setStamped(
+                (JSON.parse(localStorage.getItem('VISHNU21ST::stamps')) ||
+                    []) as {
+                    stampHash: string;
+                    timestamp: number;
+                }[]
+            );
+            setFavorites(
+                JSON.parse(localStorage.getItem('VISHNU21ST::favorites')) || []
+            );
+        }
     }, []);
 
     useEffect(() => {
@@ -106,37 +109,20 @@ const Club = ({ liff }) => {
             ? setClubFiltered(
                   clubSelected.filter((club) =>
                       currentMode === 'Stamp'
-                          ? isStamped(club)
-                          : isFavorite(club)
+                          ? isStamped(club.id)
+                          : isFavorite(club.id)
                   )
               )
             : setClubFiltered(
                   clubSelected.filter((club) =>
                       currentMode === 'Stamp'
-                          ? !isStamped(club)
-                          : !isFavorite(club)
+                          ? !isStamped(club.id)
+                          : !isFavorite(club.id)
                   )
               );
-    }, [clubSelected, filterState]);
+        console.log(stamped, favorites);
+    }, [clubSelected, filterState, stamped, favorites]);
 
-    // bottom sheet
-    const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
-    const [bottomSheetData, setBottomSheetdata] = useState({});
-
-    const handleOpenBottomSheet = (data) => {
-        setIsBottomSheetOpen(true);
-        setBottomSheetdata(data);
-    };
-
-    const handleCloseBottomSheet = () => {
-        setIsBottomSheetOpen(false);
-    };
-
-    useEffect(() => {
-        console.log(isBottomSheetOpen);
-    }, [isBottomSheetOpen]);
-
-    // TODO: change tailwind to not hardcode & add font
     return (
         <>
             <div className="relative flex flex-col w-screen h-screen">
@@ -148,15 +134,15 @@ const Club = ({ liff }) => {
                 />
 
                 {/* content */}
-                <div className="absolute top-0 p-[23px] pt-[50px] pb-[20vh] w-full">
+                <div className="top-0 p-[23px] pt-[50px] pb-[20vh] w-full">
                     {/* head */}
                     <div className="w-full items-center ">
-                        <p className="font-bold text-white text-xl text-center font-ibm">
+                        <p className="font-bold text-white text-xl text-center sticky font-ibm">
                             {headerText}
                         </p>
-                        <div className="flex flex-row gap-4 mt-[12px] items-center justify-center">
+                        <div className="flex flex-row gap-4 mt-[12px] sticky items-center justify-center">
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'All' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('All')}
@@ -164,7 +150,7 @@ const Club = ({ liff }) => {
                                 ทั้งหมด
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'Academic' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('Academic')}
@@ -172,7 +158,7 @@ const Club = ({ liff }) => {
                                 วิชาการ
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'Sport' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('Sport')}
@@ -180,7 +166,7 @@ const Club = ({ liff }) => {
                                 กีฬา
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'Art' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('Art')}
@@ -188,12 +174,20 @@ const Club = ({ liff }) => {
                                 ศิลปะวัฒนธรรม
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'CSR' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('CSR')}
                             >
                                 CSR
+                            </p>
+                            <p
+                                className={`font-bold font-ibm text-center text-white text-sm ${
+                                    selection === 'Other' ? '' : 'opacity-60'
+                                }`}
+                                onClick={() => setSelection('Other')}
+                            >
+                                อื่นๆ
                             </p>
                         </div>
                     </div>
@@ -201,18 +195,16 @@ const Club = ({ liff }) => {
                     {/* club list */}
                     <div className="grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 mt-[25px] w-full gap-[20px]">
                         {clubFiltered.map((club_data) => {
-                            const pathName = '/club/' + club_data.clubName;
                             return (
                                 <ClubCard
                                     currentMode={currentMode}
-                                    // TODO: image param
                                     img={club_data.logo}
-                                    isStamped={isStamped(club_data)}
-                                    isFavorite={isFavorite(club_data)}
+                                    isStamped={isStamped(club_data.id)}
+                                    isFavorite={isFavorite(club_data.id)}
                                     name={club_data.clubName}
                                     key={club_data.id}
                                     onClick={() =>
-                                        handleOpenBottomSheet(club_data)
+                                        router.push(`/club/${club_data.id}`)
                                     }
                                 />
                             );
@@ -251,22 +243,6 @@ const Club = ({ liff }) => {
                         />
                     </div>
                 </div>
-                {/* <BottomSheet
-                    isOpen={isBottomSheetOpen}
-                    close={handleCloseBottomSheet}
-                > */}
-                {/* <BottomSheet
-                    open={isOpen}
-                    onDismiss={() => setIsOpen(false)}
-                    snapPoints={({ minHeight }) => minHeight}
-                > */}
-                <Sheet
-                    data={bottomSheetData}
-                    isOpen={isBottomSheetOpen}
-                    onClose={handleCloseBottomSheet}
-                />
-                {/* My awesome content here
-                </BottomSheet> */}
             </div>
         </>
     );
