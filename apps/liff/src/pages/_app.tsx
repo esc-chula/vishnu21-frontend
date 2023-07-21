@@ -9,35 +9,6 @@ import { Analytics } from '@vercel/analytics/react';
 import LiffProvider from '@/contexts/LiffContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
-    const [liffError, setLiffError] = useState<string | null>(null);
-
-    // Execute liff.init() when the app is initialized
-    useEffect(() => {
-        // to avoid `window is not defined` error
-        import('@line/liff')
-            .then((liff) => liff.default)
-            .then((liff) => {
-                console.log('LIFF init...');
-                liff.init({
-                    liffId: process.env.NEXT_PUBLIC_VISHNU_LIFF_ID!,
-                    withLoginOnExternalBrowser: true,
-                })
-                    .then(() => {
-                        console.log('LIFF init succeeded.');
-                        setLiffObject(liff);
-                    })
-                    .catch((error: Error) => {
-                        console.log('LIFF init failed.');
-                        setLiffError(error.toString());
-                    });
-            });
-    }, []);
-
-    // Provide `liff` object and `liffError` object
-    // to page component as property
-    pageProps.liff = liffObject;
-    pageProps.liffError = liffError;
     const router = useRouter();
     const whiteListedPaths = [
         '/',
