@@ -3,14 +3,25 @@ import Image from 'next/image';
 
 import LoginBackground from '@/public/images/login-background.svg';
 import VishnuLogo from '@/public/images/vishnu-logo.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type Liff from '@line/liff';
+import { useRouter } from 'next/router';
 
 const Login: NextPage = ({ liff }: { liff: typeof Liff }) => {
     const [studentId, setStudentId] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
+    const router = useRouter();
 
+    useEffect(() => {
+        if (localStorage.getItem('token') && router.query.redirect) {
+            router.push(router.query.redirect as string);
+            console.log(localStorage.getItem('token'));
+        }
+        if (localStorage.getItem('token')) {
+            console.log(localStorage.getItem('token'));
+        }
+    }, []);
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -26,12 +37,15 @@ const Login: NextPage = ({ liff }: { liff: typeof Liff }) => {
                     body: JSON.stringify({
                         studentId,
                         password,
-                        lineToken: liff.getIDToken(),
+                        lineToken: liff.getAccessToken(),
                     }),
                 }
             );
             const data = await res.json();
             localStorage.setItem('token', data.token ? data.token : '');
+            if (data.token && router.query.redirect) {
+                router.push(router.query.redirect as string);
+            }
         } catch (error) {
             console.error(error);
         }

@@ -1,7 +1,5 @@
-import HouseData from '@/constants/house-data.json';
 import { useHouse } from '@/contexts/HouseContext';
-import { flag } from 'assets';
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
