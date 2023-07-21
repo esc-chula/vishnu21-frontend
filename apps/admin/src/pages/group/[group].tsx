@@ -15,7 +15,9 @@ import Guard from '@/components/Guard';
 import { useAuth } from '@/contexts/AuthContext';
 import dynamic from 'next/dynamic';
 
-const GroupHomePage = dynamic(() => import('@/components/GroupHomePage'));
+const GroupHomePage = dynamic(() => import('@/components/GroupHomePage'), {
+    ssr: false,
+});
 
 interface GroupContextProps {
     groupInformation: IGroup;
@@ -131,7 +133,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                         <ScoreTableRow amount="10" note="ให้สักหน่อย" />
                     </Section>
                 </Guard>
-                <Guard allowRoles={['HeadHouse']}>
+                <Guard allowRoles={['HeadHouse', 'Board']}>
                     <GroupHomePage />
                 </Guard>
                 <Guard
