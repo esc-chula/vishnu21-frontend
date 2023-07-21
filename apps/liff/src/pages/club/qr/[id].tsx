@@ -90,7 +90,7 @@ const QRAdmin: NextPage = () => {
             <h1 className="font-medium text-white text-md py-3 font-ibm">
                 แสกนเพื่อรับสแตมป์
             </h1>
-            <h1 className="font-semibold text-white text-4xl font-baijam">
+            <h1 className="font-semibold text-white text-center text-4xl font-baijam">
                 {clubname}
             </h1>
             <div

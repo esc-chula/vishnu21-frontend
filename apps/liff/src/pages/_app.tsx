@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import Body from '@/components/Body';
 import { Analytics } from '@vercel/analytics/react';
 import LiffProvider from '@/contexts/LiffContext';
+import { useState, useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const [liffObject, setLiffObject] = useState<typeof Liff | null>(null);
@@ -43,6 +44,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         '/',
         '/rule',
         '/faq',
+        '/faq/cufirstdate',
+        '/faq/vishnu21',
+        '/faq/[event]',
+        '/club',
+        '/club/[id]',
         '/schedule',
         '/contact',
         '/map',

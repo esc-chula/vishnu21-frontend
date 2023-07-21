@@ -16,7 +16,7 @@ const nextConfig = {
                 pathname: '/**',
             },
         ],
-        domains: ['carsup-bucket.s3.ap-southeast-1.amazonaws.com'],
+        domains: ['carsup-bucket.s3.ap-southeast-1.amazonaws.com','profile.line-scdn.net'],
     },
 };
 
