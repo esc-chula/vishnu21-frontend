@@ -52,9 +52,9 @@ const FAQ: NextPage = () => {
                                             return newToggles;
                                         })
                                     }
-                                    className="flex justify-between items-center pl-6 pr-4 py-4 w-full text-neutral-800 font-semibold text-sm"
+                                    className="flex justify-between items-center pl-6 pr-4 py-4 w-full text-neutral-800 font-semibold text-sm select-none"
                                 >
-                                    <p>หิวอะ</p>
+                                    <p>{faq.question}</p>
                                     <FiChevronDown
                                         className={`text-lg ${
                                             toggles[FaqData.indexOf(faq)] &&
