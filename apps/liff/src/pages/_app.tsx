@@ -10,7 +10,14 @@ import LiffProvider from '@/contexts/LiffContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
-    const whiteListedPaths = ['/', '/rule', '/faq', '/schedule', '/contact'];
+    const whiteListedPaths = [
+        '/',
+        '/rule',
+        '/faq',
+        '/schedule',
+        '/contact',
+        '/map',
+    ];
 
     if (LIFF_PRODUCTION) {
         return (

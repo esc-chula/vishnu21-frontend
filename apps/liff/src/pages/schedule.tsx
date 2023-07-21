@@ -3,6 +3,7 @@ import Main from '@/layouts/Main';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Schedule: NextPage = () => {
     return (
@@ -41,6 +42,20 @@ const Schedule: NextPage = () => {
                     </div>
                 </div>
             </Main>
+            <div className="fixed z-50 bottom-6 left-4 right-4 h-[72px] bg-neutral-50 rounded-2xl shadow-faq flex items-center px-5 py-3 space-x-2">
+                <Link
+                    href="/schedule"
+                    className="bg-primary-500 text-white px-4 py-1.5 w-full flex justify-center items-center font-bold rounded-xl h-full"
+                >
+                    ตารางกิจกรรม
+                </Link>
+                <Link
+                    href="/map"
+                    className="text-primary-500 px-4 py-1.5 w-full flex justify-center items-center font-bold rounded-xl h-full"
+                >
+                    แผนผังงาน
+                </Link>
+            </div>
         </>
     );
 };
