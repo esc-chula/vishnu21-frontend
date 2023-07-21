@@ -57,8 +57,6 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
 
     if (!groupData) return <Loading />;
 
-    const createPost = async () => {};
-
     return (
         <GroupInformationContext.Provider value={{ groupInformation }}>
             <Navigation />

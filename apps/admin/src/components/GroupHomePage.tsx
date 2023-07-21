@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import GroupHomePageMock from './GroupHomePageMock';
 import GroupHomePageAdminPost from './GroupHomePageAdminPost';
@@ -12,6 +12,16 @@ const GroupHomePage: React.FC = () => {
 
     const [expanded, setExpanded] = useState<boolean>(true);
     const [newPostContent, setNewPostContent] = useState<string>('');
+
+    useEffect(() => {
+        if (newPostContent === '<p></p>' || newPostContent === '<p><br></p>') {
+            setNewPostContent('');
+        }
+    }, [newPostContent]);
+
+    const createPost = async () => {};
+
+    const updatePost = async () => {};
 
     return (
         <section id="" className="space-y-6">
@@ -35,7 +45,6 @@ const GroupHomePage: React.FC = () => {
                             onChange={setNewPostContent}
                             className="h-48 pb-10"
                         />
-
                         <div className="flex justify-end">
                             <button
                                 onClick={() => {
