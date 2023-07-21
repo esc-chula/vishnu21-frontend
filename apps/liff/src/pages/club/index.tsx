@@ -7,7 +7,7 @@ import ClubBackground from 'public/images/GrainBackground.svg';
 import Image from 'next/image';
 import ClubCard from './components/ClubCard';
 
-const Club = ({ liff }) => {
+const Club = () => {
     // selection : All , Academic , Sport , Art , CSR, Other
     const router = useRouter();
     const [selection, setSelection] = useState('All');

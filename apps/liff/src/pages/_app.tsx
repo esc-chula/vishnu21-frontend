@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import Body from '@/components/Body';
 import { Analytics } from '@vercel/analytics/react';
 import LiffProvider from '@/contexts/LiffContext';
-import { useState, useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();

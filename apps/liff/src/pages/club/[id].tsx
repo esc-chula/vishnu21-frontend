@@ -6,9 +6,12 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useRouter } from 'next/router';
 import { AiFillHeart } from 'react-icons/ai';
+import { useLiff } from '@/contexts/LiffContext';
 
-export const ClubPage = ({ liff }) => {
+export const ClubPage = () => {
     const router = useRouter();
+    const liff = useLiff();
+
     const [clubData, setClubData] = useState({
         id: '...',
         clubName: 'Loading...',
