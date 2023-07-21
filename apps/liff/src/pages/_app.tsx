@@ -39,7 +39,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     pageProps.liff = liffObject;
     pageProps.liffError = liffError;
     const router = useRouter();
-    const whiteListedPaths = ['/', '/rule', '/faq', '/schedule', '/contact'];
+    const whiteListedPaths = [
+        '/',
+        '/rule',
+        '/faq',
+        '/schedule',
+        '/contact',
+        '/map',
+    ];
 
     if (LIFF_PRODUCTION) {
         return (
