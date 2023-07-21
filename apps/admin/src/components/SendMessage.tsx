@@ -230,10 +230,13 @@ const SendMessage: React.FC = () => {
                                             alt="Preview Image"
                                         />
                                         {selectedImage && (
-                                            <img
-                                                src={imagePreview}
-                                                className="max-w-lg"
-                                            />
+                                            <picture>
+                                                <img
+                                                    src={imagePreview}
+                                                    className="max-w-lg"
+                                                    alt=""
+                                                />
+                                            </picture>
                                         )}
                                     </>
                                 )}

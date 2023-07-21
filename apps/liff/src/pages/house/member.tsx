@@ -44,9 +44,9 @@ const Member: NextPage = () => {
                 <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto">
                     {houseData.members
                         .filter((member) => member.status === 'Intania107')
-                        .map((member) => (
+                        .map((member, index) => (
                             <div
-                                key={member.userId}
+                                key={index}
                                 className="px-3.5 pb-2.5 bg-neutral-50 rounded-2xl text-sm"
                                 style={{
                                     boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 20px 0px ${houseData.altColor}1A inset`,

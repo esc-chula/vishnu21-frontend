@@ -6,6 +6,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext';
 import Loading from '@/components/Loading';
 import { IHouse } from 'types';
+import Body from '@/components/Body';
 
 interface HouseContextProps {
     houseData: IHouse | null;
@@ -52,7 +53,12 @@ const HouseProvider: React.FC<{
         fetchHouseData();
     }, []);
 
-    if (houseData === null) return <Loading />;
+    if (houseData === null)
+        return (
+            <Body>
+                <Loading />
+            </Body>
+        );
     return (
         <HouseContext.Provider
             value={{

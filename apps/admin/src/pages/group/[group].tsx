@@ -7,13 +7,21 @@ import Section from '@/layouts/Section';
 import Main from '@/layouts/Main';
 import GroupData from '@/mocks/group-data.json';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import GroupHomePage from '@/components/GroupHomePage';
 import { useGroup } from '@/contexts/GroupContext';
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { IGroup } from 'types';
 import Loading from '@/components/Loading';
 import Guard from '@/components/Guard';
 import { useAuth } from '@/contexts/AuthContext';
+import dynamic from 'next/dynamic';
+
+const GroupHomePage = dynamic(() => import('@/components/GroupHomePage'));
+
+interface GroupContextProps {
+    groupInformation: IGroup;
+}
+
+export const GroupInformationContext = createContext<GroupContextProps>(null);
 
 interface GroupProps {
     slug: string;
@@ -50,7 +58,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
     if (!groupData) return <Loading />;
 
     return (
-        <>
+        <GroupInformationContext.Provider value={{ groupInformation }}>
             <Navigation />
             <Main>
                 <section id="information" className="space-y-6">
@@ -140,8 +148,20 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                 </Guard>
             </Main>
             <Footer />
-        </>
+        </GroupInformationContext.Provider>
     );
+};
+
+export const useGroupInformation = () => {
+    const context = useContext(GroupInformationContext);
+
+    if (!context) {
+        throw new Error(
+            'useGroupInformation must be used within GroupInformationProvider'
+        );
+    }
+
+    return context;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
