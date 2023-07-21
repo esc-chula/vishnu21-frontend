@@ -68,7 +68,7 @@ const Tile: React.FC<TileProps> = ({
             setScored(true);
 
             const accuracy =
-                100 - Math.abs((tileTop + tileBottom) / 2 - detectorY) + 120;
+                100 - Math.abs((tileTop + tileBottom) / 2 - detectorY) + 115;
             setScore((prev) => [...prev, Math.round(accuracy * 10)]);
             setAccuracyHistory((prev) => [...prev, accuracy]);
 

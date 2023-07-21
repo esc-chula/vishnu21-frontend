@@ -7,13 +7,13 @@ const FAQ: React.FC = () => {
 
     return (
         <div className="max-w-screen-sm w-full flex flex-col space-y-8 sm:space-y-10">
-            {FaqData.map((faq) => (
+            {FaqData.map((faq, index) => (
                 <div
-                    key={faq.question}
-                    className="flex flex-col w-full bg-white rounded-2xl shadow-faq px-4 sm:px-6"
+                    key={index}
+                    className="flex flex-col w-full bg-white rounded-2xl shadow-button sm:shadow-faq px-4 sm:px-6"
                 >
                     <div
-                        className="flex justify-between items-center h-16 cursor-pointer select-none"
+                        className="flex justify-between items-center py-4 sm:py-5 cursor-pointer select-none"
                         onClick={() =>
                             setToggles((prev) => {
                                 const newToggles = [...prev];
@@ -23,20 +23,22 @@ const FAQ: React.FC = () => {
                             })
                         }
                     >
-                        <p className="text-primary-700 font-semibold sm:text-lg">
+                        <p className="text-primary-700 font-semibold text-sm sm:text-lg pr-10">
                             {faq.question}
                         </p>
-
-                        <FiChevronDown
-                            className={`text-primary-700 text-lg sm:text-xl duration-500 ease-in-out ${
-                                toggles[FaqData.indexOf(faq)] && 'rotate-180'
-                            }`}
-                        />
+                        <div className="w-max">
+                            <FiChevronDown
+                                className={`text-primary-700 text-lg sm:text-xl duration-500 ease-in-out ${
+                                    toggles[FaqData.indexOf(faq)] &&
+                                    'rotate-180'
+                                }`}
+                            />
+                        </div>
                     </div>
                     <div
-                        className={`overflow-y-auto transition-all duration-500 ease-in-out text-neutral-600 font-baijam font-medium ${
+                        className={`overflow-y-auto transition-all duration-500 ease-in-out text-neutral-600 font-baijam font-medium text-sm sm:text-base leading-relaxed sm:leading-relaxed ${
                             toggles[FaqData.indexOf(faq)]
-                                ? 'max-h-[500px] py-2'
+                                ? 'max-h-[500px] py-2 pb-10'
                                 : 'max-h-0'
                         }`}
                     >

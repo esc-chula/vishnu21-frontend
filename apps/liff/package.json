@@ -10,7 +10,9 @@
     },
     "dependencies": {
         "@line/liff": "2.22.1",
+        "@vercel/analytics": "^1.0.1",
         "assets": "workspace:*",
+        "axios": "^1.4.0",
         "env": "workspace:*",
         "fetch": "workspace:*",
         "next": "^13.4.0",

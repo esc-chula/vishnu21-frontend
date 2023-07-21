@@ -1,43 +1,36 @@
 interface MemberTableRowProps {
     header?: boolean;
-    firstName: string;
-    lastName: string;
+    name: string;
     nickName: string;
-    gender: string;
     studentId: string;
-    lineUserId: string;
+    telNo: string;
+    lineUsername: string;
 }
 
 const MemberTableRow: React.FC<MemberTableRowProps> = ({
     header,
-    firstName,
-    lastName,
+    name,
     nickName,
-    gender,
     studentId,
-    lineUserId,
+    telNo,
+    lineUsername,
 }) => {
     return (
         <>
             <div
                 className={`flex justify-between py-2 px-4 ${
-                    header ? 'font-bold' : ''
+                    header ? 'font-bold' : 'hover:bg-neutral-100 rounded-xl'
                 }`}
             >
                 <div className="flex">
-                    <div className="flex w-36">{firstName}</div>
-                    <div className="flex w-36">{lastName}</div>
+                    <div className="flex w-72">{name}</div>
                     <div className="flex w-36">{nickName}</div>
-                    <div className="flex w-36">{gender}</div>
                     <div className="flex w-36">{studentId}</div>
+                    <div className="flex w-36">{telNo}</div>
                 </div>
                 <div className="flex">
                     <div className="flex">
-                        {header
-                            ? lineUserId
-                            : lineUserId
-                            ? 'ล็อกอินแล้ว'
-                            : 'ใครวะ'}
+                        {header ? lineUsername : lineUsername}
                     </div>
                 </div>
             </div>

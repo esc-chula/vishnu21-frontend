@@ -63,10 +63,10 @@ const Links = () => {
 
                         {/* links */}
                         <div className="flex flex-col max-w-[320px] w-full space-y-8 pb-20">
-                            {links.map((link) => {
+                            {links.map((link, index) => {
                                 return (
                                     <a
-                                        key={link.label}
+                                        key={index}
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"

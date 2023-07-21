@@ -1,7 +1,8 @@
+import Loading from '@/components/Loading';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
-    return <div>Home</div>;
+    return <Loading />;
 };
 
 export default Home;

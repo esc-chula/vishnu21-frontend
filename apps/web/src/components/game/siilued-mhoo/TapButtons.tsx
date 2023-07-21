@@ -1,5 +1,5 @@
 import { KeyPressContext } from '@/contexts/game/siilued-mhoo/KeyPressContext';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 const TapButtons: React.FC = () => {
     const { keysPress, setKeysPress } = useContext(KeyPressContext);
@@ -7,12 +7,24 @@ const TapButtons: React.FC = () => {
     return (
         <div className="z-30 absolute bottom-0 left-0 right-0 border-t-[6px] border-white grid grid-cols-4">
             {['d', 'f', 'j', 'k'].map((key) => (
-                <button
+                <div
                     key={key}
                     onTouchStart={() => {
                         setKeysPress((prev) => ({
                             ...prev,
                             [key]: true,
+                        }));
+                    }}
+                    onTouchMove={() => {
+                        setKeysPress((prev) => ({
+                            ...prev,
+                            [key]: true,
+                        }));
+                    }}
+                    onTouchCancel={() => {
+                        setKeysPress((prev) => ({
+                            ...prev,
+                            [key]: false,
                         }));
                     }}
                     onTouchEnd={() => {
@@ -32,7 +44,7 @@ const TapButtons: React.FC = () => {
                             keysPress[key] ? 'h-80' : 'group-active:h-80'
                         } absolute bottom-[150px] w-full bg-gradient-to-t from-white/40 to-transparent`}
                     ></div>
-                </button>
+                </div>
             ))}
         </div>
     );

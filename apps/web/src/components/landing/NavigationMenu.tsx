@@ -1,9 +1,11 @@
+import { IParallax } from '@react-spring/parallax';
 import Link from 'next/link';
 import { PiXLight } from 'react-icons/pi';
 
 const NavigationMenu: React.FC<{
+    parallaxRef: React.MutableRefObject<IParallax>;
     setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ setToggleNav }) => {
+}> = ({ parallaxRef, setToggleNav }) => {
     return (
         <div
             className="z-50 fixed top-4 left-4 w-60"
@@ -23,20 +25,38 @@ const NavigationMenu: React.FC<{
                 <PiXLight />
             </button>
             <div className="flex flex-col w-full items-start px-7 pt-4 pb-10 space-y-4 font-baijam font-semibold text-primary-50 text-lg">
-                <button className="opacity-80 hover:opacity-100 duration-100">
+                <button
+                    onClick={() => {
+                        parallaxRef.current.scrollTo(0.95);
+                        setToggleNav(false);
+                    }}
+                    className="opacity-80 hover:opacity-100 duration-100"
+                >
                     เกี่ยวกับค่าย
                 </button>
-                <button className="opacity-80 hover:opacity-100 duration-100">
+                <button
+                    onClick={() => {
+                        parallaxRef.current.scrollTo(1.8);
+                        setToggleNav(false);
+                    }}
+                    className="opacity-80 hover:opacity-100 duration-100"
+                >
                     ผู้สนับสนุน
                 </button>
-                <button className="opacity-80 hover:opacity-100 duration-100">
+                <button
+                    onClick={() => {
+                        parallaxRef.current.scrollTo(3.25);
+                        setToggleNav(false);
+                    }}
+                    className="opacity-80 hover:opacity-100 duration-100"
+                >
                     คำถามที่พบบ่อย
                 </button>
                 <Link
                     href="/links"
                     className="opacity-80 hover:opacity-100 duration-100"
                 >
-                    Links
+                    ลิงก์เพิ่มเติม
                 </Link>
             </div>
         </div>

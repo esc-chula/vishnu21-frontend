@@ -1,53 +1,36 @@
 import UserData from '@/mocks/user-data.json';
 import { useState } from 'react';
 import MemberTableRow from './table/MemberTableRow';
+import { IUser } from 'types';
 
-const GroupMembers: React.FC = () => {
-    const pages = ['intania107', 'intania106'];
-    const [selectedPage, setSelectedPage] = useState<(typeof pages)[number]>(
-        pages[0]
-    );
+interface GroupMembersProps {
+    members: IUser[];
+}
 
+const GroupMembers: React.FC<GroupMembersProps> = ({ members }) => {
     return (
         <div className="space-y-4">
-            <div className="flex space-x-3">
-                {pages.map((page) => (
-                    <button
-                        key={page}
-                        onClick={() => setSelectedPage(page)}
-                        className={`${
-                            page === selectedPage
-                                ? 'bg-neutral-800 text-white'
-                                : 'border border-neutral-300'
-                        } px-3.5 py-1.5 rounded-lg text-sm`}
-                    >
-                        {page}
-                    </button>
-                ))}
-            </div>
             <div>
                 <MemberTableRow
                     header
-                    firstName="ชื่อจริง"
-                    lastName="นามสกุล"
+                    name="ชื่อ"
                     nickName="ชื่อเล่น"
-                    gender="เพศ"
                     studentId="เลขนิสิต"
-                    lineUserId="LINE"
+                    telNo="เบอร์โทรศัพท์"
+                    lineUsername="LINE"
                 />
-                {UserData.filter((user) => user.role === selectedPage).map(
-                    (user) => (
+                {members
+                    .filter((member) => member.roles.includes('User'))
+                    .map((member) => (
                         <MemberTableRow
-                            key={user._id}
-                            firstName={user.firstName}
-                            lastName={user.lastName}
-                            nickName={user.nickName}
-                            gender={user.gender}
-                            studentId={user.studentId}
-                            lineUserId={user.lineUserId}
+                            key={member.userId}
+                            name={member.name}
+                            nickName={member.nickname}
+                            studentId={member.studentId}
+                            telNo={member.telNo}
+                            lineUsername={member.lineUsername}
                         />
-                    )
-                )}
+                    ))}
             </div>
         </div>
     );
