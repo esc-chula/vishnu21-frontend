@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import ClubBackground from 'public/images/GrainBackground.svg';
-import LogoTest from 'public/images/logoTest.jpg';
+import ClubLogo from 'public/images/ClubLogo.jpg';
 import QrTest from 'public/images/qrTest.png';
 import Image from 'next/image';
 import { AiFillHeart } from 'react-icons/ai';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const BottomSheet = ({ isOpen, onClose }) => {
+const BottomSheet = ({ isOpen, onClose, data }) => {
     const [favColor, setFavColor] = useState('red');
     const handleFavToggle = () => {
         favColor === 'red' ? setFavColor('#D9D9D9') : setFavColor('red');
@@ -73,8 +73,13 @@ const BottomSheet = ({ isOpen, onClose }) => {
                                 {/* logo bg */}
                                 <Image
                                     className="object-cover object-center brightness-25 w-full"
-                                    src={LogoTest}
-                                    alt="LogoTest"
+                                    src={
+                                        data.logo ||
+                                        'https://picsum.photos/200/300'
+                                    }
+                                    width={72}
+                                    height={72}
+                                    alt="ClubLogo"
                                 />
 
                                 {/* overlay logo */}
@@ -86,18 +91,23 @@ const BottomSheet = ({ isOpen, onClose }) => {
                                         <div className="relative flex flex-shrink-0 w-[60px] h-[60px] bg-white rounded-[20px] items-center justify-center ">
                                             <Image
                                                 className="object-cover w-[45px] h-[45px] rounded-[15px] flex"
-                                                src={LogoTest}
-                                                alt="LogoTest"
+                                                src={
+                                                    data.logo ||
+                                                    'https://picsum.photos/200/300'
+                                                }
+                                                width={100}
+                                                height={100}
+                                                alt="ClubLogo"
                                             />
                                         </div>
                                         <div className="flex flex-col pl-[20px]">
                                             {/* name */}
                                             <p className="text-white text-left font-bold text-base font-ibm break-words inline-block">
-                                                {ClubName}
+                                                {data.clubName}
                                             </p>
                                             {/* tag */}
                                             <p className="text-white text-left font-semibold text-xs font-ibm pt-[5px]">
-                                                {Tagname}
+                                                {data.tag}
                                             </p>
                                         </div>
                                     </div>
@@ -114,11 +124,23 @@ const BottomSheet = ({ isOpen, onClose }) => {
                         <div className="pt-[calc(19vh+16px)] py-[16px] px-[25px] w-full shadow-inner">
                             <div className="px-[20px] pt-[10px] pb-[16px] flex flex-col bg-[#D9D9D94D] rounded-[20px] ">
                                 <p className="flex text-xl py-2 font-ibm text-white font-bold">
-                                    รายละเอียดชมรม
+                                    จุดประสงค์ชมรม
                                 </p>
                                 <div className="flex pl-[28px] pb-[10px] font-ibm text-white flex-col font-normal">
                                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                        {`# Hi **bold**\n\nHe is a boy\n\n+ Hi\n+ Hello`}
+                                        {data.objective}
+                                    </ReactMarkdown>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="py-[16px] px-[25px] w-full shadow-inner">
+                            <div className="px-[20px] pt-[10px] pb-[16px] flex flex-col bg-[#D9D9D94D] rounded-[20px] ">
+                                <p className="flex text-xl py-2 font-ibm text-white font-bold">
+                                    กิจกรรมที่ผ่านมา
+                                </p>
+                                <div className="flex pl-[28px] pb-[10px] font-ibm text-white flex-col font-normal">
+                                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                        {data.previousActivity}
                                     </ReactMarkdown>
                                 </div>
                             </div>

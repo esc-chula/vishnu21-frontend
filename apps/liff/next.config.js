@@ -9,6 +9,12 @@ const nextConfig = {
                 port: '',
                 pathname: '/clubs/static/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'picsum.photos',
+                port: '',
+                pathname: '/**',
+            },
         ],
         domains: ['carsup-bucket.s3.ap-southeast-1.amazonaws.com'],
     },

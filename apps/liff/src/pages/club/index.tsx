@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/images/GrainBackground.svg';
-// import BottomSheet from 'react-draggable-bottom-sheet';
+import { BottomSheet } from 'react-spring-bottom-sheet';
 import Image from 'next/image';
 import ClubCard from './components/ClubCard';
 import Sheet from './components/BottomSheet';
@@ -42,6 +42,8 @@ const Club = ({ liff }) => {
 
     const [headerText, setHeaderText] = useState('ชมรมที่แสตมป์แล้ว');
     const [filterColor, setFilterColor] = useState('#D9D9D9');
+    const close = () => setIsOpen(!isOpen);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         // set club data according to selector
@@ -52,7 +54,9 @@ const Club = ({ liff }) => {
               );
     }, [selection]);
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        setIsOpen(true);
+    }, []);
 
     useEffect(() => {
         const getFAQs = async () => {
@@ -117,9 +121,11 @@ const Club = ({ liff }) => {
 
     // bottom sheet
     const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+    const [bottomSheetData, setBottomSheetdata] = useState({});
 
-    const handleOpenBottomSheet = () => {
+    const handleOpenBottomSheet = (data) => {
         setIsBottomSheetOpen(true);
+        setBottomSheetdata(data);
     };
 
     const handleCloseBottomSheet = () => {
@@ -142,7 +148,7 @@ const Club = ({ liff }) => {
                 />
 
                 {/* content */}
-                <div className="absolute top-0 p-[23px] pt-[50px] w-full">
+                <div className="absolute top-0 p-[23px] pt-[50px] pb-[20vh] w-full">
                     {/* head */}
                     <div className="w-full items-center ">
                         <p className="font-bold text-white text-xl text-center font-ibm">
@@ -205,7 +211,9 @@ const Club = ({ liff }) => {
                                     isFavorite={isFavorite(club_data)}
                                     name={club_data.clubName}
                                     key={club_data.id}
-                                    onClick={() => handleOpenBottomSheet()}
+                                    onClick={() =>
+                                        handleOpenBottomSheet(club_data)
+                                    }
                                 />
                             );
                         })}
@@ -247,11 +255,18 @@ const Club = ({ liff }) => {
                     isOpen={isBottomSheetOpen}
                     close={handleCloseBottomSheet}
                 > */}
+                {/* <BottomSheet
+                    open={isOpen}
+                    onDismiss={() => setIsOpen(false)}
+                    snapPoints={({ minHeight }) => minHeight}
+                > */}
                 <Sheet
+                    data={bottomSheetData}
                     isOpen={isBottomSheetOpen}
                     onClose={handleCloseBottomSheet}
                 />
-                {/* </BottomSheet> */}
+                {/* My awesome content here
+                </BottomSheet> */}
             </div>
         </>
     );
