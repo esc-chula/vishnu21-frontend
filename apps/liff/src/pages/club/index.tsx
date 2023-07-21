@@ -6,79 +6,28 @@ import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/images/GrainBackground.svg';
 import Image from 'next/image';
 import ClubCard from './components/ClubCard';
-import BottomSheet from './components/BottomSheet';
 
-// TODO: fetch data from api
-const club_datas = [
-    {
-        name: 'Test1',
-        tag: 'Academic',
-        logo: '',
-        description: 'test12345',
-        id: 'test1',
-    },
-    {
-        name: 'Test11',
-        tag: 'Academic',
-        logo: '',
-        description: 'test12345',
-        id: 'test11',
-    },
-    {
-        name: 'Test2',
-        tag: 'Sport',
-        logo: '',
-        description: 'test12345',
-        id: 'test2',
-    },
-    {
-        name: 'Test22',
-        tag: 'Sport',
-        logo: '',
-        description: 'test12345',
-        id: 'test22',
-    },
-    {
-        name: 'Test3',
-        tag: 'Art',
-        logo: '',
-        description: 'test12345',
-        id: 'test3',
-    },
-    {
-        name: 'Test4',
-        tag: 'CSR',
-        logo: '',
-        description: 'test12345',
-        id: 'test4',
-    },
-    {
-        name: 'Thailand Incubator (Thinc.)',
-        tag: 'Academic',
-        logo: '',
-        description: 'test12345',
-        id: 'thinc',
-    },
-];
-const my_favorite = ['test1', 'test2'];
-const my_stamped = ['test1', 'test3'];
-function isFavorite(data) {
-    return my_favorite.some((favorite) => data.id === favorite);
-}
-function isStamped(data) {
-    return my_stamped.some((stamped) => data.id === stamped);
-}
-
-const Club = () => {
-    // selection : All , Academic , Sport , Art , CSR
+const Club = ({ liff }) => {
+    // selection : All , Academic , Sport , Art , CSR, Other
+    const router = useRouter();
     const [selection, setSelection] = useState('All');
-    const [clubSelected, setClubSelected] = useState(club_datas);
+    const [clubs, setClubs] = useState([]);
+    const [clubSelected, setClubSelected] = useState(clubs);
+    const [stamped, setStamped] = useState([]);
+    const [favorites, setFavorites] = useState([]);
+
+    const isStamped = (id: string) => {
+        return stamped.some((stamped) => id === stamped.stampHash);
+    };
+    const isFavorite = (id: string) => {
+        return favorites.some((favorite) => id === favorite);
+    };
     const [clubFiltered, setClubFiltered] = useState(clubSelected);
 
     // 0 => all , 1 => filter , 2 => not filter
     const [filterState, setFilterState] = useState(0);
     // Stamp , Favorite
-    const [currentMode, setCurrentMode] = useState('Stamp');
+    const [currentMode, setCurrentMode] = useState('Favorite');
     const handleFilter = () => {
         const totalState = currentMode === 'Stamp' ? 3 : 2;
         setFilterState((filterState + 1) % totalState);
@@ -96,11 +45,43 @@ const Club = () => {
     useEffect(() => {
         // set club data according to selector
         selection === 'All'
-            ? setClubSelected(club_datas)
+            ? setClubSelected(clubs)
             : setClubSelected(
-                  club_datas.filter((club_data) => club_data.tag === selection)
+                  clubs.filter((club_data) => club_data.tag === selection)
               );
     }, [selection]);
+
+    useEffect(() => {
+        const getFAQs = async () => {
+            try {
+                const res = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/stamps`
+                );
+                const data = await res.json();
+                setClubs(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getFAQs().then(() => {});
+        if (localStorage) {
+            setStamped(
+                (JSON.parse(localStorage.getItem('VISHNU21ST::stamps')) ||
+                    []) as {
+                    stampHash: string;
+                    timestamp: number;
+                }[]
+            );
+            setFavorites(
+                JSON.parse(localStorage.getItem('VISHNU21ST::favorites')) || []
+            );
+        }
+    }, []);
+
+    useEffect(() => {
+        setSelection('All');
+        setClubSelected(clubs);
+    }, [clubs]);
 
     useEffect(() => {
         // set top text according to filter mode
@@ -128,38 +109,20 @@ const Club = () => {
             ? setClubFiltered(
                   clubSelected.filter((club) =>
                       currentMode === 'Stamp'
-                          ? isStamped(club)
-                          : isFavorite(club)
+                          ? isStamped(club.id)
+                          : isFavorite(club.id)
                   )
               )
             : setClubFiltered(
                   clubSelected.filter((club) =>
                       currentMode === 'Stamp'
-                          ? !isStamped(club)
-                          : !isFavorite(club)
+                          ? !isStamped(club.id)
+                          : !isFavorite(club.id)
                   )
               );
-    }, [clubSelected, filterState]);
+        console.log(stamped, favorites);
+    }, [clubSelected, filterState, stamped, favorites]);
 
-    // router
-    const router = useRouter();
-
-    // bottom sheet
-    const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
-
-    const handleOpenBottomSheet = () => {
-        setIsBottomSheetOpen(true);
-    };
-
-    const handleCloseBottomSheet = () => {
-        setIsBottomSheetOpen(false);
-    };
-
-    useEffect(() => {
-        console.log(isBottomSheetOpen);
-    }, [isBottomSheetOpen]);
-
-    // TODO: change tailwind to not hardcode & add font
     return (
         <>
             <div className="relative flex flex-col w-screen h-screen">
@@ -171,15 +134,15 @@ const Club = () => {
                 />
 
                 {/* content */}
-                <div className="absolute top-0 p-[23px] pt-[50px] w-full">
+                <div className="top-0 p-[23px] pt-[50px] pb-[20vh] w-full">
                     {/* head */}
                     <div className="w-full items-center ">
-                        <p className="font-bold text-white text-xl text-center font-ibm">
+                        <p className="font-bold text-white text-xl text-center sticky font-ibm">
                             {headerText}
                         </p>
-                        <div className="flex flex-row gap-4 mt-[12px] items-center justify-center">
+                        <div className="flex flex-row gap-4 mt-[12px] sticky items-center justify-center">
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'All' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('All')}
@@ -187,7 +150,7 @@ const Club = () => {
                                 ทั้งหมด
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'Academic' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('Academic')}
@@ -195,7 +158,7 @@ const Club = () => {
                                 วิชาการ
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'Sport' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('Sport')}
@@ -203,7 +166,7 @@ const Club = () => {
                                 กีฬา
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'Art' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('Art')}
@@ -211,12 +174,20 @@ const Club = () => {
                                 ศิลปะวัฒนธรรม
                             </p>
                             <p
-                                className={`font-bold font-ibm text-white text-sm ${
+                                className={`font-bold font-ibm text-center text-white text-sm ${
                                     selection === 'CSR' ? '' : 'opacity-60'
                                 }`}
                                 onClick={() => setSelection('CSR')}
                             >
                                 CSR
+                            </p>
+                            <p
+                                className={`font-bold font-ibm text-center text-white text-sm ${
+                                    selection === 'Other' ? '' : 'opacity-60'
+                                }`}
+                                onClick={() => setSelection('Other')}
+                            >
+                                อื่นๆ
                             </p>
                         </div>
                     </div>
@@ -224,16 +195,17 @@ const Club = () => {
                     {/* club list */}
                     <div className="grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 mt-[25px] w-full gap-[20px]">
                         {clubFiltered.map((club_data) => {
-                            const pathName = '/club/' + club_data.name;
                             return (
                                 <ClubCard
                                     currentMode={currentMode}
-                                    // TODO: image param
-                                    isStamped={isStamped(club_data)}
-                                    isFavorite={isFavorite(club_data)}
-                                    name={club_data.name}
-                                    key={club_data.name}
-                                    onClick={handleOpenBottomSheet}
+                                    img={club_data.logo}
+                                    isStamped={isStamped(club_data.id)}
+                                    isFavorite={isFavorite(club_data.id)}
+                                    name={club_data.clubName}
+                                    key={club_data.id}
+                                    onClick={() =>
+                                        router.push(`/club/${club_data.id}`)
+                                    }
                                 />
                             );
                         })}
@@ -271,10 +243,6 @@ const Club = () => {
                         />
                     </div>
                 </div>
-                <BottomSheet
-                    isOpen={isBottomSheetOpen}
-                    onClose={handleCloseBottomSheet}
-                />
             </div>
         </>
     );

@@ -1,5 +1,6 @@
 import { AiFillHeart } from 'react-icons/ai';
 import { ReactNode } from 'react';
+import Image from 'next/image';
 
 interface ClubCardProps {
     img?: ReactNode;
@@ -20,11 +21,12 @@ const ClubCard: React.FC<ClubCardProps> = ({
     currentMode,
     onClick,
 }: ClubCardProps) => {
-    const filter = isStamped ? (
-        <div />
-    ) : (
-        <div className="flex absolute bg-[#3B0D8D]/[70%] w-full h-full rounded-[20px]" />
-    );
+    const filter =
+        !isStamped && currentMode === 'Stamp' ? (
+            <div className="flex absolute bg-[#3B0D8D]/[70%] w-full h-full rounded-[20px]" />
+        ) : (
+            <div />
+        );
     const icon_heart =
         currentMode == 'Favorite' && isFavorite ? (
             <AiFillHeart
@@ -47,7 +49,18 @@ const ClubCard: React.FC<ClubCardProps> = ({
                     onClick={onClick}
                 >
                     {/* img */}
-                    {img}
+                    {typeof img === 'string' && img ? (
+                        <Image
+                            src={img}
+                            className="max-w-[72px] max-h-[72px]"
+                            alt={''}
+                            width={72}
+                            height={72}
+                        />
+                    ) : (
+                        img
+                    )}
+                    {/* {img} */}
                     {filter}
                 </div>
 

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 import FAQItem from './components/FAQItem';
@@ -50,17 +50,19 @@ const FAQ: NextPage = () => {
     useEffect(() => {
         const getFAQs = async () => {
             try {
-                const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/faq/${router.query.event}`
-                );
-                const data = await res.json();
-                dispatch({ type: 'SET_FAQS', faqs: data });
+                if (router.query.event) {
+                    const res = await fetch(
+                        `${process.env.NEXT_PUBLIC_API_BASE_URL}/faqs/${router.query.event}`
+                    );
+                    const data = await res.json();
+                    dispatch({ type: 'SET_FAQS', faqs: data });
+                }
             } catch (error) {
                 console.error(error);
             }
         };
         getFAQs();
-    }, [router.query.event]);
+    }, [router.query]);
 
     useEffect(() => {
         if (!search || search === '') {
@@ -98,14 +100,25 @@ const FAQ: NextPage = () => {
                 />
             </div>
             <ul className="w-full mt-6 flex items-center flex-col gap-5 font-ibm">
-                {filteredFaqs.map((faq) => (
-                    <FAQItem
-                        key={faq.id}
-                        id={faq.id}
-                        question={faq.question}
-                        answer={faq.answer}
-                    />
-                ))}
+                {filteredFaqs.length > 0 ? (
+                    filteredFaqs.map((faq) => (
+                        <FAQItem
+                            key={faq.id}
+                            id={faq.id}
+                            question={faq.question}
+                            answer={faq.answer}
+                        />
+                    ))
+                ) : (
+                    <div className="text-center">
+                        <p className="text-white text-xs font-ibm">
+                            ไม่พบคำถามที่คุณต้องการ
+                        </p>
+                        <p className="text-white text-xs font-ibm">
+                            ลองสอบถามผ่านไลน์ OA ดูนะ!!
+                        </p>
+                    </div>
+                )}
             </ul>
 
             {/* Background and decorations */}

@@ -4,3 +4,4 @@
 # pnpm prepare
 pnpm format
 pnpm lint
+git add .
