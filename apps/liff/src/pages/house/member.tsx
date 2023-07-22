@@ -61,11 +61,19 @@ const Member: NextPage = () => {
                                     >
                                         {member.profilePicture ? (
                                             <div className="relative w-10 aspect-square rounded-full overflow-hidden">
-                                                <Image
-                                                    src={member.profilePicture}
-                                                    alt="Profile Picture"
-                                                    fill
-                                                />
+                                                <picture>
+                                                    <source
+                                                        srcSet={
+                                                            member.profilePicture
+                                                        }
+                                                    />
+                                                    <img
+                                                        src={
+                                                            member.profilePicture
+                                                        }
+                                                        alt="Profile Picture"
+                                                    />
+                                                </picture>
                                             </div>
                                         ) : (
                                             <div className="relative w-10 aspect-square bg-gray-300 rounded-full overflow-hidden grid place-content-center">

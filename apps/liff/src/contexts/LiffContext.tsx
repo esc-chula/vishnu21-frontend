@@ -20,13 +20,17 @@ const LiffProvider: React.FC<{
             .then((liff) => liff.default)
             .then((liff) => {
                 console.log('LIFF init...');
-                liff.init({ liffId: process.env.NEXT_PUBLIC_VISHNU_LIFF_ID! })
+                liff.init({
+                    liffId: process.env.NEXT_PUBLIC_VISHNU_LIFF_ID!,
+                    // withLoginOnExternalBrowser: true,
+                })
                     .then(() => {
                         console.log('LIFF init succeeded.');
                         setLiffObject(liff);
                     })
                     .catch((error: Error) => {
                         console.log('LIFF init failed.');
+                        console.log(error);
                         setLiffError(error.toString());
                     });
             });

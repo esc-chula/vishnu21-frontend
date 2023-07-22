@@ -1,4 +1,3 @@
-import HouseData from '@/constants/house-data.json';
 import { useAuth } from '@/contexts/AuthContext';
 import { useHouse } from '@/contexts/HouseContext';
 import type { NextPage } from 'next';

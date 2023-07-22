@@ -1,3 +1,4 @@
+import axios from '@/utils/fetcher';
 import { useEffect, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import GroupHomePageMock from './GroupHomePageMock';
@@ -19,7 +20,13 @@ const GroupHomePage: React.FC = () => {
         }
     }, [newPostContent]);
 
-    const createPost = async () => {};
+    const createPost = async () => {
+        await axios.post(`/posts/group/${groupInformation.group}`, {
+            title: '',
+            content: '',
+            description: '',
+        });
+    };
 
     const updatePost = async () => {};
 

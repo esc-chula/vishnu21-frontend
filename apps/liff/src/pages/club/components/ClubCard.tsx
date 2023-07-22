@@ -1,5 +1,6 @@
 import { AiFillHeart } from 'react-icons/ai';
 import { ReactNode } from 'react';
+import Image from 'next/image';
 
 interface ClubCardProps {
     img?: ReactNode;
@@ -20,15 +21,16 @@ const ClubCard: React.FC<ClubCardProps> = ({
     currentMode,
     onClick,
 }: ClubCardProps) => {
-    const filter = isStamped ? (
-        <div />
-    ) : (
-        <div className="flex absolute bg-[#3B0D8D]/[70%] w-full h-full rounded-[20px]" />
-    );
+    const filter =
+        !isStamped && currentMode === 'Stamp' ? (
+            <div className="flex absolute bg-[#3B0D8D]/[70%] w-full h-full rounded-2xl" />
+        ) : (
+            <div />
+        );
     const icon_heart =
         currentMode == 'Favorite' && isFavorite ? (
             <AiFillHeart
-                className="absolute h-[30px] w-[30px] top-0 right-0"
+                className="absolute h-[30px] w-[30px] -top-2.5 -right-1.5"
                 color="red"
             />
         ) : (
@@ -37,17 +39,25 @@ const ClubCard: React.FC<ClubCardProps> = ({
     // TODO: change img according to input
     return (
         <div className="flex relative justify-center">
-            <div className="flex flex-col relative items-center  ">
-                {/* glowing border */}
-                <div className="flex absolute top-0 bg-black h-[92px] w-[92px] rounded-[20px] blur-sm" />
-
+            <div className="flex flex-col relative items-center">
                 {/* white box */}
                 <div
-                    className="flex relative bg-white h-[92px] w-[92px] rounded-[20px] items-center justify-center shadow-[#7A36E359] shadow-inner"
+                    className="flex relative bg-white h-[92px] w-[92px] rounded-2xl items-center justify-center shadow-[#7A36E359] p-2"
                     onClick={onClick}
                 >
                     {/* img */}
-                    {img}
+                    {typeof img === 'string' && img ? (
+                        <img
+                            src={img}
+                            className="w-full h-full rounded-xl"
+                            alt={''}
+                            width={72}
+                            height={72}
+                        />
+                    ) : (
+                        img
+                    )}
+                    {/* {img} */}
                     {filter}
                 </div>
 

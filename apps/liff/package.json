@@ -14,11 +14,11 @@
         "assets": "workspace:*",
         "axios": "^1.4.0",
         "env": "workspace:*",
-        "next": "latest",
+        "next": "^13.4.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-markdown": "^8.0.7",
-        "react-spinners": "^0.13.8",
+        "remark-gfm": "^3.0.1",
         "types": "workspace:*",
         "ui": "workspace:*"
     },

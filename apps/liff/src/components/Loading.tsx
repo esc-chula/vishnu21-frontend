@@ -1,7 +1,6 @@
 import LoadingBackground from '@/public/images/loading_background.png';
 import Image from 'next/image';
 import VishnuLogo from './VishnuLogo';
-import { BarLoader } from 'react-spinners';
 
 const Loading: React.FC = () => {
     return (

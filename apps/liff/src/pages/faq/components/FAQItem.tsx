@@ -26,7 +26,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
                 )}
             </div>
             <p
-                className={`overflow-hidden transition-all duration-300 ease-in-out text-xs leading-5 font-semibold ${
+                className={`overflow-hidden transition-all duration-300 ease-in-out text-xs leading-5 font-light ${
                     isOpen ? 'max-h-96' : 'max-h-0'
                 }`}
             >
