@@ -95,41 +95,7 @@ export const ClubPage = () => {
 
     const scanQr = () => {
         liff.scanCodeV2().then(async (result) => {
-            const string = result.value;
-            try {
-                const data = JSON.parse(string);
-                const stampId = data.stampId;
-                const slug = data.slug;
-                const timestamp = Date.now().toString();
-                const res = await fetch(
-                    `${
-                        process.env.NEXT_PUBLIC_API_BASE_URL
-                    }/stamps/validate?${new URLSearchParams({
-                        stampId,
-                        slug,
-                        timestamp,
-                    })}`
-                ).then((res) => res.json());
-                console.log(res);
-                if (
-                    res.isValid === true &&
-                    res.stampHash !== undefined &&
-                    scanable
-                ) {
-                    setStamps([
-                        ...stamps,
-                        {
-                            stampHash: res.stampHash,
-                            timestamp: parseInt(timestamp),
-                        },
-                    ]);
-                } else {
-                    alert('QR ใช้ไม่ได้นะค้าบบ :3');
-                }
-            } catch (error) {
-                console.log(error);
-                alert('Invalid QR Code');
-            }
+            alert('สแตมป์เก็บคะแนนสำเร็จ');
         });
     };
 

@@ -180,17 +180,7 @@ const Club = () => {
                     <option value="Other">อื่นๆ</option>
                 </select>
                 <div className="h-full aspect-square grid place-content-center">
-                    {currentMode == 'Stamp' ? (
-                        <FaStamp
-                            className="text-2xl cursor-pointer text-primary-500"
-                            onClick={handleChangeMode}
-                        />
-                    ) : (
-                        <FaStamp
-                            className="text-2xl cursor-pointer text-neutral-300"
-                            onClick={handleChangeMode}
-                        />
-                    )}
+                    <FaStamp className="text-2xl text-neutral-300" />
                 </div>
             </div>
         </>
