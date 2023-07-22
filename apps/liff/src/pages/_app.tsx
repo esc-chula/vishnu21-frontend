@@ -17,7 +17,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         '/faq/cufirstdate',
         '/faq/vishnu21',
         '/faq/[event]',
-        '/club',
         '/club/qr',
         '/club/[id]',
         '/schedule',
@@ -28,7 +27,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (LIFF_PRODUCTION) {
         return (
             <LiffProvider>
-                {whiteListedPaths.includes(router.pathname) ? (
+                {whiteListedPaths.includes(router.pathname) ||
+                router.pathname.includes('/club/qr') ? (
                     <Body>
                         <Component {...pageProps} />
                     </Body>
