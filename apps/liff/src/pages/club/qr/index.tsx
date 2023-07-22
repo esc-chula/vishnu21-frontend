@@ -29,7 +29,7 @@ const QRRequestPage = () => {
             <button
                 className="button text-white text-center px-5 py-3 border-2 border-3xl rounded-3xl my-10"
                 onClick={() => {
-                    router.push('/club/qr/request');
+                    router.push(`/club/qr/${qrCode}`);
                 }}
             >
                 Request
