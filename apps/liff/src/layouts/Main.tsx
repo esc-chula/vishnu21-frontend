@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 interface MainProps {
     children: React.ReactNode;
-    foregroundImage: 'full1' | 'full2' | 'top1' | 'top2';
+    foregroundImage: '' | 'full1' | 'full2' | 'top1' | 'top2';
     background?: boolean;
 }
 
@@ -27,29 +27,31 @@ const Main: React.FC<MainProps> = ({
                         'radial-gradient(50% 50.00% at 50% 50.00%, rgba(19, 5, 49, 0.00) 27.04%, #130531 73.56%)',
                 }}
             ></div>
-            <div
-                className={`${
-                    background ? 'z-20' : 'z-40'
-                } absolute top-0 left-0 right-0 bottom-0 pointer-events-none select-none duration-1000 ease-out ${
-                    isImageLoading
-                        ? 'scale-105 opacity-0'
-                        : 'scale-100 opacity-100'
-                }`}
-            >
-                <div className="relative flex justify-center items-center w-full h-full">
-                    <Image
-                        src={require(`@/public/images/assets/${foregroundImage}.png`)}
-                        alt=""
-                        fill
-                        className={`${
-                            foregroundImage.includes('full')
-                                ? 'object-cover'
-                                : 'object-contain object-top'
-                        }`}
-                        onLoadingComplete={() => setIsImageLoading(false)}
-                    />
+            {foregroundImage && (
+                <div
+                    className={`${
+                        background ? 'z-20' : 'z-40'
+                    } absolute top-0 left-0 right-0 bottom-0 pointer-events-none select-none duration-1000 ease-out ${
+                        isImageLoading
+                            ? 'scale-105 opacity-0'
+                            : 'scale-100 opacity-100'
+                    }`}
+                >
+                    <div className="relative flex justify-center items-center w-full h-full">
+                        <Image
+                            src={require(`@/public/images/assets/${foregroundImage}.png`)}
+                            alt=""
+                            fill
+                            className={`${
+                                foregroundImage.includes('full')
+                                    ? 'object-cover'
+                                    : 'object-contain object-top'
+                            }`}
+                            onLoadingComplete={() => setIsImageLoading(false)}
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     );
 };

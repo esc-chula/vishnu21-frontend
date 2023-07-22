@@ -8,6 +8,7 @@ import Image from 'next/image';
 import ClubCard from './components/ClubCard';
 import Head from 'next/head';
 import Main from '@/layouts/Main';
+import SponsorFooter from '@/components/SponsorFooter';
 
 const Club = () => {
     // selection : All , Academic , Sport , Art , CSR, Other
@@ -138,7 +139,7 @@ const Club = () => {
                         {headerText}
                     </h1>
                     <div className="w-full h-full overflow-y-auto pb-56 pt-3">
-                        <div className="px-4">
+                        <div className="px-4 pb-16">
                             <div className="grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 w-full gap-[20px]">
                                 {clubFiltered.map((club_data) => {
                                     return (
@@ -161,6 +162,7 @@ const Club = () => {
                                 })}
                             </div>
                         </div>
+                        <SponsorFooter />
                     </div>
                 </div>
             </Main>
