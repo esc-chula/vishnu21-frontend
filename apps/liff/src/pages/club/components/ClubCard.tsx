@@ -23,14 +23,14 @@ const ClubCard: React.FC<ClubCardProps> = ({
 }: ClubCardProps) => {
     const filter =
         !isStamped && currentMode === 'Stamp' ? (
-            <div className="flex absolute bg-[#3B0D8D]/[70%] w-full h-full rounded-[20px]" />
+            <div className="flex absolute bg-[#3B0D8D]/[70%] w-full h-full rounded-2xl" />
         ) : (
             <div />
         );
     const icon_heart =
         currentMode == 'Favorite' && isFavorite ? (
             <AiFillHeart
-                className="absolute h-[30px] w-[30px] top-0 right-0"
+                className="absolute h-[30px] w-[30px] -top-2.5 -right-1.5"
                 color="red"
             />
         ) : (
@@ -39,20 +39,17 @@ const ClubCard: React.FC<ClubCardProps> = ({
     // TODO: change img according to input
     return (
         <div className="flex relative justify-center">
-            <div className="flex flex-col relative items-center  ">
-                {/* glowing border */}
-                <div className="flex absolute top-0 bg-black h-[92px] w-[92px] rounded-[20px] blur-sm" />
-
+            <div className="flex flex-col relative items-center">
                 {/* white box */}
                 <div
-                    className="flex relative bg-white h-[92px] w-[92px] rounded-[20px] items-center justify-center shadow-[#7A36E359] shadow-inner"
+                    className="flex relative bg-white h-[92px] w-[92px] rounded-2xl items-center justify-center shadow-[#7A36E359] p-2"
                     onClick={onClick}
                 >
                     {/* img */}
                     {typeof img === 'string' && img ? (
                         <Image
                             src={img}
-                            className="max-w-[72px] max-h-[72px]"
+                            className="w-full h-full rounded-xl"
                             alt={''}
                             width={72}
                             height={72}

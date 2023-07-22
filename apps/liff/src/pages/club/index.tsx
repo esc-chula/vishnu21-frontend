@@ -6,6 +6,8 @@ import { FaStamp, FaFilter } from 'react-icons/fa';
 import ClubBackground from 'public/images/GrainBackground.svg';
 import Image from 'next/image';
 import ClubCard from './components/ClubCard';
+import Head from 'next/head';
+import Main from '@/layouts/Main';
 
 const Club = () => {
     // selection : All , Academic , Sport , Art , CSR, Other
@@ -52,6 +54,7 @@ const Club = () => {
     }, [selection]);
 
     useEffect(() => {
+        setClubs(JSON.parse(localStorage.getItem('VISHNU21ST::clubs')) || []);
         const getFAQs = async () => {
             try {
                 const res = await fetch(
@@ -59,6 +62,7 @@ const Club = () => {
                 );
                 const data = await res.json();
                 setClubs(data);
+                localStorage.setItem('VISHNU21ST::clubs', JSON.stringify(data));
             } catch (error) {
                 console.error(error);
             }
@@ -122,6 +126,73 @@ const Club = () => {
               );
         console.log(stamped, favorites);
     }, [clubSelected, filterState, stamped, favorites]);
+
+    return (
+        <>
+            <Head>
+                <title>ชมรมในวิศวฯ จุฬา</title>
+            </Head>
+            <Main foregroundImage="top2" background>
+                <div className="text-center h-full">
+                    <h1 className="font-bold text-2xl mt-16 mb-2">
+                        {headerText}
+                    </h1>
+                    <div className="w-full h-full overflow-y-auto pb-56 pt-3">
+                        <div className="px-4">
+                            <div className="grid grid-flow-row grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 w-full gap-[20px]">
+                                {clubFiltered.map((club_data) => {
+                                    return (
+                                        <ClubCard
+                                            currentMode={currentMode}
+                                            img={club_data.logo}
+                                            isStamped={isStamped(club_data.id)}
+                                            isFavorite={isFavorite(
+                                                club_data.id
+                                            )}
+                                            name={club_data.clubName}
+                                            key={club_data.id}
+                                            onClick={() =>
+                                                router.push(
+                                                    `/club/${club_data.id}`
+                                                )
+                                            }
+                                        />
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Main>
+            <div className="fixed z-50 bottom-6 left-4 right-4 h-[72px] bg-neutral-50 rounded-2xl shadow-faq flex items-center p-3 space-x-4 pr-4">
+                <select
+                    value={selection}
+                    onChange={(e) => setSelection(e.target.value)}
+                    className="bg-transparent border-primary-500 border-[3px] text-primary-500 px-4 py-1.5 w-full flex justify-center items-center font-semibold rounded-xl h-full accent-primary-500"
+                >
+                    <option value="All">ทั้งหมด</option>
+                    <option value="Academic">วิชาการ</option>
+                    <option value="Sport">กีฬา</option>
+                    <option value="Art">ศิลปะวัฒนธรรม</option>
+                    <option value="CSR">CSR</option>
+                    <option value="Other">อื่นๆ</option>
+                </select>
+                <div className="h-full aspect-square grid place-content-center">
+                    {currentMode == 'Stamp' ? (
+                        <FaStamp
+                            className="text-2xl cursor-pointer text-primary-500"
+                            onClick={handleChangeMode}
+                        />
+                    ) : (
+                        <FaStamp
+                            className="text-2xl cursor-pointer text-neutral-300"
+                            onClick={handleChangeMode}
+                        />
+                    )}
+                </div>
+            </div>
+        </>
+    );
 
     return (
         <>

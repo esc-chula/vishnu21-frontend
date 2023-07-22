@@ -49,9 +49,6 @@ const QRAdmin: NextPage = () => {
     const getQR = async () => {
         try {
             if (router.query.id && localStorage) {
-                if (localStorage.getItem('token') === null) {
-                    router.push('/login');
-                }
                 const res = await fetch(
                     `${process.env.NEXT_PUBLIC_API_BASE_URL}/stamps/create/${router.query.id}`,
                     {
