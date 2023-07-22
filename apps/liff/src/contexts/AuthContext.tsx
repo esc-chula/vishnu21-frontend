@@ -57,7 +57,7 @@ const AuthProvider: React.FC<{
                 setUser(null);
                 setIsLoading(false);
                 if (!router.pathname.includes('login')) {
-                    router.push('/login?redirect=' + router.pathname);
+                    router.push('/login?redirect=' + router.asPath);
                 }
             });
     };
