@@ -66,7 +66,7 @@ export const ClubPage = () => {
         console.log(stamps, scanable, clubData);
         if (stamps && stamps.length !== 0)
             localStorage.setItem('VISHNU21ST::stamps', JSON.stringify(stamps));
-    }, [stamps, clubData]);
+    }, [stamps, clubData, scanable]);
 
     useEffect(() => {
         const getFAQs = async () => {

@@ -47,7 +47,7 @@ const ClubCard: React.FC<ClubCardProps> = ({
                 >
                     {/* img */}
                     {typeof img === 'string' && img ? (
-                        <img
+                        <Image
                             src={img}
                             className="w-full h-full rounded-xl"
                             alt={''}

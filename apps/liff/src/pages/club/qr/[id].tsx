@@ -44,7 +44,7 @@ const QRAdmin: NextPage = () => {
         } else {
             setLoading(true);
         }
-    });
+    }, [setLoading]);
 
     const getQR = async () => {
         try {
@@ -76,11 +76,11 @@ const QRAdmin: NextPage = () => {
 
     useEffect(() => {
         getQR();
-    }, [router.query]);
+    }, [router.query, getQR]);
 
     useEffect(() => {
         if (timer === 0) getQR();
-    }, [timer]);
+    }, [timer, getQR]);
 
     return (
         <div className="w-screen h-screen flex flex-col items-center px-7 py-[15vh]">

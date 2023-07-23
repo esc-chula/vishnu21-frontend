@@ -1,15 +1,15 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { TabsContext, useTabs } from './context/TabsContext';
-import ProfileCard from './components/ProfileCard';
-import { Tab, Tabs } from './components/Tabs';
-import GameCard, { GameCardProps } from './components/GameCard';
+import { TabsContext, useTabs } from '../../../contexts/TabsContext';
+import ProfileCard from '../../../components/ProfileCard';
+import { Tab, Tabs } from '../../../components/Tabs';
+import GameCard, { GameCardProps } from '../../../components/GameCard';
 import KeySvg from '@/public/images/key.svg';
 import {
     tabs,
     games as gamesMockup,
     profileInfo as profileInfoMockup,
-} from './info';
+} from '../../../components/info';
 import { DetailedHTMLProps, HTMLAttributes, useState } from 'react';
 
 type GameTapsProps = DetailedHTMLProps<
