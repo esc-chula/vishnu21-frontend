@@ -23,8 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (LIFF_PRODUCTION) {
         return (
             <LiffProvider>
-                {whiteListedPaths.includes(router.pathname) ||
-                router.pathname.includes('/club/qr') ? (
+                {whiteListedPaths.includes(router.pathname) ? (
                     <Body>
                         <Component {...pageProps} />
                     </Body>

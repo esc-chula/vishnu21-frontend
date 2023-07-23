@@ -8,6 +8,14 @@ import { IGroup } from 'types';
 
 const Contact: NextPage = () => {
     const [houseData, setHouseData] = useState<IGroup | null>(null);
+    const [houseContact, setHouseContact] = useState<
+        {
+            name: string;
+            department: string;
+            line: string;
+            tel: string;
+        }[]
+    >([]);
 
     useEffect(() => {
         setHouseData(
@@ -16,6 +24,19 @@ const Contact: NextPage = () => {
                 : null
         );
     }, []);
+
+    useEffect(() => {
+        if (houseData) {
+            axios
+                .get(`/groups/contact/${houseData.groupId}`)
+                .then((res) => {
+                    if (res.data) setHouseContact(res.data);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        }
+    }, [houseData]);
 
     return (
         <>
@@ -28,10 +49,20 @@ const Contact: NextPage = () => {
                     {houseData && (
                         <div className="flex flex-col items-center w-full">
                             <h3 className="font-medium text-sm opacity-70 mb-4">
-                                พี่บ้าน{houseData.shortName}
+                                พี่ๆบ้าน{houseData.shortName}
                             </h3>
-                            <ContactCard name="" department="" tel="" line="" />
-                            <ContactCard name="" department="" tel="" line="" />
+                            {houseContact.length > 0 ? (
+                                <ContactCard
+                                    name=""
+                                    department=""
+                                    tel=""
+                                    line=""
+                                />
+                            ) : (
+                                <h3 className="font-light text-sm opacity-70 mb-4">
+                                    ไม่พบข้อมูลของพี่บ้าน
+                                </h3>
+                            )}
                         </div>
                     )}
                     <div className="flex flex-col items-center w-full">
@@ -53,7 +84,7 @@ const Contact: NextPage = () => {
                             name="พี่มาร์ค"
                             department="ทะเบียนกลาง"
                             tel="086-868-8242"
-                            line="086-868-8242"
+                            line="vikimark.king"
                         />
                     </div>
                 </div>

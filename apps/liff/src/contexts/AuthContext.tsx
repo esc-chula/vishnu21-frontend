@@ -14,7 +14,6 @@ interface AuthContextProps {
 }
 
 export const AuthContext = createContext<AuthContextProps>(null);
-
 const AuthProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {
@@ -64,7 +63,6 @@ const AuthProvider: React.FC<{
 
     const login = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         const studentId = e.currentTarget.studentId.value;
         const password = e.currentTarget.password.value;
         const lineToken = liff.getAccessToken();
