@@ -13,7 +13,7 @@ const Login: NextPage = () => {
 
     useEffect(() => {
         if (user) router.push(redirect || '/house');
-    }, [user, router]);
+    }, [user, router, redirect]);
 
     useEffect(() => {
         if (lineUserProfile && lineUserProfile.displayName)
