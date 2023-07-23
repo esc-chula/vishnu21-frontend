@@ -4,8 +4,28 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import FDLogo from '@/public/images/logo/firstdate_light.svg';
+import VNLogo from '@/public/images/logo/vishnu_light.svg';
+import { useEffect } from 'react';
 
 const Schedule: NextPage = () => {
+    const selector = (date: number) => {
+        if (date > new Date('2023-07-27T00:00:00+07:00').getTime())
+            return 'vishnu_4';
+        if (date > new Date('2023-07-26T00:00:00+07:00').getTime())
+            return 'vishnu_3';
+        if (date > new Date('2023-07-25T00:00:00+07:00').getTime())
+            return 'vishnu_2';
+        if (date > new Date('2023-07-23T00:00:00+07:00').getTime())
+            return 'vishnu_1';
+        else return 'first_date';
+    };
+
+    // const data = useState(null)
+    const data = ScheduleData[selector(Date.now())];
+    useEffect(() => {
+        console.log(selector(Date.now()));
+    });
     return (
         <>
             <Head>
@@ -19,13 +39,20 @@ const Schedule: NextPage = () => {
                         </h1>
                         <div className="relative mt-8 w-full h-14 select-none">
                             <Image
-                                src={require(`@/public/images/logo/firstdate_light.svg`)}
-                                alt="First Date Logo"
+                                src={
+                                    Date.now() >
+                                    new Date(
+                                        '2023-07-23T00:00:00+07:00'
+                                    ).getTime()
+                                        ? VNLogo
+                                        : FDLogo
+                                }
+                                alt="EventLogo"
                                 fill
                             />
                         </div>
-                        <div className="flex flex-col space-y-4 mt-10 pl-8 pr-5">
-                            {ScheduleData.first_data.map((schedule, index) => (
+                        <div className="flex flex-col overflow-y-auto space-y-4 mt-10 pl-8 pr-5 justify-center mb-[100px]">
+                            {data.map((schedule, index) => (
                                 <div
                                     key={index}
                                     className="grid grid-cols-3 gap-3 text-sm"

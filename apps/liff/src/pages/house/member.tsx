@@ -108,7 +108,7 @@ const Member: NextPage = () => {
                                     : houseData.altColor,
                         }}
                     >
-                        <p>สนับสนุนด้วย</p>
+                        <p>สนับสนุนโดย</p>
                         <div className="flex items-center space-x-2">
                             <Image
                                 src={Sponsor1}
