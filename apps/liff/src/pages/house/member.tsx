@@ -43,7 +43,14 @@ const Member: NextPage = () => {
                 </div>
                 <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto">
                     {houseData.members
-                        .filter((member) => member.status === 'Intania107')
+                        .filter(
+                            (member) =>
+                                member.status === 'Intania107' ||
+                                Date.now() >
+                                    new Date(
+                                        '2023-07-27T09:00:00+07:00'
+                                    ).getTime()
+                        )
                         .map((member, index) => (
                             <div
                                 key={index}
@@ -108,7 +115,7 @@ const Member: NextPage = () => {
                                     : houseData.altColor,
                         }}
                     >
-                        <p>สนับสนุนด้วย</p>
+                        <p>สนับสนุนโดย</p>
                         <div className="flex items-center space-x-2">
                             <Image
                                 src={Sponsor1}

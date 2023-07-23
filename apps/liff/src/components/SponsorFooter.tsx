@@ -8,7 +8,7 @@ import Image from 'next/image';
 const SponsorFooter: React.FC = () => {
     return (
         <div className="flex flex-col items-center w-full space-y-2 text-neutral-50">
-            <p>สนับสนุนด้วย</p>
+            <p>สนับสนุนโดย</p>
             <div className="flex items-center space-x-2">
                 <Image src={Sponsor1} alt="Sponsor" className="w-10" />
                 <Image src={Sponsor2} alt="Sponsor" className="w-10" />
