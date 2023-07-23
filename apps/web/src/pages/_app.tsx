@@ -10,7 +10,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     if (WEB_PRODUCTION) {
         return (
             <>
-                <Component {...pageProps} />;
+                <Component {...pageProps} />
                 <Analytics />
             </>
         );
