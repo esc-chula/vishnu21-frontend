@@ -18,11 +18,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         '/faq/vishnu21',
         '/faq/[event]',
         '/club',
-        // '/club/qr',
-        // '/club/[id]',
+        '/club/qr',
+        '/club/[id]',
         '/schedule',
         '/contact',
         '/map',
+        '/scores',
     ];
 
     if (LIFF_PRODUCTION) {
