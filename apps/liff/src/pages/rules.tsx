@@ -2,7 +2,24 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import GrainBackground from '@/public/images/GrainBackground.svg';
 import DecorateVector from '@/public/images/DecorateVector.svg';
-import RuleItem from './rule';
+
+type Rules = {
+    content: string;
+};
+
+const RuleItem: React.FC<Rules> = ({ content }) => {
+    return (
+        <li className="w-full rounded-2xl p-2 shadow-details bg-gray-300 bg-opacity-30 text-white z-10 text-center">
+            <p
+                className={
+                    'px-3 py-2 overflow-hidden transition-all duration-300 ease-in-out text-xs leading-5 font-normal'
+                }
+            >
+                {content}
+            </p>
+        </li>
+    );
+};
 
 const allRule = [
     {
