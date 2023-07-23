@@ -1,6 +1,7 @@
 import { useAuth } from '@/contexts/AuthContext';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Main from '@/layouts/Main';
@@ -47,7 +48,7 @@ const Login: NextPage = () => {
                     </form>
                 </div>
             </Main>
-            {/* <div className="relative h-full w-full grid place-content-center bg-primary-800 bg-[url('/images/grained_background.jpg')] bg-repeat bg-[length:300px_300px]"></div>
+            <div className="relative h-full w-full grid place-content-center bg-primary-800 bg-[url('/images/grained_background.jpg')] bg-repeat bg-[length:300px_300px]"></div>
             <div
                 className={`z-10 absolute -top-44 -bottom-44 -left-44 -right-44 rounded-[100%] pointer-events-none`}
                 style={{
@@ -55,16 +56,6 @@ const Login: NextPage = () => {
                         'radial-gradient(50% 50.00% at 50% 50.00%, rgba(19, 5, 49, 0.00) 27.04%, #130531 73.56%)',
                 }}
             ></div>
-            <div className="z-20 absolute top-0 left-0 right-0 bottom-0 pointer-events-none select-none">
-                <div className="relative flex justify-center items-center w-full h-full">
-                    <Image
-                        src={ForegroundImage}
-                        alt=""
-                        fill
-                        className="scale-105 object-cover"
-                    />
-                </div>
-            </div> */}
         </>
     );
 };

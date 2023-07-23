@@ -10,6 +10,72 @@ const Rule: NextPage = () => {
             </Head>
             <Main foregroundImage="top1">
                 <h1 className="font-bold text-xl">กฏค่ายวิษณุฯ</h1>
+                <div className="w-full h-full mt-8">
+                    {/* <div className="overflow-y-auto w-full h-full space-y-4 px-6 pb-40">
+                        {Rule.map((faq, index) => (
+                            <div
+                                key={index}
+                                className="bg-neutral-50 shadow-button rounded-2xl"
+                            >
+                                <div
+                                    onClick={() =>
+                                        setToggles((prev) => {
+                                            const newToggles = [...prev];
+                                            newToggles[Rule.indexOf(faq)] =
+                                                !newToggles[
+                                                    Rule.indexOf(faq)
+                                                ];
+                                            return newToggles;
+                                        })
+                                    }
+                                    className="flex justify-between items-center pl-6 pr-4 py-4 w-full text-neutral-800 font-semibold text-sm select-none"
+                                >
+                                    <p>{faq.question}</p>
+                                    <FiChevronDown
+                                        className={`text-lg ${
+                                            toggles[FaqData.indexOf(faq)] &&
+                                            'rotate-180'
+                                        }`}
+                                    />
+                                </div>
+                                <div
+                                    className={`overflow-y-auto text-neutral-600 font-baijam font-medium text-sm sm:text-base leading-relaxed sm:leading-relaxed ${
+                                        toggles[FaqData.indexOf(faq)]
+                                            ? 'h-auto'
+                                            : 'h-0'
+                                    }`}
+                                >
+                                    <div className="px-6 pb-6 pt-2">
+                                        {faq.answer}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        <form
+                            onSubmit={sendUserQuestionHandler}
+                            className="flex flex-col items-center py-8"
+                        >
+                            <label>อยากถามเพิ่มสามารถพิมพ์ในนี้ได้เลย!</label>
+                            <textarea
+                                className="outline-none px-4 py-3 rounded-2xl bg-transparent border-2 border-neutral-50 border-opacity-30 placeholder:text-opacity-60 placeholder:text-neutral-50 font-semibold placeholder:font-normal placeholder:text-xs backdrop-blur-[2.5px] focus:border-opacity-60 duration-200 focus:h-40 focus:w-full mt-2 mb-6"
+                                placeholder="แนะนำร้านอาหารให้หน่อยได้มั้ยงับ..."
+                                value={userQuestion}
+                                onChange={(e) => {
+                                    setUserQuestion(e.target.value);
+                                }}
+                            />
+                            {userQuestion && (
+                                <button
+                                    type="submit"
+                                    className="text-primary-600 bg-white shadow-button rounded-xl px-5 py-2.5 font-semibold"
+                                >
+                                    ส่ง
+                                </button>
+                            )}
+                        </form>
+                        <SponsorFooter />
+                    </div> */}
+                </div>
             </Main>
         </>
     );
