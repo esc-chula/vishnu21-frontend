@@ -10,11 +10,11 @@ import { useEffect } from 'react';
 
 const Schedule: NextPage = () => {
     const selector = (date: number) => {
-        if (date > new Date('2023-07-27T00:00:00+07:00').getTime())
+        if (date > new Date('2023-07-26T23:30:00+07:00').getTime())
             return 'vishnu_4';
-        if (date > new Date('2023-07-26T00:00:00+07:00').getTime())
+        if (date > new Date('2023-07-25T22:45:00+07:00').getTime())
             return 'vishnu_3';
-        if (date > new Date('2023-07-25T00:00:00+07:00').getTime())
+        if (date > new Date('2023-07-24T22:45:00+07:00').getTime())
             return 'vishnu_2';
         if (date > new Date('2023-07-23T00:00:00+07:00').getTime())
             return 'vishnu_1';
