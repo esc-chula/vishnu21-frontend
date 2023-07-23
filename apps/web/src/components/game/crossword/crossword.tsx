@@ -26,7 +26,7 @@ export default function Crossword() {
                 </button>
             </form>
 
-            <div className="relative w-full w-[355px] border bg-white/5 backdrop-blur-xl border-white/50 p-4 rounded-2xl">
+            <div className="relative w-[355px] border bg-white/5 backdrop-blur-xl border-white/50 p-4 rounded-2xl">
                 <div className="relative z-10 flex flex-col gap-4">
                     {crosswordData?.map((row, rowIndex) => {
                         return (
