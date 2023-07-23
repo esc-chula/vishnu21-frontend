@@ -43,7 +43,9 @@ export type THouse =
 
 interface IContact {
     name: string;
-    phone: string;
+    department: string;
+    line: string;
+    tel: string;
 }
 
 interface IPost {}

@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const whiteListedPaths = [
         '/',
-        '/rule',
+        '/rules',
         '/faq',
         '/faq/cufirstdate',
         '/faq/vishnu21',

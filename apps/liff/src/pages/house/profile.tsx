@@ -140,7 +140,7 @@ const Profile: NextPage = () => {
                                 : houseData.altColor,
                     }}
                 >
-                    <p>สนับสนุนด้วย</p>
+                    <p>สนับสนุนโดย</p>
                     <div className="flex items-center space-x-2">
                         <Image src={Sponsor1} alt="Sponsor" className="w-10" />
                         <Image src={Sponsor2} alt="Sponsor" className="w-10" />

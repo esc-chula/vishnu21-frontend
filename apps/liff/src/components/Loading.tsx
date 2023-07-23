@@ -7,7 +7,7 @@ const Loading: React.FC = () => {
         <>
             <div className="z-20 absolute w-full h-screen bg-black/20 backdrop-blur-md flex flex-col items-center justify-center space-y-6 text-white">
                 <VishnuLogo className="scale-90" />
-                <p>loading...</p>
+                <p>Loading ...</p>
             </div>
             <Image
                 src={LoadingBackground}
