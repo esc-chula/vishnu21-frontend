@@ -55,25 +55,27 @@ const Score: NextPage = () => {
                     <h3 className="font-semibold text-neutral-50">
                         ประวัติคะแนน
                     </h3>
-                    {scores.length === 0 ? (
-                        <div className="text-center pt-20 opacity-25">
-                            ไม่มีประวัติคะแนน
-                        </div>
-                    ) : (
-                        scores.map((score) => (
-                            <div
-                                key={score.id}
-                                className="flex items-center p-4 bg-neutral-50 w-full rounded-2xl shadow-faq space-x-4"
-                            >
-                                <h3 className="font-bold text-primary-500 text-4xl">
-                                    +{score.score}
-                                </h3>
-                                <p className="text-neutral-600 font-semibold">
-                                    {score.info}
-                                </p>
+                    <div className="w-full overflow-y-auto flex flex-col space-y-4">
+                        {scores.length === 0 ? (
+                            <div className="text-center pt-20 opacity-25">
+                                ไม่มีประวัติคะแนน
                             </div>
-                        ))
-                    )}
+                        ) : (
+                            scores.map((score) => (
+                                <div
+                                    key={score.id}
+                                    className="flex items-center p-4 bg-neutral-50 w-full rounded-2xl shadow-faq space-x-4"
+                                >
+                                    <h3 className="font-bold text-primary-500 text-4xl">
+                                        +{score.score}
+                                    </h3>
+                                    <p className="text-neutral-600 font-semibold">
+                                        {score.info}
+                                    </p>
+                                </div>
+                            ))
+                        )}
+                    </div>
                 </div>
                 <div className="z-10 fixed top-[10%] left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-primary-900/70" />
             </Main>
