@@ -1,33 +1,32 @@
 import axios from '@/utils/fetcher';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import ScoreTableRow from './table/ScoreTableRow';
 
 interface ScoreHistoryProps {
-    houseName: string;
+    scores: {
+        id: string;
+        info: string;
+        score: string;
+    }[];
 }
 
-const ScoreHistory: React.FC<ScoreHistoryProps> = ({ houseName }) => {
-    const [scores, setScores] = useState([]);
-
-    useEffect(() => {
-        const fetchScore = async () => {
-            await axios
-                .get(`/scores/${houseName}`)
-                .then((res) => {
-                    setScores(res.data);
-                })
-                .catch((err) => {
-                    console.error(err);
-                });
-        };
-
-        fetchScore();
-    }, []);
-
+const ScoreHistory: React.FC<ScoreHistoryProps> = ({ scores }) => {
+    if (!scores) return <></>;
     return (
         <>
-            <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
-            <ScoreTableRow amount="10" note="ให้สักหน่อย" />
+            {scores.map((score) => {
+                return (
+                    <ScoreTableRow
+                        key={score.id}
+                        id={score.id}
+                        amount={score.score}
+                        note={score.info}
+                    />
+                );
+            })}
+            {/* <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
+            <ScoreTableRow amount="10" note="ให้สักหน่อย" /> */}
         </>
     );
 };

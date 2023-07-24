@@ -1,12 +1,22 @@
 import axios from '@/utils/fetcher';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 interface ScoreProps {
     groupId: string;
 }
 
 const Score: React.FC<ScoreProps> = ({ groupId }) => {
+    const router = useRouter();
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (isLoading) return;
+
+        setIsLoading(true);
 
         const score = e.currentTarget.score.value;
         const info = e.currentTarget.info.value;
@@ -15,17 +25,25 @@ const Score: React.FC<ScoreProps> = ({ groupId }) => {
 
         const scoreBody = {
             groupId,
-            score: score,
+            score: parseInt(score),
             info: info,
         };
 
-        axios
-            .post('/scores', scoreBody)
+        await axios
+            .post('/scores', scoreBody, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
             .then((res) => {
                 console.log(res.data);
+                setIsLoading(false);
+                router.reload();
             })
             .catch((err) => {
                 console.error(err);
+                alert('Failed adding score');
+                setIsLoading(false);
             });
     };
 
@@ -55,10 +73,11 @@ const Score: React.FC<ScoreProps> = ({ groupId }) => {
             </div>
             <div className="flex flex-col space-y-2.5">
                 <button
+                    disabled={isLoading}
                     type="submit"
                     className="!bg-neutral-800 !text-white font-medium rounded-lg px-6 py-2"
                 >
-                    บันทึก
+                    {isLoading ? 'loading...' : 'บันทึก'}
                 </button>
             </div>
         </form>

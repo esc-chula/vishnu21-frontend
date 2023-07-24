@@ -36,6 +36,14 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
 
     const [groupData, setGroupData] = useState<IGroup | null>(null);
 
+    const [scores, setScores] = useState<
+        {
+            id: string;
+            info: string;
+            score: string;
+        }[]
+    >([]);
+
     const fetchGroupData = async () => {
         await axios
             .get(`/groups/${groupInformation.groupId}`, {
@@ -55,11 +63,36 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
         if (allGroupData) fetchGroupData();
     }, [allGroupData]);
 
+    useEffect(() => {
+        const fetchScore = async () => {
+            await axios
+                .get(`/scores/house/${groupData.groupId}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'token'
+                        )}`,
+                    },
+                })
+                .then((res) => {
+                    setScores(res.data.details);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        };
+
+        if (groupData) fetchScore();
+    }, [groupData]);
+
     if (!allGroupData) return <Loading />;
 
     const groupInformation = allGroupData.find((group) => group.group === slug);
 
     if (!groupData) return <Loading />;
+
+    const scoreSum = scores.reduce((acc, cur) => {
+        return acc + parseInt(cur.score);
+    }, 0);
 
     return (
         <GroupInformationContext.Provider value={{ groupInformation }}>
@@ -98,7 +131,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                 คะแนน
                             </p>
                             <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                {groupInformation.score}
+                                {groupData.score ? groupData.score : 0}
                             </h1>
                         </div>
                     </div>
@@ -110,7 +143,7 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                 </Guard>
                 <Guard allowRoles={['Activity', 'Board']}>
                     <Section toggle id="score" title="ประวัติคะแนน">
-                        <ScoreHistory houseName={groupData.houseName} />
+                        <ScoreHistory scores={scores} />
                     </Section>
                 </Guard>
                 <Guard allowRoles={['HeadHouse', 'Board']}>
