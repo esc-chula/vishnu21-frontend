@@ -98,7 +98,7 @@ const AuthProvider: React.FC<{
                 : null
         );
         fetchUser();
-    }, [fetchUser]);
+    }, []);
 
     useEffect(() => {
         if (liff) fetchLineUserProfile();
