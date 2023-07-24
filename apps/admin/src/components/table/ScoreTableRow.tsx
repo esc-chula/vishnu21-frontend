@@ -85,24 +85,25 @@ const ScoreTableRow: React.FC<ScoreTableRowProps> = ({
 
                             setIsLoading(true);
 
-                            await axios
-                                .delete(`/scores/${id}`, {
-                                    headers: {
-                                        Authorization: `Bearer ${localStorage.getItem(
-                                            'token'
-                                        )}`,
-                                    },
-                                })
-                                .then((res) => {
-                                    console.log(res.data);
-                                    setIsLoading(false);
-                                    router.reload();
-                                })
-                                .catch((err) => {
-                                    console.error(err);
-                                    setIsLoading(false);
-                                    alert('Failed deleting score');
-                                });
+                            if (window.confirm('ต้องการลบใช่หรือไม่'))
+                                await axios
+                                    .delete(`/scores/${id}`, {
+                                        headers: {
+                                            Authorization: `Bearer ${localStorage.getItem(
+                                                'token'
+                                            )}`,
+                                        },
+                                    })
+                                    .then((res) => {
+                                        console.log(res.data);
+                                        setIsLoading(false);
+                                        router.reload();
+                                    })
+                                    .catch((err) => {
+                                        console.error(err);
+                                        setIsLoading(false);
+                                        alert('Failed deleting score');
+                                    });
                         }}
                     >
                         <FiTrash2 />
