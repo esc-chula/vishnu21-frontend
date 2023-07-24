@@ -80,3 +80,9 @@ export interface IHouse {
     shortName: string;
     theme: 'dark' | 'light';
 }
+
+export interface IScore {
+    id: string;
+    info: string;
+    score: string;
+}
