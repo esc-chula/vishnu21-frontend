@@ -33,53 +33,6 @@ const Map: NextPage = () => {
                         </div>
                     </div>
                     <h2 className="font-bold text-xl pb-5">แผนที่คณะ</h2>
-                    <div className="w-full h-64 bg-neutral-50 rounded-3xl flex flex-col items-center shadow-faq p-3 relative">
-                        <div className="overflow-auto relative w-full h-full rounded-2xl">
-                            <Image
-                                src={Map2}
-                                alt=""
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-                    <h2 className="font-bold text-xl pb-5">สวนรวมใจ</h2>
-                    <div className="w-full h-64 bg-neutral-50 rounded-3xl flex flex-col items-center shadow-faq p-3 relative">
-                        <div className="overflow-auto relative w-full h-full rounded-2xl">
-                            <Image
-                                src={Map3}
-                                alt=""
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-                    <h2 className="font-bold text-xl pb-5">ตึกวิศวฯ 100 ปี</h2>
-                    <div className="w-full h-64 bg-neutral-50 rounded-3xl flex flex-col items-center shadow-faq p-3 relative">
-                        <div className="overflow-auto relative w-full h-full rounded-2xl">
-                            <Image
-                                src={Map4}
-                                alt=""
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-                    <h2 className="font-bold text-xl pb-5">
-                        อาคารเจริญวิศวกรรม(ตึก 4)
-                    </h2>
-                    <div className="w-full h-64 bg-neutral-50 rounded-3xl flex flex-col items-center shadow-faq p-3 relative">
-                        <div className="overflow-auto relative w-full h-full rounded-2xl">
-                            <Image
-                                src={Map5}
-                                alt=""
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-                    <h2 className="font-bold text-xl pb-5">สนามบาสเกตบอล</h2>
-                    <br />
                     <SponsorFooter />
                 </div>
             </Main>
