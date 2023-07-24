@@ -171,9 +171,9 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                         <ScoreHistory scores={scores} />
                     </Section>
                 </Guard>
-                <Guard allowRoles={['HeadHouse', 'Board']}>
+                {/* <Guard allowRoles={['HeadHouse', 'Board']}>
                     <GroupHomePage posts={posts} />
-                </Guard>
+                </Guard> */}
                 <Guard
                     allowRoles={[
                         'Board',
