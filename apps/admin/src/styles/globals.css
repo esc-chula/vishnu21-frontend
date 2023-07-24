@@ -41,3 +41,36 @@ body {
     list-style-type: decimal;
     padding-left: 20px;
 }
+
+#admin-post-content > h1 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#admin-post-content > h2 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#admin-post-content > h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#admin-post-content > p {
+    font-size: 13.5px;
+}
+
+#admin-post-content > a {
+    text-decoration: underline;
+}
+
+#admin-post-content > ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#admin-post-content > ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}

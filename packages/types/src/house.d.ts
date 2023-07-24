@@ -48,7 +48,13 @@ interface IContact {
     tel: string;
 }
 
-interface IPost {}
+export interface IPost {
+    postId: string;
+    content: string;
+    groupId: string;
+    createdAt: string;
+    author: IUser;
+}
 
 export interface IGroup {
     contacts: IContact[];
