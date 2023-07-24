@@ -1,4 +1,4 @@
-import {
+import React, {
     Children,
     DetailedHTMLProps,
     FC,
@@ -43,10 +43,11 @@ const Tabs: FC<TabsProps> = ({
 
     return (
         <div className={`tabs ${className}`} {...props}>
-            <ul className="mb-6 flex flex-row justify-around items-center">
+            {/* <div className="fixed w-full"> */}
+            <ul className="mb-6 text-center flex flex-row justify-evenly justify-items-center items-center">
                 {Object.values(tabs).map((tabValue, index) => (
                     <li
-                        className={`${
+                        className={`text-center ${
                             currentTab === tabValue ? '' : 'text-neutral-500'
                         }`}
                         key={index}
@@ -56,22 +57,13 @@ const Tabs: FC<TabsProps> = ({
                     </li>
                 ))}
             </ul>
-            <div className="tabs-body">
+            {/* </div> */}
+            <div className="tabs-body flex flex-col pb-20 mb-20">
                 {children &&
                     Children.map(
                         children,
-                        (child: React.ReactElement<TabProps>) => {
-                            if (
-                                !isValidElement(child) ||
-                                typeof child.type !== 'function' ||
-                                child.type.name !== 'Tab'
-                            ) {
-                                throw new Error(
-                                    'The child components should be of type Tab'
-                                );
-                            }
-                            return child.props.id === currentTab ? child : null;
-                        }
+                        (child: React.ReactElement<TabProps>) =>
+                            child.props.id === currentTab ? child : null
                     )}
             </div>
         </div>

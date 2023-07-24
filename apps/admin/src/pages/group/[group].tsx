@@ -9,7 +9,7 @@ import GroupData from '@/mocks/group-data.json';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useGroup } from '@/contexts/GroupContext';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { IGroup } from 'types';
+import { IGroup, IPost } from 'types';
 import Loading from '@/components/Loading';
 import Guard from '@/components/Guard';
 import { useAuth } from '@/contexts/AuthContext';
@@ -43,6 +43,8 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
             score: string;
         }[]
     >([]);
+
+    const [posts, setPosts] = useState<IPost[]>([]);
 
     const fetchGroupData = async () => {
         await axios
@@ -81,7 +83,34 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                 });
         };
 
-        if (groupData) fetchScore();
+        const fetchPosts = async () => {
+            await axios
+                .get(`/posts/group`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'token'
+                        )}`,
+                    },
+                })
+                .then((res) => {
+                    const postsData = res.data as IPost[];
+                    console.log(postsData, groupData.groupId);
+
+                    setPosts(
+                        postsData.filter(
+                            (post) => (post.groupId = groupData.groupId)
+                        )
+                    );
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        };
+
+        if (groupData) {
+            fetchScore();
+            fetchPosts();
+        }
     }, [groupData]);
 
     if (!allGroupData) return <Loading />;
@@ -89,10 +118,6 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
     const groupInformation = allGroupData.find((group) => group.group === slug);
 
     if (!groupData) return <Loading />;
-
-    const scoreSum = scores.reduce((acc, cur) => {
-        return acc + parseInt(cur.score);
-    }, 0);
 
     return (
         <GroupInformationContext.Provider value={{ groupInformation }}>
@@ -146,9 +171,9 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                         <ScoreHistory scores={scores} />
                     </Section>
                 </Guard>
-                <Guard allowRoles={['HeadHouse', 'Board']}>
-                    <GroupHomePage />
-                </Guard>
+                {/* <Guard allowRoles={['HeadHouse', 'Board']}>
+                    <GroupHomePage posts={posts} />
+                </Guard> */}
                 <Guard
                     allowRoles={[
                         'Board',

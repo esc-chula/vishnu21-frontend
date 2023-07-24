@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 interface MainProps {
     children: React.ReactNode;
-    foregroundImage: '' | 'full1' | 'full2' | 'top1' | 'top2';
+    foregroundImage: '' | 'full1' | 'full2' | 'top1' | 'top2' | 'top3';
     background?: boolean;
 }
 

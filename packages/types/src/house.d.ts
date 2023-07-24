@@ -48,7 +48,13 @@ interface IContact {
     tel: string;
 }
 
-interface IPost {}
+export interface IPost {
+    postId: string;
+    content: string;
+    groupId: string;
+    createdAt: string;
+    author: IUser;
+}
 
 export interface IGroup {
     contacts: IContact[];
@@ -79,4 +85,10 @@ export interface IHouse {
     score: number;
     shortName: string;
     theme: 'dark' | 'light';
+}
+
+export interface IScore {
+    id: string;
+    info: string;
+    score: string;
 }

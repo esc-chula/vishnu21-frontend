@@ -36,7 +36,7 @@ const FAQ: NextPage = () => {
             <Main foregroundImage="top2">
                 <h1 className="font-bold text-2xl mt-12">FAQ</h1>
                 <div className="w-full h-full mt-8">
-                    <div className="overflow-y-auto w-full h-full space-y-4 px-6 pb-40">
+                    <div className="overflow-y-auto w-full h-full space-y-4 px-6 pb-60">
                         {FaqData.map((faq, index) => (
                             <div
                                 key={index}

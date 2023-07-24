@@ -4,52 +4,49 @@ import Decorate from '@/public/images/decorate.svg';
 import { useEffect, useState } from 'react';
 import { fetcher } from '@/utils/fetcher';
 import { useHouse } from '@/contexts/HouseContext';
+import GrainBackground from '@/public/images/grain-background.svg';
+
+const Color = [
+    'bg-[#DAA520] text-white',
+    'bg-[#A7A7AD] text-white',
+    'bg-[#A77044] text-white',
+    'bg-neutral-50 text-primary-500',
+];
 
 const ScoreDetail: NextPage = () => {
     const { houseData, fetchHouseData } = useHouse();
-    const [mainScore, setMainScore] = useState(0);
     const [data, setData] = useState<
         {
-            id: string;
-            info: string;
-            description: string;
+            name: string;
+            shortName: string;
             score: number;
         }[]
     >([]);
 
     useEffect(() => {
-        fetcher('/scores/user', localStorage.getItem('token')).then((res) => {
+        fetcher('/scores', localStorage.getItem('token')).then((res) => {
             console.log(res);
-            setData(res.details);
-            setMainScore(res.score);
+            setData(res.scores);
         });
         fetchHouseData();
-    }, [fetchHouseData]);
+    }, []);
 
     return (
         <div className="w-screen h-screen flex flex-col items-center px-7 pt-16 pb-5">
             <h1 className="font-bold text-white text-3xl font-baijam py-8 drop-shadow-lg">
-                คะแนนประจำบ้าน{houseData.shortName}
+                อันดับคะแนนค่ายวิษณุ
             </h1>
-            <div className="relative w-full px-5 py-10">
-                <div>
-                    <p className="text-white font-light">Total score</p>
-                    <h1 className="text-white text-center text-7xl font-bold ml-4">
-                        {mainScore}
-                    </h1>
-                </div>
-            </div>
             <ul className="flex flex-col overflow-y-auto gap-3 w-full mt-3 pb-40">
-                {data.map((item) => (
+                {data.map((item, idx) => (
                     <li
-                        key={item.id}
+                        key={item.name}
                         className={`${
-                            item.score >= 0
-                                ? 'bg-success-300 text-success-900'
-                                : 'bg-error-400 text-error-900'
+                            Color[Math.min(idx, 3)]
                         } w-full px-6 flex justify-between items-center py-4 rounded-3xl shadow-details`}
                     >
-                        <span className="text-md font-medium">{item.info}</span>
+                        <span className="text-md font-medium">
+                            {item.shortName}
+                        </span>
                         <span className="text-lg font-medium">
                             {item.score}
                         </span>
@@ -58,7 +55,11 @@ const ScoreDetail: NextPage = () => {
             </ul>
             {/* Background and decorations */}
             <Image
-                src={require(`@/public/images/banners/${houseData.group}.png`)}
+                src={
+                    houseData
+                        ? require(`@/public/images/banners/${houseData.group}.png`)
+                        : GrainBackground
+                }
                 alt="background"
                 className="fixed blur-xl top-0 left-0 -z-50 h-screen w-full object-cover"
                 loading="lazy"

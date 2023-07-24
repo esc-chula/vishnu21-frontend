@@ -1,7 +1,9 @@
 import { useAuth } from '@/contexts/AuthContext';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navigation: React.FC = () => {
+    const router = useRouter();
     const { user } = useAuth();
 
     return (
@@ -10,7 +12,13 @@ const Navigation: React.FC = () => {
                 <Link href="/" className="font-bold text-neutral-900">
                     Vishnu21 Admin
                 </Link>
-                <button className="rounded-full border-neutral-200 border pl-4 p-1.5 flex items-center space-x-3">
+                <button
+                    onClick={() => {
+                        localStorage.removeItem('token');
+                        router.reload();
+                    }}
+                    className="rounded-full border-neutral-200 border pl-4 p-1.5 flex items-center space-x-3"
+                >
                     <p className="text-sm font-semibold text-neutral-700">
                         {user.studentId}
                     </p>

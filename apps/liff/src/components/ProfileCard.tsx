@@ -24,18 +24,21 @@ const ProfileCard: FC<ProfileCardProps> = ({
     return (
         <div className="flex flex-row gap-6 py-10 px-8 w-full" {...props}>
             <div className="flex w-12 h-12 rounded-full bg-neutral-500 items-center justify-center">
-                <BsPersonFill className="w-6 h-6 text-white" /> {/* sample */}
-                {/* <Image
-                    className="w-12 h-12 rounded-full"
-                    src={imageUrl}
-                    alt="profile"
-                    width={48}
-                    height={48}
-                /> */}
+                {!imageUrl ? (
+                    <BsPersonFill className="w-6 h-6 text-white" />
+                ) : (
+                    <Image
+                        className="w-12 h-12 rounded-full"
+                        src={imageUrl}
+                        alt="profile"
+                        width={48}
+                        height={48}
+                    />
+                )}
             </div>
             <div className="flex flex-col h-12 text-white">
-                <h1 className=" text-xl">{nickname}</h1>
-                <p className=" text-sm">{houseName}</p>
+                <h1 className=" text-xl">น้อง{nickname}</h1>
+                <p className=" text-sm">บ้าน{houseName}</p>
             </div>
         </div>
     );
