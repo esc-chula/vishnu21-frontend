@@ -4,6 +4,7 @@ import { useLiff } from '@/contexts/LiffContext';
 import Main from '@/layouts/Main';
 import { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 
@@ -101,6 +102,20 @@ const FAQ: NextPage = () => {
                     </div>
                 </div>
             </Main>
+            <div className="fixed z-50 bottom-6 left-4 right-4 h-[72px] bg-neutral-50 rounded-2xl shadow-faq flex items-center px-5 py-3 space-x-2">
+                <Link
+                    href="/faq"
+                    className="bg-primary-500 text-white px-4 py-1.5 w-full flex justify-center items-center font-bold rounded-xl h-full"
+                >
+                    FAQ
+                </Link>
+                <Link
+                    href="/rules"
+                    className="text-primary-500 px-4 py-1.5 w-full flex justify-center items-center font-bold rounded-xl h-full"
+                >
+                    กฏค่าย
+                </Link>
+            </div>
         </>
     );
 };
