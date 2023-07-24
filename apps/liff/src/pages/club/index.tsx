@@ -52,7 +52,7 @@ const Club = () => {
             : setClubSelected(
                   clubs.filter((club_data) => club_data.tag === selection)
               );
-    }, [selection]);
+    }, [selection, clubs]);
 
     useEffect(() => {
         setClubs(JSON.parse(localStorage.getItem('VISHNU21ST::clubs')) || []);
@@ -126,7 +126,15 @@ const Club = () => {
                   )
               );
         console.log(stamped, favorites);
-    }, [clubSelected, filterState, stamped, favorites]);
+    }, [
+        clubSelected,
+        filterState,
+        stamped,
+        favorites,
+        currentMode,
+        isFavorite,
+        isStamped,
+    ]);
 
     return (
         <>

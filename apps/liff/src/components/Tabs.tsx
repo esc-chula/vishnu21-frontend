@@ -8,7 +8,7 @@ import {
     isValidElement,
     useEffect,
 } from 'react';
-import { useTabs } from '../context/TabsContext';
+import { useTabs } from '../contexts/TabsContext';
 
 type TabProps = PropsWithChildren &
     DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {};

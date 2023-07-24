@@ -1,7 +1,4 @@
-import { BsPersonFill, BsDropletFill } from 'react-icons/bs';
-import { MdGroups } from 'react-icons/md';
-import { TagProps } from './components/Tag';
-import { GameCardProps } from './components/GameCard';
+import { GameCardProps } from './GameCard';
 
 export type ProfileInfo = {
     imageUrl: string;

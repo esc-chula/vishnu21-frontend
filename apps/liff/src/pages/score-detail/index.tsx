@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Decorate from '@/public/images/decorate.svg';
-import GrainBackground from '@/public/images/grain-background.svg';
 import { useEffect, useState } from 'react';
 import { fetcher } from '@/utils/fetcher';
 import { useHouse } from '@/contexts/HouseContext';
@@ -25,7 +24,7 @@ const ScoreDetail: NextPage = () => {
             setMainScore(res.score);
         });
         fetchHouseData();
-    }, []);
+    }, [fetchHouseData]);
 
     return (
         <div className="w-screen h-screen flex flex-col items-center px-7 pt-16 pb-5">
