@@ -12,20 +12,6 @@ export default function Crossword() {
 
     return (
         <section className="flex flex-col gap-8 w-[355px] mx-auto">
-            <form onSubmit={handleQuerySubmit} className="flex relative gap-2">
-                <input
-                    type="text"
-                    className="bg-white rounded-lg w-full shadow-md px-4 text-black ring-white/50 ring-2 py-3 duration-300 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 hover:ring-4"
-                    placeholder="ลองทายคำดูสิ !"
-                    value={query}
-                    onChange={handleQueryChange}
-                />
-
-                <button className="rounded-md bg-white text-primary-600 px-4 py-3 ring-white/50 ring-2  duration-300 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 hover:ring-4">
-                    <PiMagnifyingGlass className="w-6 h-6" />
-                </button>
-            </form>
-
             <div className="relative w-[355px] border bg-white/5 backdrop-blur-xl border-white/50 p-4 rounded-2xl">
                 <div className="relative z-10 flex flex-col gap-4">
                     {crosswordData?.map((row, rowIndex) => {
@@ -66,6 +52,20 @@ export default function Crossword() {
                     <div className="rounded-full bg-yellow-50/50 absolute top-[0.8rem] left-[8.75rem] w-8 h-[15.5rem]" />
                 )}
             </div>
+
+            <form onSubmit={handleQuerySubmit} className="flex relative gap-2">
+                <input
+                    type="text"
+                    className="bg-white rounded-lg w-full shadow-md px-4 text-black ring-white/50 ring-2 py-3 duration-300 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 hover:ring-4"
+                    placeholder="ลองทายคำดูสิ !"
+                    value={query}
+                    onChange={handleQueryChange}
+                />
+
+                <button className="rounded-md bg-white text-primary-600 px-4 py-3 ring-white/50 ring-2  duration-300 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 hover:ring-4">
+                    <PiMagnifyingGlass className="w-6 h-6" />
+                </button>
+            </form>
 
             <div className="border w-full bg-white/5 backdrop-blur-xl border-white/50 p-4 rounded-2xl">
                 <span className="text-white text-sm">
