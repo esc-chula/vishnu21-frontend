@@ -1,77 +1,84 @@
-import type { NextPage } from 'next';
-import Image from 'next/image';
-import Decorate from '@/public/images/decorate.svg';
-import { useEffect, useState } from 'react';
-import { fetcher } from '@/utils/fetcher';
+import axios from '@/utils/fetcher';
 import { useHouse } from '@/contexts/HouseContext';
+import Main from '@/layouts/Main';
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import { IScore } from 'types';
 
-const ScoreDetail: NextPage = () => {
-    const { houseData, fetchHouseData } = useHouse();
-    const [mainScore, setMainScore] = useState(0);
-    const [data, setData] = useState<
-        {
-            id: string;
-            info: string;
-            description: string;
-            score: number;
-        }[]
-    >([]);
+const Score: NextPage = () => {
+    const { houseData } = useHouse();
+
+    const [scores, setScores] = useState<IScore[]>([]);
 
     useEffect(() => {
-        fetcher('/scores/user', localStorage.getItem('token')).then((res) => {
-            console.log(res);
-            setData(res.details);
-            setMainScore(res.score);
-        });
-        fetchHouseData();
+        const fetchScore = async () => {
+            await axios
+                .get(`/scores/house/${houseData.groupId}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'token'
+                        )}`,
+                    },
+                })
+                .then((res) => {
+                    setScores(res.data.details);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        };
+
+        fetchScore();
     }, []);
 
     return (
-        <div className="w-screen h-screen flex flex-col z-50 items-center px-7 pt-16 pb-5">
-            <h1 className="font-bold text-white text-3xl font-baijam py-8 drop-shadow-lg">
-                คะแนนประจำบ้าน{houseData.shortName}
-            </h1>
-            <div className="relative w-full px-5 py-10">
-                <div>
-                    <p className="text-white font-light">Total score</p>
-                    <h1 className="text-white text-center text-7xl font-bold ml-4">
-                        {mainScore}
-                    </h1>
+        <>
+            <Head>
+                <title>คะแนนบ้าน{houseData.shortName}</title>
+            </Head>
+            <Main foregroundImage="top3">
+                <div className="z-20 flex flex-col h-full mt-28 w-full px-10 space-y-4">
+                    <div className="flex justify-center">
+                        <div className="h-60 w-60 bg-neutral-50 shadow-faq rounded-full flex flex-col justify-center items-center">
+                            <h2 className="text-primary-500 text-7xl font-bold">
+                                {houseData.score ? houseData.score : 0}
+                            </h2>
+                            <p className="text-neutral-500 font-semibold">
+                                คะแนน
+                            </p>
+                            <p className="text-neutral-400 font-bold text-xs">
+                                บ้าน{houseData.shortName}
+                            </p>
+                        </div>
+                    </div>
+                    <h3 className="font-semibold text-neutral-50">
+                        ประวัติคะแนน
+                    </h3>
+                    {scores.length === 0 ? (
+                        <div className="text-center pt-20 opacity-25">
+                            ไม่มีประวัติคะแนน
+                        </div>
+                    ) : (
+                        scores.map((score) => (
+                            <div
+                                key={score.id}
+                                className="flex items-center p-4 bg-neutral-50 w-full rounded-2xl shadow-faq space-x-4"
+                            >
+                                <h3 className="font-bold text-primary-500 text-4xl">
+                                    +{score.score}
+                                </h3>
+                                <p className="text-neutral-600 font-semibold">
+                                    {score.info}
+                                </p>
+                            </div>
+                        ))
+                    )}
                 </div>
-            </div>
-            <ul className="flex flex-col overflow-y-auto gap-3 w-full mt-3 pb-40">
-                {data.map((item) => (
-                    <li
-                        key={item.id}
-                        className={`${
-                            item.score >= 0
-                                ? 'bg-success-300 text-success-900'
-                                : 'bg-error-400 text-error-900'
-                        } w-full px-6 flex justify-between items-center py-4 rounded-3xl shadow-details`}
-                    >
-                        <span className="text-md font-medium">{item.info}</span>
-                        <span className="text-lg font-medium">
-                            {item.score}
-                        </span>
-                    </li>
-                ))}
-            </ul>
-            {/* Background and decorations */}
-            <Image
-                src={require(`@/public/images/banners/${houseData.group}.png`)}
-                alt="background"
-                className="fixed blur-xl top-0 left-0 -z-50 h-screen w-full object-cover"
-                loading="lazy"
-            />
-            <div className="fixed top-0 left-0 bg-gradient-to-b from-transparent to-primary-900 w-screen h-screen -z-40" />
-            <Image
-                src={Decorate}
-                alt="background"
-                className="fixed bottom-0 left-0 w-full max-h-48 object-cover overflow-visible z-30"
-                priority
-            />
-        </div>
+                <div className="z-10 fixed top-[10%] left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-primary-900/70" />
+            </Main>
+        </>
     );
 };
 
-export default ScoreDetail;
+export default Score;
