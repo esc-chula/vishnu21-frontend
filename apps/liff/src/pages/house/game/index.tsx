@@ -5,7 +5,7 @@ import ProfileCard from '@/components/ProfileCard';
 import { Tab, Tabs } from '@/components/Tabs';
 import GameCard, { GameCardProps } from '@/components/GameCard';
 import KeySvg from '@/public/images/key.svg';
-import { tabs, games as gamesMockup } from '@/components/info';
+import { tabs } from '@/components/info';
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react';
 import { useHouse } from '@/contexts/HouseContext';
 import { useAuth } from '@/contexts/AuthContext';
