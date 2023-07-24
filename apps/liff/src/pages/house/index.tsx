@@ -43,29 +43,40 @@ const House: NextPage = () => {
                         </h1>
                     </div>
                     <div
-                        className="flex items-center space-x-4"
+                        className="flex flex-col items-center space-y-4"
                         style={{
                             color: houseData.altColor,
                         }}
                     >
-                        <button
-                            onClick={() => router.push('/house/feed')}
-                            className="bg-neutral-50 flex justify-center w-28 py-2 rounded-2xl font-semibold text-sm"
-                            style={{
-                                boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 6px 0px ${houseData.altColor}1A inset`,
-                            }}
-                        >
-                            Feed บ้าน
-                        </button>
-                        <button
+                        <div className="flex items-center space-x-4">
+                            <button
+                                onClick={() => router.push('/house/feed')}
+                                className="bg-neutral-50 flex justify-center w-28 py-2 rounded-2xl font-semibold text-sm"
+                                style={{
+                                    boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 6px 0px ${houseData.altColor}1A inset`,
+                                }}
+                            >
+                                Feed บ้าน
+                            </button>
+                            <button
+                                onClick={() => router.push('/house/member')}
+                                className="bg-neutral-50 flex justify-center w-28 py-2 rounded-2xl font-semibold text-sm"
+                                style={{
+                                    boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 6px 0px ${houseData.altColor}1A inset`,
+                                }}
+                            >
+                                สมาชิกบ้าน
+                            </button>
+                        </div>
+                        {/* <button
                             onClick={() => router.push('/house/member')}
                             className="bg-neutral-50 flex justify-center w-28 py-2 rounded-2xl font-semibold text-sm"
                             style={{
                                 boxShadow: `0px 4px 10px 0px ${houseData.altColor}33, 0px -4px 6px 0px ${houseData.altColor}1A inset`,
                             }}
                         >
-                            สมาชิกบ้าน
-                        </button>
+                            คะแนนบ้าน
+                        </button> */}
                     </div>
                 </div>
             </div>
