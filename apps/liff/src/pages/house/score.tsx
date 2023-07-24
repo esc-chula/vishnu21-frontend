@@ -66,8 +66,15 @@ const Score: NextPage = () => {
                                     key={score.id}
                                     className="flex items-center p-4 bg-neutral-50 w-full rounded-2xl shadow-faq space-x-4"
                                 >
-                                    <h3 className="font-bold text-primary-500 text-4xl">
-                                        +{score.score}
+                                    <h3
+                                        className={`font-bold ${
+                                            +score.score > 0
+                                                ? 'text-primary-500'
+                                                : 'text-neutral-50'
+                                        } text-4xl`}
+                                    >
+                                        {+score.score > 0 ? '+' : ''}
+                                        {score.score}
                                     </h3>
                                     <p className="text-neutral-600 font-semibold">
                                         {score.info}
