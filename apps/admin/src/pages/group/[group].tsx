@@ -14,6 +14,8 @@ import Loading from '@/components/Loading';
 import Guard from '@/components/Guard';
 import { useAuth } from '@/contexts/AuthContext';
 import dynamic from 'next/dynamic';
+import Score from '@/components/Score';
+import ScoreHistory from '@/components/ScoreHistory';
 
 const GroupHomePage = dynamic(() => import('@/components/GroupHomePage'), {
     ssr: false,
@@ -34,6 +36,14 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
 
     const [groupData, setGroupData] = useState<IGroup | null>(null);
 
+    const [scores, setScores] = useState<
+        {
+            id: string;
+            info: string;
+            score: string;
+        }[]
+    >([]);
+
     const fetchGroupData = async () => {
         await axios
             .get(`/groups/${groupInformation.groupId}`, {
@@ -53,11 +63,36 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
         if (allGroupData) fetchGroupData();
     }, [allGroupData]);
 
+    useEffect(() => {
+        const fetchScore = async () => {
+            await axios
+                .get(`/scores/house/${groupData.groupId}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'token'
+                        )}`,
+                    },
+                })
+                .then((res) => {
+                    setScores(res.data.details);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        };
+
+        if (groupData) fetchScore();
+    }, [groupData]);
+
     if (!allGroupData) return <Loading />;
 
     const groupInformation = allGroupData.find((group) => group.group === slug);
 
     if (!groupData) return <Loading />;
+
+    const scoreSum = scores.reduce((acc, cur) => {
+        return acc + parseInt(cur.score);
+    }, 0);
 
     return (
         <GroupInformationContext.Provider value={{ groupInformation }}>
@@ -96,41 +131,19 @@ const Group: NextPage<GroupProps> = ({ slug }) => {
                                 คะแนน
                             </p>
                             <h1 className="font-bold text-2xl md:text-4xl text-neutral-900">
-                                {groupInformation.score}
+                                {groupData.score ? groupData.score : 0}
                             </h1>
                         </div>
                     </div>
                 </section>
-                <Guard allowRoles={['Activity']}>
+                <Guard allowRoles={['Activity', 'Board']}>
                     <Section toggle id="score" title="บันทึกคะแนน">
-                        <div className="flex flex-col md:flex-row md:items-end space-y-6 md:space-y-0 md:space-x-6">
-                            <div className="flex flex-col space-y-2.5">
-                                <label className="text-sm md:text-base text-neutral-600">
-                                    จำนวน
-                                </label>
-                                <input
-                                    type="number"
-                                    className="!outline-none w-32 rounded-lg border border-neutral-300 py-2 px-4 bg-transparent"
-                                />
-                            </div>
-                            <div className="flex flex-col space-y-2.5 w-full">
-                                <label className="text-sm md:text-base text-neutral-600">
-                                    หมายเหตุ
-                                </label>
-                                <input className="!outline-none rounded-lg border border-neutral-300 py-2 px-4 bg-transparent w-full" />
-                            </div>
-                            <div className="flex flex-col space-y-2.5">
-                                <button className="bg-neutral-800 text-white font-medium rounded-lg px-6 py-2">
-                                    บันทึก
-                                </button>
-                            </div>
-                        </div>
+                        <Score groupId={groupData.groupId} />
                     </Section>
                 </Guard>
-                <Guard allowRoles={['Activity']}>
+                <Guard allowRoles={['Activity', 'Board']}>
                     <Section toggle id="score" title="ประวัติคะแนน">
-                        <ScoreTableRow header amount="จำนวน" note="หมายเหตุ" />
-                        <ScoreTableRow amount="10" note="ให้สักหน่อย" />
+                        <ScoreHistory scores={scores} />
                     </Section>
                 </Guard>
                 <Guard allowRoles={['HeadHouse', 'Board']}>
