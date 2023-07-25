@@ -54,7 +54,17 @@ const GamePlayPage: NextPage = () => {
                 `/games/play/${router.query.id}`,
                 localStorage.getItem('token')
             ).then((res) => {
-                setGameData(res);
+                if (res.title === 'Crossword Game') {
+                    localStorage.setItem(
+                        'VISHNU21ST::CROSSWORD_ID',
+                        router.query.id as string
+                    );
+                    localStorage.setItem(
+                        'VISHNU21ST::CROSSWORD_HASH',
+                        res.choices[0].choiceId as string
+                    );
+                    router.replace('/house/game/crossword');
+                } else setGameData(res);
             });
     }, [router.query]);
 
@@ -133,8 +143,11 @@ const GamePlayPage: NextPage = () => {
                         </div>
                         <div className="w-full text-center">
                             <button
-                                className="text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                                className={`text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ${
+                                    !selected && 'opacity-50'
+                                }`}
                                 onClick={submit}
+                                disabled={gameData.submitted || !selected}
                             >
                                 ส่งคำตอบ
                             </button>

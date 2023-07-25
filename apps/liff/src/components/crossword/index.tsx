@@ -1,6 +1,7 @@
 import { PiMagnifyingGlass } from 'react-icons/pi';
 import useCrossword from '@/hooks/useCrossword';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function Crossword() {
     const {
@@ -8,6 +9,7 @@ export default function Crossword() {
         query,
         handleQuerySubmit,
         handleQueryChange,
+        setFoundWords,
         foundWords,
     } = useCrossword();
 
@@ -15,10 +17,40 @@ export default function Crossword() {
 
     const submitAnswerHandler = async () => {
         if (isLoading) return;
-
         if (foundWords.length !== 8) return;
-
         setIsLoading(true);
+        axios
+            .post(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/games/submit`,
+                {
+                    gameId:
+                        localStorage.getItem('VISHNU21ST::CROSSWORD_ID') || '',
+                    choiceId:
+                        localStorage.getItem('VISHNU21ST::CROSSWORD_HASH') ||
+                        '',
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'token'
+                        )}`,
+                    },
+                }
+            )
+            .then(() => {
+                alert('เก่งมากครับชาว INTALAND');
+                setIsLoading(false);
+                setFoundWords([
+                    ...foundWords,
+                    'a5491a80953447b6b23ce83df4e67b38',
+                ]);
+                localStorage.setItem(
+                    'VISHNU21ST::CROSSWORD_F',
+                    [...foundWords, 'a5491a80953447b6b23ce83df4e67b38'].join(
+                        ','
+                    )
+                );
+            });
     };
 
     return (
@@ -89,21 +121,26 @@ export default function Crossword() {
             <div className="relative border w-full bg-white/5 backdrop-blur-xl border-white/50 p-4 h-20 rounded-2xl">
                 <div
                     className={`absolute z-10 top-0 left-0 right-0 bottom-0 p-3 ease-in duration-[1500ms] ${
-                        foundWords.length !== 8 &&
-                        'opacity-0 pointer-events-none'
+                        foundWords.length < 8 && 'opacity-0 pointer-events-none'
                     }`}
                 >
                     <button
-                        disabled={isLoading}
+                        disabled={isLoading || foundWords.length > 8}
                         onClick={submitAnswerHandler}
-                        className="w-full h-full bg-primary-500 font-bold rounded-xl shadow-faq"
+                        className={`w-full h-full bg-primary-500 font-bold rounded-xl shadow-faq ${
+                            foundWords.length > 8 && 'opacity-50'
+                        }`}
                     >
-                        {isLoading ? 'กำลังส่งคำตอบ...' : 'ส่งคำตอบ'}
+                        {isLoading
+                            ? 'กำลังส่งคำตอบ...'
+                            : foundWords.length > 8
+                            ? 'ส่งคำตอบแล้ว'
+                            : 'ส่งคำตอบ'}
                     </button>
                 </div>
                 <span
                     className={`text-white text-sm ease-in duration-[1500ms] ${
-                        foundWords.length === 8 && 'opacity-0'
+                        foundWords.length >= 8 && 'opacity-0'
                     }`}
                 >
                     {foundWords.join(', ')}
