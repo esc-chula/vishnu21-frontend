@@ -104,6 +104,10 @@ const GameHomePage: NextPage = (props: Props) => {
     };
 
     useEffect(() => {
+        fetch();
+    }, []);
+
+    useEffect(() => {
         const interval = setInterval(() => {
             fetch();
         }, 5000);
