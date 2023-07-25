@@ -65,7 +65,7 @@ const AuthProvider: React.FC<{
         e.preventDefault();
         const studentId = e.currentTarget.studentId.value;
         const password = e.currentTarget.password.value;
-        const lineToken = liff.getAccessToken();
+        const lineToken = liff ? liff.getAccessToken() : null;
 
         setIsLoading(true);
 
