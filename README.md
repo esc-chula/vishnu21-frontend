@@ -11,7 +11,6 @@ The frontend mono-repo for Vishnu 21st camp.
 | web   | Main website for Vishnu 21st                     |
 | admin | Admin panel for managing group homepage and etc. |
 | liff  | LINE Front-end Framework for junior LINE OA      |
-| links | Link tree clone for Vishnu 21st                  |
 
 ### Packages
 
@@ -20,7 +19,6 @@ The frontend mono-repo for Vishnu 21st camp.
 | assets               | Art assets provider                |
 | env                  | Constants and environment provider |
 | eslint-config-custom | eslint global configuration        |
-| http                 | axios apiClient                    |
 | tailwind-config      | tailwind global configuration      |
 | tsconfig             | tsconfig global configuration      |
 | types                | Types declaration                  |
