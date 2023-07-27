@@ -43,14 +43,7 @@ const Member: NextPage = () => {
                 </div>
                 <div className="px-6 pt-2 pb-10 -mx-4 space-y-5 h-full overflow-y-auto">
                     {houseData.members
-                        .filter(
-                            (member) =>
-                                member.status === 'Intania107' ||
-                                Date.now() >
-                                    new Date(
-                                        '2023-07-27T09:00:00+07:00'
-                                    ).getTime()
-                        )
+                        .filter((member) => member.status === 'Intania107')
                         .map((member, index) => (
                             <div
                                 key={index}
