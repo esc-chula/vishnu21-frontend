@@ -38,7 +38,8 @@ const House: NextPage = () => {
                                 ยินดีต้องรับน้อง{user.nickname}สู่บ้าน
                             </span>
                             <span className="text-4xl font-bold">
-                                {houseData.shortName}
+                                {/* {houseData.shortName} */}
+                                {`${houseData.shortName} (${houseData.group})`}
                             </span>
                         </h1>
                     </div>
